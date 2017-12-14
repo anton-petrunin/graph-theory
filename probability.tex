@@ -1,0 +1,222 @@
+\chapter{Ramsey numbers continued}
+
+
+
+\section*{Lower bounds}
+
+Recall that Ramsey number $r(m,n)$ is a least positive integer for which every blue-red coloring of edges in the complete graph $K_{r(m, n)}$ contains a blue $K_m$ or a red $K_n$.
+
+Equivalently, for any decomposition of $K_{r(m, n)}$ into two subgraphs $G$ and $H$ either $G$ contains a copy of $K_m$ or $H$ contains a copy of $K_n$. 
+
+Therefore, in order to show that 
+\[r(m,n)\ge s+1,\] 
+it is sufficient to decompose $K_s$ into two subgraphs with no isomorphic copy of $K_m$ in the first one and no isomorphic copy of $K_n$ in the second one.
+
+\begin{wrapfigure}{r}{41mm}
+\begin{lpic}[t(-4 mm),b(0 mm),r(0 mm),l(0.5 mm)]{pics/lower-r-3-3(1)}
+\end{lpic}
+\end{wrapfigure}
+
+For example, the subgraphs in the decomposition of $K_5$ on the diagram has no monochromatic triangles;
+the latter implies that $r(3,3)\ge 6$.
+We showed already that for any decomposition of $K_6$ into two subgraphs,
+one of the subgraphs has a triangle;
+that is, $r(3,3)=6$.
+
+\begin{wrapfigure}{r}{41mm}
+\begin{lpic}[t(-8 mm),b(0 mm),r(0 mm),l(0 mm)]{pics/lower-r-3-4(1)}
+\end{lpic}
+\end{wrapfigure}
+
+Similarly, to show that $r(3,4)\ge 9$, we need to construct a decomposition of $K_{8}$ in to two subgraphs $G$ and $H$ such that $G$ contains no triangle $K_3$ and $H$ contains no  $K_4$.
+In fact any decomposition of $K_9$ into two subgraphs,
+first subgraph contains a triangle or the second contains a $K_4$.
+That is, $r(3,4)=9$; see \cite[p. 82--83]{pearls}.
+
+Similarly, to show that $r(4,4)\ge 18$, we need to construct a decomposition of $K_{17}$ in to two subgraphs with no $K_4$.
+(In fact, $r(4,4)=18$, but we are not going to prove it.)
+
+The corresponding decomposition is given on the following diagram.
+
+\begin{center}
+\begin{lpic}[t(-0 mm),b(0 mm),r(0 mm),l(0 mm)]{pics/lower-r-4-4(1)}
+\end{lpic}
+\end{center}
+
+The constructed decomposition is rationally symmetric; the first subgraph contains the chords of angle lengths 1, 2, 4, and 8 and the second to all the cords of angle lengths 3, 5, 6 and 7.
+
+\begin{thm}{Exercise}
+Show that 
+
+\begin{enumerate}[(a)]
+\item In the decomposition of $K_8$ above, the left graph contains no triangle and the right graph contains no $K_4$.
+\item In the decomposition of $K_{17}$ above, both graph contain no no $K_4$.
+\end{enumerate}
+\end{thm}
+
+\parit{Hint:} In each cases, fix one vertex $v$ and draw the subgraph induced by the vertexes connected to $v$.
+(If uncertain, see the definition of \emph{induced subgraph}.)
+
+\medskip
+
+For larger values $m$ and $n$ the problem of finding the exact lower bound for $r(m,n)$ is quickly becomes too hard.
+Even getting a reasonable rough estimate is challenging.
+In the next section we will show how to obtain such estimate using probability.
+
+\section*{Probabilistic method}
+
+The probabilistic method makes possible to prove the existence of graphs with certain properties without constructing them explicitly.
+The idea is to show that if one randomly chooses a graph or its coloring from a specified class, then probability that the result is of the needed property is more than zero.
+The latter implies that a graph with needed property exists.
+
+Despite that this method of proof uses probability, the final conclusion is determined for certain, without any possible error.
+
+
+\medskip
+
+Recall that $\binom{n}{m}$ denotes the \emph{binomial coefficient};
+that is, $m$ and $n$ are integers, $n\ge 0$ and 
+\[\tbinom nm=\frac{n!}{m!\cdot (n-m)!}\]
+if $0\le m\le n$ and $\binom{n}{m}=0$ otherwise.
+
+The number $\binom{n}{m}$ plays an important role in combinatorics ---
+it gives the number of ways that $m$ objects can be chosen from among $n$ different objects.
+
+\begin{thm}{Theorem}\label{thm:ramsey-lower}
+Assume that the inequality 
+\[\tbinom N n < 2^{{\binom n 2} - 1}\]
+holds for a pair of positive integers $N$ and $n$.
+Then $r(n,n)>N$.
+\end{thm}
+
+\parit{Proof.} 
+We need to show that the complete graph $K_N$
+admits a coloring of edges in red and blue such that it has no monochromatic subgraph isomorphic to $K_n$.
+
+Let us color the edges randomly ---
+color each edge independently with probability $\tfrac12$ in red and otherwise in blue.
+
+Fix a set $S$ of $n$ vertexes. 
+Define the variable $X(S)$ to be $1$ if every edge the vertexes in $S$ has the same color, and $0$ otherwise.
+Note that the number of monochromatic $n$-subgraphs in $K_N$ is the sum of $X(S)$ over all possible $n$-vertex subsets $S$. 
+
+Note that the expected value of $X(S)$ is simply the probability that all of the $\binom n 2=\tfrac{n\cdot(n-1)}{2}$
+edges in $S$ are the same color. 
+The probability that all the edges with the ends in $S$ are blue is ${1}/{2^{\binom n 2}}$ and with the same probability all edges are red.
+Since these two possibilities exclude each other the expected value of $X(S)$ is 
+${2}/{2^{\binom n 2}}.$
+
+This holds for any $n$-vertex subset $S$ of the vertexes of $K_N$.
+The total number of such subsets is $\binom N n$.
+Therefore the expected value for the sum of $X(S)$ over all $S$ is
+\[X=2\cdot \binom N n/2^{\binom n 2}.\]
+
+Assume that $X<1$.
+Note that at least in one coloring suppose to have at most $X$ complete monochromatic $n$-subgraphs.
+Since this number has to be an integer, at least one coloring must have no monochromatic $K_n$. 
+
+Therefore if
+$\binom N n < 2^{\binom n 2 - 1},$
+then there is a coloring $K_N$ without monochromatic $n$-subgraphs.
+Hence the statement follows.
+\qeds
+
+The following corollary implies that the function $n\mapsto r(n,n)$ grows at lest exponentially. 
+
+\begin{thm}{Corollary}
+$r(n, n)> \tfrac1{8}\cdot 2^{\frac{n}{2}}$
+for all positive integers $n\ge 2$.
+\end{thm}
+
+\parit{Proof.}
+Set $N=\lfloor\tfrac1{8}\cdot 2^{\frac{n}{2}}\rfloor$;
+that is, $N$ is the largest integer $\le\tfrac1{8}\cdot 2^{\frac{n}{2}}$.
+
+Note that 
+\[2^{\binom n 2 - 1}> (2^{\frac{n-3}2})^n\ge N^n.\]
+and
+\[\binom N n=\frac{N\cdot(N-1)\cdots (N-n+1)}{n!}<  N^n.\]
+
+Therefore  
+\[\binom N n<2^{\binom n 2 - 1}.\]
+By Theorem~\ref{thm:ramsey-lower}, we get $r(n,n)> N$.
+\qeds
+
+In the following exercise, mimic the proof of Theorem~\ref{thm:ramsey-lower}, very rough estimates will do the job.
+
+\begin{thm}{Exercise}
+By random coloring we will understand a coloring  edges of a given graph in red and blue such that each edge is colored independently in red or blue with equal chances. 
+
+Assume the edges of the complete bigraph $K_{100,100}$ is colored randomly. 
+Show that probability that $K_{100,100}$ is monochromatic is less than $\tfrac1{10^{2500}}$.
+
+Show that the number of different subgraphs in  $K_{10^{10},10^{10}}$ isomorphic to $K_{100,100}$
+is less than $10^{2000}$.
+
+Assume the edges of the complete bigraph $K_{10^{10},10^{10}}$ is colored randomly. 
+Show that the expected number of monochromatic subgraphs isomorphic to $K_{100,100}$ in $K_{10^{10},10^{10}}$ is less than 1.
+
+Conclude that the complete bigraph $K_{10^{10},10^{10}}$ admits an edge coloring in two colors such that it contains no monochromatic $K_{100,100}$. 
+\end{thm}
+
+\section*{Counting proof}
+
+In this section we will repeat the proof of Theorem~\ref{thm:ramsey-lower} using a different language, without use of probability.
+We do this to affirm that probabilistic method provides real proof, without any possible error.
+
+In principle,  any probabilistic proof admits such translation,
+but in most cases, the the translation is less intuitive. 
+
+\parit{Proof of \ref{thm:ramsey-lower}.}
+The graph $K_N$ has $\binom{N}{2}$ edges.
+Each edge can be colored in blue or red therefore the total number of different colorings is \[\Omega=2^{\binom{N}{2}}.\]
+
+Fix a subgraph isomorphic to $K_n$ in $K_N$.
+Note that this graph is red in $\Omega/2^{\binom n2}$ different colorings
+and yet in $\Omega/2^{\binom n2}$ different colorings this subgraph is blue.
+
+There are $\binom Nn$ different subgraphs isomorphic to $K_n$ in $K_N$.
+Therefore the total number of monochromatic $K_n$'s in all the colorings 
+is 
+\[M=\binom Nn\cdot\Omega\cdot  2/2^{\binom n2}.\]
+
+If $M<\Omega$, then by the pigeonhole principle,
+there is a coloring with no monochromatic $K_n$.
+Hence the result.
+\qeds
+
+\section*{Remarks}
+
+The probabilistic method was introduced by Paul Erd\H os.
+It  finds applications in many areas of mathematics; not only in graph theory.
+
+Note that probabilistic method is not nonconstructive ---
+often when the existence of a certain graph is probed by probabilistic method,
+it is still uncontrollably hard to describe a concrete example.
+
+More involved examples of proofs based on the probabilistic method deal with \emph{typical properties} of random graphs.
+
+To describe the concept, let us consider the following \emph{random process} which generates graph $G_p$ with $p$ vertexes.
+
+Fix a positive integer $p$. 
+Consider a graph $G_p$ with the vertexes labeled by $1,\dots,p$,
+where every edge in $G_p$ exists with probability $\tfrac12$.
+
+Note that the described process depends only on $p$ and as a result we can get any graph on $p$ vertexes with the same probability $1/2^{\binom{p}{2}}$.
+
+Fix a property of a graph (for example connectedness)
+and let $\alpha_p$ be the probability that $G_p$ has this property.
+We say that the property is \emph{typical} if $\alpha_p\to 1$ as $p\to \infty$.
+
+\begin{thm}{Exercise}
+Show that random graphs are typically have diameter~2.
+That is, the probability that $G_p$ is has diameter~2 converges to~1 as $p\to \infty$.
+\end{thm}
+
+Note that from the exercise above, it follows that in the described random process the random graphs are \emph{typically connected}.
+
+The following theorem gives a deeper illustration for probabilistic method with use of typical properties.
+
+\begin{thm}{Theorem}
+Given a positive integer $g$ and $k$ there is a graph $G$ with girth at least $g$ and chromatic number at least $k$.
+\end{thm}

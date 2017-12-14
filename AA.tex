@@ -1,0 +1,88 @@
+
+Our next aim is to figure out how to find Kirchhoff minors $K_{G\backslash e}$ and $K_{G/e}$ of the graphs $G\backslash e$ and $G/e$ from $K=K_G$.
+
+
+
+Note that from matrix $K_G$ one can reconstruct $A'$, and therefore the original matrix $A$ as well as the multigraph $G$.
+Indeed, to get $A'$ we need to add one column and row to $K$ and fill it so that the sum in each column and row of the obtained matrix vanish;
+this can be done in a unique way.
+
+In particular, from the matrix $K$ we can find the number of the spanning trees $t(G)$.
+Let us denote this number by $\delta(K)$, to emphasize that $\delta(K)=t(G)$ is a function of $K$.
+
+Note that for the function $\delta(K)$ the following conditions hold:
+\begin{enumerate}
+\item\label{delata-1} If we permute in $K$ a pair of columns and the pair of rows with the same numbers then for the obtained matrix $K'$ we have 
+\[\delta(K)=\delta(K').\]
+Indeed, $K'$ describes the same graph $G$ with an other enumeration of vertexes.
+
+\item \label{delata-2}
+If the sum of components in the first row in $K$ is positive, then
+\[\delta(K)=\delta(K^{\circ})+\delta(K^{\bullet})\]
+where the matrix $K^{\circ}$ obtained from $K$ by subtracting 1 from the corner component with indexes (1,1) and $K^{\bullet}$ denotes the $(n-2)\times(n-2)$-matrix, obtained from $K$ by deleting first column and first row.
+This identity follows from the deletion-plus-contraction formula $({*})$ sinsce \[K^{\circ}=K_{G\backslash e}\quad\text{and}\quad K^{\bullet}=K_{G/e}.\]
+
+\item\label{delata-3} If the sum of components in each row of $K$ vanish, then $\delta(K)\z=0$. 
+Indeed, in this case the last vertex in our graph is isolated;
+therefore the graph is not connected and has no spanning trees.
+
+\item\label{delata-4} If $K$ is the unit matrix then $\delta(K)=1$;
+that is
+\[
+\delta\left(
+\begin{matrix}
+1&0&\cdots&0
+\\
+0&1&\ddots&\vdots
+\\
+\vdots&\ddots&\ddots&0
+\\
+0&\cdots&0&1
+\end{matrix}
+\right)=1.
+\]
+Indeed, in the corresponding graph $G$ all the vertexes labeled by $1,\dots,p-1$ connected to the vertex with label $p$ by unique edge. 
+Therefore the graph $G$ is a tree and hence $t(G)=1$.
+\end{enumerate}
+
+Notice that all these properties are satisfied for the determinant of $K$, which we denote further by $\det K$.
+
+Indeed, property \ref{delata-1} holds since permuting a pair of rows or columns in $K$ changes the sign of its determinant.
+Hence making two permutations leaves the determinant unchanged.
+Property \ref{delata-2} follows from the cofactor expansion of the determinant of $K$;
+which is assumed to be known. 
+If the sum of components in each row is zero then the rows are linearly dependent;
+hence property \ref{delata-3} follows.
+The property \ref{delata-4} is evident.
+
+Since these properties completely describe $\delta(K)$, we get the following theorem.
+
+
+
+The method we used in the proof can be considered as a generalization of method of mathematical induction.
+We proved equality of two numbers $t(G)$ and $\det K$ which defined in a very different way by showing that they both satisfy a list of common properties which completely defines the value $t(G)$.
+
+
+
+
+
+
+
+
+
+
+
+Published as: Aleksandrov, A. D. (166)
+
+     Aleksandrov, Aleksandr Danilovich (16)
+     Aleksandrov, Aleksandr Danilovič (1)
+     Aleksandrov, Alexandr D. (1)
+     Aleksandrow, A. D. (1)
+     Alexandroff, A. (6)
+     Alexandroff, A. D. (13)
+     Alexandrov, A. D. (12)
+     Alexandrov, Aleksandr Danilovich (1)
+     Alexandrov, Alexandr (1)
+     Alexandrov, Alexandr D. (4)
+     Alexandrov, Alexandr Danilovich (1)
+     Alexandrow, A. D. (4)
