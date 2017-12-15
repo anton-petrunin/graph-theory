@@ -74,12 +74,12 @@ Despite that this method of proof uses probability, the final conclusion is dete
 
 \medskip
 
-Recall that $\binom{n}{m}$ denotes the \emph{binomial coefficient};
+Recall that $\tbinom{n}{m}$ denotes the \emph{binomial coefficient};
 that is, $m$ and $n$ are integers, $n\ge 0$ and 
 \[\tbinom nm=\frac{n!}{m!\cdot (n-m)!}\]
-if $0\le m\le n$ and $\binom{n}{m}=0$ otherwise.
+if $0\le m\le n$ and $\tbinom{n}{m}=0$ otherwise.
 
-The number $\binom{n}{m}$ plays an important role in combinatorics ---
+The number $\tbinom{n}{m}$ plays an important role in combinatorics ---
 it gives the number of ways that $m$ objects can be chosen from among $n$ different objects.
 
 \begin{thm}{Theorem}\label{thm:ramsey-lower}
@@ -100,23 +100,23 @@ Fix a set $S$ of $n$ vertexes.
 Define the variable $X(S)$ to be $1$ if every edge the vertexes in $S$ has the same color, and $0$ otherwise.
 Note that the number of monochromatic $n$-subgraphs in $K_N$ is the sum of $X(S)$ over all possible $n$-vertex subsets $S$. 
 
-Note that the expected value of $X(S)$ is simply the probability that all of the $\binom n 2=\tfrac{n\cdot(n-1)}{2}$
+Note that the expected value of $X(S)$ is simply the probability that all of the $\tbinom n 2=\tfrac{n\cdot(n-1)}{2}$
 edges in $S$ are the same color. 
 The probability that all the edges with the ends in $S$ are blue is ${1}/{2^{\binom n 2}}$ and with the same probability all edges are red.
 Since these two possibilities exclude each other the expected value of $X(S)$ is 
 ${2}/{2^{\binom n 2}}.$
 
 This holds for any $n$-vertex subset $S$ of the vertexes of $K_N$.
-The total number of such subsets is $\binom N n$.
+The total number of such subsets is $\tbinom N n$.
 Therefore the expected value for the sum of $X(S)$ over all $S$ is
-\[X=2\cdot \binom N n/2^{\binom n 2}.\]
+\[X=2\cdot \tbinom N n/2^{\binom n 2}.\]
 
 Assume that $X<1$.
 Note that at least in one coloring suppose to have at most $X$ complete monochromatic $n$-subgraphs.
 Since this number has to be an integer, at least one coloring must have no monochromatic $K_n$. 
 
 Therefore if
-$\binom N n < 2^{\binom n 2 - 1},$
+$\tbinom N n < 2^{\binom n 2 - 1},$
 then there is a coloring $K_N$ without monochromatic $n$-subgraphs.
 Hence the statement follows.
 \qeds
@@ -135,10 +135,10 @@ that is, $N$ is the largest integer $\le\tfrac1{8}\cdot 2^{\frac{n}{2}}$.
 Note that 
 \[2^{\binom n 2 - 1}> (2^{\frac{n-3}2})^n\ge N^n.\]
 and
-\[\binom N n=\frac{N\cdot(N-1)\cdots (N-n+1)}{n!}<  N^n.\]
+\[\tbinom N n=\frac{N\cdot(N-1)\cdots (N-n+1)}{n!}<  N^n.\]
 
 Therefore  
-\[\binom N n<2^{\binom n 2 - 1}.\]
+\[\tbinom N n<2^{\binom n 2 - 1}.\]
 By Theorem~\ref{thm:ramsey-lower}, we get $r(n,n)> N$.
 \qeds
 
@@ -168,17 +168,17 @@ In principle,  any probabilistic proof admits such translation,
 but in most cases, the translation is less intuitive. 
 
 \parit{Proof of \ref{thm:ramsey-lower}.}
-The graph $K_N$ has $\binom{N}{2}$ edges.
+The graph $K_N$ has $\tbinom{N}{2}$ edges.
 Each edge can be colored in blue or red therefore the total number of different colorings is \[\Omega=2^{\binom{N}{2}}.\]
 
 Fix a subgraph isomorphic to $K_n$ in $K_N$.
 Note that this graph is red in $\Omega/2^{\binom n2}$ different colorings
 and yet in $\Omega/2^{\binom n2}$ different colorings this subgraph is blue.
 
-There are $\binom Nn$ different subgraphs isomorphic to $K_n$ in $K_N$.
+There are $\tbinom Nn$ different subgraphs isomorphic to $K_n$ in $K_N$.
 Therefore the total number of monochromatic $K_n$'s in all the colorings 
 is 
-\[M=\binom Nn\cdot\Omega\cdot  2/2^{\binom n2}.\]
+\[M=\tbinom Nn\cdot\Omega\cdot  2/2^{\binom n2}.\]
 
 If $M<\Omega$, then by the pigeonhole principle,
 there is a coloring with no monochromatic $K_n$.
