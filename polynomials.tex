@@ -131,14 +131,15 @@ Show that
 Note that for any graph $G$ with $p$ vertexes we have
 \[P_{K_p}(x)\le P_G(x)\le P_{N_p}(x)\]
 for any $x$.
-Since 
+Since both polynomials
 \begin{align*}
 P_{K_p}(x)&=x\cdot(x-1)\cdots(x-p+1),&&
 \text{and}
 &
 P_{N_p}(x)&=x^p,
 \end{align*}
-it follows that chromatic polynomial of $G$ is monic of degree $p$.
+are monic of degree $p$,
+it follows that so is $P_G$.
 
 Hence Exercise~\ref{ex:chrom(K_p)} leads to an alternative way to prove the second statement in Theorem~\ref{thm:chromatic-polynomial}.
 
@@ -197,7 +198,7 @@ Let $G$ be a graph
 for any edge $e$ in $G$
 
 \item\label{ex:deletion-deletion-K} Use part \ref{ex:deletion-deletion} to show that the matching polynomials of complete graphs satisfy the following recursive relation:
-\[M_{K_{n+1}}(x)=M_{K_{n}}(x)+n\cdot x\cdot M_{K_{n-1}}(x).\]
+\[M_{K_{p+1}}(x)=M_{K_{p}}(x)+n\cdot x\cdot M_{K_{p-1}}(x).\]
 
 \item Use \ref{ex:deletion-deletion-K} to calculate $M_{K_6}(x)$. 
 \end{enumerate}
@@ -206,21 +207,21 @@ for any edge $e$ in $G$
 
 \section*{Spanning-tree polynomial}
 
-Consider a connected graph $G$ with the vertexes labeled by $x_1,\dots,x_n$;
+Consider a connected graph $G$ with the vertexes labeled by $x_1,\dots,x_p$;
 let us treat each label $x_i$ as an independent variable.
 
 For each spanning tree $T$ in $G$ consider the monomial 
-\[x_1^{d_1-1}\cdots x_n^{d_n-1}\]
+\[x_1^{d_1-1}\cdots x_p^{d_p-1},\]
 where $d_i$ denotes the degree of $i$-th vertex in $T$.
 
-The tree $T$ has $n-1$ edges and therefore 
-$d_1+\dots+d_n=2\cdot(n-1)$.
-It follows that the sum of degrees of the monomial is $n-2$;
-that is, our monomial has degree $n-2$.
+The tree $T$ has $p-1$ edges and therefore 
+$d_1+\dots+d_p=2\cdot(p-1)$.
+It follows that the sum of degrees of the monomial is $p-2$;
+that is, our monomial has degree $p-2$.
 
-The sum of these monomials is a polynomial of degree $n-2$ of $n$ variables $x_1,\dots, x_n$.
+The sum of these monomials is a polynomial of degree $p-2$ of $p$ variables $x_1,\dots, x_p$.
 This polynomial will be called \emph{spanning-tree polynomial} and it will be denoted by 
-$S_G(x_1,\dots,x_n)$.
+$S_G(x_1,\dots,x_p)$.
 
 Note that the total number of spanning trees in $G$ equals to the value
 $S_G(1,\dots,1)$.
@@ -228,11 +229,11 @@ The following exercise shows that,
 the polynomial $S_G$ keeps lot more information about spanning trees in $G$.
 
 \begin{thm}{Exercise}
-Let $G$ be a graph with vertexes labeled by $x_1,\dots,x_n$ and $S_G(x_1,\dots,x_n)$ be its spanning tree polynomial.
+Let $G$ be a graph with vertexes labeled by $x_1,\dots,x_p$ and $S_G(x_1,\dots,x_p)$ be its spanning tree polynomial.
 Show the following
 \begin{enumerate}[(a)]
 \item The value $S_G(0,1,\dots,1)$ can be interpreted as the number of spanning trees with the leaf $x_1$.
-\item The coefficient of $S_G$ in front of $x_1\cdots x_{n-2}$ equals to the number of paths of length $n$ connecting $x_{n-1}$ and $x_{n}$.
+\item The coefficient of $S_G$ in front of $x_1\cdots x_{p-2}$ equals to the number of paths of length $p$ connecting $x_{p-1}$ and $x_{p}$.
 \item The partial derivative
 \[\tfrac{\partial}{\partial x_1}S_G(0,1,\dots,1)\]
 is the numbers of spannig trees in $G$ for which have $x_1$ have degree 2.
@@ -246,47 +247,46 @@ The following theorem generalizes the Cayley formula (\ref{thm:cayley}).
 
 \begin{thm}{Theorem}\label{thm:spanning-tree-polynomial} Assume that the vertexes of $K_n$ are labeled by $x_1,\dots,x_n$.
 Then
-\[S_{K_n}(x_1,\dots,x_n)=(x_1+\dots +x_n)^{n-2}.\]
-In particular, $s(K_n)=n^{n-2}$;
-that is the number of spanning trees in $K_n$ is $n^{n-2}$.
+\[S_{K_p}(x_1,\dots,x_p)=(x_1+\dots +x_p)^{p-2}.\]
+In particular, $s(K_p)=p^{p-2}$;
+that is the number of spanning trees in $K_p$ is $p^{p-2}$.
 \end{thm}
 
 \parit{Proof.}
-Let us apply induction on $n$;
-the base case $n=1$ is evident.
+Let us apply induction on $p$;
+the base case $p=1$ is evident.
 
-Assume that the statement holds for $n-1$; that is,
-\[S_{K_{n-1}}(x_1,\dots,x_{n-1})=(x_1+\dots+x_{n-1})^{n-3}\eqlbl{eq:S-K(n-1)}\]
+Assume that the statement holds for $p-1$; that is,
+\[S_{K_{p-1}}(x_1,\dots,x_{p-1})=(x_1+\dots+x_{p-1})^{p-3}\eqlbl{eq:S-K(n-1)}\]
 We need to show that 
-\[S_{K_n}(x_1,\dots,x_n)=(x_1+\dots+x_n)^{n-2}.\]
+\[S_{K_p}(x_1,\dots,x_p)=(x_1+\dots+x_p)^{p-2}.\]
 
-Note that $S_{K_{n}}$ is a homogeneous symmetric polynomial of degree $n-2$;
-that is, each monomial in $S_{K_{n}}$ has degree $n-2$ and permutation of values $x_1,\dots x_n$ does not change the value $S_G(x_1,\dots,x_n)$.
+Note that $S_{K_p}$ is a homogeneous symmetric polynomial of degree $p-2$;
+that is, each monomial in $S_{K_{p}}$ has degree $p-2$ and permutation of values $x_1,\dots x_p$ does not change the value $S_G(x_1,\dots,x_p)$.
 
-Therefore it suffices to prove that all monomials in $S_{K_n}$ without $x_n$ sum up to $(x_1+\dots+x_{n-1})^{n-2}$.
+Therefore it suffices to prove that all monomials in $S_{K_p}$ without $x_p$ sum up to $(x_1+\dots+x_{p-1})^{p-2}$.
 
-Each of these monomials correspond to a spanning tree $T$ with $d_n=1$;
-that is, the vertex $x_n$ is a leaf of $T$.
-In other words, $T$ is obtained from tree $T'$ on the vertexes $x_1,\dots,x_{n-1}$ 
-by adding an edge from $x_n$ to $x_i$ with $i<n$.
+Each of these monomials correspond to a spanning tree $T$ with $d_p=1$;
+that is, the vertex $x_p$ is a leaf of $T$.
+In other words, $T$ is obtained from tree $T'$ on the vertexes $x_1,\dots,x_{p-1}$ 
+by adding an edge from $x_n$ to $x_i$ with $i<p$.
 So the monomial for $T$ equals to the monomial for $T'$ times $x_i$.
 
 Summing up for all such trees $T'$ and all $x_i$ we get 
-\[S_{K_{n-1}}(x_1,\dots,x_{n-1})\cdot(x_1+\dots+x_{n-1}).\]
+\[S_{K_{p-1}}(x_1,\dots,x_{p-1})\cdot(x_1+\dots+x_{p-1}).\]
 By \ref{eq:S-K(n-1)}, the latter equals to
-\[(x_1+\dots+x_{n-1})^{n-2}\]
+\[(x_1+\dots+x_{p-1})^{p-2}\]
 which proves the required statement.
 
 To prove the last statement, it remains to note that 
-\[s(G)=S_G(1,\dots,1)=(1+\dots+1)^{n-2}=n^{n-2}.\]
+\[s(G)=S_G(1,\dots,1)=(1+\dots+1)^{p-2}=p^{p-2}.\]
 \qedsf
 
 \begin{thm}{Exercise}
 Assume that the vertexes of the left part of $K_{m,n}$ are labeled by $x_1,\dots,x_m$ and the vertexes in the right part are labeled by $y_1,\dots,y_n$. 
 Show that
 \[S_{K_n}(x_1,\dots,x_m,y_1,\dots,y_n)=(x_1+\dots +x_m)^{n-1}\cdot(y_1+\dots +y_n)^{m-1}.\]
-In particular, 
-\[s(K_{m,n})=m^{n-1}\cdot n^{m-1}.\]
+Conclude that $s(K_{m,n})=m^{n-1}\cdot n^{m-1}$.
 
 \end{thm}
 
@@ -297,4 +297,5 @@ In particular,
 A very good expository paper on chromatic polynomials is writen by
 Ronald Read; see \cite{read}. 
 Matching polynomials are discussed in a paper of Christopher Godsil and Ivan Gutman; see \cite{godsil-gutman}.
-Our discussion of spanning-tree polynomials is based of answer of Fedor Petrov \cite{petrov} to my question on mathoverflow; see  it is also closely relevant to the proof of Cayley formula given by Arthur Cayley himself \cite{cayley}. 
+
+Our discussion of spanning-tree polynomials is based of a modification of Fedor Petrov \cite{petrov} of the original proof of Arthur Cayley~\cite{cayley}. 
