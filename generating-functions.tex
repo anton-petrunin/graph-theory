@@ -362,26 +362,32 @@ to show that
 Recall that a forest is a graph without cycles.
 Assume we want to count the number of spanning forests in $K_n$;
 denote by $a_n$ its number and by $c_n$ the number of connected spanning forests, that is, the number of spanning trees in $K_n$.
-According to Cayley theorem, $c_n=n^{n-2}$;
-therefore 
-\[c_1=1, c_2=1, c_3=3, c_4=16,\dots\]
 
 By Corollary~\ref{cor:exp-formula}, the following identity
 \[A'(x)=[1+A(x)]\cdot C'(x)\]
 holds for the corresponding exponential generating functions.
 
+According to Cayley theorem, $c_n=n^{n-2}$;
+therefore 
+\[c_1=1, c_2=1, c_3=3, c_4=16,\dots\]
 Applying the product formula \ref{eq:multiplication}, we can use $c_n$ to calculate $a_n$ recurrently:
 \begin{align*}
 a_1&=c_1=1,
 \\
-a_2&=c_2+a_1\cdot c_1=2,
+a_2&=c_2+a_1\cdot c_1=
+\\&=1+1\cdot 1=2,
 \\
-a_3&=c_3+2\cdot(a_1\cdot c_2+\tfrac12\cdot a_2\cdot c_1)=7,
+a_3&=c_3+2\cdot a_1\cdot c_2+ a_2\cdot c_1=
 \\
-a_4&=c_4+6\cdot(\tfrac12\cdot a_1\cdot c_3+\tfrac12\cdot a_2\cdot c_2+\tfrac16\cdot a_3\cdot c_1)=38
+&=3+2\cdot1\cdot 1+2\cdot 1=7,
+\\
+a_4&=c_4+3\cdot a_1\cdot c_3+3\cdot a_2\cdot c_2+a_3\cdot c_1=
+\\&=16+3\cdot 1\cdot 3+3\cdot 2\cdot 1+7\cdot 1=38
 \\
 &\dots
 \end{align*}
+
+It is instructive to check by hands there are exactly $38$ spanning forests in $K_4$.
 
 For the general term of $a_n$ no simple formula is known,
 however the recursive formula above provides sufficiently fast way to calculate its terms.
@@ -390,27 +396,32 @@ however the recursive formula above provides sufficiently fast way to calculate 
 \section*{Counting connected subgraphs}
 
 Let $a_n$ be the number of all subgraphs of $K_n$ and $c_n$ is the number of connected subgraphs of $K_n$
-
-Note that $a_n=2^{\binom n2}$;
-indeed, to describe a subgraph of $K_n$ we can choose any subset of $\tbinom n2$ edges of $K_n$, and $a_n$ is the total number of $\binom n2$ these independent choices.
-In particular the first few terms of $a_n$ are
-\[a_1=1, a_2=2, a_3=8, a_4=64,\dots\]
-
 Assume $A(x)$ and $C(x)$ are the corresponding exponential generating functions.
 These two series diverge for all $x\ne 0$;
 nevertheless, the formula for formal power series in Theorem~\ref{thm:exp-formula}\ref{thm:exp-formula:all}
 still holds and by Corollary~\ref{cor:exp-formula} we can write again
 \[A'(x)=[1+A(x)]\cdot C'(x).\]
 
+Note that $a_n=2^{\binom n2}$;
+indeed, to describe a subgraph of $K_n$ we can choose any subset of $\tbinom n2$ edges of $K_n$, and $a_n$ is the total number of $\binom n2$ these independent choices.
+In particular the first few terms of $a_n$ are
+\[a_1=1, a_2=2, a_3=8, a_4=64,\dots\]
+
 Applying the product formula \ref{eq:multiplication}, we can calculate the first few terms of~$c_n$:
 \begin{align*}
 c_1&=a_1=1
 \\
-c_2&=a_2-a_1\cdot c_1=2-1=1,
+c_2&=a_2-a_1\cdot c_1=
 \\
-c_3&=a_3-2\cdot(a_1\cdot c_2+\tfrac12\cdot a_2\cdot c_1)=8-2\cdot1\cdot 1-2\cdot 1=4,
+&=2-1\cdot 1=1,
 \\
-c_4&=a_4-6\cdot(\tfrac12\cdot a_1\cdot c_3+\tfrac12\cdot a_2\cdot c_2+\tfrac16\cdot a_3\cdot c_1)=38,
+c_3&=a_3-2\cdot a_1\cdot c_2- a_2\cdot c_1=
+\\
+&=8-2\cdot1\cdot 1-2\cdot 1=4,
+\\
+c_4&=a_4-3\cdot a_1\cdot c_3-3\cdot a_2\cdot c_2-1\cdot a_3\cdot c_1=
+\\
+&=64-3\cdot 1\cdot 4-3\cdot 2\cdot 1-1\cdot 8\cdot 1=38,
 \\
 &\dots
 \end{align*}
