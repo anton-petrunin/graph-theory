@@ -112,3 +112,20 @@ assuming that the farmer does not want to repeat the same position twice.
 \qeds
 
 Often graph comes with an extra structure, for example labeling of edges and/or vertexes as in the example above.
+
+Here is a small variation of an other classical problem.
+
+\begin{thm}{Problem} Missionaries and cannibals must cross a river using a boat which can carry at most two people, under the constraint that, for both banks, if there are missionaries present on the bank, they cannot be outnumbered by cannibals; the missionaries will be eaten otherwise.
+The boat cannot cross the river by itself with no people on board.
+\end{thm}
+
+Let us introduce a notation to describe positions of missionaries, cannibals and the boat on the banks.
+The river will be denoted by vertical line $|$;
+let $*$ denotes the boat, we will write the number of missionaries on each side of $|$ and the number of cannibals by subscript. For example $4_2^*|0_2$ means that on the left bank we have four missionaries, two cannibals and the boat, and on the right bant there is no missionaries and two cannibals.
+
+\begin{thm}{Exercise}
+Assume four missionaries and four cannibals need to cross the river; in other words the beginning stage is $4_4^*|0_0$.
+Draw a graph for all possible positions which can be achieved.
+
+Conclude that all of them can not cross the river.
+\end{thm}
