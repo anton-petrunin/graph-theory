@@ -70,28 +70,27 @@ The farmer has to carry himself and his purchases to the far bank of the river, 
 \end{thm}
 
 \parit{Solution.}
-Let us denote the farmer by $*$,
+Let us denote the farmer by $*$, the river by a vertical line $|$
 the wolf by $w$, the goat by $g$ and the cabbage by $c$.
-We will use fraction to tell where are the farmer and his purchases at the moment ---
-for example $\tfrac{wc}{g{*}}$ means that wolf and cabbage are on the left bank of the river and the goat with the farmer are on the right bank.
+For example $wc|g{*}$ means that wolf and cabbage are on the left bank of the river and the goat with the farmer are on the right bank.
 
-The starting position is $\tfrac{wgc{*}}{}$; that is, everyone is one the left bank.
+The starting position is $wgc{*}|$; that is, everyone is one the left bank.
 The following graph describes all possible positions which can be achieved; each edge is labeled by the transported purchase.
 
 \begin{center}
 \begin{tikzpicture}[scale=1.6,
   thick,main node/.style={circle,draw,font=\sffamily\bfseries,minimum size=3mm}]
 
-  \node[main node] (1) at (.5,5/6) {{\small$\tfrac{wgc{*}}{}$}};
-  \node[main node] (2) at (1,0){{\small$\tfrac{wc}{g{*}}$}};
-  \node[main node] (3) at (2,0){{\small$\tfrac{wc{*}}{g}$}};
-  \node[main node] (4) at (2.5,5/6){{\small$\tfrac{w}{gc{*}}$}};
- \node[main node] (5) at (2.5,-5/6){{\small$\tfrac{c}{gw{*}}$}};
-  \node[main node] (6) at (3.5,-5/6){{\small$\tfrac{cg{*}}{w}$}};
-  \node[main node] (7) at (3.5,5/6){{\small$\tfrac{wg{*}}{c}$}};
-  \node[main node] (8) at (4,0){{\small$\tfrac{g}{wc{*}}$}};
-  \node[main node] (9) at (5,0){{\small$\tfrac{g{*}}{wc}$}};
-  \node[main node] (10) at (5.5,-5/6){{\small$\tfrac{}{wgc{*}}$}};
+  \node[main node] (1) at (.5,5/6) {{\small${wgc{*}}|{}$}};
+  \node[main node] (2) at (1,0){{\small${wc}|{g{*}}$}};
+  \node[main node] (3) at (2,0){{\small${wc{*}}|{g}$}};
+  \node[main node] (4) at (2.5,5/6){{\small${w}|{gc{*}}$}};
+ \node[main node] (5) at (2.5,-5/6){{\small${c}|{gw{*}}$}};
+  \node[main node] (6) at (3.5,-5/6){{\small${cg{*}}|{w}$}};
+  \node[main node] (7) at (3.5,5/6){{\small${wg{*}}|{c}$}};
+  \node[main node] (8) at (4,0){{\small${g}|{wc{*}}$}};
+  \node[main node] (9) at (5,0){{\small${g{*}}|{wc}$}};
+  \node[main node] (10) at (5.5,-5/6){{\small${}|{wgc{*}}$}};
   \path[every node/.style={font=\sffamily\small}]
    (1) edge node[auto]{$g$}(2)
    (2) edge node{}(3)
@@ -106,7 +105,7 @@ The following graph describes all possible positions which can be achieved; each
 \end{tikzpicture}
 \end{center}
 
-This graph shows that the farmer can achieve $\tfrac{}{wgc{*}}$ by legal moves.
+This graph shows that the farmer can achieve ${}|{wgc{*}}$ by legal moves.
 It solves the problem, and also shows that there are exactly two different solutions;
 assuming that the farmer does not want to repeat the same position twice. 
 \qeds
