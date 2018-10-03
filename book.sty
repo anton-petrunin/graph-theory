@@ -139,3 +139,11 @@ semi-pe-ri-me-ter}
 \renewcommand{\theeqtn}{\numform{eqtn}}
 \newcommand{\eqlbl}[1]{\refstepcounter{eqtn}\leqno\text{\numform{eqtn}\label{#1}}}
 \newcommand{\eqtag}[1]{\refstepcounter{eqtn}\tag*{\numform{eqtn}\label{#1}}}
+
+%CLAIM
+\def\clmclaim#1{\par\medskip\noindent\refstepcounter{eqtn}\hbox{\rm\numform{eqtn} #1}
+\it%\ignorespaces
+}
+\def\endclmclaim{\par
+\medskip}
+\newenvironment{clm}{\clmclaim}{\endclmclaim}

@@ -142,15 +142,23 @@ Therefore
 By Theorem~\ref{thm:ramsey-lower}, we get that $r(n,n)> N$.
 \qeds
 
-In the following exercise, mimic the proof of Theorem~\ref{thm:ramsey-lower}, crude estimates will do the job.
-
 \begin{thm}{Exercise}
-By random coloring we will understand a coloring  edges of a given graph in red and blue such that each edge is colored independently in red or blue with equal chances. 
+By random coloring we will understand a coloring edges of a given graph in red and blue such that each edge is colored independently in red or blue with equal chances. 
 
 Assume the edges of the complete graph $K_{100}$ is colored randomly. 
 Find expected number of monochromatic Hamiltonian cycles in $K_{100}$.
 (You may use factorial in the answer.)
-\end{thm}
+\end{thm} %??? find a flow in the argument???
+
+The answer in the exercise above is a huge number bigger than $10^{125}$.
+One might think that this estimate alone is sufficient to conclude that \emph{most} of the colorings have a monochromatic Hamiltonian cycles --- let us show that is is not that easy.
+(It is still true that probability of existence of monochromatic coloring is close to 1, but the proof requires more work and it does not follow from the estimate.)
+
+Therefore in principle it might happen that $99.99\%$ of colorings of $K_{100}$ might have no monochromatic Hamiltonian cycles and $.01\%$ of the colorings contain all the monochromatic Hamiltonian cycles.
+To keep the expected above $10^{125}$,
+this $.01\%$of colorings should have less than $10^{130}$ of monochromatic cycles in average;
+the latter seems to be possible since the total number of Hamiltonian cycles in $K_{100}$ is $99!/2>10^{155}$.
+
 
 \section*{Counting proof}
 

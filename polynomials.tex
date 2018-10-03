@@ -238,7 +238,7 @@ Show the following
 \[\tfrac{\partial}{\partial x_1}S_G(0,1,\dots,1)\]
 is the numbers of spannig trees in $G$ for which have $x_1$ have degree 2.
 \item The values 
-\[\tfrac12\cdot\left(S_G(1,1,\dots,1)\pm S_G(-1,1,\dots,1)\right)\]
+\[\tfrac12\cdot\left[S_G(1,1,\dots,1)\pm S_G(-1,1,\dots,1)\right]\]
 is the numbers of spanig trees in $G$ for which have $x_1$ has odd or even degree correspondingly.
 \end{enumerate}
 \end{thm}
@@ -264,7 +264,12 @@ We need to show that
 Note that $S_{K_p}$ is a homogeneous symmetric polynomial of degree $p-2$;
 that is, each monomial in $S_{K_{p}}$ has degree $p-2$ and permutation of values $x_1,\dots x_p$ does not change the value $S_G(x_1,\dots,x_p)$.
 
-Therefore it suffices to prove that all monomials in $S_{K_p}$ without $x_p$ sum up to $(x_1+\dots+x_{p-1})^{p-2}$.
+Therefore it suffices to prove that 
+\begin{clm}{}\label{clm:sum-up}
+all monomials in $S_{K_p}$ without $x_p$ sum up to $(x_1+\dots+x_{p-1})^{p-2}$. 
+\end{clm}
+
+
 
 Each of these monomials correspond to a spanning tree $T$ with $d_p=1$;
 that is, the vertex $x_p$ is a leaf of $T$.
@@ -276,7 +281,7 @@ Summing up for all such trees $T'$ and all $x_i$ we get
 \[S_{K_{p-1}}(x_1,\dots,x_{p-1})\cdot(x_1+\dots+x_{p-1}).\]
 By \ref{eq:S-K(n-1)}, the latter equals to
 \[(x_1+\dots+x_{p-1})^{p-2}\]
-which proves the required statement.
+which proves \ref{clm:sum-up}.
 
 To prove the last statement, it remains to note that 
 \[s(G)=S_G(1,\dots,1)=(1+\dots+1)^{p-2}=p^{p-2}.\]
@@ -299,3 +304,5 @@ Ronald Read; see \cite{read}.
 Matching polynomials are discussed in a paper of Christopher Godsil and Ivan Gutman; see \cite{godsil-gutman}.
 
 Our discussion of spanning-tree polynomials is based of a modification of Fedor Petrov \cite{petrov} of the original proof of Arthur Cayley~\cite{cayley}. 
+
+Generating functions discussed in Appendix~\ref{Generating functions} give connections between graph theory and power series; it is more challenging, but worth to learn.   
