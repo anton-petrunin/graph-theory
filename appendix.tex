@@ -1,4 +1,4 @@
-\chapter{Corrections}
+\chapter{Corrections and additions}
 
 Here we include some corrections to \cite{pearls}.
 
@@ -21,3 +21,66 @@ That is, given a planar drawing of $G$ there is a stretched drawing of $G$
 and a bijection between the bounded (necessary triangular) regions such that corresponding triangles have the same edges of $G$ as the sides.
 
 The remaining part of the proof works with no other changes.
+
+\section*{On Kruskal's algorithm}
+
+In this section we will show that Kruskal’s algorithm actually produces a minimum-weight spanning tree in a leading partial case.
+Essentially we will solve exercises 7.1.6 and 7.1.7 in \cite{pearls}. 
+
+\begin{thm}{Theorem}
+Kruskal’s algorithm produces a unique minimum weight spanning tree for a graph whose edges are labeled with
+distinct weights. 
+
+\end{thm}
+
+In the proof we will use the following lemma:
+
+\begin{thm}{Lemma}\label{lem:T+e-e}
+Suppose that $T$ and $T'$ are two different spanning trees of a connected
+graph. 
+If $e$ is an edge of $T$ that is not in $T'$, then there is an edge $e'$
+in $T'$ but not in $T$ with the property that 
+\[T''=T' + e - e'\]
+is a spanning tree of the
+graph.
+\end{thm}
+
+\parit{Proof.}
+Note that $T' + e$ has a cycle $C$ with $e$ in it.
+Since $T$ is a tree, it can not contain $C$.
+Therefore $C$ has an edge that is not in $T$;
+denote it by $e'$.
+
+The graph $T''=T' + e-e'$ is connected since it is obtained by deleting one edge from a cycle $C$ in a connected graph $T' + e$.
+Clearly $T''$ has the same number of edges as the tree $T'$.
+Therefore $T''$ is a spanning tree.
+\qeds
+
+\parit{Proof of the theorem.}
+Let $T$ be a spanning tree produced by Kruskal’s algorithm.
+Assume 
+\[e_1,\dots,e_{k-1},e_k,\dots e_{p-1}\eqlbl{eq:e-e}\] 
+are the edges of $T$ listed in order of their weights
+(in this order they are added by the Kruskal’s algorithm).
+
+Suppose that $T'$ is a spanning tree that minimize weight.
+Arguing by contradiction, assume $T'\ne T$.
+
+Let $k$ be the maximal number such that the edges  $e_1,\dots,e_{k-1}$ are in $T'$ (if $k=1$, then this list is empty). 
+In other words if we list all its edges in $T'$ in order of their weights, then 
+we obtain a sequence 
+\[e_1,\dots,,e_{k-1},e'_k,\dots e'_{p-1}\]
+with $e'_k\ne e_k$.
+
+Note that the edge $e_k$ is in $T$, but not in $T'$.
+Indeed, $e_k$ has minimal weight among the edges that do not produce a cycle with $e_1,\dots,,e_{k-1}$;
+the remaining edges have larger weights since all weights are different.
+
+The edge in $T'$ provided by Lemma~\ref{lem:T+e-e} lies in $T'$, but not in $T$;
+therefore it must be $e'_j$ for $j\ge k$.
+In particular the weight of $e'_j$ must be bigger than weight of $e'_k$ which by the Kruskal’s algorithm is bigger than the weight of $e_k$.
+
+It follows that 
+\[\mathrm{weight}(e_k)<\mathrm{weight}(e'_j).\]
+Therefore $T''=T'+e_k-e'_j$ is a spanning tree with total weight smaller than $T'$, but $T'$ has minimal weight --- a contradiction.
+\qeds
