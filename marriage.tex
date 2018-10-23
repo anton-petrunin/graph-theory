@@ -165,7 +165,7 @@ Denote by $Q_L$ and $Q_R$ the set of vertexes in $G$ which can be reached by $M$
 Note that according to Exercise \ref{ex:two-paths}, $Q_L$ and $Q_R$ do not overlap.
 
 Further note that if two vertexes are matched then they both lie in $Q_L$ or in $Q_R$ or neither.
-In particular, if $m$ is an edge in $M$, then both of the vertexes of $m$ lie in $Q_L$ or in $Q_R$ or neither.
+That is, if $m$ is an edge in $M$, then both of the vertexes of $m$ lie in $Q_L$ or in $Q_R$ or neither.
 
 For each edge $m$ in $M$,
 include in $S$ the right of $m$ if it connects vertexes in $Q_L$
@@ -176,9 +176,11 @@ It remains to prove that $S$ is a cover;
 that is, at least one vertex of any edge $e$ in $G$ is in $S$.
 Consider the following three cases:
 \begin{itemize}
-\item if $e$ connects a vertex in $Q_L$ to a vertex in the complement of $Q_L$, then has both vertexes in~$S$;
-\item if $e$ connects vertexes in $Q_L$, then the right vertex of $e$ is in $S$;
-\item if $e$ connects vertexes outside $Q_L$, then the left vertex of $e$ is in~$S$.
+\item Note that if $e$ connects a vertex in $Q_L$ to a vertex in the complement of $Q_L$, then $e$ has
+right vertex in $Q_L$ and left vertex outside of $Q_L$.
+Therefore both vertexes of $e$ lie in~$S$.
+\item If $e$ connects vertexes in $Q_L$, then the right vertex of $e$ is in $S$.
+\item If $e$ connects vertexes outside of $Q_L$, then the left vertex of $e$ is in~$S$.
 \qeds
 \end{itemize}
 
