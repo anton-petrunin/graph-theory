@@ -13,9 +13,9 @@ the set of vertexes can be infinite or finite, but it can not be empty since we 
 
 
 \begin{thm}{Definition}
-A Rado graph is a countable graph satisfying the following property:
+A \index{Rado graph}\emph{Rado graph} is a countable graph satisfying the following property:
 
-Given two finite disjoint sets of vertices $V$ and $W$, there exists a
+Given two finite disjoint sets of vertexes $V$ and $W$, there exists a
 vertex $v\notin V\cup W$ that is adjacent to any vertex in $V$ and nonadjacent to any vertex in $W$.
 \end{thm}
 
@@ -138,7 +138,7 @@ Then any countable graph $G$ (finite or infinite) is isomorphic to a induced sub
 \end{thm}
 
 \parit{Proof.}
-Enumerate the vertices of $G$ as $v_1 , v_2 , \dots$ (the sequence might be finite or infinite).
+Enumerate the vertexes of $G$ as $v_1 , v_2 , \dots$ (the sequence might be finite or infinite).
 
 It is sufficient to construct a sequence $r_1,r_2,\dots$ of vertexes in $R$ such that $r_i$ is adjacent to $r_j$ if and only if $v_i$ is adjacent to $v_j$.
 In this case the graph $G$ is isomorphic to the subgraph of $R$ induced by $\{r_1,r_2\dots\}$.
@@ -186,7 +186,7 @@ Once we have proved the second statement,
 the first statement will follow if you apply it to single-vertex subgraphs $R_0$ and $S_0$.
 
 Since the graphs are countable,
-we can enumerate the vertices of $R$ and $S$, as $r_1 , r_2 , \dots$ and $s_1, s_2,\dots$ respectively. 
+we can enumerate the vertexes of $R$ and $S$, as $r_1 , r_2 , \dots$ and $s_1, s_2,\dots$ respectively. 
 We will construct a sequence of induced subgraphs $R_n$ in $R$ and $S_n$ in $S$ with isomorphisms $f_n\:R_n\to S_n$.
 
 Suppose that an isomorphism $f_n\:R_n\to S_n$ is constructed. 
@@ -227,7 +227,7 @@ Explain how to modify the proof of theorem above to prove the following theorem.
 
 \begin{thm}{Theorem}
 Let $R$ be a Rado graph.
-A countable graph $G$ is isomorphic to a spanning subgraph of $R$ if and only if, given any finite set $V$ of vertices of $G$, there is a vertex $w$ that is not adjacent to any vertex in $V$.
+A countable graph $G$ is isomorphic to a spanning subgraph of $R$ if and only if, given any finite set $V$ of vertexes of $G$, there is a vertex $w$ that is not adjacent to any vertex in $V$.
 \end{thm}
 
 \begin{thm}{Exercise}
@@ -276,7 +276,7 @@ Show that with probability 1, the resulting graph is the Rado graph.
 
 \section*{Remarks}
 
-The \index{Rado graph}\emph{Rado graph} is also called \emph{Erd\H{o}s–R\'enyi graph} or \emph{random graph};
+The {}\emph{Rado graph} is also called \emph{Erd\H{o}s–R\'enyi graph} or \emph{random graph};
 it was first discovered by Wilhelm Ackermann, rediscovered later by
 Paul Erd\H{o}s and Alfr\'ed R\'enyi and yet latter by Richard Rado. 
 Theorem \ref{thm:the-random-graph} was discovered by Paul Erd\H{o}s and Alfr\'ed R\'enyi.

@@ -3,6 +3,9 @@ lib/*
 www/*
 *.backup
 *.log
+*.mps
+*.mpx
+*/mpxerr.tex
 *.aux
 *.dvi
 *.gz
