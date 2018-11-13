@@ -55,7 +55,7 @@ Show that
 \end{thm}
 
 \parit{Hint:} In each cases, fix one vertex $v$ and draw the subgraph induced by the vertexes connected to $v$.
-(If uncertain, see the definition of \emph{induced subgraph}.)
+(If uncertain, see the definition of {}\emph{induced subgraph}.)
 
 \medskip
 
@@ -74,7 +74,7 @@ Despite that this method of proof uses probability, the final conclusion is dete
 
 \medskip
 
-Recall that $\tbinom{n}{m}$ denotes the \emph{binomial coefficient};
+Recall that $\tbinom{n}{m}$ denotes the \index{binomial coefficient}\emph{binomial coefficient};
 that is, $m$ and $n$ are integers, $n\ge 0$ and 
 \[\tbinom nm=\frac{n!}{m!\cdot (n-m)!}\]
 if $0\le m\le n$ and $\tbinom{n}{m}=0$ otherwise.
@@ -151,7 +151,7 @@ Find expected number of monochromatic Hamiltonian cycles in $K_{100}$.
 \end{thm} %??? find a flow in the argument???
 
 The answer in the exercise above is a huge number bigger than $10^{125}$.
-One might think that this estimate alone is sufficient to conclude that \emph{most} of the colorings have a monochromatic Hamiltonian cycles --- let us show that is is not that easy.
+One might think that this estimate alone is sufficient to conclude that {}\emph{most} of the colorings have a monochromatic Hamiltonian cycles --- let us show that is is not that easy.
 (It is still true that probability of existence of monochromatic coloring is close to 1, but the proof requires more work and it does not follow from the estimate.)
 
 Therefore in principle it might happen that $99.99\%$ of colorings of $K_{100}$ might have no monochromatic Hamiltonian cycles and $.01\%$ of the colorings contain all the monochromatic Hamiltonian cycles.
@@ -186,6 +186,21 @@ there is a coloring with no monochromatic $K_n$.
 Hence the result.
 \qeds
 
+%from West:???8.5.8. Theorem. (Szele [1943]) Some n-vertex tournament has at least n!/2/- 1
+%Hamiltonian paths.
+%Proof: Generate tournaments on [n] randomly by choosing i  jar. j  i
+%with equal probability for each pair Ii, j}. Let X be the number of Hamiltonian
+%paths; X is the sum of n! indicator variables for the possible Hamiltonian paths.
+%Each Hamiltonian path occurs with probability 1/211-1, so E(X) = n!/2"-1. In
+%some tournament, X is at least as large as the expectation.
+%
+%This simple bound using expectation gives almost the right answer for
+%the maximum number of Hamiltonian paths in an n-vertex tournament; Alan
+%[1990] proved that it is at most n!/(2 - 0(1»". When almost all instances have
+%a value near the extreme, probabilistic arguments are especially effective.
+%Ex: Determine tJ'le expected number of vertices of degree k in a random n-vertex
+%graph with edge probability p.
+
 \section*{Remarks}
 
 The probabilistic method was introduced by Paul Erd\H os.
@@ -195,9 +210,9 @@ Note that probabilistic method is not nonconstructive ---
 often when the existence of a certain graph is probed by probabilistic method,
 it is still uncontrollably hard to describe a concrete example.
 
-More involved examples of proofs based on the probabilistic method deal with \emph{typical properties} of random graphs.
+More involved examples of proofs based on the probabilistic method deal with {}\emph{typical properties} of random graphs.
 
-To describe the concept, let us consider the following \emph{random process} which generates graph $G_p$ with $p$ vertexes.
+To describe the concept, let us consider the following {}\emph{random process} which generates graph $G_p$ with $p$ vertexes.
 
 Fix a positive integer $p$. 
 Consider a graph $G_p$ with the vertexes labeled by $1,\dots,p$,
@@ -207,7 +222,7 @@ Note that the described process depends only on $p$ and as a result we can get a
 
 Fix a property of a graph (for example connectedness)
 and let $\alpha_p$ be the probability that $G_p$ has this property.
-We say that the property is \emph{typical} if $\alpha_p\to 1$ as $p\to \infty$.
+We say that the property is \index{typical property}\emph{typical} if $\alpha_p\to 1$ as $p\to \infty$.
 
 \begin{thm}{Exercise}
 Show that random graphs are typically have diameter~2.
@@ -218,7 +233,7 @@ That is, the probability that $G_p$ is has diameter~2 converges to~1 as $p\to \i
 
 \medskip
 
-Note that from the exercise above, it follows that in the described random process the random graphs are \emph{typically connected}.
+Note that from the exercise above, it follows that in the described random process the random graphs are {}\emph{typically connected}.
 
 The following theorem gives a deeper illustration for probabilistic method with use of typical properties,
 a proof can be found in \cite[Chapter 44]{aigner-ziegler}.

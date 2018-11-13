@@ -1,8 +1,8 @@
 \chapter{Polynomials}
 
 Counting problems often lead to specially organized data.
-Sometimes it is convenient to \emph{pack} this data in a polynomial.
-If this \emph{packing} is to be done in a smart way, then the algebraic structure of polynomial reflects the original combinatoric structure.
+Sometimes it is convenient to {}\emph{pack} this data in a polynomial.
+If this {}\emph{packing} is to be done in a smart way, then the algebraic structure of polynomial reflects the original combinatoric structure.
 
 \section*{Chromatic polynomial}
 
@@ -53,10 +53,10 @@ the problem of finding $P_G(x)$ for a pseudograph $G$ can be reduced to the case
 
 Recall that polynomial $P$ of $x$ is an expression of the following type
 \[P(x)=a_0+a_1\cdot x+\dots+a_n\cdot x^n,\]
-with constants $a_0,\dots, a_n$, which are called \emph{coefficients} of the polynomial.
-If $a_n\ne 0$, it is called \emph{leading coefficient} of $P$;
+with constants $a_0,\dots, a_n$, which are called {}\emph{coefficients} of the polynomial.
+If $a_n\ne 0$, it is called \index{leading coefficient}\emph{leading coefficient} of $P$;
 in this case $n$ is the degree of $P$.
-If the leading coefficient is 1 then the polynomial is called \emph{monic}.
+If the leading coefficient is 1 then the polynomial is called \index{monic polynomial}\emph{monic}.
 
 \begin{thm}{Theorem}\label{thm:chromatic-polynomial}
 Let $G$ be a pseudograph with $p$ vertexes.
@@ -66,7 +66,7 @@ Moreover, if $G$ has a loop then $P_G(x)\equiv 0$;
 otherwise $P_G(x)$ is monic and has degree $p$.
 \end{thm}
 
-Based on this result we can call $P_G(x)$ the \emph{chromatic polynomial} of the graph~$G$.
+Based on this result we can call $P_G(x)$ the \index{chromatic polynomial}\emph{chromatic polynomial} of the graph~$G$.
 The deletion-minus-contraction formula will play the central role in the proof.
 
 \parit{Proof.}
@@ -149,7 +149,7 @@ Construct a pair of nonisomorphic graphs with equal chromatic polynomials.
 
 \section*{Matching polynomial}
 
-Recall that a \emph{matching} in a graph is a set of edges without common vertexes.
+Recall that a \index{matching}\emph{matching} in a graph is a set of edges without common vertexes.
 
 Given an integer $n\ge0$,
 denote by $m_n=m_n(G)$ the number of matchings with $n$ edges in the graph $G$.
@@ -158,10 +158,10 @@ Note that for a graph $G$ with $p$ vertexes and $q$ edges, we have
 $m_0(G)=1$, 
 $m_1(G)=q$, 
 and if $2\cdot n>p$, then $m_n(G)=0$ .
-The maximal integer $k$ such that $m_k(G)\ne0$ is called \emph{matching number} of $G$.
+The maximal integer $k$ such that $m_k(G)\ne0$ is called \index{matching number}\emph{matching number} of $G$.
 The expression 
 \[M_G(x)=m_0+m_1\cdot x+\dots +m_k\cdot x^k\]
-is called \emph{matching polynomial} of $G$.
+is called \index{matching polynomial}\emph{matching polynomial} of $G$.
 
 Matching polynomial $M_G(x)$ gives a convenient way to work with all the numbers $m_n(G)$ simultaneously.
 The degree of $M_G(x)$ is the matching number of $G$ and
@@ -220,7 +220,7 @@ It follows that the sum of degrees of the monomial is $p-2$;
 that is, our monomial has degree $p-2$.
 
 The sum of these monomials is a polynomial of degree $p-2$ of $p$ variables $x_1,\dots, x_p$.
-This polynomial will be called \emph{spanning-tree polynomial} and it will be denoted by 
+This polynomial will be called \index{spanning-tree polynomial}\emph{spanning-tree polynomial} and it will be denoted by 
 $S_G(x_1,\dots,x_p)$.
 
 Note that the total number of spanning trees in $G$ equals to the value

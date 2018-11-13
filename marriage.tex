@@ -1,9 +1,9 @@
 \chapter{Marriage theorem\\ and its relatives}
 
-Let $G$ be a bipartite graph (or briefly \emph{bigraph}) and $M$ is a matching in $G$.
-Recall that a path $P$ in $G$ is called \emph{$M$-alternated} if the edges in $P$ 
+Let $G$ be a graph and $M$ a matching in $G$.
+Recall that a path $P$ in $G$ is called \index{alternated path}\emph{$M$-alternated} if the edges in $P$ 
 alternate between edges from $M$ and edges not from $M$.
-If the path $P$ connects two unmatched vertexes of $G$ then it is called \emph{$M$-augmenting}.
+If the path $P$ connects two unmatched vertexes of $G$ then it is called \index{augmenting path}\emph{$M$-augmenting}.
 
 If there is an $M$-augmenting path $P$ then the matching $M$ can be improved by deleting from $M$ the edges in $P$
 and adding the remaining edges of $P$.
@@ -14,18 +14,17 @@ On the diagrams we denote the edges in $M$ by solid lines and the remaining edge
 \end{lpic}
 \end{center}
 
-This construction plays the central role in the Hungarian algorithm. 
-In this chapter we will show more ways to use this construction and its analogs.
-
-First note the following.
+This construction implies the following:
 
 \begin{thm}{Observation}\label{obs:augmenting}
-Assume $G$ be a bigraph and $M$ is a maximal matching in $G$.
-Then $G$ has no $M$-augmenting path.
-\end{thm}
+Assume $G$ be a graph and $M$ is a maximal matching in $G$.
+Then $G$ has no $M$-augmenting paths.
+\end{thm} 
 
+Recall that {}\emph{bigraph} is a shortcut for {}\emph{bipartite graph}.
 The following two exercises follow from the definitions given above; 
-they will be used further in the sequel. 
+they are main driving force in the Hungarian algorithm.
+
 
 \begin{thm}{Exercise}
 Let  $M$ be a matching in a bigraph $G$.
@@ -34,18 +33,19 @@ Show that any $M$-augmenting path connects vertexes from the opposite parts of t
 \end{thm}
 
 \begin{thm}{Exercise}\label{ex:two-paths}
-Let  $M$ be a maximal matching in a bigraph $G$.
+Let $M$ be a maximal matching in a bigraph $G$.
 Assume two unmatched vertexes $l$ and $r$ lie in the opposite parts of $G$.
 Show that no pair of $M$-alternated paths starting from $l$ and $r$ can have a common vertex.
 \end{thm}
 
+In this chapter we will show more ways to use this construction and its analogs.
 
 \section*{Marriage theorem}
 
 Assume that $G$ is a bigraph and $S$ is a set of its vertexes.
-We say that a matching $M$ of $G$ \emph{covers} $S$ if any vertex in $S$ is incident to an edge in $M$.
+We say that a matching $M$ of $G$ {}\emph{covers} $S$ if any vertex in $S$ is incident to an edge in $M$.
 
-Given a set of vertexes $W$ in a graph $G$, the set $W'$ of all vertexes  adjacent to at least one of vertexes in $W$ will be called the \emph{set of neighbors} of $W$.
+Given a set of vertexes $W$ in a graph $G$, the set $W'$ of all vertexes  adjacent to at least one of vertexes in $W$ will be called the \index{set of neighbors}\emph{set of neighbors} of $W$.
 Note that if $G$ is a bigraph and $W$ lies in the left part then $W'$ lies in the right part. 
 
 \begin{thm}{Marriage theorem}
@@ -125,7 +125,7 @@ Show that then all but $s$ girls may get married on the boys they like.
 
 \section*{Vertex covers}
 
-A set $S$ of vertexes in a graph is called \emph{vertex cover} if any edge is incident to at least one of the vertexes in $S$.
+A set $S$ of vertexes in a graph is called \index{vertex cover}\emph{vertex cover} if any edge is incident to at least one of the vertexes in $S$.
 
 \begin{thm}{Theorem}
 In any bigraph, the number of edges in a maximal matching equals the number of vertexes in a minimal vertex cover.
@@ -192,7 +192,7 @@ Show that the minimal number of ranks and files that cover all marked squares is
 
 \section*{Edge cover}
 
-A collection of edges $N$ in a graph is called \emph{edge cover} if every vertex is incident with at least one of the edges in $N$.
+A collection of edges $N$ in a graph is called \index{edge cover}\emph{edge cover} if every vertex is incident with at least one of the edges in $N$.
 
 On the following diagram two edge cover of the same graph are marked in solid lines.
 The second cover is minimal --- there is no edge cover with smaller number of edges.
@@ -202,26 +202,26 @@ The second cover is minimal --- there is no edge cover with smaller number of ed
 \end{lpic}
 \end{center}
 
-\begin{thm}{Exercise}
+\begin{thm}{Exercise}\label{ex:monotree}
 Show that a minimal edge cover of any graph contains no paths of length 3 and no triangle.
 \end{thm}
 
 
 \begin{thm}{Exercise}
-Let $G$ be a connected bigraph with $p$ vertexes for $p>1$.
-Assume that a minimal edge cover of $G$ contains $n$ edges and a maximal matching of $G$ contains $m$ edges.
+Let $G$ be a connected graph with $p$ vertexes and $p>1$.
+Assume that a minimal edge cover $N$ of $G$ contains $n$ edges and a maximal matching $M$ of $G$ contains $m$ edges.
 Show that 
 \[m+n=p.\]
 
 \end{thm}
 
-
+\parit{Hint:} Show that the subgraph formed by $N$ has exactly $m$ components and use Exercise~\ref{ex:monotree}.
 
 \section*{Minimal cut}
 
-Recall that \emph{directed graph} (or briefly \emph{digraph})
+Recall that \index{directed graph}\emph{directed graph} (or briefly \index{digraph}\emph{digraph})
 is a graph, where the edges have a direction associated with them;
-that is, an edge in a digraph is defined as an \emph{ordered} pair of vertexes.
+that is, an edge in a digraph is defined as an {}\emph{ordered} pair of vertexes.
 
 \begin{thm}{Min-cut theorem}
 Let $s$ and $t$ be two vertexes in a digraph~$G$.

@@ -1,6 +1,6 @@
 \chapter{Corrections and additions}
 
-Here we include some corrections to \cite{pearls}.
+Here we include corrections and additions to \cite{pearls}.
 
 \section*{Correction to 3.2.2}
 
@@ -10,19 +10,8 @@ does not explain why ``each bank has odd number of vertexes''.
 This is true since the 1-factor containing the bridge brakes all the vertexes of each bank into pairs except the end vertex of the bridge.
 
 
-\section*{Correction to 8.4.1}
 
-There is an inaccuracy in the proof of Theorem 8.4.1 about stretchable planar graphs.
-Namely in the planar drawing of $G-h$, the region $R$ might be unbounded.
-
-To fix this inaccuracy, one needs to prove slightly stronger statement.
-Namely that any planar drawing of the maximal planar graph $G$ can be stretched.
-That is, given a planar drawing of $G$ there is a stretched drawing of $G$ 
-and a bijection between the bounded (necessary triangular) regions such that corresponding triangles have the same edges of $G$ as the sides.
-
-The remaining part of the proof works with no other changes.
-
-\section*{On Kruskal's algorithm}
+\section*{Addition to 7.2}
 
 In this section we will show that Kruskal’s algorithm actually produces a minimum-weight spanning tree in a leading partial case.
 Essentially we will solve exercises 7.1.6 and 7.1.7 in \cite{pearls}. 
@@ -84,3 +73,15 @@ It follows that
 \[\mathrm{weight}(e_k)<\mathrm{weight}(e'_j).\]
 Therefore $T''=T'+e_k-e'_j$ is a spanning tree with total weight smaller than $T'$, but $T'$ has minimal weight --- a contradiction.
 \qeds
+
+\section*{Correction to 8.4.1}
+
+There is an inaccuracy in the proof of Theorem 8.4.1 about stretchable planar graphs.
+Namely in the planar drawing of $G-h$, the region $R$ might be unbounded.
+
+To fix this inaccuracy, one needs to prove slightly stronger statement.
+Namely that any planar drawing of the maximal planar graph $G$ can be stretched.
+That is, given a planar drawing of $G$ there is a stretched drawing of $G$ 
+and a bijection between the bounded (necessary triangular) regions such that corresponding triangles have the same edges of $G$ as the sides.
+
+The remaining part of the proof works with no other changes.

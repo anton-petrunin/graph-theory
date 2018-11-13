@@ -5,11 +5,11 @@
 
 Let us describe a way to encode the given multigraph $G$ with $p$ vertexes by an $p{\times}p$ matrix.
 First, enumerate the vertexes of the multigraph by numbers from $1$ to $p$;
-such multigraph will be called \emph{labeled}. 
+such multigraph will be called \emph{labeled graph}\emph{labeled}. 
 Consider the matrix $A=A_G$ with the component $a_{i,j}$ equal to the number of edges from $i$-th vertex to the $j$-th vertex of $G$.
 
-This matrix $A$ is called \emph{adjacency matrix} of $G$.
-Note that $A$ is \emph{symmetric}; that is, $a_{i,j}=a_{j,i}$ for any pair $i,j$.
+This matrix $A$ is called \index{adjacency matrix}\emph{adjacency matrix} of $G$.
+Note that $A$ is \index{symmetric matrix}\emph{symmetric}; that is, $a_{i,j}=a_{j,i}$ for any pair $i,j$.
 Also, the diagonal components of $A$ vanish; that is, $a_{i,i}=0$ for any $i$.
 
 {
@@ -51,7 +51,7 @@ For example, for the labeled multigraph $G$ shown on the diagram, we get the fol
 }
 
 \begin{thm}{Exercise}
-Let $A$ be the \emph{adjacency matrix} of a labeled multigraph.
+Let $A$ be the adjacency matrix of a labeled multigraph.
 Show that the components $b_{i,j}$ of the $n$-th power $A^n$ is the number of walks of length $n$ in the graph from vertex $i$ to vertex $j$. 
 \end{thm}
 
@@ -59,7 +59,7 @@ Show that the components $b_{i,j}$ of the $n$-th power $A^n$ is the number of wa
 
 \section*{Kirchhoff minor}
 
-In this section we construct a special matrix, called \emph{Kirchhoff minor}, associated with a pseudograph
+In this section we construct a special matrix, called {}\emph{Kirchhoff minor}, associated with a pseudograph
 and discuss its basic properties.
 This matrix will be used in the next section in a formula for the number of spanning trees in a pseudograph~$G$.
 Since the loops do not change the number of spanning trees, we can remove all of them.
@@ -71,9 +71,9 @@ it is a $p{\times}p$ symmetric matrix with zeros on the diagonal.
 \begin{enumerate}
 \item Revert the signs of the components of $A$ and exchange the zeros on the diagonal by the degrees of the corresponding vertexes. 
 
-(The matrix $A'$ is called \emph{Kirchhoff matrix}, \emph{Laplacian matrix} or \emph{admittance matrix} of the graph $G$.)
+(The matrix $A'$ is called \index{Kirchhoff matrix}\emph{Kirchhoff matrix}, \emph{Laplacian matrix} or \emph{admittance matrix} of the graph $G$.)
 \item Delete from $A'$ the last column and the last row;
-the obtained matrix $M=M_G$ will be called \emph{Kirchhoff minor} of the labeled pseudograph $G$.
+the obtained matrix $M=M_G$ will be called \index{Kirchhoff minor}\emph{Kirchhoff minor} of the labeled pseudograph $G$.
 \end{enumerate}
 
 {
@@ -392,7 +392,7 @@ find its Kirchhoff minor and use matrix theorem to find the number of spanning t
 \item $s(W_6)$;
 \item $s(Q_3)$.
 \end{enumerate}
-(You can use \emph{\texttt{http://matrix.reshish.com/determinant.php}}, or any other matrix calculator.)
+(You can use {}\emph{\texttt{http://matrix.reshish.com/determinant.php}}, or any other matrix calculator.)
 \end{thm}
 
 
@@ -400,7 +400,7 @@ find its Kirchhoff minor and use matrix theorem to find the number of spanning t
 
 In this section we recall key properties of determinant which will be used in the next section.
 
-Let $M$ be an $n{\times}n$-matrix; that is, a table $n{\times}n$, filled with numbers which are called \emph{components of the matrix}.
+Let $M$ be an $n{\times}n$-matrix; that is, a table $n{\times}n$, filled with numbers which are called {}\emph{components of the matrix}.
 The determinat $\det M$ is a polynomial of the $n^2$ components of $M$,
 which satisfies the following conditions:
 \begin{enumerate}
@@ -534,7 +534,7 @@ Let us describe what we used on each line above:
 
 \section*{Cayley formula}
 
-Recall that the \emph{complete graph} is the graph where each pair of vertexes is connected by an edge;
+Recall that the \index{complete graph}\emph{complete graph} is the graph where each pair of vertexes is connected by an edge;
 complete graph with $p$ vertexes is denoted by~$K_p$.
 
 Note that every vertex of $K_p$ has degree $p-1$.

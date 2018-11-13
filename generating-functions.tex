@@ -7,7 +7,7 @@ For this chapter, the reader has to be familiar with power series.
 
 The power series 
 \[A(x)=a_0+a_1\cdot x+\tfrac12\cdot a_2\cdot x^2+\dots+\tfrac1{n!}\cdot a_n\cdot x^n+\dots\]
-is called \emph{exponential generating function} of the sequence $a_0,a_1,\dots$.
+is called \index{exponential generating function}\emph{exponential generating function} of the sequence $a_0,a_1,\dots$.
 
 If the series $A(x)$ converges in some neighborhood of zero, then it defines a function which remembers all information of the sequence~$a_n$.
 The latter follows since 
@@ -144,7 +144,7 @@ Let $F(x)$ be the exponential generating function of Fibonacci numbers $f_n$.
 
 \section*{Exponential formula}
 
-Fix a set of connected graphs $\mathcal{S}$.
+Fix a set of graphs $\mathcal{S}$.
 Denote by $c_n=c_n(\mathcal{S})$ the number of spanning subgraphs of $K_n$ isomorphic to one of the graphs in $\mathcal{S}$. 
 Let \[C(x)=C_{\mathcal{S}}(x)\] be the exponential generating function of the sequence~$c_n$. 
 
@@ -158,7 +158,7 @@ Then
 \[W_k(x)=\tfrac1{k!}\cdot C_{\mathcal{S}}(x)^k,\]
 where $W_k(x)$ is the exponential generating function of the sequence $w_n$.
 
-\item\label{thm:exp-formula:all} Denote by $a_n$ the number of \emph{all} spanning subgraphs of $K_n$ such that each connected component of it is from the class and let $A(x)$ be the corresponding exponential generating function.
+\item\label{thm:exp-formula:all} Denote by $a_n$ the number of {}\emph{all} spanning subgraphs of $K_n$ such that each connected component of it is from the class and let $A(x)$ be the corresponding exponential generating function.
 Then
 \[1+A(x)=e^{C_{\mathcal{S}}(x)}.\]
 \end{enumerate}
@@ -229,7 +229,7 @@ Recall that a perfect matching is 1-factor of the graph.
 In other words, it is a set of isolated edges which cover all the vertexes.
 Note that if a graph admits a perfect matching then the number of its vertexes is even.
 
-Recall that \emph{double factorial} is the product of all the integers from $1$ up to some non-negative integer $n$ that have the same parity (odd or even) as $n$;
+Recall that \index{double factorial}\emph{double factorial} is the product of all the integers from $1$ up to some non-negative integer $n$ that have the same parity (odd or even) as $n$;
 the double factorial of $n$ is denoted by $n!!$.
 For example, 
 \[9!! = 9\cdot 7 \cdot 5 \cdot 3 \cdot  1 = 945
@@ -435,7 +435,8 @@ but the recursive formula is nearly as good.
 
 Let us mention an other application of exponential generating functions.
 
-Assume $r_n$ denotes the number of rooted spanning trees in $K_n$, that is a tree with one marked vertex called its \emph{root}.
+Assume $r_n$ denotes the number of rooted spanning trees in $K_n$.
+(A tree with one marked vertex is called \index{rooted tree}\emph{rooted tree} and the marked vertex is called its {}\emph{root}).
 Then it is not hard to see that the exponential generating function of $r_n$ satisfies the following identity
 \[R(x)=x\cdot e^{R(x)}.
 \eqlbl{eq:rooted}\]
@@ -446,5 +447,5 @@ Since in any spanning tree of $K_n$ we have $n$ choices for the root, we have
 This way we get yet an other proof of the Cayley formula (\ref{thm:cayley}) \[s(K_n)=n^{n-2}.\]
 
 The method of generating function was introduced and widely used by Leonard Euler;
-the term \emph{generating function} was coined latter by Pierre Laplace.
+the term \index{generating function}\emph{generating function} was coined latter by Pierre Laplace.
 For more on the subject we recommend a classical book of Frank Harary and Edgar Palmer \cite{harary-palmer}.

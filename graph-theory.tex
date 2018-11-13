@@ -2,11 +2,8 @@
 \usepackage[top=0.9in, bottom=0.9in,left=0.9in, right=0.9in, paperwidth=6in, paperheight=9in]{geometry}
 \usepackage{book}
 \hypersetup{pdftitle={Extra pearls in graph theory}}
-
 \usepackage[nottoc]{tocbibind}
-
 \makeindex
-
 \begin{document}
 \input{title.tex}
 \input{definitions.tex}
@@ -15,9 +12,13 @@
 \input{matrix.tex}
 \input{polynomials.tex}
 \input{marriage.tex}
+\input{rado.tex}
 \appendix
 \input{generating-functions.tex}
 \input{appendix.tex}
 %\input{extra.tex}
+{\small%\scriptsize
+\input{graph-theory.ind}
+}
 \input{bibl.tex}
 \end{document}

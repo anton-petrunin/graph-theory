@@ -24,32 +24,32 @@
 The diagram on the right may describe regular flights of an airline.
 It has six flights which serve four airports labeled by $a$, $b$, $c$ and~$d$.
 
-For this and similar type of data, mathematicians use the notion of \emph{pseudograph}.
+For this and similar type of data, mathematicians use the notion of \index{pseudograph}\emph{pseudograph}.
 
-Formally, a pseudograph is a finite nonempty set of \emph{vertexes}  (in our example a vertex is an airport) 
-and finite collection of \emph{edges}, each edge connects two vertexes (in the example above, edge is a regular flight).
-A pair of vertexes can be connected by few edges, such edges are called \emph{parallel} (in our example, it might mean that the airline makes few  flight a day between these airports). 
-Also an edge can connect a vertex to itself, such edge is called a \emph{loop} (we might think of it as а sightseeing flight).
+Formally, a pseudograph is a finite nonempty set of \index{vertex}\emph{vertexes}  (in our example a vertex is an airport) 
+and finite collection of \index{edge}\emph{edges}, each edge connects two vertexes (in the example above, edge is a regular flight).
+A pair of vertexes can be connected by few edges, such edges are called \index{parallel edges}\emph{parallel} (in our example, it might mean that the airline makes few  flight a day between these airports). 
+Also an edge can connect a vertex to itself, such edge is called a \index{loop}\emph{loop} (we might think of it as а sightseeing flight).
 
 Thus, from mathematical point of view, the diagram above describes an example of pseudograph with vertexes $a$, $b$, $c$, $d$ and 
 six edges; among them one loop at $c$ and a pair of parallel edges between $b$ and $d$.
 
 \smallskip
 
-The number of edges comming from one vertex is called its \emph{degree}, the loops are counted twice.
+The number of edges coming from one vertex is called its \index{degree}\emph{degree}, the loops are counted twice.
 In the example above,
 the degrees of $a,b,c$ and $d$ are $1,4,4$ и $3$ correspondingly.
 
-A vertex with zero degree is called \emph{isolated} and a vertex of degree one is called \emph{end vertex}.
+A vertex with zero degree is called \index{isolated}\emph{isolated} and a vertex of degree one is called \index{end vertex}\emph{end vertex}.
 
 \smallskip
 
-A pseudograph without loops is also called \emph{multigraph}.
-A multigraph without parallel edges is also called \emph{graph}.
+A pseudograph without loops is also called \index{multigraph}\emph{multigraph}.
+A multigraph without parallel edges is also called \index{graph}\emph{graph}.
 Most of the time we will work with graphs.
 
-If $x$ and $y$ are vertexes of a pseudograph $G$, we say $x$ is \emph{adjacent} to $y$ if there is an edge between $x$ and $y$.
-We say that a vertex $x$ is \emph{incident} with an edge $e$ if $x$ is an end vertex of $e$.
+If $x$ and $y$ are vertexes of a pseudograph $G$, we say $x$ is \index{adjacent}\emph{adjacent} to $y$ if there is an edge between $x$ and $y$.
+We say that a vertex $x$ is \index{incident}\emph{incident} with an edge $e$ if $x$ is an end vertex of $e$.
 
 \section*{Wolf, goat and cabbage}
 
@@ -70,27 +70,27 @@ The farmer has to carry himself and his purchases to the far bank of the river, 
 \end{thm}
 
 \parit{Solution.}
-Let us denote the farmer by $*$, the river by a vertical line $|$
+Let us denote the farmer by $*$, the river by ${\parallel}$
 the wolf by $w$, the goat by $g$ and the cabbage by $c$.
-For example $wc|g{*}$ means that wolf and cabbage are on the left bank of the river and the goat with the farmer are on the right bank.
+For example $wc{\parallel}{*}g$ means that wolf and cabbage are on the left bank of the river and the goat with the farmer are on the right bank.
 
-The starting position is $wgc{*}|$; that is, everyone is one the left bank.
+The starting position is $wgc{*}{\parallel}$; that is, everyone is one the left bank.
 The following graph describes all possible positions which can be achieved; each edge is labeled by the transported purchase.
 
 \begin{center}
 \begin{tikzpicture}[scale=1.6,
   thick,main node/.style={circle,draw,font=\sffamily\bfseries,minimum size=3mm}]
 
-  \node[main node] (1) at (.5,5/6) {{\small${wgc{*}}|{}$}};
-  \node[main node] (2) at (1,0){{\small${wc}|{g{*}}$}};
-  \node[main node] (3) at (2,0){{\small${wc{*}}|{g}$}};
-  \node[main node] (4) at (2.5,5/6){{\small${w}|{gc{*}}$}};
- \node[main node] (5) at (2.5,-5/6){{\small${c}|{gw{*}}$}};
-  \node[main node] (6) at (3.5,-5/6){{\small${cg{*}}|{w}$}};
-  \node[main node] (7) at (3.5,5/6){{\small${wg{*}}|{c}$}};
-  \node[main node] (8) at (4,0){{\small${g}|{wc{*}}$}};
-  \node[main node] (9) at (5,0){{\small${g{*}}|{wc}$}};
-  \node[main node] (10) at (5.5,-5/6){{\small${}|{wgc{*}}$}};
+  \node[main node] (1) at (.5,5/6) {{\small${wgc{*}}{\parallel}{}$}};
+  \node[main node] (2) at (1,0){{\small${wc}{\parallel}{{*}g}$}};
+  \node[main node] (3) at (2,0){{\small${wc{*}}{\parallel}{g}$}};
+  \node[main node] (4) at (2.5,5/6){{\small${w}{\parallel}{{*}gc}$}};
+ \node[main node] (5) at (2.5,-5/6){{\small${c}{\parallel}{{*}gw}$}};
+  \node[main node] (6) at (3.5,-5/6){{\small${cg{*}}{\parallel}{w}$}};
+  \node[main node] (7) at (3.5,5/6){{\small${wg{*}}{\parallel}{c}$}};
+  \node[main node] (8) at (4,0){{\small${g}{\parallel}{{*}wc}$}};
+  \node[main node] (9) at (5,0){{\small${g{*}}{\parallel}{wc}$}};
+  \node[main node] (10) at (5.5,-5/6){{\small${}{\parallel}{{*}wgc}$}};
   \path[every node/.style={font=\sffamily\small}]
    (1) edge node[auto]{$g$}(2)
    (2) edge node{}(3)
@@ -105,7 +105,7 @@ The following graph describes all possible positions which can be achieved; each
 \end{tikzpicture}
 \end{center}
 
-This graph shows that the farmer can achieve ${}|{wgc{*}}$ by legal moves.
+This graph shows that the farmer can achieve ${}{\parallel}{{*}wgc}$ by legal moves.
 It solves the problem, and also shows that there are exactly two different solutions;
 assuming that the farmer does not want to repeat the same position twice. 
 \qeds
@@ -119,12 +119,12 @@ The boat cannot cross the river by itself with no people on board.
 \end{thm}
 
 Let us introduce a notation to describe positions of missionaries, cannibals and the boat on the banks.
-The river will be denoted by vertical line $|$;
-let $*$ denotes the boat, we will write the number of cannibals on each side of $|$ and the number of missionaries by subscript. 
-For example $4_2^*|0_2$ means that on the left bank we have four cannibals, two missionaries and the boat, and on the right bank there is no cannibals and two missionaries.
+The river will be denoted by ${\parallel}$;
+let $*$ denotes the boat, we will write the number of cannibals on each side of ${\parallel}$ and the number of missionaries by subscript. 
+For example $4_2^*{\parallel}0_2$ means that on the left bank we have four cannibals, two missionaries and the boat, and on the right bank there is no cannibals and two missionaries.
 
 \begin{thm}{Exercise}
-Assume four missionaries and four cannibals need to cross the river; in other words the beginning stage is $4_4^*|0_0$.
+Assume four missionaries and four cannibals need to cross the river; in other words the beginning stage is $4_4^*{\parallel}0_0$.
 Draw a graph for all possible positions which can be achieved.
 
 Conclude that all of them can not cross the river.
