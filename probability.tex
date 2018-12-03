@@ -123,7 +123,7 @@ Hence the statement follows.
 
 The following corollary implies that the function $n\mapsto r(n,n)$ grows at least exponentially. 
 
-\begin{thm}{Corollary}
+\begin{thm}{Corollary}\label{cor:2^n/2}
 $r(n, n)> \tfrac1{8}\cdot 2^{\frac{n}{2}}$
 for all positive integers $n\ge 2$.
 \end{thm}
@@ -212,10 +212,20 @@ Hence the result.
 
 \section*{Remarks}
 
+It is unknown whether there are constants $c>0$ and $\alpha>\sqrt{2}$ such that the inequality
+\[r(n,n)\ge c\cdot \alpha^n\]
+holds for any $n$.
+Note that by Corollary~\ref{cor:2^n/2} the inequality holds for $c=\tfrac18$ for $\alpha=\sqrt{2}$.
+
+Similarly, it is unknown whether there is a constants $c$ and $\alpha<4$ such that the inequality
+\[r(n,n)\le c\cdot \alpha^n\]
+holds for any $n$.
+From Theorem 4.3.2 in \cite{pearls}, the inequality holds for $c=1$ for $\alpha=4$.
+
 The probabilistic method was introduced by Paul Erd\H os.
 It  finds applications in many areas of mathematics; not only in graph theory.
 
-Note that probabilistic method is not nonconstructive ---
+Note that probabilistic method is nonconstructive ---
 often when the existence of a certain graph is probed by probabilistic method,
 it is still uncontrollably hard to describe a concrete example.
 

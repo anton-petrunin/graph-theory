@@ -59,7 +59,7 @@ Show that the graph induced by one of these subsets is Rado.
 \begin{thm}{Exercise}
 Let $R$ be a Rado graph.
 Assume that $Z$ is the set of all vertexes in $R$ adjacent to a given vertex $z$.
-Show that the graph incuced by $Z$ is Rado.
+Show that the subgraph induced by $Z$ is Rado.
 \end{thm}
 
 
@@ -88,9 +88,9 @@ Let $G_1$ be a graph with one vertex.
 Repeating the construction we get an sequence of graphs 
 $G_1, G_2,G_3,\dots$,
 such that $G_{n+1}=G_n'$ for any~$n$.
-(The graphs $G_1, G_2,G_3$ are shown on the diagram;
-it would be hard to draw $G_4$ since it contains $1+2^1+2^{3}+2^{11}=2059$ vertexes and 
-it is impossible to draw $G_5$ --- the number of its vertexes $1+2^1\z+2^{3}\z+2^{11}+2^{2059}$ exceeds by many orders the number of atoms in the observable universe.)
+The graphs $G_1, G_2,G_3$ are shown on the diagram.%
+\footnote{It would be hard to draw $G_4$ since it contains $1+2^1+2^{3}+2^{11}=2059$ vertexes and 
+it is impossible to draw $G_5$ --- it has $1+2^1\z+2^{3}\z+2^{11}+2^{2059}$ vertexes which exceeds by many orders the number of particles in the observable universe.}
 
 Since $G_n$ is a subgraph of $G_{n+1}$ for any $n$, we can consider the union of the graphs in the sequence $(G_n)$; denote it by $R$.
 By construction, each graphs $G_n$ is a subgraph $R$ induced by finitely many vertexes.
@@ -103,7 +103,7 @@ From above the Rado property holds for $V$ and $W$ in $G_{n+1}$ and therefore in
 
 \parbf{Another construction.}
 One could also construct a Rado graph directly specifying which vertexes are adjacent.
-Namely, consider the graph $R$ as on the diagram with vertexes $r_1,r_2,\dots$
+Namely, consider the graph $R$ as on the diagram with vertexes $r_0,r_1,\dots$
 \begin{figure}[h!]%{r}{45 mm}
 \centering
 \begin{lpic}[t(-0 mm),b(0 mm),r(0 mm),l(0 mm)]{pics/Rado_graph(.5)}
