@@ -403,6 +403,11 @@ The probability $P_n$ to obtain less than third heads after $n$ fair tosses of a
 in fact $P_n<0.95^n$ for any $n$.
 \end{thm}
 
+In the proof we will use the following observation which is called \index{Chebyshev's inequality}\emph{Chebyshev's inequality}.
+Suppose $Y$ is a nonnegative random variable and $c> 0$.
+Denote by $P$ the probability of the event $Y\ge c$.
+Then expected value of $Y$ is at least $P\cdot c$.
+
 \parit{Proof.}
 Let us introduce independent random variables $X_1,\dots X_n$ that returns number of heads after each toss;
 each $X_i$ takes values $0$ or $1$ with probability $\tfrac12$ each.
@@ -415,9 +420,8 @@ denote by $y$ its expected value.
 
 Note that $P_n$ is the probability of the event $Y\ge 2^{-\frac n3}$,
 and $Y>0$ always. 
-Therefore 
+By Chebyshev's inequality, we get that
 \[P_n\cdot 2^{-\frac n3}\le y.\]
-(This is the so called \emph{Chebyshev's inequality}.)
 
 The random variable $2^{-X_i}$ takes two values $1$ and $\tfrac12=2^{-1}$ with probability $\tfrac12$ each;
 the expected value of $2^{-X_i}$ has to be $\tfrac12\cdot (1+\tfrac12)=\tfrac 34$.
