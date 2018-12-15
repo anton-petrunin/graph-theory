@@ -100,4 +100,30 @@ label(btex $G_2$ etex, (0,-1.8)*u+z.shift);
 label(btex $G_1$ etex, (0,-1.8)*u+2*z.shift);
 endfig;
 
+beginfig(3) 
+save u;
+u:=.3cm;
+
+z.a=(4,0)*u;
+z.b=(0,4)*u;
+z.c=(2,1)*u;
+z.d=(-1,2)*u;
+
+draw origin--z.a--z.a+z.b--z.b--cycle;
+draw origin+z.c--z.a+z.c--z.a+z.b+z.c--z.b+z.c--cycle;
+draw origin+z.d--z.a+z.d--z.a+z.b+z.d--z.b+z.d--cycle;
+draw origin+z.c+z.d--z.a+z.c+z.d--z.a+z.b+z.c+z.d--z.b+z.c+z.d--cycle;
+
+draw origin--z.c--z.c+z.d--z.d--cycle;
+draw origin+z.a--z.c+z.a--z.c+z.d+z.a--z.d+z.a--cycle;
+draw origin+z.b--z.c+z.b--z.c+z.d+z.b--z.d+z.b--cycle;
+draw origin+z.a+z.b--z.c+z.a+z.b--z.c+z.d+z.a+z.b--z.d+z.a+z.b--cycle;
+
+dOt origin,z.a,z.b,z.c,z.d,
+z.a+z.b, z.a+z.c,z.a+z.d,
+z.b+z.c,z.b+z.d,
+z.c+z.d,
+z.a+z.b+z.c,z.a+z.b+z.d,z.a+z.c+z.d,z.b+z.c+z.d,
+z.a+z.b+z.c+z.d;
+endfig;
 end

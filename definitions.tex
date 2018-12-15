@@ -78,8 +78,8 @@ The starting position is $wgc{*}{\parallel}$; that is, everyone is one the left 
 The following graph describes all possible positions which can be achieved; each edge is labeled by the transported purchase.
 
 \begin{center}
-\begin{tikzpicture}[scale=1.6,
-  thick,main node/.style={circle,draw,font=\sffamily\bfseries,minimum size=3mm}]
+\begin{tikzpicture}[scale=1.8,
+  thick,main node/.style={circle,draw,font=\sffamily\bfseries,minimum size=1mm}]
 
   \node[main node] (1) at (.5,5/6) {{\small${wgc{*}}{\parallel}{}$}};
   \node[main node] (2) at (1,0){{\small${wc}{\parallel}{{*}g}$}};
@@ -112,7 +112,7 @@ assuming that the farmer does not want to repeat the same position twice.
 
 Often graph comes with an extra structure, for example labeling of edges and/or vertexes as in the example above.
 
-Here is a small variation of an other classical problem.
+Here is a small variation of another classical problem.
 
 \begin{thm}{Problem} Missionaries and cannibals must cross a river using a boat which can carry at most two people, under the constraint that, for both banks, if there are missionaries present on the bank, they cannot be outnumbered by cannibals; the missionaries will be eaten otherwise.
 The boat cannot cross the river by itself with no people on board.

@@ -53,8 +53,12 @@ Let $R$ be a countable graph.
 
 \begin{thm}{Exercise}
 Assume the set of vertexes of a Rado graph is partitioned into two subsets.
-Show that the graph induced by one of these subsets is Rado.
+Show that the subgraph induced by one of these subsets is Rado.
 \end{thm}
+
+\parit{Hint:} Let $P$ and $Q$ be the induced subgraphs in the Rado graph $R$.
+Assume $P$ is not Rado; that is, there is a pair of finite vertex sets $V$ and $W$ in $P$ such that any the vertex $v$ in $R$ that meet the Rado property for $V$ and $W$ does not lie in $P$ (and therefore it lies in~$Q$).
+Use the pair of sets $V$ and $W$ to show that $Q$ is Rado.
 
 \begin{thm}{Exercise}
 Let $R$ be a Rado graph.
@@ -155,6 +159,9 @@ Repeating this procedure infinitely many times or untill the sequence $(v_n)$ te
 \qeds
 
 
+%\begin{thm}{Exercise} Show that any two vertexes in a Rado graph can be connected by a path of length 10. \end{thm}???
+
+
 \begin{thm}{Theorem}
 Any two Rado graphs $R$ and $S$ are isomorphic.
 
@@ -251,7 +258,7 @@ The following theorem explains why Rado graph is also named {}\emph{random graph
 
 \begin{thm}{Theorem}\label{thm:the-random-graph}
 Assume an infinite countable graph is chosen at random, by selecting edges independently with probability $\tfrac12$ from the set of 2-element subsets of the vertex set.
-Then with probability 1, the resulting graph is the Rado graph.
+Then, with probability 1, the resulting graph is the Rado graph.
 \end{thm}
 
 \parit{Proof.}
@@ -266,8 +273,8 @@ is $1-\tfrac1{2^n}$.
 Note that events that a given vertex does not satisfy the property are independent.
 Therefore probability that $N$ different vertexes $v_1,\dots,v_N$ outside of $V$ and $W$ do not satisfy the Rado property for $V$ and $W$ is 
 \[(1-\tfrac1{2^n})^N\]
-This value tends to 0 as $N \to \infty$; so the event that no vertex is correctly joined does have probability
-0.
+This value tends to 0 as $N \to \infty$; 
+therefore the event that no vertex is correctly joined has probability 0.
 \qeds
 
 \begin{thm}{Exercise}
