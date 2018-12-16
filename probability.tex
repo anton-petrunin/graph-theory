@@ -403,10 +403,18 @@ The probability $P_n$ to obtain less than third heads after $n$ fair tosses of a
 in fact $P_n<0.95^n$ for any $n$.
 \end{thm}
 
-In the proof we will use the following observation which is called \index{Chebyshev's inequality}\emph{Chebyshev's inequality}.
+In the proof we will use the following observation which is called \index{Chebyshov's inequality}\emph{Chebyshov's inequality}.
+
 Suppose $Y$ is a nonnegative random variable and $c> 0$.
-Denote by $P$ the probability of the event $Y\ge c$.
-Then expected value of $Y$ is at least $P\cdot c$.
+Denote by $P$ the probability of the event $Y\ge c$ and by $y$ the expected value of $Y$.
+Then 
+\[P\cdot c\le y\eqlbl{eq:cebyshov}.\]
+Indeed, consider the random variable $\bar Y$ such that $\bar Y=c$ if $Y\ge c$ and $\bar Y=0$ otherwise;
+denote by $\bar y$ its expected value.
+Note that $\bar Y\le Y$ and therefore $\bar y\le y$.
+The random variable $\bar Y$ takes value $c$ with probability $P$ and $0$ with probability $1-P$.
+Therefore $\bar y=P\cdot c$ whence \ref{eq:cebyshov} follows.
+
 
 \parit{Proof.}
 Let us introduce independent random variables $X_1,\dots X_n$ that returns number of heads after each toss;
@@ -434,12 +442,12 @@ It follows that
 \[P_n\le \left(\tfrac34\cdot 2^{\frac13}\right)^n\le 0.95^n.\]
 \qedsf
 
+\pagebreak[1]
 \begin{thm}{Advanced exercise}\label{ex:lin-Qn}
 \begin{enumerate}[(a)]
 \item Show that $Q_n$ contains at most $2\cdot n$ vertexes on distance at least $\tfrac n2$ from each other. 
 \item Show that $Q_n$ contains at most $n+1$ vertexes on distance larger than $\tfrac n2$ from each other. 
 \end{enumerate}
-
 \end{thm}
  
 
