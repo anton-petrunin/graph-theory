@@ -85,6 +85,11 @@ def dOt text t=
 for $=t: fill ((fullcircle scaled (dotlabeldiam +0.5)) shifted $); 
 fill ((fullcircle scaled (dotlabeldiam -0.5)) shifted $) withcolor 1; endfor;
 enddef;
+
+def dOOOt text t=
+for $=t: fill ((fullcircle scaled (dotlabeldiam +3)) shifted $); 
+fill ((fullcircle scaled (dotlabeldiam +1)) shifted $) withcolor 1; endfor;
+enddef;
 								 
 % Серая точка
 def dOOt text t = 

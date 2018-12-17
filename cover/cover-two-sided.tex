@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{lpic}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{punk}
+\usepackage[T1]{fontenc}
+\pagestyle{empty}
+\usepackage{tikz}
+\usepackage[papersize={12.40764in,9.250in}, spine=0.15764in, cropgap=0.125in
+,cropmarks, cropframe
+]{zwpagelayout}%0.125" + 6" + 70*0.002252" + 6" + .125" =  12.682384
+\linespread{1}
+\definecolor{orange}{RGB}{100, 149, 237}%{250,205,25}
+\pagecolor{orange}
+
+\usepackage{letltxmacro}
+\LetLtxMacro\origttfamily\ttfamily
+\DeclareRobustCommand*{\ttfamily}{%
+  \origttfamily
+  \hyphenchar\font=`\-\relax
+  \fontdimen3\font=.25em\relax
+  \fontdimen4\font=.167em\relax
+  \fontdimen7\font=.167em\relax
+}
+
+\makeatletter
+\DeclareRobustCommand\vttfamily{%
+  \not@math@alphabet\vttfamily\relax
+  \fontfamily{cmvtt}% cmvtt (Computer Modern) or lmvtt (Latin Modern)
+  \selectfont
+}
+\DeclareTextFontCommand{\textvtt}{\vttfamily}
+\makeatother
+
+\begin{document}
+\begin{lpic}[t(2.5in),b(0mm),r(0mm),l(5.8in)]{../mppics/pic-4(1)}
+\lbl[b]{82,175;{\hbox{
+\hspace{3em}\parbox{.3\textwidth}{\begin{center}
+        \ttfamily\bfseries\Huge  Extra pearls in graph theory                           
+                                  \end{center}
+}}}}
+\lbl{88,170;{\ttfamily\large Anton Petrunin}}
+\lbl{-120,185;{\hbox{
+\hspace{3em}\parbox{.4\textwidth}
+{\vttfamily\large 
+This is a supplement for ``Pearls in graph theory'' written Nora Hartsfield and Gerhard Ringel.
+We discuss bounds on Ramsey numbers, 
+probabilistic method, 
+the deletion-contraction formulas, 
+the matrix theorem, chromatic polynomial, 
+the marriage theorem and its relatives, 
+Rado graph, and generating functions.
+}}}}
+%\lbl{-10,-3;{\ttfamily\large Updated on 2018-07-26.}}
+\end{lpic}
+
+\end{document}

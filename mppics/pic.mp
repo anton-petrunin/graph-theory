@@ -126,4 +126,47 @@ z.c+z.d,
 z.a+z.b+z.c,z.a+z.b+z.d,z.a+z.c+z.d,z.b+z.c+z.d,
 z.a+z.b+z.c+z.d;
 endfig;
+
+beginfig(4) 
+save u;
+u:=6cm;
+
+z.a0=(0,1)*u;
+z.a1=z.a0 rotated 360/27;
+z.a2=z.a1 rotated 360/27;
+z.a3=z.a2 rotated 360/27;
+z.a4=z.a3 rotated 360/27;
+z.a5=z.a4 rotated 360/27;
+z.a6=z.a5 rotated 360/27;
+z.a7=z.a6 rotated 360/27;
+z.a8=z.a7 rotated 360/27;
+z.a9=z.a8 rotated 360/27;
+z.a10=z.a9 rotated 360/27;
+z.a11=z.a10 rotated 360/27;
+z.a12=z.a11 rotated 360/27;
+z.a13=z.a12 rotated 360/27;
+z.a14=z.a13 rotated 360/27;
+z.a15=z.a14 rotated 360/27;
+z.a16=z.a15 rotated 360/27;
+z.a17=z.a16 rotated 360/27;
+z.a18=z.a17 rotated 360/27;
+z.a19=z.a18 rotated 360/27;
+z.a20=z.a19 rotated 360/27;
+z.a21=z.a20 rotated 360/27;
+z.a22=z.a21 rotated 360/27;
+z.a23=z.a22 rotated 360/27;
+z.a24=z.a23 rotated 360/27;
+z.a25=z.a24 rotated 360/27;
+z.a26=z.a25 rotated 360/27;
+
+draw z.a0--z.a1--z.a2--z.a3--z.a4--z.a5--z.a6--z.a7--z.a8--z.a9--
+z.a10--z.a11--z.a12--z.a13--z.a14--z.a15--z.a16--z.a17--z.a18--z.a19--
+z.a20--z.a21--z.a22--z.a23--z.a24--z.a25--z.a26--cycle penbold;
+
+draw z.a0--z.a13--z.a17--z.a24--z.a10--z.a14--z.a21--z.a7--z.a11--z.a18--z.a4--z.a8--z.a15--z.a1--z.a5--z.a12--z.a25--z.a2--z.a9--z.a22--z.a26--z.a6--z.a19--z.a23--z.a3--z.a16--z.a20--cycle penbold;
+
+dOOOt z.a0,z.a1,z.a2,z.a3,z.a4,z.a5,z.a6,z.a7,z.a8,z.a9,
+z.a10,z.a11,z.a12,z.a13,z.a14,z.a15,z.a16,z.a17,z.a18,z.a19,
+z.a20,z.a21,z.a22,z.a23,z.a24,z.a25,z.a26;
+endfig;
 end

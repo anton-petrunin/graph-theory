@@ -182,21 +182,21 @@ That is, $r(3,4)=9$; see \cite[p. 82--83]{pearls}.
 Similarly, to show that $r(4,4)\ge 18$, we need to construct a decomposition of $K_{17}$ in to two subgraphs with no $K_4$.
 (In fact, $r(4,4)=18$, but we are not going to prove it.)
 
-The corresponding decomposition is given on the following diagram.
+The corresponding decomposition is given on the  diagram.
+The constructed decomposition is rationally symmetric; the first subgraph contains the chords of angle lengths 1, 2, 4, and 8 and the second to all the cords of angle lengths 3, 5, 6 and 7.
 
-\begin{center}
+\begin{figure}[h!]
+\centering
 \begin{lpic}[t(-0 mm),b(0 mm),r(0 mm),l(0 mm)]{pics/lower-r-4-4(1)}
 \end{lpic}
-\end{center}
-
-The constructed decomposition is rationally symmetric; the first subgraph contains the chords of angle lengths 1, 2, 4, and 8 and the second to all the cords of angle lengths 3, 5, 6 and 7.
+\end{figure}
 
 \begin{thm}{Exercise}
 Show that 
 
 \begin{enumerate}[(a)]
 \item In the decomposition of $K_8$ above, the left graph contains no triangle and the right graph contains no $K_4$.
-\item In the decomposition of $K_{17}$ above, both graph contain no $K_4$.
+\item In the decomposition of $K_{17}$, both graph contain no $K_4$.
 \end{enumerate}
 \end{thm}
 
@@ -297,7 +297,7 @@ One might think that this estimate alone is sufficient to conclude that {}\emph{
 (It is still true that probability of existence of monochromatic coloring is close to 1, but the proof requires more work and it does not follow solely from the estimate.)
 
 The total number of colorings of $K_{100}$ is $2^{\binom{100}2}>10^{1400}$.
-Therefore in principle it might happen that $99.99\%$ of colorings of $K_{100}$ might have no monochromatic Hamiltonian cycles and $.01\%$ of the colorings contain all the monochromatic Hamiltonian cycles.
+Therefore in principle it might happen that $99.99\%$ of the colorings have no monochromatic Hamiltonian cycles and $.01\%$ of the colorings contain all the monochromatic Hamiltonian cycles.
 To keep the expected value above $10^{125}$,
 this $.01\%$ of colorings should have less than $10^{130}$ of monochromatic cycles in average;
 the latter does not seem impossible since the total number of Hamiltonian cycles in $K_{100}$ is $99!/2>10^{155}$.
@@ -409,11 +409,11 @@ Suppose $Y$ is a nonnegative random variable and $c> 0$.
 Denote by $P$ the probability of the event $Y\ge c$ and by $y$ the expected value of $Y$.
 Then 
 \[P\cdot c\le y\eqlbl{eq:cebyshov}.\]
-Indeed, consider the random variable $\bar Y$ such that $\bar Y=c$ if $Y\ge c$ and $\bar Y=0$ otherwise;
+Indeed, consider another random variable $\bar Y$ such that $\bar Y=c$ if $Y\ge c$ and $\bar Y=0$ otherwise;
 denote by $\bar y$ its expected value.
 Note that $\bar Y\le Y$ and therefore $\bar y\le y$.
 The random variable $\bar Y$ takes value $c$ with probability $P$ and $0$ with probability $1-P$.
-Therefore $\bar y=P\cdot c$ whence \ref{eq:cebyshov} follows.
+Therefore $\bar y=P\cdot c$; whence \ref{eq:cebyshov} follows.
 
 
 \parit{Proof.}
