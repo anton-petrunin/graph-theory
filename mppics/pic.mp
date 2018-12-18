@@ -169,4 +169,29 @@ dOOOt z.a0,z.a1,z.a2,z.a3,z.a4,z.a5,z.a6,z.a7,z.a8,z.a9,
 z.a10,z.a11,z.a12,z.a13,z.a14,z.a15,z.a16,z.a17,z.a18,z.a19,
 z.a20,z.a21,z.a22,z.a23,z.a24,z.a25,z.a26;
 endfig;
+
+beginfig(5) 
+save u;
+u:=1cm;
+
+z.a=(1,0)*u;
+z.b=z.a rotated 120;
+z.c=z.a rotated -120;
+
+draw origin--z.a penbold;
+draw origin--z.b penbold;
+draw origin--z.c penbold;
+draw z.a--z.a-z.b penbold;
+draw z.a--z.a-z.c penbold;
+draw z.b--z.b-z.a penbold;
+draw z.b--z.b-z.c penbold;
+draw z.c--z.c-z.a penbold;
+draw z.c--z.c-z.b penbold;
+draw z.c-z.a--z.c-z.a+z.b penbold;
+draw z.c-z.a--z.c-z.a+z.c penbold;
+draw z.c-z.a+z.c..z.c-z.b..z.a-z.b..z.a-z.c..z.b-z.c..z.b-z.a..z.c-z.a+z.b..cycle penbold;
+
+dOOOt origin,z.a,z.b,z.c,z.a-z.c,z.a-z.b,z.b-z.a,z.b-z.c,z.c-z.a,z.c-z.b,z.c-z.a+z.b,z.c-z.a+z.c;
+
+endfig;
 end
