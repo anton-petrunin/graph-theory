@@ -8,4 +8,11 @@ The following command will create a local copy of the source code for you.
 Go to the created folder and `pdflatex`:
 
 `cd graph-theory/`<br/>
-`pdflatex graph-theory.tex`
+`pdflatex graph-theory.tex`<br/>
+`makeindex graph-theory`
+`biber graph-theory`
+`pdflatex graph-theory.tex`<br/>
+
+To get arXiv.tar with all needed files do
+
+`tar -cvf arXiv.tar --files-from list-of-files.txt`
