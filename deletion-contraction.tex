@@ -89,11 +89,16 @@ If we remove the vertex $w$ and its edge from $G$, then in obtained graph $G\bac
 the number of spanning trees remains unchanged; that is,
 \[s(G)=s(G\backslash w).\eqlbl{eq:deletion-plus-contraction-w}\]
 
+
 Indeed, denote by $e$ the only edge incident to $w$. 
 Note that the graph $G\backslash e$ is not connected, since the vertex $w$ is isolated.
 Therefore 
 $s(G\backslash e)=0$.
 On the other hand $G/e=G\backslash w$ therefore \ref{eq:deletion-plus-contraction} implies~\ref{eq:deletion-plus-contraction-w}.
+
+On the diagrams, we will use two-sided arrow ``$\leftrightarrow$'' for the graphs with equal number of the spanning trees.
+For example, from the discussed identities we can draw the diagram, which in particular implies the following identity:
+\[s(G)=2\cdot s(H).\]
 
 \begin{wrapfigure}{r}{59 mm}
 \begin{lpic}[t(-0 mm),b(0 mm),r(0 mm),l(0 mm)]{pics/diagramma(1)}
@@ -102,11 +107,7 @@ On the other hand $G/e=G\backslash w$ therefore \ref{eq:deletion-plus-contractio
 \end{lpic}
 \end{wrapfigure}
 
-On the diagrams, we will use two-sided arrow ``$\leftrightarrow$'' for the graphs with equal number of the spanning trees.
-For example, from the discussed identities we can draw the diagram, which in particular implies the following identity:
-\[s(G)=2\cdot s(H).\]
-
-The deletion-plus-contraction formula gives an algorithm to calculate  the value $s(G)$ for given pseudograph $G$.
+Note that the deletion-plus-contraction formula gives an algorithm to calculate  the value $s(G)$ for given pseudograph $G$.
 Indeed, for any edge $e$, both graphs $G\backslash e$ and $G/e$ have smaller number of edges.
 That is, the deletion-plus-contraction formula reduces the problem of finding number of the trees to simpler graphs;
 applying this formula few times we can reduce the question to a collection of graphs with evident answer for each.

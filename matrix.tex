@@ -336,10 +336,17 @@ where $s(G)$ denotes the number of spanning trees in $G$.
 \end{thm}
 
 
-\parit{Proof.} As usual we denote by $p$ and $q$ the number of vertexes and edges in $G$.
-We will use induction on the number $p+q$; we will always assume that $p\ge 2$.
+\parit{Proof.}
+Denote by $d$ the degree of the last vertex in $G$.
 
-The base case will include two cases $p=2$ and $q=0$.
+Assume $d=0$.
+Then $G$ is not connected and therefore $s(G)=0$.
+On the other hand, the sum in each row of $M_G$ vanish (compare to Exercise~\ref{ex:sum-kirchhoff}).
+Hence the sum of all columns in $M_G$ vanish;
+in particular, the columns in  $M_G$ are linearly dependent and hence $\det M_G=0$.
+Hence the equality \ref{eq:matrix-formula} holds if $d=0$.
+
+As usual we denote by $p$ and $q$ the number of vertexes and edges in $G$; by the assumption we have that $p\ge 2$.
 
 \begin{wrapfigure}{r}{25 mm}
 \begin{lpic}[t(-0 mm),b(0 mm),r(0 mm),l(0 mm)]{pics/p=2(1)}
@@ -350,37 +357,33 @@ The base case will include two cases $p=2$ and $q=0$.
 Assume $p=2$; that is, $G$ has two vertexes and $q$ parallel edges connecting them.
 Clearly $s(G)=q$.
 Further note that $M_G=(q)$; that is,  the Kirchhoff minor $M_G$ is a $1{\times}1$ matrix with single component $q$.
-In particular $\det M_G=q$ and therefore the formula \ref{eq:matrix-formula} holds if $p=2$.
-It proves the statement in the first base case $p=2$.
+In particular $\det M_G=q$ and therefore the equality \ref{eq:matrix-formula} holds.
 
-Denote by $d$ the degree of the last vertex in $G$.
+Assume the equality \ref{eq:matrix-formula} does not hold in general;
+choose a graph $G$ that minimize the value $p+q$ among the graphs violating \ref{eq:matrix-formula}.
 
-Assume $d=0$.
-Then $G$ is not connected and therefore $s(G)=0$.
-On the other hand, the sum in each row of $M_G$ vanish (compare to Exercise~\ref{ex:sum-kirchhoff}).
-Hence the sum of all columns in $M_G$ vanish;
-in particular, the columns in  $M_G$ are linearly dependent and hence $\det M_G=0$.
-In particular if $q=0$ then $d=0$ hence in this case formula \ref{eq:matrix-formula} holds if $q=0$.
-It proves the statement in the second base case $q=0$.
-
-It remains to consider the case $d>0$.
-In this case we may assume that the first and last vertexes of $G$ are adjacent, otherwise permute pair of labels $1$ and some $j<p$  and apply Observation~\ref{observaiton:swap}.
+From above we have that $p>2$ and $d>0$.
+Note that we may assume that the first and last vertexes of $G$ are adjacent;
+otherwise permute pair of labels $1$ and some $j<p$  and apply Observation~\ref{observaiton:swap}.
 Denote by $e$ the edge between the first and last vertex.
 
-Note that the total number of vertexes and edges in the pseudographs $G\backslash e$ and $G/e$ are smaller than $p+q$; 
-hence by induction hypothesis the matrix theorem holds for these two pseudographs.
-
-Applying deletion-plus-contraction formula, 
-the induction hypothesis
+Note that the total number of vertexes and edges in the pseudographs $G\backslash e$ and $G/e$ are smaller than $p+q$.
+Therefore we have that
+\begin{align*}
+s(G\backslash e)&=\det M_{G\backslash e},
+&
+s(G/e)&=\det M_{G/e}.
+\end{align*}
+Applying these two identities together with deletion-plus-contraction formula 
 and Observation~\ref{observaiton:dpc}, we get that
 \begin{align*}
 s(G)&=s(G\backslash e)+s(G/e)=
 \\
 &=\det M_{G\backslash e}+\det M_{G/e}=
 \\
-&=\det M_G,
+&=\det M_G;
 \end{align*}
-which proves the induction step.
+that is, the identity \ref{eq:matrix-formula} holds for $G$ --- a contradiction.
 \qeds
 
 
@@ -392,7 +395,7 @@ find its Kirchhoff minor and use matrix theorem to find the number of spanning t
 \item $s(W_6)$;
 \item $s(Q_3)$.
 \end{enumerate}
-(Use {}\emph{\texttt{http://matrix.reshish.com/determinant.php}}, or any other matrix calculator.)
+(Use \href{http://matrix.reshish.com/determinant.php}{\emph{\texttt{http://matrix.reshish.com/determinant.php}}}, or any other matrix calculator.)
 \end{thm}
 
 
@@ -641,4 +644,6 @@ where $p$, $q$ и $r$ denotes the number of vertexes, edges and regions of in a 
 
 Few interesting proofs of Cayley formula are given in \cite[Chapter 30]{aigner-ziegler};
 the most popular proof using the Pr\"ufer's code is given in \cite{pearls}.
+
+
 
