@@ -27,28 +27,28 @@ It has six flights which serve four airports labeled by $a$, $b$, $c$ and~$d$.
 For this and similar type of data, mathematicians use the notion of \index{pseudograph}\emph{pseudograph}.
 
 Formally, a pseudograph is a finite nonempty set of \index{vertex}\emph{vertexes}  (in our example a vertex is an airport) 
-and finite collection of \index{edge}\emph{edges}, each edge connects two vertexes (in the example above, edge is a regular flight).
-A pair of vertexes can be connected by few edges, such edges are called \index{parallel edges}\emph{parallel} (in our example, it might mean that the airline makes few  flight a day between these airports). 
-Also an edge can connect a vertex to itself, such edge is called a \index{loop}\emph{loop} (we might think of it as а sightseeing flight).
+and a finite collection of \index{edge}\emph{edges}; each edge connects two vertexes (in the example above, an edge is a regular flight).
+A pair of vertexes can be connected by a few edges, such edges are called \index{parallel edges}\emph{parallel} (in our example, it might mean that the airline makes few flights a day between these airports). 
+Also, an edge can connect a vertex to itself, such an edge is called a \index{loop}\emph{loop} (we might think of it as а sightseeing flight).
 
-Thus, from mathematical point of view, the diagram above describes an example of pseudograph with vertexes $a$, $b$, $c$, $d$ and 
-six edges; among them one loop at $c$ and a pair of parallel edges between $b$ and $d$.
+Thus, from a mathematical point of view, the diagram above describes an example of a pseudograph with vertexes $a$, $b$, $c$, $d$, and 
+six edges, among them is one loop at $c$ and a pair of parallel edges between $b$ and $d$.
 
 \smallskip
 
 The number of edges coming from one vertex is called its \index{degree}\emph{degree}, the loops are counted twice.
 In the example above,
-the degrees of $a,b,c$ and $d$ are $1,4,4$ и $3$ correspondingly.
+the degrees of $a,b,c$ and $d$ are $1,4,4$ and $3$ correspondingly.
 
-A vertex with zero degree is called \index{isolated vertex}\emph{isolated} and a vertex of degree one is called \index{end vertex}\emph{end vertex}.
+A vertex with zero degree is called \index{isolated vertex}\emph{isolated} and a vertex of degree one is called an \index{end vertex}\emph{end vertex}.
 
 \smallskip
 
-A pseudograph without loops is also called \index{multigraph}\emph{multigraph}.
-A multigraph without parallel edges is also called \index{graph}\emph{graph}.
+A pseudograph without loops is also called a \index{multigraph}\emph{multigraph}.
+A multigraph without parallel edges is also called a \index{graph}\emph{graph}.
 Most of the time we will work with graphs.
 
-If $x$ and $y$ are vertexes of a pseudograph $G$, we say $x$ is \index{adjacent}\emph{adjacent} to $y$ if there is an edge between $x$ and $y$.
+If $x$ and $y$ are vertexes of a pseudograph $G$, we say that $x$ is \index{adjacent}\emph{adjacent} to $y$ if there is an edge between $x$ and $y$.
 We say that a vertex $x$ is \index{incident}\emph{incident} with an edge $e$ if $x$ is an end vertex of $e$.
 
 \section*{Wolf, goat and cabbage}
@@ -61,18 +61,18 @@ As an example, let us consider the following classical problem.
 
 \begin{thm}{Problem}
 A farmer purchased a wolf, a goat and a cabbage;
-he needs to cross a river.
-He has a boat, but he could carry only himself and a single one of his purchases: the wolf, the goat, or the cabbage.
+he needs to cross a river with them.
+He has a boat, but he can carry only himself and a single one of his purchases: the wolf, the goat, or the cabbage.
 
-If left unattended together, the wolf would eat the goat, or the goat would eat the cabbage.
+If left unattended together, the wolf would eat the goat, and the goat would eat the cabbage.
 
-The farmer has to carry himself and his purchases to the far bank of the river, leaving each purchase intact. How did he do it?
+The farmer has to carry himself and his purchases to the far bank of the river, leaving each purchase intact. How can he do it?
 \end{thm}
 
 \parit{Solution.}
 Let us denote the farmer by $*$, the river by ${\parallel}$
-the wolf by $w$, the goat by $g$ and the cabbage by $c$.
-For example $wc{\parallel}{*}g$ means that wolf and cabbage are on the left bank of the river and the goat with the farmer are on the right bank.
+the wolf by $w$, the goat by $g$, and the cabbage by $c$.
+For example $wc{\parallel}{*}g$ means that the wolf and cabbage are on the left bank of the river and the goat with the farmer are on the right bank.
 
 The starting position is $wgc{*}{\parallel}$; that is, everyone is one the left bank.
 The following graph describes all possible positions which can be achieved; each edge is labeled by the transported purchase.
@@ -106,22 +106,22 @@ The following graph describes all possible positions which can be achieved; each
 \end{center}
 
 This graph shows that the farmer can achieve ${}{\parallel}{{*}wgc}$ by legal moves.
-It solves the problem, and also shows that there are exactly two different solutions;
+It solves the problem, and also shows that there are exactly two different solutions,
 assuming that the farmer does not want to repeat the same position twice. 
 \qeds
 
-Often graph comes with an extra structure, for example labeling of edges and/or vertexes as in the example above.
+Often, a graph comes with an extra structure, for example labeling of edges and/or vertexes as in the example above.
 
 Here is a small variation of another classical problem.
 
-\begin{thm}{Problem} Missionaries and cannibals must cross a river using a boat which can carry at most two people, under the constraint that, for both banks, if there are missionaries present on the bank, they cannot be outnumbered by cannibals; the missionaries will be eaten otherwise.
+\begin{thm}{Problem} Missionaries and cannibals must cross a river using a boat which can carry at most two people, under the constraint that, for both banks, if there are missionaries present on the bank, they cannot be outnumbered by cannibals; otherwise the missionaries will be eaten.
 The boat cannot cross the river by itself with no people on board.
 \end{thm}
 
-Let us introduce a notation to describe positions of missionaries, cannibals and the boat on the banks.
+Let us introduce a notation to describe the positions of the missionaries, cannibals and the boat on the banks.
 The river will be denoted by ${\parallel}$;
 let $*$ denotes the boat, we will write the number of cannibals on each side of ${\parallel}$ and the number of missionaries by subscript. 
-For example $4_2^*{\parallel}0_2$ means that on the left bank we have four cannibals, two missionaries and the boat, and on the right bank there is no cannibals and two missionaries.
+For example, $4_2^*{\parallel}0_2$ means that on the left bank we have four cannibals , two missionaries and the boat (these two missionaries will be eaten), and on the right bank there are no cannibals and two missionaries.
 
 \begin{thm}{Exercise}
 Assume four missionaries and four cannibals need to cross the river; in other words the beginning stage is $4_4^*{\parallel}0_0$.

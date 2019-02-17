@@ -97,17 +97,17 @@ Note that $G\backslash e$ is a multigraph with $p$ vertexes and $q-1$ edges.
 By the assumption, its chromatic polynomial $P_{G\backslash e}$ is monic of degree $p$.
 
 Further the pseudograph $G/e$ has $p-1$ vertexes,
-and its chromatic polynomial $P_{G/e}$ is either vanish or has degree $p-1$.
+and its chromatic polynomial $P_{G/e}$ either vanishes or has degree $p-1$.
 In both cases the difference $P_{G\backslash e}-P_{G/e}$ is a monic polynomial of degree~$p$.
 It remains to apply the deletion-minus-contraction formula \ref{eq:deleting-contracting}.
-\qedsf
+\qeds
 
 \begin{thm}{Advanced exercise}
 Let $G$ be a graph with $p$ vertexes and $q$ edges.
 Show that the coefficient in front of $x^{p-1}$ of its chromatic polynomial $P_G(x)$ equals to $(-q)$.
 \end{thm}
 
-\parit{Hint:} Apply induction on $q$ and use the deletion-minus-contraction formula the same ways as in the proof of the theorem.
+\parit{Hint:} Apply induction on $q$ and use the deletion-minus-contraction formula the same way as in the proof of the theorem.
 
 \begin{thm}{Exercise}
 Use induction and  deletion-minus-contraction formula to show that 
@@ -207,9 +207,10 @@ for any edge $e$ in $G$
 
 \section*{Spanning-tree polynomial}
 
-Consider a connected graph $G$ with the vertexes labeled by $x_1,\dots,x_p$ with $p\ge 2$;
-let us also treat each label $x_i$ as an independent variable.
+Consider a connected graph $G$ with $p$ vertexes;
+assume $p\ge 2$.
 
+Let us prepare independent variables $x_1,\dots,x_p$, one for each vertex.
 For each spanning tree $T$ in $G$ consider the monomial 
 \[x_1^{d_1-1}\cdots x_p^{d_p-1},\]
 where $d_i$ denotes the degree of the $i$-th vertex in $T$.
@@ -227,12 +228,14 @@ $S_G(1,\dots,1)$.
 The following exercise shows that,
 the polynomial $S_G$ keeps lot more information about spanning trees in $G$.
 
+%Abusing notation slightly, we will use the variables $x_1,\dots,x_p$ as label of the corresponding vertex in $G$; for instance, we can say ``$x_2$ has degree 5 in $G$'' instead of ``the second vertex has degree 5 in $G$''.   
+
 \begin{thm}{Exercise}
 Let $G$ be a graph with vertexes labeled by $x_1,\dots,x_p$ and $S_G(x_1,\dots,x_p)$ be its spanning tree polynomial.
 Show the following
 \begin{enumerate}[(a)]
 \item The value $S_G(0,1,\dots,1)$ can be interpreted as the number of spanning trees with the leaf $x_1$.
-\item The coefficient of $S_G$ in front of $x_1\cdots x_{p-2}$ equals to the number of paths of length $p$ connecting $x_{p-1}$ and $x_{p}$.
+\item The coefficient of $S_G$ in front of $x_1\cdots x_{p-2}$ equals to the number of paths of length $p-1$ connecting $x_{p-1}$ and $x_{p}$.
 \item The partial derivative
 \[\tfrac{\partial}{\partial x_1}S_G(0,1,\dots,1)\]
 is the numbers of spanning trees in $G$ with degree 2 at $x_1$.
@@ -249,7 +252,7 @@ Assume that the vertexes of complete graph $K_p$ are labeled by $x_1,\dots,x_p$ 
 Then
 \[S_{K_p}(x_1,\dots,x_p)=(x_1+\dots +x_p)^{p-2}.\]
 In particular, $s(K_p)=p^{p-2}$;
-that is the number of spanning trees in $K_p$ is $p^{p-2}$.
+that is, the number of spanning trees in $K_p$ is $p^{p-2}$.
 \end{thm}
 
 \parit{Proof.}
@@ -271,7 +274,7 @@ all monomials in $S_{K_p}$ without $x_p$ sum up to $(x_1+\dots+x_{p-1})^{p-2}$.
 
 
 
-Each of these monomials correspond to a spanning tree $T$ with $d_p=1$;
+Each of these monomials corresponds to a spanning tree $T$ with $d_p=1$;
 that is, the vertex $x_p$ is a leaf of $T$.
 In other words, $T$ is obtained from tree $T'$ on the vertexes $x_1,\dots,x_{p-1}$ 
 by adding an edge from $x_p$ to $x_i$ with $i<p$.
