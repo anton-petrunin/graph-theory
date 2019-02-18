@@ -37,5 +37,4 @@ mppics/pic-1.mps
 generating-functions.tex
 appendix.tex
 graph-theory.ind
-library.bib
 list-of-files.txt
