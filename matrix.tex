@@ -99,7 +99,6 @@ the obtained matrix $M=M_G$ will be called \index{Kirchhoff minor}\emph{Kirchhof
 \end{wrapfigure}
 
 For example, the labeled multigraph $G$ on the diagram has the following Kirchhoff matrix and Kirchhoff minor:
-
 \[A'=\left(
 \begin{matrix}
 2&-1&0&-1
@@ -343,7 +342,7 @@ Assume $d=0$.
 Then $G$ is not connected and therefore $s(G)=0$.
 On the other hand, the sum in each row of $M_G$ vanish (compare to Exercise~\ref{ex:sum-kirchhoff}).
 Hence the sum of all columns in $M_G$ vanish;
-in particular, the columns in  $M_G$ are linearly dependent and hence $\det M_G=0$.
+in particular, the columns in $M_G$ are linearly dependent and hence $\det M_G=0$.
 Hence the equality \ref{eq:matrix-formula} holds if $d=0$.
 
 As usual we denote by $p$ and $q$ the number of vertexes and edges in $G$; by the assumption we have that $p\ge 2$.
@@ -428,7 +427,7 @@ which satisfies the following conditions:
 \[\det M'= \det M.\]
 \end{enumerate}
 These three conditions define determinant in a unique way. 
-We will not give a proof of the statement, it is not evident and not complicated (soon or later you will have to learn it, if it is not done already).
+We will not give a proof of the statement; it is not evident and not complicated (soon or later you will have to learn it, if it is not done already).
 
 \begin{thm}{Exercise}
 Show that the following property follows from the properties above.
@@ -629,7 +628,7 @@ Note that the spanning trees of $G$ can be subdivided into the following three g
 (1) those where the edged $e$ appears on the (necessary unique) path from $a$ to $b$ with positive orientation,
 (2) those where the edge $e$ appears on the path from $a$ to $b$ with negative orientation,
 (3) those which the edge $e$ do not appear on the path from $a$ to $b$.
-Denote by $s_+$, $s_-$ and $s_0$ the number of the trees in each group.
+Denote by $s_+$, $s_-$, and $s_0$ the number of the trees in each group.
 Clearly 
 \[s(G)=s_++s_-+s_0.\]
 
@@ -640,7 +639,7 @@ This statement can be proved by checking Kirchhoff's rules for the currents calc
 There are many other applications of Kirchhoff's rules to graph theory.
 For example, in \cite{levi}, they were used to prove the Euler's formula
 \[p-q+r=2,\]
-where $p$, $q$ and $r$ denotes the number of vertexes, edges and regions of in a plane drawing of graph.
+where $p$, $q$, and $r$ denotes the number of vertexes, edges and regions of in a plane drawing of graph.
 
 Few interesting proofs of Cayley formula are given in \cite[Chapter 30]{aigner-ziegler};
 the most popular proof using the Pr\"ufer's code is given in \cite{pearls}.

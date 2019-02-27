@@ -49,7 +49,7 @@ Therefore $P_{G/e}(x)=0$ for any $x$ and by deletion-minus-contraction formula w
 The same identity can be seen directly --- any admissible coloring of $G\backslash e$ is also admissible in $G$ --- since the ends of $f$ get different colors, so does $e$. 
 
 Summarizing above discussion:
-the problem of finding $P_G(x)$ for a pseudograph $G$ can be reduced to the case when $G$ is a graph --- if $G$ has a parallel edge, removing it does not change $P_G(x)$ and if $G$ has a loop then $P_G(x)=0$ for all $x$.
+the problem of finding $P_G(x)$ for a pseudograph $G$ can be reduced to the case when $G$ is a graph --- if $G$ has a parallel edge, removing it does not change $P_G(x)$ and if $G$ has a loop, then $P_G(x)=0$ for all $x$.
 
 Recall that polynomial $P$ of $x$ is an expression of the following type
 \[P(x)=a_0+a_1\cdot x+\dots+a_n\cdot x^n,\]
@@ -73,7 +73,8 @@ The deletion-minus-contraction formula will play the central role in the proof.
 As usual, denote by $p$ and $q$ the number of vertexes and edges in $G$.
 To prove the first part, we will use the induction on $q$.
 
-As the base case, consider the null graph $N_p$; that is, the graph with $p$ vertexes and no edges.
+As the base case, consider the null graph $N_p$;
+that is, the graph with $p$ vertexes and no edges.
 Since $N_p$ has no edges, any coloring of $N_p$ is admissible.
 We have $x$ choices for each of $n$ vertexes therefore
 \[P_{N_p}(x)=x^p.\]
@@ -185,7 +186,8 @@ equals to the number of matchings with even and odd number of edges correspondin
 
 Assume $e$ is an edge in a graph $G$.
 Recall that the graph $G\backslash e$ is obtained from $G$ by deleting $e$.
-Let us denote by  $G\backslash \bar e$ the graph obtained from $G$ by deleting the vertexes of $e$ with all their edges; that is, if $e$ connects two vertexes $v$ and $w$ then 
+Let us denote by $G\backslash \bar e$ the graph obtained from $G$ by deleting the vertexes of $e$ with all their edges;
+that is, if $e$ connects two vertexes $v$ and $w$, then 
 \[G\backslash \bar e=G\backslash \{v,w\}.\]
 
 The following exercise is analogous to the deletion-contraction formulas \ref{thm:deletion-minus-contraction} and \ref{thm:deletion-plus-contraction}.
