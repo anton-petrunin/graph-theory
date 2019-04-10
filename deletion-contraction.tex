@@ -14,10 +14,11 @@
 
 Let $e$ be an edge in the pseudograph $G$.
 Denote by $G\backslash e$ the pseudograph obtained from $G$ by deleting $e$,
-and by $G/e$ the pseudograph obtained from $G$ by contraction the edge $e$ to a point; see the diagram.
+and by $G/e$ the pseudograph obtained from $G$ by contracting the edge $e$ to a point; see the diagram.
 
 Assume $G$ is a graph; that is, $G$ has no loops and no parallel edges.
-Then so is $G\backslash e$, but $G/e$ might have parallel edges but no loops; that is, $G/e$ is a multigraph.
+In this case $G\backslash e$ is also a graph.
+However, $G/e$ might have parallel edges, but no loops; that is, $G/e$ is a multigraph.
 
 If $G$ is a multigraph then so is $G\backslash e$.
 If the edge $e$ is parallel to $f$ in $G$, then $f$ in $G/e$ becomes a loop; that is, $G/e$ is a pseudograph in general.
@@ -38,7 +39,7 @@ Recall that $s(G)$ denotes the number of spanning trees in the pseudograph $G$.
 
 \medskip
 
-An edge $e$ in a connected graph $G$ is called \index{bridge}\emph{bridge}, if deletion of this edge makes it disconnected;
+An edge $e$ in a connected graph $G$ is called the \index{bridge}\emph{bridge}, if deletion of $e$ makes the graph disconnected;
 that is, the remaining graph has two connected components which are called {}\emph{banks}.
 
 
@@ -67,34 +68,33 @@ Assume $e$ is not a loop, then the following identity holds
 \end{lpic}
 \end{wrapfigure}
 
-Often it is convenient to write the identity \ref{eq:deletion-plus-contraction} using a diagram as on the picture;
-the edge $e$ is marked on the diagram.
+It is convenient to write the identity \ref{eq:deletion-plus-contraction} using a diagram as on the picture --- the arrows point from one multigraph to multigraphs with the same total number of spanning trees;
+the edge $e$ is marked in $G$.
+
 
 \parit{Proof.} Note that the spanning trees of $G$ can be subdivided into two groups ---
 (1)~those which contain the edge $e$ and (2)~those which do not.
-For the trees in the first group, contraction of $e$ to a point  gives a spanning tree in~$G/e$, while the trees in the second group are also spanning trees in~$G\backslash e$.
+For the trees in the first group, the contraction of $e$ to a point  gives a spanning tree in~$G/e$, while the trees in the second group are also spanning trees in~$G\backslash e$.
 
 Moreover, both of the described correspondences are one-to-one.
 Hence the formula follows.
 \qeds
 
 Note that a spanning tree can not have loops.
-Therefore if we remove all loops from the pseudograph, then the number of spanning trees remains unchanged.
+Therefore if we remove all loops from the pseudograph, the number of spanning trees remains unchanged.
 In other words, for any loop $e$ the following identity holds 
 \[s(G)=s(G\backslash e).\]
 
-From the deletion-plus-contraction formula we can deduce few other useful identities.
+From the deletion-plus-contraction formula, we can deduce a few other useful identities.
 For example, assume that the graph $G$ has an end vertex $w$ (that is, $\deg w=1$). 
-If we remove the vertex $w$ and its edge from $G$, then in obtained graph $G\backslash w$
+If we remove the vertex $w$ and its edge from $G$, then in the obtained graph $G\backslash w$
 the number of spanning trees remains unchanged; that is,
 \[s(G)=s(G\backslash w).\eqlbl{eq:deletion-plus-contraction-w}\]
-
-
-Indeed, denote by $e$ the only edge incident to $w$. 
+To prove this equality, denote by $e$ the only edge incident to $w$. 
 Note that the graph $G\backslash e$ is not connected, since the vertex $w$ is isolated.
-Therefore 
+In particular,
 $s(G\backslash e)=0$.
-On the other hand $G/e=G\backslash w$ therefore \ref{eq:deletion-plus-contraction} implies~\ref{eq:deletion-plus-contraction-w}.
+On the other hand, $G/e=G\backslash w$; therefore \ref{eq:deletion-plus-contraction} implies~\ref{eq:deletion-plus-contraction-w}.
 
 On the diagrams, we will use two-sided arrow ``$\leftrightarrow$'' for the graphs with equal number of the spanning trees.
 For example, from the discussed identities we can draw the diagram, which in particular implies the following identity:
@@ -107,10 +107,10 @@ For example, from the discussed identities we can draw the diagram, which in par
 \end{lpic}
 \end{wrapfigure}
 
-Note that the deletion-plus-contraction formula gives an algorithm to calculate  the value $s(G)$ for given pseudograph $G$.
+Note that the deletion-plus-contraction formula gives an algorithm to calculate  the value $s(G)$ for a given pseudograph $G$.
 Indeed, for any edge $e$, both graphs $G\backslash e$ and $G/e$ have smaller number of edges.
-That is, the deletion-plus-contraction formula reduces the problem of finding number of the trees to simpler graphs;
-applying this formula few times we can reduce the question to a collection of graphs with evident answer for each.
+That is, the deletion-plus-contraction formula reduces the problem of finding the number of the trees to simpler graphs;
+applying this formula a few times we can reduce the question to a collection of graphs with an evident answer for each.
 In the next section we will show how it works.
 
 
@@ -161,7 +161,7 @@ In addition to the fans $F_n$ we use its variations $F_n'$, which differ from $F
 \end{center}
 
 Set $a_n=s(F_n)$ and $a'_n=s(F'_n)$.
-From the diagram we get the following two recursive relations:
+From the diagram, we get the following two recursive relations:
 \begin{align*}
 a_{n+1}&=a'_n+a_n,
 \\
@@ -171,7 +171,7 @@ That is, in the sequence
 \[a_1,a_1',a_2,a_2',a_3\dots\]
 every number starting from $a_2$ is sum of previous two.
 
-Further note that $F_1$ has two vertexes connected by unique edge,
+Further note that $F_1$ has two vertexes connected by a unique edge,
 and  $F'_1$ has two vertexes connected by a pair of parallel edges.
 Hence $a_1=1=f_2$ and $a_1'=2=f_3$ and therefore 
 \[a_n=f_{2\cdot n}\]
@@ -186,7 +186,7 @@ a_{n+1}&=a_n'+a_n=
 \\
 &=3\cdot a_n-a_{n-1}.
 \end{align*}
-This is a special case of the called \index{constant-recursive sequences}\emph{constant-recursive sequences}.
+This is a special case of the so called \index{constant-recursive sequences}\emph{constant-recursive sequences}.
 The general term of constant-recursive sequences can be expressed by a closed formula ---
 read \cite{jordan} if you wonder how.
 In our case it is
@@ -194,7 +194,7 @@ In our case it is
 \left(
 (\tfrac{3+\sqrt{5}}2)^n-(\tfrac{3-\sqrt{5}}2)^n
 \right).\]
-Since $a_n$ is integer and $0<\tfrac1{\sqrt{5}}\cdot(\tfrac{3-\sqrt{5}}2)^n<1$ for any $n\ge 1$ a shorter formula can be written
+Since $a_n$ is an integer and $0<\tfrac1{\sqrt{5}}\cdot(\tfrac{3-\sqrt{5}}2)^n<1$ for any $n\ge 1$, a shorter formula can be written
 \[a_n
 =
 \left\lfloor\tfrac1{\sqrt{5}}\cdot(\tfrac{3+\sqrt{5}}2)^n\right\rfloor,\]
@@ -233,7 +233,7 @@ Let us denote by $b_n$ the number of spanning trees in the {}\emph{$n$-step ladd
 \end{lpic}
 \end{center}
 
-Apply the method we used for fans $F_n$ to show that the sequence $b_n$ satisfies the following linear recursive relation
+Apply the method we used for the fans $F_n$ to show that the sequence $b_n$ satisfies the following linear recursive relation:
 \[b_{n+1}=4\cdot b_n-b_{n-1}.\]
 \end{thm}
 
@@ -244,12 +244,11 @@ Apply the method we used for fans $F_n$ to show that the sequence $b_n$ satisfie
 \end{lpic}
 \end{wrapfigure}
 
-\parit{Hint:} To construct the recursive relation, in addition to the ladders $L_n$ you will need two of its analogs $L_n'$ and $L_n''$ shown on the diagram.
+\parit{Hint:} To construct the recursive relation, in addition to the ladders $L_n$, you will need two of its analogs --- $L_n'$ and $L_n''$, shown on the diagram.
 
 \medskip
 
-Note that $b_1=1$ and $b_2=4$; applying the exercise 
-we could calculate first numbers of the sequence $(b_n)$:
+Note that $b_1=1$ and $b_2=4$; applying the exercise, we could calculate the first numbers of the sequence $(b_n)$:
 \[1,4,15,56,209,780,2911,\dots \]
 
 The following exercise is analogous, but more complicated.
@@ -266,15 +265,15 @@ Recall that a wheel $W_n$ is the graph of following type:
 \lbl[l]{74,7;{\Large$\dots$}}
 \end{lpic}
 \end{center}
-Show that the sequence $c_n=s(W_n)$ satisfies the following recursive relation
+Show that the sequence $c_n=s(W_n)$ satisfies the following recursive relation:
 \[c_{n+1}=4\cdot c_n-4\cdot c_{n-1}+c_{n-2}.\]
 
 \end{thm}
 
-Using the exercise above and applying induction one can show that 
+Using the exercise above and applying induction, one can show that 
 \[c_n=f_{2\cdot n+1}+f_{2\cdot n-1}-2=l_{2\cdot  n}-2\]
-for any $n$;
-the numbers $l_n=f_{n+1}+f_{n-1}$ are called \index{Lucas numbers}\emph{Lucas numbers};
+for any $n$.
+The numbers $l_n=f_{n+1}+f_{n-1}$ are called \index{Lucas numbers}\emph{Lucas numbers};
 they pop up in combinatorics as often as Fibonacci numbers.  
 
 \section*{Remarks}
@@ -282,5 +281,5 @@ they pop up in combinatorics as often as Fibonacci numbers.
 The \emph{deletion-plus-contraction formula} together with Kirchhoff's rules were used in the solution of the so called \emph{squaring the square problem}.
 The history of this problem and its solution are discussed in a book of Martin Gradner \cite[Chapter 17]{gardiner}.
 
-The proof of recurrent relation above is given by Mohammad Hassan Shirdareh Haghighi and Khodakhast Bibak in \cite{haghighi-bibak};
-this problem is also discussed in a book of  Ronald Graham, Donald Knuth, and Oren Patashnik \cite{knut} which is a classical book.
+The proof of recurrent relation above is given by Mohammad Hassan Shirdareh Haghighi and Khodakhast Bibak \cite[see][]{haghighi-bibak};
+this problem is also discussed in a book of  Ronald Graham, Donald Knuth, and Oren Patashnik \cite[see][]{knut}.
