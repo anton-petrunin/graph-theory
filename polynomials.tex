@@ -34,7 +34,7 @@ Hence
 which is equivalent to the deletion-minus-contraction formula.
 \qeds
 
-Note that if the pseudograph $G$ has loops then $P_G(x)=0$ for any $x$.
+Note that if the pseudograph $G$ has loops, then $P_G(x)=0$ for any $x$.
 Indeed in a valid coloring the ends of loop should get different colors, which is impossible.
 
 The latter can be also proved using the deletion-minus-contraction formula.
@@ -43,7 +43,7 @@ therefore $P_{G\backslash e}(x)\z=P_{G/e}(x)$ and
 \[P_G(x)=P_{G\backslash e}(x)-P_{G/e}(x) =0.\]
 
 Similarly, removing a parallel edge from a pseudograph $G$ does not change the value $P_G(x)$ for any $x$.
-Indeed, if $e$ is an edge of $G$ which has a parallel edge $f$ then in $G/e$ the edge $f$ becomes a loop.
+Indeed, if $e$ is an edge of $G$ which has a parallel edge $f$, then in $G/e$ the edge $f$ becomes a loop.
 Therefore $P_{G/e}(x)=0$ for any $x$ and by deletion-minus-contraction formula we get that
 \[P_G(x)=P_{G\backslash e}(x).\]
 The same identity can be seen directly --- any admissible coloring of $G\backslash e$ is also admissible in $G$ --- since the ends of $f$ get different colors, so does $e$. 
@@ -56,13 +56,13 @@ Recall that polynomial $P$ of $x$ is an expression of the following type
 with constants $a_0,\dots, a_n$, which are called {}\emph{coefficients} of the polynomial.
 If $a_n\ne 0$, it is called \index{leading coefficient}\emph{leading coefficient} of $P$;
 in this case $n$ is the degree of $P$.
-If the leading coefficient is 1 then the polynomial is called \index{monic polynomial}\emph{monic}.
+If the leading coefficient is 1, then the polynomial is called \index{monic polynomial}\emph{monic}.
 
 \begin{thm}{Theorem}\label{thm:chromatic-polynomial}
 Let $G$ be a pseudograph with $p$ vertexes.
 Then $P_G(x)$ is a polynomial with integer coefficients.
 
-Moreover, if $G$ has a loop then $P_G(x)\equiv 0$;
+Moreover, if $G$ has a loop, then $P_G(x)\equiv 0$;
 otherwise $P_G(x)$ is monic and has degree $p$.
 \end{thm}
 
@@ -88,7 +88,7 @@ Note that the pseudographs $G\backslash e$ and $G/e$ have $q-1$ edges.
 By induction hypothesis, $P_{G\backslash e}(x)$ and $P_{G/e}(x)$ are polynomials with integer coefficients.
 Hence \ref{eq:deleting-contracting} implies the same for $P_G(x)$.
 
-First note that if $G$ has a loop then $P_G(x)=0$ as $G$ has no valid colorings.
+First note that if $G$ has a loop, then $P_G(x)=0$ as $G$ has no valid colorings.
 To prove the remaining statement, we also use the induction.
 
 Assume that the statement holds for any multigraph $G$ with at most $q-1$ edges and at most $p$ vertexes.
@@ -305,8 +305,8 @@ Conclude that $s(K_{m,n})=m^{n-1}\cdot n^{m-1}$.
 \section*{Remarks}
 
 A very good expository paper on chromatic polynomials is written by
-Ronald Read; see \cite{read}. 
-Matching polynomials are discussed in a paper of Christopher Godsil and Ivan Gutman; see \cite{godsil-gutman}.
+Ronald Read \cite[see][]{read}. 
+Matching polynomials are discussed in a paper of Christopher Godsil and Ivan Gutman \cite[see][]{godsil-gutman}.
 
 Our discussion of spanning-tree polynomials is based of a modification of Fedor Petrov \cite{petrov} of the original proof of Arthur Cayley~\cite{cayley}. 
 

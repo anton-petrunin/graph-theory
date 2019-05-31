@@ -4,9 +4,9 @@
 Let $G$ be a graph and $M$ a matching in $G$.
 Recall that a path $P$ in $G$ is called \index{alternated path}\emph{$M$-alternated} if the edges in $P$ 
 alternate between edges from $M$ and edges not from $M$.
-If the path $P$ connects two unmatched vertexes of $G$ then it is called \index{augmenting path}\emph{$M$-augmenting}.
+If the path $P$ connects two unmatched vertexes of $G$, then it is called \index{augmenting path}\emph{$M$-augmenting}.
 
-If there is an $M$-augmenting path $P$ then the matching $M$ can be improved by deleting from $M$ the edges in $P$
+If there is an $M$-augmenting path $P$, then the matching $M$ can be improved by deleting from $M$ the edges in $P$
 and adding the remaining edges of $P$.
 On the diagrams we denote the edges in $M$ by solid lines and the remaining edges by dashed lines; the following diagram gives an example of the improvement.
 
@@ -47,7 +47,7 @@ Assume that $G$ is a bigraph and $S$ is a set of its vertexes.
 We say that a matching $M$ of $G$ {}\emph{covers} $S$ if any vertex in $S$ is incident to an edge in $M$.
 
 Given a set of vertexes $W$ in a graph $G$, the set $W'$ of all vertexes  adjacent to at least one of vertexes in $W$ will be called the \index{set of neighbors}\emph{set of neighbors} of $W$.
-Note that if $G$ is a bigraph and $W$ lies in the left part then $W'$ lies in the right part. 
+Note that if $G$ is a bigraph and $W$ lies in the left part, then $W'$ lies in the right part. 
 
 \begin{thm}{Marriage theorem}
 Let $G$ be a bigraph with the left and right parts $L$ and $R$.
@@ -57,7 +57,7 @@ Then $G$ has a matching which covers $L$ if and only if for any subset $W\subset
 \end{thm}
 
 \parit{Proof.}
-Note that if there is a matching $M$ covering $L$ then for any set  $W\subset L$ the set $W'$ of its neighbors includes the vertexes matched with~$W$.
+Note that if there is a matching $M$ covering $L$, then for any set  $W\subset L$ the set $W'$ of its neighbors includes the vertexes matched with~$W$.
 In particular,
 \[|W'|\ge |W|;\]
 it proves the ``only if'' part.
@@ -95,7 +95,7 @@ Repeating the described procedure recursively $n$ times,
 we will end up at 1-factor of $G$.
 
 There is a tricky way to make this idea work for arbitrary $r$, not necessarily a power of $2$; 
-it is discovered by Noga Alon; see \cite{alon} and also \cite{17-camels}. 
+it is discovered by Noga Alon [see \ncite{alon} and also \ncite{17-camels}]. 
 
 \begin{thm}{Exercise}
 Children from 25 countries, 10 kids from each, decided to stand in a rectangular formation with 25 rows of 10 children in each row.
@@ -165,7 +165,7 @@ Denote by $Q_L$ and $Q_R$ the set of vertexes in $G$ which can be reached by $M$
 
 Note that according to Exercise \ref{ex:two-paths}, $Q_L$ and $Q_R$ do not overlap.
 
-Further note that if two vertexes are matched then they both lie in $Q_L$ or in $Q_R$ or neither.
+Further note that if two vertexes are matched, then they both lie in $Q_L$ or in $Q_R$ or neither.
 That is, if $m$ is an edge in $M$, then both of the vertexes of $m$ lie in $Q_L$ or in $Q_R$ or neither.
 
 For each edge $m$ in $M$,
@@ -262,7 +262,7 @@ Let us modify the paths $Q$ and $P_1$ the following way:
 Instead of the path $P_1$ consider the path $P_1'$ which goes along $Q$ from $s$ to $v$ and after that goes along $P_1$ to $t$.
 Instead of the path $Q$ consider the trail $Q'$ which goes along $P_1$ from $s$ to $w$ and after that goes along $Q$ to $t$.
 
-If the constructed trail $Q'$ is not a path (that is, if $Q'$ visits some vertexes several times) then we can discard a maximal circuit from $Q'$ to obtain a genuine path, 
+If the constructed trail $Q'$ is not a path (that is, if $Q'$ visits some vertexes several times), then we can discard a maximal circuit from $Q'$ to obtain a genuine path, 
 which we will still denote by $Q'$.
 
 Note that the obtained collection of paths $Q', P_1',P_2\dots,P_m$ satisfies the same conditions as the original collection, but it has smaller number of overlaps.
@@ -273,7 +273,7 @@ In this case, all edges which connect $S$ to the remaining vertexes of $G$ are o
 That is, every such edge which comes out of $S$ in the original orientation belongs to one of the paths $P_i$.
 
 Moreover for each path $P_i$ there is only one such edge;
-in other words if a path $P_i$ leaves $S$ then it can not come back. 
+in other words if a path $P_i$ leaves $S$, then it can not come back. 
 Otherwise $S$ could be made larger by moving backwards along $P_i$.
 Therefore cutting one edge  in each paths $P_i$ makes impossible to leave $S$.
 In particular we can cut $m$ edges leaving no oriented path from $s$ and $t$ disconnected; that is, $n\le m$.

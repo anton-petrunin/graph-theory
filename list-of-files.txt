@@ -38,3 +38,4 @@ generating-functions.tex
 appendix.tex
 graph-theory.ind
 list-of-files.txt
+library.bib

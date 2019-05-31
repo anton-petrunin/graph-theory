@@ -3,12 +3,12 @@
 
 \section*{Adjacency matrix}
 
-Let us describe a way to encode the given multigraph $G$ with $p$ vertexes by an $p{\times}p$ matrix.
+Let us describe a way to encode a given multigraph $G$ with $p$ vertexes by an $p{\times}p$ matrix.
 First, enumerate the vertexes of the multigraph by numbers from $1$ to $p$;
-such multigraph will be called \emph{labeled graph}\emph{labeled}. 
-Consider the matrix $A=A_G$ with the component $a_{i,j}$ equal to the number of edges from $i$-th vertex to the $j$-th vertex of $G$.
+such a multigraph will be called \index{labeled graph}\emph{labeled}. 
+Consider the matrix $A=A_G$ with the component $a_{i,j}$ equal to the number of edges from the $i$-th vertex to the $j$-th vertex of $G$.
 
-This matrix $A$ is called \index{adjacency matrix}\emph{adjacency matrix} of $G$.
+This matrix $A$ is called the \index{adjacency matrix}\emph{adjacency matrix} of $G$.
 Note that $A$ is \index{symmetric matrix}\emph{symmetric}; that is, $a_{i,j}=a_{j,i}$ for any pair $i,j$.
 Also, the diagonal components of $A$ vanish; that is, $a_{i,i}=0$ for any $i$.
 
@@ -35,7 +35,7 @@ Also, the diagonal components of $A$ vanish; that is, $a_{i,i}=0$ for any $i$.
 \end{wrapfigure}
 
 
-For example, for the labeled multigraph $G$ shown on the diagram, we get the following adjacency matrix 
+For example, for the labeled multigraph $G$ shown on the diagram, we get the following adjacency matrix:
 \[A=\left(
 \begin{matrix}
 0&1&0&1
@@ -59,11 +59,11 @@ Show that the components $b_{i,j}$ of the $n$-th power $A^n$ is the number of wa
 
 \section*{Kirchhoff minor}
 
-In this section we construct a special matrix, called {}\emph{Kirchhoff minor}, associated with a pseudograph
-and discuss its basic properties.
+In this section we construct a special matrix, called {}\emph{Kirchhoff minor}, associated with a pseudograph,
+and we discuss its basic properties.
 This matrix will be used in the next section in a formula for the number of spanning trees in a pseudograph~$G$.
 Since the loops do not change the number of spanning trees, we can remove all of them.
-In other words we can (and will) always assume that $G$ is a multigraph. 
+In other words, we can (and will) always assume that $G$ is a multigraph. 
 
 Fix a multigraph $G$ and consider its adjacency matrix $A=A_G$;
 it is a $p{\times}p$ symmetric matrix with zeros on the diagonal.
@@ -71,14 +71,15 @@ it is a $p{\times}p$ symmetric matrix with zeros on the diagonal.
 \begin{enumerate}
 \item Revert the signs of the components of $A$ and exchange the zeros on the diagonal by the degrees of the corresponding vertexes. 
 
-(The matrix $A'$ is called \index{Kirchhoff matrix}\emph{Kirchhoff matrix}, \emph{Laplacian matrix} or \emph{admittance matrix} of the graph $G$.)
+(The matrix $A'$ is called the \index{Kirchhoff matrix}\emph{Kirchhoff matrix}, \emph{Laplacian matrix} or \emph{admittance matrix} of the graph $G$.)
 \item Delete from $A'$ the last column and the last row;
-the obtained matrix $M=M_G$ will be called \index{Kirchhoff minor}\emph{Kirchhoff minor} of the labeled pseudograph $G$.
+the obtained matrix $M=M_G$ will be called the \index{Kirchhoff minor}\emph{Kirchhoff minor} of the labeled pseudograph $G$.
 \end{enumerate}
 
 {
 
 \begin{wrapfigure}{r}{28 mm}
+\vskip-4mm
 \begin{tikzpicture}[scale=1.4,
   thick,main node/.style={circle,draw,font=\sffamily\bfseries,minimum size=3mm}]
 
@@ -119,12 +120,12 @@ M=\left(
 \\
 0&-1&1
 \end{matrix}
-\right)\]
+\right).\]
 
 }
 
 \begin{thm}{Exercise}
-Show that in any Kirchhoff matrix $A'$ the sum of components in each row or column vanishes.
+Show that in any Kirchhoff matrix $A'$ the sum of the components in each row or column vanishes.
 Conclude that 
 \[\det A'=0.\]
 
@@ -144,13 +145,13 @@ Draw a labeled pseudograph with following Kirchhoff minor:
 \\
 0&-1&-1&-1&4
 \end{matrix}
-\right)\]
+\right).\]
 \end{thm}
 
 \begin{thm}{Exercise}\label{ex:sum-kirchhoff}
 Show that the sum of all components in every column of Kirchhoff minor is nonnegative.
 
-Moreover the sum of all components in $i$-th column vanish if and only if $i$-th vertex is not adjacent to the last vertex.
+Moreover, the sum of all components in the $i$-th column vanishes if and only if the $i$-th vertex is not adjacent to the last vertex.
 \end{thm}
 
 
@@ -191,27 +192,27 @@ M'=\left(
 \\
 -1&-1&4
 \end{matrix}
-\right)
+\right),
 \]
 which is obtained from $M$ by swapping columns $2$ and $3$ following by swapping rows $2$ and $3$.
 
-Note that swapping a pair of columns or rows changes the sign of determinant.
-Therefore swapping one pair of rows and one pair of columns does not change the determinant.
-The same holds in general; let us summarize it:
+Note that swapping a pair of columns or rows changes the sign of the determinant.
+Therefore, swapping one pair of rows and one pair of columns does not change the determinant.
+Summarizing we get the following:
 
 \begin{thm}{Observation}\label{observaiton:swap}
 Assume $G$ is a labeled graph with $p$ vertexes and $M_G$ is its Kirchhoff minor.
-If we swap two labels $i,j<p$ then corresponding Kirchhoff minor $M'_G$ can be obtained from $M_G$ by swapping columns $i$ and $j$ following by swapping rows $i$ and $j$.
+If we swap two labels $i,j<p$, then the corresponding Kirchhoff minor $M'_G$ can be obtained from $M_G$ by swapping columns $i$ and $j$, and then swapping rows $i$ and $j$.
 In particular, 
 \[\det M'_G=\det M_G.\]
 
 \end{thm}
 
 \parbf{Deletion and contraction.}
-Next let us understand what happens with Kirchhoff minor if we delete or contract an edge in the labeled multigraph.
-(If after contraction of an edge we get loops, we remove it; this way we obtain a multigraph.). 
+Let us understand what happens with Kirchhoff minor if we delete or contract an edge in the labeled multigraph.
+(If after the contraction of an edge we get loops, we remove it; this way we obtain a multigraph.)
 
-Assume edge $e$ connects first and last vertex of labeled multigraph $G$ as in the following example:
+Assume an edge $e$ connects the first and the last vertex of a labeled multigraph $G$ as in the following example:
 \begin{center}
 \begin{tikzpicture}[scale=1.4,
   thick,main node/.style={circle,draw,font=\sffamily\bfseries,minimum size=3mm}]
@@ -274,8 +275,8 @@ Assume edge $e$ connects first and last vertex of labeled multigraph $G$ as in t
 \end{tikzpicture}
 \end{center}
 
-Note that deleting $e$ only reduce the corner component of $M_G$ by one,
-while contracting it removes first row and column.
+Note that deleting $e$ only reduces the corner component of $M_G$ by one,
+while contracting it removes the first row and column.
 That is, since 
 \[M_G=
 \left(
@@ -306,29 +307,29 @@ M_{G/e}=\left(
 \end{matrix}
 \right).\]
 
-Again, the same holds in general, let us summarize it in the following observation.
+Summarizing the above discussion we get the following:
 
 \begin{thm}{Observation}\label{observaiton:dpc}
-Assume $e$ is an edge of labeled multigraph $G$ between the first and last vertex then and $M_G$ is the Kirchhoff minor of~$G$.
+Assume $e$ is an edge of a labeled multigraph $G$ between the first and last vertex and $M_G$ is the Kirchhoff minor of~$G$.
 Then 
 \begin{enumerate}[(a)]
 \item the Kirchhoff minor  $M_{G\backslash e}$ of $G\backslash e$ can be obtained from  $M_G$ by subtracting 1 from the corner element with index (1,1);
 \item the Kirchhoff minor $M_{G/e}$ of $G/e$ can be obtained  from  $M_G$ by removing the first row and the first column in $M_G$.
 \end{enumerate}
 
-In particular by cofactor expansion of determinant we get that
-\[\det M_G=\det M_{G\backslash e}+\det M_{G/ e}\]
+In particular, applying the cofactor expansion of a determinant, we get that
+\[\det M_G=\det M_{G\backslash e}+\det M_{G/ e}.\]
 
 \end{thm}
 
-Note that the last formula reminds deletion-plus-contraction formula.
-This is the key observation in the proof of the matrix theorem; see the next section.
+Note that the last formula resembles the deletion-plus-contraction formula.
+This observation will be a key to the proof of the matrix theorem; see the next section.
 
 \section*{Matrix theorem}
 
 
 \begin{thm}{Matrix theorem}\label{thm:matrix}
-Let $M$ be the Kirchhoff minor of labeled multigraph $G$ with at least two vertexes.
+Let $M$ be the Kirchhoff minor of a labeled multigraph $G$ with at least two vertexes.
 Then
 \[s(G)=\det M,\eqlbl{eq:matrix-formula}\]
 where $s(G)$ denotes the number of spanning trees in $G$.
@@ -345,7 +346,7 @@ Hence the sum of all columns in $M_G$ vanish;
 in particular, the columns in $M_G$ are linearly dependent and hence $\det M_G=0$.
 Hence the equality \ref{eq:matrix-formula} holds if $d=0$.
 
-As usual we denote by $p$ and $q$ the number of vertexes and edges in $G$; by the assumption we have that $p\ge 2$.
+As usual, we denote by $p$ and $q$ the number of vertexes and edges in $G$; by the assumption we have that $p\ge 2$.
 
 \begin{wrapfigure}{r}{25 mm}
 \begin{lpic}[t(-0 mm),b(0 mm),r(0 mm),l(0 mm)]{pics/p=2(1)}
@@ -354,9 +355,9 @@ As usual we denote by $p$ and $q$ the number of vertexes and edges in $G$; by th
 \end{wrapfigure}
 
 Assume $p=2$; that is, $G$ has two vertexes and $q$ parallel edges connecting them.
-Clearly $s(G)=q$.
+Clearly, $s(G)=q$.
 Further note that $M_G=(q)$; that is,  the Kirchhoff minor $M_G$ is a $1{\times}1$ matrix with single component $q$.
-In particular $\det M_G=q$ and therefore the equality \ref{eq:matrix-formula} holds.
+In particular, $\det M_G=q$ and therefore the equality \ref{eq:matrix-formula} holds.
 
 Assume the equality \ref{eq:matrix-formula} does not hold in general;
 choose a graph $G$ that minimize the value $p+q$ among the graphs violating \ref{eq:matrix-formula}.
@@ -373,7 +374,7 @@ s(G\backslash e)&=\det M_{G\backslash e},
 &
 s(G/e)&=\det M_{G/e}.
 \end{align*}
-Applying these two identities together with deletion-plus-contraction formula 
+Applying these two identities together with the deletion-plus-contraction formula 
 and Observation~\ref{observaiton:dpc}, we get that
 \begin{align*}
 s(G)&=s(G\backslash e)+s(G/e)=
@@ -388,7 +389,7 @@ that is, the identity \ref{eq:matrix-formula} holds for $G$ --- a contradiction.
 
 \begin{thm}{Exercise}
 Fix a labeling for each of the following graphs, 
-find its Kirchhoff minor and use matrix theorem to find the number of spanning trees.
+find its Kirchhoff minor and use the matrix theorem to find the number of spanning trees.
 \begin{enumerate}[(a)]
 \item $s(K_{3,3})$;
 \item $s(W_6)$;
@@ -400,7 +401,7 @@ find its Kirchhoff minor and use matrix theorem to find the number of spanning t
 
 \section*{Calculation of determinants}
 
-In this section we recall key properties of determinant which will be used in the next section.
+In this section we recall key properties of determinant which will be used in the next section. %??? the determinant???
 
 Let $M$ be an $n{\times}n$-matrix; that is, a table $n{\times}n$, filled with numbers which are called {}\emph{components of the matrix}.
 The determinant $\det M$ is a polynomial of the $n^2$ components of $M$,
@@ -427,14 +428,14 @@ which satisfies the following conditions:
 \[\det M'= \det M.\]
 \end{enumerate}
 These three conditions define determinant in a unique way. 
-We will not give a proof of the statement; it is not evident and not complicated (soon or later you will have to learn it, if it is not done already).
+We will not give a proof of the statement; it is not evident and not complicated (sooner or later you will have to learn it, if it is not done already).
 
 \begin{thm}{Exercise}
 Show that the following property follows from the properties above.
 \end{thm}
 
 \begin{enumerate}[resume]
- \item If we permute two rows in the matrix $M$ then the obtained matrix $M'$ will have determinant of opposite sign; that is,
+ \item Interchanging any pair of rows of a matrix multiplies its determinant by $-1$; that is, if a matrix $M'$ is obtained from a matrix $M$ by permuting two of its rows, then 
 \[\det M'=-\det M.\]
 \end{enumerate}
 
@@ -454,7 +455,7 @@ a_3&b_3&c_3
 \right).\]
 However, the properties described above give a more convenient and faster way to calculate the determinant, especially for larger values~$n$.
 
-Let us show it on one example which will be needed in the next section:
+Let us show it on one example which will be needed in the next section.
 \begin{align*}
 \det\left(
 \begin{matrix}
@@ -527,7 +528,7 @@ Let us show it on one example which will be needed in the next section:
 Let us describe what we used on each line above:
 \begin{enumerate}
 \item property \ref{3} three times --- we add to the first row each of the remaining rows;
-\item property \ref{3} three times --- we add first row to the each of the remaining three rows;
+\item property \ref{3} three times --- we add the first row to the each of the remaining three rows;
 \item property \ref{2} three times;
 \item property \ref{3} three times --- we subtract from the first row the remaining three rows;
 \item property \ref{1}.
@@ -536,8 +537,8 @@ Let us describe what we used on each line above:
 
 \section*{Cayley formula}
 
-Recall that the \index{complete graph}\emph{complete graph} is the graph where each pair of vertexes is connected by an edge;
-complete graph with $p$ vertexes is denoted by~$K_p$.
+Recall that a \index{complete graph}\emph{complete graph} is a graph where each pair of vertexes is connected by an edge;
+a complete graph with $p$ vertexes is denoted by~$K_p$.
 
 Note that every vertex of $K_p$ has degree $p-1$.
 Therefore the Kirchhoff minor $M=M_{K_p}$ in the matrix formula \ref{eq:matrix-formula} for $K_p$ is the following $(p-1)\times (p-1)$-matrix:
@@ -602,8 +603,8 @@ That is,
 Therefore, applying the matrix theorem, we get the following:
 
 \begin{thm}{Cayley formula}\label{thm:cayley}
-The number of spanning trees in the complete graph $K_p$ is $p^{p-2}$; that is,
- \[s(K_p)=p^{p-2}.\]
+ \[s(K_p)=p^{p-2};\]
+that is, the number of spanning trees in the complete graph $K_p$ is $p^{p-2}$.
 \end{thm}
 
 \begin{thm}{Exercise}
@@ -615,19 +616,19 @@ Use the matrix theorem to show that
 
 \section*{Remarks}
 
-There is strong connection between counting spanning trees of the given graph,
+There is strong connection between counting spanning trees of a given graph,
 calculations of currents in an electric chain 
 and random walks; a good survey is given in the book of Peter Doyle and Laurie Snell \cite{doyle-snell}. Let us give some examples.
 
 Assume that the graph $G$ describes an electric chain;
-each edge has resistance one Ohm and battery is connected to the vertexes $a$ and $b$.
-Assume that the total current between these vertexes is one Ampere and we need to calculate the current thru edge $e$.
+each edge has resistance one Ohm and a battery is connected to the vertexes $a$ and $b$.
+Assume that the total current between these vertexes is one Ampere and we need to calculate the current thru a given edge $e$.
 
 Fix an orientation of $e$.
-Note that the spanning trees of $G$ can be subdivided into the following three groups:
-(1) those where the edged $e$ appears on the (necessary unique) path from $a$ to $b$ with positive orientation,
-(2) those where the edge $e$ appears on the path from $a$ to $b$ with negative orientation,
-(3) those which the edge $e$ do not appear on the path from $a$ to $b$.
+Note that any spanning tree $T$ of $G$ has exactly one the following three properties:
+(1) the edge $e$ appears on the (necessary unique) path from $a$ to $b$ in $T$ with a positive orientation,
+(2) the edge $e$ appears on the path from $a$ to $b$ in $T$ with a negative orientation,
+(3) the edge $e$ does not appear on the path from $a$ to $b$ in $T$.
 Denote by $s_+$, $s_-$, and $s_0$ the number of the trees in each group.
 Clearly 
 \[s(G)=s_++s_-+s_0.\]
@@ -639,9 +640,9 @@ This statement can be proved by checking Kirchhoff's rules for the currents calc
 There are many other applications of Kirchhoff's rules to graph theory.
 For example, in \cite{levi}, they were used to prove the Euler's formula
 \[p-q+r=2,\]
-where $p$, $q$, and $r$ denotes the number of vertexes, edges and regions of in a plane drawing of graph.
+where $p$, $q$, and $r$ denote the number of vertexes, edges and regions of in a plane drawing of graph.
 
-Few interesting proofs of Cayley formula are given in \cite[Chapter 30]{aigner-ziegler};
+A few interesting proofs of Cayley formula are given in \cite[Chapter 30]{aigner-ziegler};
 the most popular proof using the Pr\"ufer's code is given in \cite{pearls}.
 
 

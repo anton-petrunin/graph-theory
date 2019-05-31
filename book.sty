@@ -169,3 +169,12 @@ semi-pe-ri-me-ter}
 \def\endclmclaim{\par
 \medskip}
 \newenvironment{clm}{\clmclaim}{\endclmclaim}
+
+\DeclareCiteCommand{\ncite}%[\mkbibbrackets]
+  {\usebibmacro{cite:init}%
+   \usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite:comp}}
+  {}
+  {\usebibmacro{cite:dump}%
+   \usebibmacro{postnote}}
