@@ -1,8 +1,8 @@
 \chapter{Polynomials}
 
-Counting problems often lead to specially organized data.
-Sometimes it is convenient to {}\emph{pack} this data in a polynomial.
-If this {}\emph{packing} is to be done in a smart way, then the algebraic structure of polynomial reflects the original combinatorial structure.
+Counting problems often lead to an organized collection of numbers.
+Sometimes it is convenient to consider a polynomial with these numbers as coefficients.
+If it is done in a smart way, then the algebraic structure of the obtained polynomial reflects the original combinatorial structure of the graph.
 
 \section*{Chromatic polynomial}
 
@@ -18,43 +18,45 @@ for any $x$.
 \begin{thm}{Exercise}
 Show that for any integer $n\ge 3$,
 \[P_{W_n}(x+1)=(x+1)\cdot P_{C_n}(x),\]
-where $W_n$ denotes the wheel with $n$ spokes and $C_n$ is the cycle of length~$n$.
+where $W_n$ denotes a wheel with $n$ spokes and $C_n$ is a cycle of length~$n$.
 \end{thm}
 
 \begin{thm}{Deletion-minus-contraction formula}\label{thm:deletion-minus-contraction}\index{deletion-minus-contraction formula}
 For any edge $e$ in the pseudograph $G$ we have
-\[P_G(x)=P_{G\backslash e}(x)-P_{G/e}(x).\]
+\[P_G(x)=P_{G\backslash e}(x)-P_{G/e}(x).\eqlbl{eq:deletion-minus-contraction}\]
 \end{thm}
 
 \parit{Proof.}
 The valid colorings of $G\backslash e$ can be divided into two groups: 
-(1) those where the ends of the edge $e$ get different colors --- these remain to be valid colorings of $G$ and (2) those where the ends of $e$ get the same color --- each of such colorings corresponds to unique coloring of $G/e$.
+(1) those where the ends of the edge $e$ get different colors --- these remain to be valid colorings of $G$ and (2) those where the ends of $e$ get the same color --- each of such colorings corresponds to a unique coloring of $G/e$.
 Hence
 \[P_{G\backslash e}(x)=P_G(x)+P_{G/e}(x),\]
-which is equivalent to the deletion-minus-contraction formula.
+which is equivalent to the deletion-minus-contraction formula \ref{eq:deletion-minus-contraction}.
 \qeds
 
 Note that if the pseudograph $G$ has loops, then $P_G(x)=0$ for any $x$.
-Indeed in a valid coloring the ends of loop should get different colors, which is impossible.
+Indeed, in a valid coloring the ends of a loop should get different colors, which is impossible.
 
-The latter can be also proved using the deletion-minus-contraction formula.
-Indeed, if $e$ is a loop in $G$, then $G/e=G\backslash e$;
-therefore $P_{G\backslash e}(x)\z=P_{G/e}(x)$ and
+The latter can also be proved using the deletion-minus-contraction formula.
+Indeed, if $e$ is a loop in $G$, then $G/e=G\backslash e$.
+Therefore $P_{G\backslash e}(x)\z=P_{G/e}(x)$ and
 \[P_G(x)=P_{G\backslash e}(x)-P_{G/e}(x) =0.\]
 
 Similarly, removing a parallel edge from a pseudograph $G$ does not change the value $P_G(x)$ for any $x$.
 Indeed, if $e$ is an edge of $G$ which has a parallel edge $f$, then in $G/e$ the edge $f$ becomes a loop.
-Therefore $P_{G/e}(x)=0$ for any $x$ and by deletion-minus-contraction formula we get that
+Therefore $P_{G/e}(x)=0$ for any $x$ and by the deletion-minus-contraction formula we get that
 \[P_G(x)=P_{G\backslash e}(x).\]
 The same identity can be seen directly --- any admissible coloring of $G\backslash e$ is also admissible in $G$ --- since the ends of $f$ get different colors, so does $e$. 
 
-Summarizing above discussion:
-the problem of finding $P_G(x)$ for a pseudograph $G$ can be reduced to the case when $G$ is a graph --- if $G$ has a parallel edge, removing it does not change $P_G(x)$ and if $G$ has a loop, then $P_G(x)=0$ for all $x$.
+Summarizing the discussion above:
+the problem of finding $P_G(x)$ for a pseudograph $G$ can be reduced to the case when $G$ is a graph; that is, $G$ has no loops and no parallel edges.
+Indeed, if $G$ has a loop, then $P_G(x)=0$ for all $x$.
+Further, removing one of the parallel edges from $G$ does not change $P_G(x)$.
 
 Recall that polynomial $P$ of $x$ is an expression of the following type
 \[P(x)=a_0+a_1\cdot x+\dots+a_n\cdot x^n,\]
 with constants $a_0,\dots, a_n$, which are called {}\emph{coefficients} of the polynomial.
-If $a_n\ne 0$, it is called \index{leading coefficient}\emph{leading coefficient} of $P$;
+If $a_n\ne 0$, it is called the \index{leading coefficient}\emph{leading coefficient} of $P$;
 in this case $n$ is the degree of $P$.
 If the leading coefficient is 1, then the polynomial is called \index{monic polynomial}\emph{monic}.
 
@@ -78,18 +80,18 @@ that is, the graph with $p$ vertexes and no edges.
 Since $N_p$ has no edges, any coloring of $N_p$ is admissible.
 We have $x$ choices for each of $n$ vertexes therefore
 \[P_{N_p}(x)=x^p.\]
-In particular, the function $x\mapsto P_{N_p}(x)$ is given by monic polynomial of degree $p$ with integer coefficients.
+In particular, the function $x\mapsto P_{N_p}(x)$ is given by a monic polynomial of degree $p$ with integer coefficients.
 
 Assume that the first statement holds for all pseudographs with at most $q-1$ edges.
 Fix a pseudograph $G$ with $q$ edges. 
 Applying the deletion-minus-contraction formula for some edge $e$ in $G$, we get that
 \[P_G(x)=P_{G\backslash e}(x)-P_{G/e}(x).\eqlbl{eq:deleting-contracting}\]
 Note that the pseudographs $G\backslash e$ and $G/e$ have $q-1$ edges.
-By induction hypothesis, $P_{G\backslash e}(x)$ and $P_{G/e}(x)$ are polynomials with integer coefficients.
+By the induction hypothesis, $P_{G\backslash e}(x)$ and $P_{G/e}(x)$ are polynomials with integer coefficients.
 Hence \ref{eq:deleting-contracting} implies the same for $P_G(x)$.
 
-First note that if $G$ has a loop, then $P_G(x)=0$ as $G$ has no valid colorings.
-To prove the remaining statement, we also use the induction.
+If $G$ has a loop, then $P_G(x)=0$, as $G$ has no valid colorings.
+It remains to show that if $G$ has no loops, then $P_G(x)$ is a monic polynomial of degree $p$.
 
 Assume that the statement holds for any multigraph $G$ with at most $q-1$ edges and at most $p$ vertexes.
 
@@ -98,9 +100,9 @@ Note that $G\backslash e$ is a multigraph with $p$ vertexes and $q-1$ edges.
 By the assumption, its chromatic polynomial $P_{G\backslash e}$ is monic of degree $p$.
 
 Further the pseudograph $G/e$ has $p-1$ vertexes,
-and its chromatic polynomial $P_{G/e}$ either vanishes or has degree $p-1$.
+and its chromatic polynomial $P_{G/e}$ either vanishes or it has degree $p-1$.
 In both cases the difference $P_{G\backslash e}-P_{G/e}$ is a monic polynomial of degree~$p$.
-It remains to apply the deletion-minus-contraction formula \ref{eq:deleting-contracting}.
+It remains to apply \ref{eq:deleting-contracting}.
 \qeds
 
 \begin{thm}{Advanced exercise}
@@ -111,7 +113,7 @@ Show that the coefficient in front of $x^{p-1}$ of its chromatic polynomial $P_G
 \parit{Hint:} Apply induction on $q$ and use the deletion-minus-contraction formula the same way as in the proof of the theorem.
 
 \begin{thm}{Exercise}
-Use induction and  deletion-minus-contraction formula to show that 
+Use induction and the deletion-minus-contraction formula to show that 
 \begin{enumerate}[(a)]
 \item $P_{T}(x)=x\cdot(x-1)^q$ for any tree $T$ with $q$ edges;
 \item $P_{C_p}(x)=(x-1)^p+(-1)^p\cdot(x-1)$ for the cycle $C_p$ of length $p$.
@@ -158,13 +160,13 @@ denote by $m_n=m_n(G)$ the number of matchings with $n$ edges in the graph $G$.
 Note that for a graph $G$ with $p$ vertexes and $q$ edges, we have 
 $m_0(G)=1$, 
 $m_1(G)=q$, 
-and if $2\cdot n>p$, then $m_n(G)=0$ .
-The maximal integer $k$ such that $m_k(G)\ne0$ is called \index{matching number}\emph{matching number} of $G$.
+and if $2\cdot n>p$, then $m_n(G)=0$.
+The maximal integer $k$ such that $m_k(G)\ne0$ is called the \index{matching number}\emph{matching number} of $G$.
 The expression 
 \[M_G(x)=m_0+m_1\cdot x+\dots +m_k\cdot x^k\]
-is called \index{matching polynomial}\emph{matching polynomial} of $G$.
+is called the \index{matching polynomial}\emph{matching polynomial} of $G$.
 
-Matching polynomial $M_G(x)$ gives a convenient way to work with all the numbers $m_n(G)$ simultaneously.
+The matching polynomial $M_G(x)$ gives a convenient way to work with all the numbers $m_n(G)$ simultaneously.
 The degree of $M_G(x)$ is the matching number of $G$ and
 the total number of matching in $G$ is its value at $1$:  
 \[M_G(1)=m_0+m_1+\dots +m_k.\]
@@ -172,7 +174,7 @@ the total number of matching in $G$ is its value at $1$:
 \begin{thm}{Exercise}
 Show that the values
 \[\tfrac12\cdot[M_G(1)+ M_G(-1)]\quad\text{and}\quad\tfrac12\cdot[M_G(1)- M_G(-1)]\]
-equals to the number of matchings with even and odd number of edges correspondingly.
+equal to the number of matchings with even and odd number of edges correspondingly.
 \end{thm}
 
 
@@ -185,19 +187,19 @@ equals to the number of matchings with even and odd number of edges correspondin
 \end{wrapfigure}
 
 Assume $e$ is an edge in a graph $G$.
-Recall that the graph $G\backslash e$ is obtained from $G$ by deleting $e$.
-Let us denote by $G\backslash \bar e$ the graph obtained from $G$ by deleting the vertexes of $e$ with all their edges;
+Recall that the graph $G\backslash e$ is obtained by deleting $e$ from $G$ .
+Let us denote by $G\backslash \bar e$ the graph obtained by deleting the vertexes of $e$ with all their edges from $G$;
 that is, if $e$ connects two vertexes $v$ and $w$, then 
 \[G\backslash \bar e=G\backslash \{v,w\}.\]
 
 The following exercise is analogous to the deletion-contraction formulas \ref{thm:deletion-minus-contraction} and \ref{thm:deletion-plus-contraction}.
 
 \begin{thm}{Exercise}\label{ex:deletion-deletion-total}
-Let $G$ be a graph
+Let $G$ be a graph.
 \begin{enumerate}[(a)]
 \item\label{ex:deletion-deletion} Show that
 \[M_G(x)=M_{G\backslash e}(x)+x\cdot M_{G\backslash \bar e}(x)\]
-for any edge $e$ in $G$
+for any edge $e$ in $G$.
 
 \item\label{ex:deletion-deletion-K} Use part \ref{ex:deletion-deletion} to show that the matching polynomials of complete graphs satisfy the following recursive relation:
 \[M_{K_{p+1}}(x)=M_{K_{p}}(x)+p\cdot x\cdot M_{K_{p-1}}(x).\]
@@ -212,7 +214,7 @@ for any edge $e$ in $G$
 Consider a connected graph $G$ with $p$ vertexes;
 assume $p\ge 2$.
 
-Let us prepare independent variables $x_1,\dots,x_p$, one for each vertex.
+Let us prepare independent variables $x_1,\dots,x_p$, one for each vertex of $G$.
 For each spanning tree $T$ in $G$ consider the monomial 
 \[x_1^{d_1-1}\cdots x_p^{d_p-1},\]
 where $d_i$ denotes the degree of the $i$-th vertex in $T$.
@@ -222,37 +224,36 @@ $d_1+\dots+d_p=2\cdot(p-1)$.
 It follows that the total degrees of the monomial is $p-2$.
 
 The sum of these monomials is a polynomial of degree $p-2$ of $p$ variables $x_1,\dots, x_p$.
-This polynomial will be called \index{spanning-tree polynomial}\emph{spanning-tree polynomial} and it will be denoted by 
+This polynomial will be called the \index{spanning-tree polynomial}\emph{spanning-tree polynomial}of $G$ and it will be denoted by 
 $S_G(x_1,\dots,x_p)$.
 
 Note that the total number of spanning trees in $G$ equals to the value
 $S_G(1,\dots,1)$.
 The following exercise shows that,
-the polynomial $S_G$ keeps lot more information about spanning trees in $G$.
+the polynomial $S_G$ keeps a lot more information about spanning trees in $G$.
 
 %Abusing notation slightly, we will use the variables $x_1,\dots,x_p$ as label of the corresponding vertex in $G$; for instance, we can say ``$x_2$ has degree 5 in $G$'' instead of ``the second vertex has degree 5 in $G$''.   
 
 \begin{thm}{Exercise}
-Let $G$ be a graph with vertexes labeled by $x_1,\dots,x_p$ and $S_G(x_1,\dots,x_p)$ be its spanning tree polynomial.
-Show the following
+Let $S_G(x_1,\dots,x_p)$ be the spanning-tree polynomial of a graph $G$.
+Show the following:
 \begin{enumerate}[(a)]
-\item The value $S_G(0,1,\dots,1)$ can be interpreted as the number of spanning trees with the leaf $x_1$.
-\item The coefficient of $S_G$ in front of $x_1\cdots x_{p-2}$ equals to the number of paths of length $p-1$ connecting $x_{p-1}$ and $x_{p}$.
+\item The value $S_G(0,1,\dots,1)$ can be interpreted as the number of spanning trees with the leaf the first vertex.
+\item The coefficient of $S_G$ in front of $x_1\cdots x_{p-2}$ equals to the number of paths of length $p-1$ connecting $(p-1)$-th and $p$-th vertexes.
 \item The partial derivative
 \[\tfrac{\partial}{\partial x_1}S_G(0,1,\dots,1)\]
-is the numbers of spanning trees in $G$ with degree 2 at $x_1$.
+is the numbers of spanning trees in $G$ with degree 2 at the first vertex.
 \item The values 
 \[\tfrac12\cdot\left[S_G(1,1,\dots,1)\pm S_G(-1,1,\dots,1)\right]\]
-is the numbers of spanning trees in $G$ for which have that $x_1$ has odd or even degree correspondingly.
+are the numbers of spanning trees in $G$ with odd or correspondingly even degree at the first vertex.
 \end{enumerate}
 \end{thm}
 
 The following theorem generalizes the Cayley formula (\ref{thm:cayley}).
 
 \begin{thm}{Theorem}\label{thm:spanning-tree-polynomial}
-Assume that the vertexes of complete graph $K_p$ are labeled by $x_1,\dots,x_p$ and $p\ge 2$.
-Then
-\[S_{K_p}(x_1,\dots,x_p)=(x_1+\dots +x_p)^{p-2}.\]
+\[S_{K_p}(x_1,\dots,x_p)=(x_1+\dots +x_p)^{p-2},\]
+where $K_p$ is the complete graph with $p\ge 2$ vertexes.
 In particular, $s(K_p)=p^{p-2}$;
 that is, the number of spanning trees in $K_p$ is $p^{p-2}$.
 \end{thm}
@@ -262,27 +263,28 @@ Let us apply induction on $p$;
 the base case $p=2$ is evident.
 
 Assume that the statement holds for $p-1$; that is,
-\[S_{K_{p-1}}(x_1,\dots,x_{p-1})=(x_1+\dots+x_{p-1})^{p-3}\eqlbl{eq:S-K(n-1)}\]
+\[S_{K_{p-1}}(x_1,\dots,x_{p-1})=(x_1+\dots+x_{p-1})^{p-3}.
+\eqlbl{eq:S-K(n-1)}\]
 We need to show that 
 \[S_{K_p}(x_1,\dots,x_p)=(x_1+\dots+x_p)^{p-2}.\]
 
-Note that $S_{K_p}$ is a homogeneous symmetric polynomial of degree $p-2$;
-that is, each monomial in $S_{K_{p}}$ has degree $p-2$ and permutation of values $x_1,\dots x_p$ does not change the value $S_G(x_1,\dots,x_p)$.
+Note that $S_{K_p}$ is a {}\emph{homogeneous} {}\emph{symmetric} polynomial of degree $p-2$.
+That is, each monomial in $S_{K_{p}}$ has degree $p-2$ and any permutation of values $x_1,\dots, x_p$ does not change the value $S_G(x_1,\dots,x_p)$.
 
 Therefore it suffices to prove that 
 \begin{clm}{}\label{clm:sum-up}
 all monomials in $S_{K_p}$ without $x_p$ sum up to $(x_1+\dots+x_{p-1})^{p-2}$. 
 \end{clm}
 
-
-
-Each of these monomials corresponds to a spanning tree $T$ with $d_p=1$;
+Note that each of these monomials corresponds to a spanning tree $T$ with $d_p=1$;
 that is, the vertex $x_p$ is a leaf of $T$.
-In other words, $T$ is obtained from tree $T'$ on the vertexes $x_1,\dots,x_{p-1}$ 
-by adding an edge from $x_p$ to $x_i$ with $i<p$.
-In this case the monomial for $T$ equals to the monomial for $T'$ times $x_i$.
+In other words, the tree $T$ is obtained from another tree $T'$ with the vertexes $x_1,\dots,x_{p-1}$ 
+by adding an edge from $x_p$ to $x_i$ for some $i<p$.
+Note that the monomial in $S_{K_p}$ that corresponds to $T$ equals 
+to the product of $x_i$ times the monomial in $S_{K_{p-1}}$
+that corresponds to $T'$.
 
-Summing up for all such trees $T'$ and all $x_i$ we get 
+To get the sum of all monomials in $S_{K_p}$ without $x_p$, we need to sum up these products for all $i<p$ and all the monomials in $S_{K_{p-1}}$; this way we get 
 \[S_{K_{p-1}}(x_1,\dots,x_{p-1})\cdot(x_1+\dots+x_{p-1}).\]
 By \ref{eq:S-K(n-1)}, the latter equals to
 \[(x_1+\dots+x_{p-1})^{p-2}\]
@@ -293,9 +295,9 @@ To prove the last statement, it remains to note that
 \qedsf
 
 \begin{thm}{Exercise}
-Assume that the vertexes of the left part of $K_{m,n}$ are labeled by $x_1,\dots,x_m$ and the vertexes in the right part are labeled by $y_1,\dots,y_n$. 
+Assume that the vertexes of the left part of $K_{m,n}$ have corresponding variables $x_1,\dots,x_m$ and the vertexes in the right part have corresponding variables $y_1,\dots,y_n$. 
 Show that
-\[S_{K_n}(x_1,\dots,x_m,y_1,\dots,y_n)=(x_1+\dots +x_m)^{n-1}\cdot(y_1+\dots +y_n)^{m-1}.\]
+\[S_{K_{m,n}}(x_1,\dots,x_m,y_1,\dots,y_n)=(x_1+\dots +x_m)^{n-1}\cdot(y_1+\dots +y_n)^{m-1}.\]
 Conclude that $s(K_{m,n})=m^{n-1}\cdot n^{m-1}$.
 
 \end{thm}
@@ -308,6 +310,6 @@ A very good expository paper on chromatic polynomials is written by
 Ronald Read \cite[see][]{read}. 
 Matching polynomials are discussed in a paper of Christopher Godsil and Ivan Gutman \cite[see][]{godsil-gutman}.
 
-Our discussion of spanning-tree polynomials is based of a modification of Fedor Petrov \cite{petrov} of the original proof of Arthur Cayley~\cite{cayley}. 
+Our discussion of spanning-tree polynomials is based on a modification of Fedor Petrov \cite{petrov} of the original proof of Arthur Cayley~\cite{cayley}. 
 
 Generating functions discussed in Appendix~\ref{Generating functions} give connections between graph theory and power series; it is more challenging, but worth to learn.   
