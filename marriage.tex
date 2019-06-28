@@ -153,23 +153,24 @@ Let $M$ be a matching and $S$ be a vertex cover in $G$.
 \end{lpic}
 \end{wrapfigure}
 
-Note that any edge $m$ in $M$ is incident to at least one vertex in $S$.
+By the definition of vertex cover, any edge $m$ in $M$ is incident to at least one vertex in $S$.
 Therefore 
 \[|S|\ge |M|.\] 
 That is, the number of vertexes in $S$ is at least as large as the number of edges in any matching $M$.
 
-It remains to construct a vertex cover $S$ such that $|S|=|M|$ assuming that $M$ is a maximal matching.
+Now assume that $M$ is a maximal matching.
+Let us construct a vertex cover $S$ such that $|S|=|M|$.
 
 Denote by $U_L$ and $U_R$ the set of left and right unmatched vertexes.
 Denote by $Q_L$ and $Q_R$ the set of vertexes in $G$ which can be reached by $M$-alternated paths starting from $U_L$ and from $U_R$ correspondingly.
 
 Note that according to Exercise \ref{ex:two-paths}, $Q_L$ and $Q_R$ do not overlap.
 
-Further note that if $m$ is an edge in $M$, then both of its end vertexes lie in $Q_L$, $Q_R$, or neither.
+Further note that if $m$ is an edge in $M$, then both of its end vertexes lie either in $Q_L$ or $Q_R$, or neither.
 
 Let us construct the set $S$ by taking one end vertex (left or right) of each edge $m$ in $M$ by the following rule:
-\emph{if $m$ connects vertexes in $Q_L$, then include in $S$ its right vertex;
-otherwise include in $S$ the left vertex of $m$}.
+\emph{if $m$ connects vertexes in $Q_L$, then include its right vertex in $S$;
+otherwise include the left vertex}.
 Since $S$ has exactly one vertex incident to each edge of $M$, we have
 \[|S|=|M|.\]
 
@@ -177,11 +178,11 @@ It remains to prove that $S$ is a cover;
 that is, at least one vertex of any edge $e$ in $G$ is in $S$.
 Note that if the left vertex of $e$ lies in $Q_L$,
 then so is the right vertex;
-indeed in this case $e$ is an edge on a $M$-alternated path.
+it follows since in this case $e$ is an edge on an $M$-alternated path.
 Therefore it is sufficient to consider only the following three cases:
 \begin{itemize}
 \item The edge $e$ has
-right vertex in $Q_L$ and left vertex outside of $Q_L$.
+its right vertex in $Q_L$ and its left vertex outside of $Q_L$.
 In this case both vertexes of $e$ lie in~$S$.
 \item The edge $e$ connects vertexes in $Q_L$.
 In this case the right vertex of $e$ is in $S$.
