@@ -271,10 +271,10 @@ Let us modify the paths $Q$ and $P_1$ the following way:
 Instead of the path $P_1$ consider the path $P_1'$ which goes along $Q$ from $s$ to $v$ and after that goes along $P_1$ to $t$.
 Instead of the path $Q$, consider the trail $Q'$ which goes along $P_1$ from $s$ to $w$ and after that goes along $Q$ to $t$.
 
-If the constructed trail $Q'$ is not a path (that is, if $Q'$ visits some vertexes several times), then we can discard a maximal circuit from $Q'$ to obtain a genuine path, 
+If the constructed trail $Q'$ is not a path (that is, if $Q'$ visits some vertexes several times), then we can discard some circuits from $Q'$ to obtain a genuine path, 
 which we will still denote by $Q'$.
 
-Note that the obtained collection of paths $Q', P_1',P_2\dots,P_m$ satisfies the same conditions as the original collection, but it has smaller number of overlaps.
+Note that the obtained collection of paths $Q', P_1',P_2\dots,P_m$ satisfies the same conditions as the original collection, but it has smaller number of overlapping edges.
 Therefore, by repeating the described procedure several times, we get $m+1$ paths without overlaps --- a contradiction.
 
 It follows that $S\not\ni t$.
@@ -290,10 +290,17 @@ In particular, we can disconnect $t$ from $s$ by cutting $m$ edges from $G$; tha
 
 \parbf{Remark.}
 The described process has the following physical interpretation.
-Think of each path $P_1,\dots,P_m,$ and $Q$ like water pipelines from $s$ to $t$.
+Think of each path $P_1,\dots,P_m$, and $Q$ like water pipelines from $s$ to $t$.
 At each overlap of $Q$ with the remaining paths, the water runs the opposite directions.
 So we can cut the overlapping edges and connect the open ends of the pipes to each other while keeping the water flow unchanged.
 As the result, we get $m+1$ pipes form $s$ to $t$ with no common edges and possibly some cycles which we can discard.
+\begin{figure}[h!]
+\centering
+\begin{lpic}[t(-0 mm),b(0 mm),r(0 mm),l(0 mm)]{mppics/pic-6(1)}
+\end{lpic}
+\end{figure}
+An example of this procedure two paths $P_1$ and $Q$ is shown on the diagram;
+$P_1$ is marked in bold.
 
 \medskip
 

@@ -194,4 +194,105 @@ draw z.c-z.a+z.c..z.c-z.b..z.a-z.b..z.a-z.c..z.b-z.c..z.b-z.a..z.c-z.a+z.b..cycl
 dOOOt origin,z.a,z.b,z.c,z.a-z.c,z.a-z.b,z.b-z.a,z.b-z.c,z.c-z.a,z.c-z.b,z.c-z.a+z.b,z.c-z.a+z.c;
 
 endfig;
+
+beginfig(6) 
+save u;
+u:=.5cm;
+
+z.shift=(7,0)*u;
+
+z0=(0,0)*u;
+z1=(1,0)*u;
+z2=(2,0)*u;
+z3=(3,0)*u;
+z4=(4,0)*u;
+z5=(5,0)*u;
+z6=(6,0)*u;
+
+save p,q;
+path p[];
+path q[];
+
+p0=z0{1,-.5}..{1,.5}z1;
+p1=p0 shifted z1;
+p2=p0 shifted z2;
+p3=p0 shifted z3;
+p4=p0 shifted z4;
+p5=p0 shifted z5;
+
+draw p0 pensemibold;
+drawarrow subpath (0,.6) of p0 pensemibold;
+draw p1 pensemibold;
+drawarrow subpath (0,.6) of p1 pensemibold;
+draw p2 pensemibold;
+drawarrow subpath (0,.6) of p2 pensemibold;
+draw p3 pensemibold;
+drawarrow subpath (0,.6) of p3 pensemibold;
+draw p4 pensemibold;
+drawarrow subpath (0,.6) of p4 pensemibold;
+draw p5 pensemibold;
+drawarrow subpath (0,.6) of p5 pensemibold;
+
+q0=z0{.3,1}..{.3,-1}z5;
+q1=z5{-1,.4}..{-1,-.4}z4;
+q2=z4{-.3,1}..{-.3,-1}z2;
+q3=z2{-1,.4}..{-1,-.4}z1;
+q4=z1{.3,-1}..{.3,1}z6;
+
+draw q0;
+drawarrow subpath (0,.6) of q0;
+draw q1;
+drawarrow subpath (0,.6) of q1;
+draw q2;
+drawarrow subpath (0,.6) of q2;
+draw q3;
+drawarrow subpath (0,.6) of q3;
+draw q4;
+drawarrow subpath (0,.6) of q4;
+
+dOt z0,z1,z2,z3,z4,z5,z6;
+
+draw p0 shifted z.shift pensemibold;
+drawarrow subpath (0,.6) of p0 shifted z.shift pensemibold;
+
+draw p2 shifted z.shift pensemibold;
+drawarrow subpath (0,.6) of p2 shifted z.shift pensemibold;
+draw p3 shifted z.shift pensemibold;
+drawarrow subpath (0,.6) of p3 shifted z.shift pensemibold;
+
+draw p5 shifted z.shift pensemibold;
+drawarrow subpath (0,.6) of p5 shifted z.shift pensemibold;
+
+draw q0 shifted z.shift;
+drawarrow subpath (0,.6) of q0 shifted z.shift;
+draw q2 shifted z.shift;
+drawarrow subpath (0,.6) of q2 shifted z.shift;
+draw q4 shifted z.shift;
+drawarrow subpath (0,.6) of q4 shifted z.shift;
+
+dOt z0+z.shift,z1+z.shift,z2+z.shift,z3+z.shift,z4+z.shift,z5+z.shift,z6+z.shift;
+
+
+draw p0 shifted (2*z.shift) pensemibold;
+drawarrow subpath (0,.6) of p0 shifted (2*z.shift) pensemibold;
+
+draw p5 shifted (2*z.shift) pensemibold;
+drawarrow subpath (0,.6) of p5 shifted (2*z.shift) pensemibold;
+
+draw q0 shifted (2*z.shift);
+drawarrow subpath (0,.6) of q0 shifted (2*z.shift);
+draw q4 shifted (2*z.shift);
+drawarrow subpath (0,.6) of q4 shifted (2*z.shift);
+
+dOt z0+(2*z.shift),z1+(2*z.shift),z2+(2*z.shift),z3+(2*z.shift),z4+(2*z.shift),z5+(2*z.shift),z6+(2*z.shift);
+
+label.llft(btex $s$ etex, z0);
+label.urt(btex $t$ etex, z6);
+label.llft(btex $s$ etex, z0+z.shift);
+label.urt(btex $t$ etex, z6+z.shift);
+label.llft(btex $s$ etex, z0+(2*z.shift));
+label.urt(btex $t$ etex, z6+(2*z.shift));
+
+draw open_arrowhead p0;
+endfig;
 end
