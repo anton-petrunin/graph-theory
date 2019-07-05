@@ -183,11 +183,11 @@ Therefore it is sufficient to consider only the following three cases:
 \begin{itemize}
 \item The edge $e$ has
 its right vertex in $Q_L$ and its left vertex outside of $Q_L$.
-In this case both vertexes of $e$ lie in~$S$.
+In this case, both vertexes of $e$ lie in~$S$.
 \item The edge $e$ connects vertexes in $Q_L$.
-In this case the right vertex of $e$ is in $S$.
+In this case, the right vertex of $e$ is in $S$.
 \item The edge $e$ connects vertexes outside of $Q_L$. 
-In this case the left vertex of $e$ is in~$S$.
+In this case, the left vertex of $e$ is in~$S$.
 \qeds
 \end{itemize}
 
@@ -241,8 +241,8 @@ Then the maximal number of oriented paths from $s$ to $t$ which do not have comm
 \end{thm}
 
 \parit{Proof.}
-Denote by $m$ the maximal number of oriented paths from $s$ to $t$ which do not have common edges 
-and by $n$ the minimal number of edges one can remove from $G$ to make $s$ disconnected from $t$.
+Denote by $m$ the maximal number of oriented paths from $s$ to $t$ which do not have common edges.
+Denote by $n$ the minimal number of edges one can remove from $G$ to disconnect $t$ from $s$; more precisely, after removing $n$ edges from $G$, there will be no oriented path from $s$ to~$t$.
 
 Let $P_1, \dots, P_m$ be a maximal collection of oriented paths from $s$ to $t$ which have no common edges.
 Note that in order to disconnected $t$ from $s$, we have to cut at least one edge in each path $P_1, \dots, P_m$.
@@ -265,7 +265,7 @@ Assume $S$ contains $t$; that is, there is a path $Q$ from $s$ to $t$, which
 can move along $P_i$ only backwards.
 (Further, the path $Q$ will be used the same way as the augmenting path in the proof of marriage theorem.)
 
-Assume $Q$ overlaps with some of $P_1,\dots,P_m$.
+Since $P_1,\dots,P_m$ is a maximal collection, $Q$ overlaps with some of the paths $P_1,\dots,P_m$.
 Without loss of generality, we can assume that $Q$ first overlaps with $P_1$ --- assume it meets $P_1$ at the vertex $v$ and leaves it at the vertex $w$.
 Let us modify the paths $Q$ and $P_1$ the following way:
 Instead of the path $P_1$ consider the path $P_1'$ which goes along $Q$ from $s$ to $v$ and after that goes along $P_1$ to $t$.
@@ -274,7 +274,10 @@ Instead of the path $Q$, consider the trail $Q'$ which goes along $P_1$ from $s$
 If the constructed trail $Q'$ is not a path (that is, if $Q'$ visits some vertexes several times), then we can discard some circuits from $Q'$ to obtain a genuine path, 
 which we will still denote by $Q'$.
 
-Note that the obtained collection of paths $Q', P_1',P_2\dots,P_m$ satisfies the same conditions as the original collection, but it has smaller number of overlapping edges.
+Note that the obtained collection of paths $Q', P_1',P_2\dots,P_m$ satisfies the same conditions as the original collection.
+Further the total number of edges in $Q', P_1',P_2\dots,P_m$
+is smaller than in but the original collection $Q, P_1,P_2\dots,P_m$;
+indeed we discarded the part of $P_1$ from $w$ to $v$.
 Therefore, by repeating the described procedure several times, we get $m+1$ paths without overlaps --- a contradiction.
 
 It follows that $S\not\ni t$.
