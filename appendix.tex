@@ -4,16 +4,16 @@ Here we include corrections and additions to \cite{pearls}.
 
 \section*{Correction to 3.2.2}
 
-The proof of Theorem 3.2.2 about decomposition of cubic graph with a bridge into 1-factors
-does not explain why ``each bank has odd number of vertexes''.
+The proof of Theorem 3.2.2 about decomposition of a cubic graph with a bridge into 1-factors
+does not explain why ``each bank has an odd number of vertexes''.
 
-This is true since the 1-factor containing the bridge brakes all the vertexes of each bank into pairs except the end vertex of the bridge.
+This is true since the 1-factor containing the bridge breaks all the vertexes of each bank into pairs except the end vertex of the bridge.
 
 
 
 \section*{Addition to 7.2}
 
-In this section we will show that Kruskal’s algorithm actually produces a minimum-weight spanning tree in a leading partial case.
+In this section, we will show that Kruskal’s algorithm actually produces a minimum-weight spanning tree in a leading partial case.
 Essentially we will solve exercises 7.1.6 and 7.1.7 in \cite{pearls}. 
 
 \begin{thm}{Theorem}
@@ -41,7 +41,7 @@ Therefore $C$ has an edge that is not in $T$;
 denote it by $e'$.
 
 The graph $T''=T' + e-e'$ is connected since it is obtained by deleting one edge from a cycle $C$ in a connected graph $T' + e$.
-Clearly $T''$ has the same number of edges as the tree $T'$.
+Clearly, $T''$ has the same number of edges as the tree $T'$.
 Therefore $T''$ is a spanning tree.
 \qeds
 
@@ -50,38 +50,38 @@ Let $T$ be a spanning tree produced by Kruskal’s algorithm.
 Assume 
 \[e_1,\dots,e_{k-1},e_k,\dots e_{p-1}\eqlbl{eq:e-e}\] 
 are the edges of $T$ listed in order of their weights
-(in this order they are added by the Kruskal’s algorithm).
+(in this order they are added by Kruskal’s algorithm).
 
-Suppose that $T'$ is a spanning tree that minimize weight.
+Suppose that $T'$ is a spanning tree that minimizes weight.
 Arguing by contradiction, assume $T'\ne T$.
 
 Let $k$ be the maximal number such that the edges  $e_1,\dots,e_{k-1}$ are in $T'$ (if $k=1$, then this list is empty). 
-In other words if we list all its edges in $T'$ in order of their weights, then 
+In other words, if we list all its edges in $T'$ in order of their weights, then 
 we obtain a sequence 
 \[e_1,\dots,,e_{k-1},e'_k,\dots e'_{p-1}\]
 with $e'_k\ne e_k$.
 
 Note that the edge $e_k$ is in $T$, but not in $T'$.
-Indeed, $e_k$ has minimal weight among the edges that do not produce a cycle with $e_1,\dots,,e_{k-1}$;
-the remaining edges have larger weights since all weights are different.
+Indeed, $e_k$ has the minimal weight among the edges that do not produce a cycle with $e_1,\dots,,e_{k-1}$;
+the remaining edges have larger weights since all the weights are different.
 
 The edge in $T'$ provided by Lemma~\ref{lem:T+e-e} lies in $T'$, but not in $T$;
 therefore it must be $e'_j$ for $j\ge k$.
-In particular the weight of $e'_j$ must be bigger than weight of $e'_k$ which by the Kruskal’s algorithm is bigger than the weight of $e_k$.
+In particular, the weight of $e'_j$ must be bigger than the weight of $e'_k$ which, by the Kruskal’s algorithm, is bigger than the weight of $e_k$.
 
 It follows that 
 \[\mathrm{weight}(e_k)<\mathrm{weight}(e'_j).\]
-Therefore $T''=T'+e_k-e'_j$ is a spanning tree with total weight smaller than $T'$, but $T'$ has minimal weight --- a contradiction.
+Therefore $T''=T'+e_k-e'_j$ is a spanning tree with total weight smaller than $T'$, but $T'$ has the minimal total weight --- a contradiction.
 \qeds
 
 \section*{Correction to 8.4.1}
 
 There is an inaccuracy in the proof of Theorem 8.4.1 about stretchable planar graphs.
-Namely in the planar drawing of $G-h$, the region $R$ might be unbounded.
+Namely, in the planar drawing of $G-h$, the region $R$ might be unbounded.
 
-To fix this inaccuracy, one needs to prove slightly stronger statement.
+To fix this inaccuracy, one needs to prove a slightly stronger statement.
 Namely that any planar drawing of the maximal planar graph $G$ can be stretched.
-That is, given a planar drawing of $G$ there is a stretched drawing of $G$ 
-and a bijection between the bounded (necessary triangular) regions such that corresponding triangles have the same edges of $G$ as the sides.
+That is, given a planar drawing of $G$, there is a stretched drawing of $G$ 
+and a bijection between the bounded (necessarily triangular) regions such that corresponding triangles have the same edges of $G$ as the sides.
 
 The remaining part of the proof works with no other changes.
