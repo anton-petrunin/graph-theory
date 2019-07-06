@@ -17,6 +17,128 @@ linecap:=butt;
 
 %outputformat := "svg";
 
+beginfig(21) 
+save u;
+u:=.8cm;
+
+z.a=(0,1)*u;
+z.shift=(2.5,0)*u;
+
+draw 
+for i=72 step 72 until 360: 
+(z.a rotated i)-- endfor cycle;
+
+for i=72 step 72 until 360: dOt (z.a rotated i); endfor
+
+draw 
+for i=72 step 72 until 360: 
+((z.a rotated (2*i))+z.shift) -- endfor cycle;
+
+for i=72 step 72 until 360: dOt (z.a rotated i)+z.shift; endfor
+
+
+endfig;
+
+beginfig(22) 
+save u;
+u:=.8cm;
+
+z.a=(0,1)*u rotated 22.5;
+z.shift=(2.5,0)*u;
+
+draw 
+for i=45 step 45 until 360: 
+(z.a rotated i)-- endfor cycle;
+
+for i=45 step 45 until 360: dOt (z.a rotated i); endfor
+
+draw 
+for i=45 step 45 until 360: 
+((z.a rotated (3*i))+z.shift) -- endfor cycle;
+
+draw 
+for i=90 step 90 until 360: 
+((z.a rotated (3*i))+z.shift) -- endfor cycle;
+
+draw 
+for i=45 step 90 until 360: 
+((z.a rotated (3*i))+z.shift) -- endfor cycle;
+
+for i=45 step 45 until 360: dOt (z.a rotated i)+z.shift; endfor
+endfig;
+
+beginfig(23) 
+save u;
+u:=2.3cm;
+
+z.a=(0,1)*u;
+z.shift=(2.5,0)*u;
+
+draw 
+for i=360/17 step 360/17 until 360: 
+(z.a rotated i)-- endfor cycle;
+
+draw 
+for i=360/17 step 360/17 until 360: 
+(z.a rotated (2*i))-- endfor cycle;
+
+draw 
+for i=360/17 step 360/17 until 360: 
+(z.a rotated (4*i))-- endfor cycle;
+
+draw 
+for i=360/17 step 360/17 until 360: 
+(z.a rotated (8*i))-- endfor cycle;
+
+for i=360/17 step 360/17 until 360: dOt (z.a rotated i); endfor
+
+draw 
+for i=360/17 step 360/17 until 360: 
+((z.a rotated (3*i))+z.shift) -- endfor cycle;
+
+draw 
+for i=360/17 step 360/17 until 360: 
+((z.a rotated (5*i))+z.shift) -- endfor cycle;
+
+draw 
+for i=360/17 step 360/17 until 360: 
+((z.a rotated (6*i))+z.shift) -- endfor cycle;
+
+draw 
+for i=360/17 step 360/17 until 360: 
+((z.a rotated (7*i))+z.shift) -- endfor cycle;
+
+for i=360/17 step 360/17 until 360: dOt (z.a rotated i)+z.shift; endfor
+
+
+endfig;
+
+beginfig(24) 
+save u;
+u:=.3cm;
+
+z.a=(4,0)*u;
+z.b=(0,4)*u;
+z.c=(2,1)*u;
+z.d=(-1,2)*u;
+
+draw origin--z.a--z.a+z.b--z.b--cycle;
+draw origin+z.c--z.a+z.c--z.a+z.b+z.c--z.b+z.c--cycle;
+draw origin+z.d--z.a+z.d--z.a+z.b+z.d--z.b+z.d--cycle;
+draw origin+z.c+z.d--z.a+z.c+z.d--z.a+z.b+z.c+z.d--z.b+z.c+z.d--cycle;
+
+draw origin--z.c--z.c+z.d--z.d--cycle;
+draw origin+z.a--z.c+z.a--z.c+z.d+z.a--z.d+z.a--cycle;
+draw origin+z.b--z.c+z.b--z.c+z.d+z.b--z.d+z.b--cycle;
+draw origin+z.a+z.b--z.c+z.a+z.b--z.c+z.d+z.a+z.b--z.d+z.a+z.b--cycle;
+
+dOt origin,z.a,z.b,z.c,z.d,
+z.a+z.b, z.a+z.c,z.a+z.d,
+z.b+z.c,z.b+z.d,
+z.c+z.d,
+z.a+z.b+z.c,z.a+z.b+z.d,z.a+z.c+z.d,z.b+z.c+z.d,
+z.a+z.b+z.c+z.d;
+endfig;
 
 beginfig(1) 
 save u;
@@ -98,33 +220,6 @@ label.rt(btex $\dots$ etex, (2.6,0)*u);
 label(btex $G_3$ etex, (0,-1.8)*u);
 label(btex $G_2$ etex, (0,-1.8)*u+z.shift);
 label(btex $G_1$ etex, (0,-1.8)*u+2*z.shift);
-endfig;
-
-beginfig(3) 
-save u;
-u:=.3cm;
-
-z.a=(4,0)*u;
-z.b=(0,4)*u;
-z.c=(2,1)*u;
-z.d=(-1,2)*u;
-
-draw origin--z.a--z.a+z.b--z.b--cycle;
-draw origin+z.c--z.a+z.c--z.a+z.b+z.c--z.b+z.c--cycle;
-draw origin+z.d--z.a+z.d--z.a+z.b+z.d--z.b+z.d--cycle;
-draw origin+z.c+z.d--z.a+z.c+z.d--z.a+z.b+z.c+z.d--z.b+z.c+z.d--cycle;
-
-draw origin--z.c--z.c+z.d--z.d--cycle;
-draw origin+z.a--z.c+z.a--z.c+z.d+z.a--z.d+z.a--cycle;
-draw origin+z.b--z.c+z.b--z.c+z.d+z.b--z.d+z.b--cycle;
-draw origin+z.a+z.b--z.c+z.a+z.b--z.c+z.d+z.a+z.b--z.d+z.a+z.b--cycle;
-
-dOt origin,z.a,z.b,z.c,z.d,
-z.a+z.b, z.a+z.c,z.a+z.d,
-z.b+z.c,z.b+z.d,
-z.c+z.d,
-z.a+z.b+z.c,z.a+z.b+z.d,z.a+z.c+z.d,z.b+z.c+z.d,
-z.a+z.b+z.c+z.d;
 endfig;
 
 beginfig(4) 
@@ -292,7 +387,5 @@ label.llft(btex $s$ etex, z0+z.shift);
 label.urt(btex $t$ etex, z6+z.shift);
 label.llft(btex $s$ etex, z0+(2*z.shift));
 label.urt(btex $t$ etex, z6+(2*z.shift));
-
-draw open_arrowhead p0;
 endfig;
 end
