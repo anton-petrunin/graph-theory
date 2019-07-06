@@ -7,7 +7,7 @@ For this chapter, the reader has to be familiar with power series.
 
 The power series 
 \[A(x)=a_0+a_1\cdot x+\tfrac12\cdot a_2\cdot x^2+\dots+\tfrac1{n!}\cdot a_n\cdot x^n+\dots\]
-is called \index{exponential generating function}\emph{exponential generating function} of the sequence $a_0,a_1,\dots$.
+is called the \index{exponential generating function}\emph{exponential generating function} of the sequence $a_0,a_1,\dots$.
 
 If the series $A(x)$ converges in some neighborhood of zero, then it defines a function which remembers all information of the sequence~$a_n$.
 The latter follows since 
@@ -15,7 +15,7 @@ The latter follows since
 that is, the $n$-th derivative of $A(x)$ at $0$ equals to $a_n$.
 
 However, without assuming the convergence, we can treat $A(x)$ as a formal power series.
-We are about to describe how to add, multiply, take derivative, and do other operations with formal power series.
+We are about to describe how to add, multiply, take the derivative, and do other operations with formal power series.
 
 \parbf{Sum and product.}
 Consider two exponential generating functions
@@ -27,7 +27,7 @@ B(x)&=b_0+b_1\cdot x+\tfrac12\cdot b_2\cdot x^2+\tfrac16\cdot b_3\cdot x^3+\dots
 We will write 
 \[S(x)=A(x)+B(x),\quad 
 P(x)=A(x)\cdot B(x)\]
-if the power series $S(x)$ and $P(x)$ are obtained from $A(x)$ and $B(x)$ by opening the parentheses these formulas and combining similar terms.
+if the power series $S(x)$ and $P(x)$ are obtained from $A(x)$ and $B(x)$ by opening the parentheses of these formulas and combining like terms.
 
 It is straightforward to check that $S(x)$ is the exponential generating function for the sequence  
 \begin{align*}
@@ -37,9 +37,7 @@ s_1&=a_1+b_1,
 \\
 &\dots
 \\
-s_n&=a_n+b_n,
-\\
-&\dots
+s_n&=a_n+b_n.
 \end{align*}
 The product $P(x)$ is also exponential generating function for the sequence
 \[
@@ -60,17 +58,17 @@ p_n&=\sum_{i=0}^n\tbinom in\cdot a_i\cdot b_{n-i}.
 \]
 
 \begin{thm}{Exercise}
-Assume $A(x)$ exponential generating function of the sequence $a_0,a_1,\dots$.
+Assume $A(x)$ is the exponential generating function of the sequence $a_0,a_1,\dots$.
 Show that $B(x)=x\cdot A(x)$ corresponds to the sequence $b_n=n\cdot a_{n-1}$.
 \end{thm}
 
 
 \parbf{Composition.}
 Once we define addition and multiplication of power series we can also plug in one power series in another.
-For example, if $a_0=0$ the expression 
+For example, if $a_0=0$, then the expression 
 \[E(x)=e^{A(x)}\] is another power series which is obtained by plugging $A(x)$ instead of $x$ in the power series of exponent:
 \[e^x=1+x+\tfrac12\cdot x^2+\tfrac16\cdot x^3+\dots\]
-It is harder to express the sequence $(e_n)$ corresponding to $E(x)$ in terms of $a_n$, but it is easy to find first few terms.
+It is harder to express the sequence $(e_n)$ corresponding to $E(x)$ in terms of $a_n$, but it is easy to find the first few terms.
 Since we assume $a_0=0$, we have
 \begin{align*}
 e_0&=1,
@@ -85,7 +83,9 @@ e_3&=a_3+6\cdot a_1\cdot a_2,
 \end{align*}
 
 \parbf{Derivative.}
-The derivative of $A(x)$ is defined as the following formal power series 
+The derivative of 
+\[A(x)=a_0+a_1\cdot x+\tfrac12\cdot a_2\cdot x^2+\dots+\tfrac1{n!}\cdot a_n\cdot x^n+\dots\]
+is defined as the following formal power series 
 \[A'(x)=a_1+a_2\cdot x+\tfrac12\cdot a_3\cdot x^2+\dots+\tfrac1{n!}\cdot a_{n+1}\cdot x^n+\dots\]
 Note that $A'(x)$ coincides with the ordinary derivative of $A(x)$ if the latter converges.
 
@@ -98,9 +98,8 @@ by deleting the zero-term and shifting the indexes by 1.
 
 \begin{thm}{Exercise}
 Let $A(x)$ be the exponential generating function of the sequence $a_0,a_1,a_2\dots$.
-Describe the sequence $b_n$ for which 
+Describe the sequence $b_n$ with the exponential generating function
 \[B(x)=x\cdot A'(x).\]
-is the exponential generating function.
 \end{thm}
 
 \parbf{Calculus.}
@@ -108,7 +107,7 @@ If $A(x)$ converges and
 \[E(x)=e^{A(x)},\] 
 then we have 
 \[\ln E(x)=A(x).\]
-Also taking derivative of $E(x)=e^{A(x)}$ we get that
+Also by taking the derivative of $E(x)=e^{A(x)}$ we get that
 \begin{align*}
 E'(x)
 &=e^{A(x)}\cdot A'(x)=
@@ -117,7 +116,7 @@ E'(x)
 \end{align*}
 
 
-These identities have perfect meaning in terms of formal power series
+These identities have a perfect meaning in terms of formal power series
 and they still hold without assuming the convergence.
 We will not prove it formally, but this is not hard.
 
@@ -153,19 +152,20 @@ Let \[C(x)=C_{\mathcal{S}}(x)\] be the exponential generating function of the se
 Let $\mathcal{S}$ be a set of connected graphs. 
 
 \begin{enumerate}[(a)]
-\item\label{thm:exp-formula:Wk} Fix a positive integer $k$ and denote by $w_n$ the number of spanning subgraphs of $K_n$ which have exactly $k$ connected components and each connected component is  isomorphic to one of the graphs in $\mathcal{S}$.
+\item\label{thm:exp-formula:Wk} Fix a positive integer $k$ and denote by $w_n$ the number of spanning subgraphs of $K_n$ which have exactly $k$ connected components, and each connected component is  isomorphic to one of the graphs in~$\mathcal{S}$.
 Then
 \[W_k(x)=\tfrac1{k!}\cdot C_{\mathcal{S}}(x)^k,\]
 where $W_k(x)$ is the exponential generating function of the sequence $w_n$.
 
-\item\label{thm:exp-formula:all} Denote by $a_n$ the number of {}\emph{all} spanning subgraphs of $K_n$ such that each connected component of it is from the class and let $A(x)$ be the corresponding exponential generating function.
+\item\label{thm:exp-formula:all} Denote by $a_n$ the number of {}\emph{all} spanning subgraphs of $K_n$ such that each connected component of it is from the class $\mathcal{S}$.
+Let $A(x)$ be the exponential generating function of the sequence $(a_n)$.
 Then
 \[1+A(x)=e^{C_{\mathcal{S}}(x)}.\]
 \end{enumerate}
 
 \end{thm}
 
-Taking logarithm and derivative of the formula in \ref{thm:exp-formula:all},
+Taking the logarithm and derivative of the formula in \ref{thm:exp-formula:all},
 we get the following:
 
 \begin{thm}{Corollary}\label{cor:exp-formula}
@@ -174,16 +174,16 @@ Then
 \[\ln [1+A(x)]=C(x)\quad\text{and}\quad A'(x)=[1+A(x)]\cdot C'(x).\]
 \end{thm}
 
-The second formula in this corollary provides a recursive formula for the corresponding sequences which will be important latter.
+The second formula in this corollary provides a recursive formula for the corresponding sequences which will be important later.
 
 \parit{Proof; \ref{thm:exp-formula:Wk}.}
 Denote by $v_n$ the number of spanning subgraphs of $K_n$ which have $k$ ordered connected components and each connected component is isomorphic to one of the graphs in $\mathcal{S}$.
 Let $V_k(x)$ be the corresponding generating function.
 
-Note that for each graph as above
+Note that for each graph described above
 there are $k!$ ways to order its $k$ components.
 Therefore $w_n=\tfrac1{k!}\cdot v_n$ for any $n$ and
-\[W_k(x)=\tfrac1{k!}\cdot V(x).\]
+\[W_k(x)=\tfrac1{k!}\cdot V_k(x).\]
 Hence it is sufficient to show that 
 \[V_k(x)=C(x)^k.
 \eqlbl{eq:V=Ck}\]
@@ -195,7 +195,7 @@ Assuming that the identity \ref{eq:V=Ck} holds for $k$;
 we need to show that 
 \[V_{k+1}=V_k(x)\cdot C(x).\eqlbl{eq:VkC}\]
 
-Assume that a spanning graph with ordered $k+1$ connected components of $K_n$ is given.
+Assume that a spanning graph with $k+1$ ordered connected components of $K_n$ is given.
 Denote by $m$ the number of vertexes in the first $k$ components.
 There are $\tbinom mn$ ways to choose these vertexes among $n$ vertexes of $K_n$ and for each choice we have
 $v_m$ ways to choose spanning subgraph with $k$ components in it;
@@ -209,7 +209,7 @@ Hence \ref{eq:VkC} follows.
 To count all graphs we need to add number of spanning graphs for all number of components;
 that is,
 \begin{align*}A(x)&=W_1(x)+W_2(x)+\dots=
-\intertext{Applying to part \ref{thm:exp-formula:Wk}, we can continue}
+\intertext{applying part \ref{thm:exp-formula:Wk}, we can continue}
 &=C(x)+\tfrac12\cdot C(x)^2+\tfrac16\cdot C(x)^3+\dots=
 \\
 &=e^{C(x)}-1.

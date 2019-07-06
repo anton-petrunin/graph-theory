@@ -75,12 +75,12 @@ There is a Rado graph.
 
 \parit{Proof.}
 Let $G$ be a finite graph.
-Denote by $G'$ the graph obtained from $G$ according the following rule:
+Denote by $G'$ the graph obtained from $G$ according to the following rule:
 for each subset $V$ of vertexes in $G$ add a vertex $v$ and connect it to all the vertexes in $V$.
 
-Note that if $G$ has $p$ vertexes, then $G'$ has $p+2^p$ vertexes --- it has $p$ vertexes of $G$ and $2^p$ additional vertexes --- one for each subset of $p$ vertexes of $G$ (including the empty set).
+Note that if $G$ has $p$ vertexes, then $G'$ has $p+2^p$ vertexes --- it has $p$ vertexes of $G$ and $2^p$ additional vertexes --- one for each of $2^p$ subsets of the $p$-element set (including the empty set).
 
-The original graph $G$ is an induced subgraph in the obtained graph $G'$.
+The original graph $G$ is an induced subgraph in $G'$.
 Note also that $G'$ is finite --- it has $p+2^p$ vertexes.
 
 By construction, the Rado property holds in $G'$ for any two sets $V$ and $W$ of vertexes in $G$ --- the required vertex $v$ is the vertex in $G'$ that corresponds to the subset $V$.
