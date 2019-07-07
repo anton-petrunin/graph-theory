@@ -4,15 +4,14 @@
 \section*{Definitions}
 
 
-\begin{wrapfigure}[8]{r}{40 mm}
-\begin{lpic}[t(-4 mm),b(0 mm),r(0 mm),l(0 mm)]{pics/deletion-contraction(1)}
-\lbl[tr]{4,10;$G$}
-\lbl[tr]{28,19;$G\backslash e$}
-\lbl[tr]{28,5;$G/e$}
-\end{lpic}
+\begin{wrapfigure}{r}{40 mm}
+\vskip-12mm
+\centering
+\includegraphics{mppics/pic-31}
+\vskip-0mm
 \end{wrapfigure}
 
-Let $e$ be an edge in the pseudograph $G$.
+Let $G$ be a pseudograph with a marked edge~$e$.
 Denote by $G\backslash e$ the pseudograph obtained from $G$ by deleting $e$,
 and by $G/e$ the pseudograph obtained from $G$ by contracting the edge $e$ to a point; see the diagram.
 
@@ -30,17 +29,14 @@ Recall that $s(G)$ denotes the number of spanning trees in the pseudograph $G$.
 
 {
 \begin{wrapfigure}{r}{42 mm}
-\begin{lpic}[t(-4 mm),b(0 mm),r(0 mm),l(0 mm)]{pics/most(1)}
-\lbl[b]{21,8;bridge}
-\lbl[t]{7,0;bank}
-\lbl[t]{34,0;bank}
-\end{lpic}
+\vskip-4mm
+\centering
+\includegraphics{mppics/pic-32}
+\vskip-0mm
 \end{wrapfigure}
 
-\medskip
-
 An edge $e$ in a connected graph $G$ is called the \index{bridge}\emph{bridge}, if deletion of $e$ makes the graph disconnected;
-that is, the remaining graph has two connected components which are called {}\emph{banks}.
+in this case, the remaining graph has two connected components which are called {}\emph{banks}.
 
 
 \begin{thm}{Exercise}
@@ -60,17 +56,19 @@ Assume $e$ is not a loop, then the following identity holds
 
 \end{thm}
 
-\begin{wrapfigure}[9]{r}{40 mm}
-\begin{lpic}[t(-2 mm),b(0 mm),r(0 mm),l(0 mm)]{pics/osnovnoe-ravenstvo(1)}
-\lbl[tr]{4,10;$G$}
-\lbl[br]{28,26;$G\backslash e$}
-\lbl[tr]{28,5;$G/e$}
-\end{lpic}
+{
+
+\begin{wrapfigure}{r}{43 mm}
+\vskip-12mm
+\centering
+\includegraphics{mppics/pic-33}
+\vskip-0mm
 \end{wrapfigure}
 
 It is convenient to write the identity \ref{eq:deletion-plus-contraction} using a diagram as on the picture --- the arrows point from one multigraph to multigraphs with the same total number of spanning trees;
 the edge $e$ is marked in $G$.
 
+}
 
 \parit{Proof.} Note that the spanning trees of $G$ can be subdivided into two groups ---
 (1)~those which contain the edge $e$ and (2)~those which do not.
@@ -82,30 +80,43 @@ Hence the formula follows.
 
 Note that a spanning tree can not have loops.
 Therefore if we remove all loops from the pseudograph, the number of spanning trees remains unchanged.
-In other words, for any loop $e$ the following identity holds 
+Let us state it.
+
+\begin{thm}{Claim}
+If $e$ is a loop $e$ in a pseudograph $G$, then 
 \[s(G)=s(G\backslash e).\]
 
-From the deletion-plus-contraction formula, we can deduce a few other useful identities.
-For example, assume that the graph $G$ has an end vertex $w$ (that is, $\deg w=1$). 
-If we remove the vertex $w$ and its edge from $G$, then in the obtained graph $G\backslash w$
-the number of spanning trees remains unchanged; that is,
+\end{thm}
+
+The proof of the following claim use deletion-plus-contraction formula.
+
+\begin{thm}{Claim}
+If one removes an end vertex $w$ from a pseudograph $G$, then in the obtained graph $G\backslash w$
+the number of spanning trees remains unchanged;
+that is,
 \[s(G)=s(G\backslash w).\eqlbl{eq:deletion-plus-contraction-w}\]
-To prove this equality, denote by $e$ the only edge incident to $w$. 
+
+\end{thm}
+
+\parit{Proof.}
+Denote by $e$ the only edge incident to $w$. 
 Note that the graph $G\backslash e$ is not connected, since the vertex $w$ is isolated.
 In particular,
 $s(G\backslash e)=0$.
-On the other hand, $G/e=G\backslash w$; therefore \ref{eq:deletion-plus-contraction} implies~\ref{eq:deletion-plus-contraction-w}.
+On the other hand, $G/e=G\backslash w$.
+Therefore the deletion-plus-contraction formula \ref{eq:deletion-plus-contraction} implies~\ref{eq:deletion-plus-contraction-w}.
+\qeds
 
-On the diagrams, we will use two-sided arrow ``$\leftrightarrow$'' for the graphs with equal number of the spanning trees.
-For example, from the discussed identities we can draw the diagram, which in particular implies the following identity:
-\[s(G)=2\cdot s(H).\]
-
-\begin{wrapfigure}{r}{59 mm}
-\begin{lpic}[t(-0 mm),b(0 mm),r(0 mm),l(0 mm)]{pics/diagramma(1)}
-\lbl[tr]{3,15;$G$}
-\lbl[tl]{54,15;$H$}
-\end{lpic}
+\begin{wrapfigure}{r}{58 mm}
+\vskip-0mm
+\centering
+\includegraphics{mppics/pic-34}
+\vskip-0mm
 \end{wrapfigure}
+
+On the diagrams, we may use two-sided arrow ``$\leftrightarrow$'' for the graphs with equal number of the spanning trees.
+For example, using deletion-plus-contraction formula together with the claims, we can draw the diagram, which in particular implies the following identity:
+\[s(G)=2\cdot s(H).\]
 
 Note that the deletion-plus-contraction formula gives an algorithm to calculate  the value $s(G)$ for a given pseudograph $G$.
 Indeed, for any edge $e$, both graphs $G\backslash e$ and $G/e$ have smaller number of edges.
@@ -126,39 +137,24 @@ The sequence of Fibonacci numbers starts as
 \[1,1,2,3,5,8,13,\dots\]
 
 The graphs of the following type are called \index{fan}\emph{fans}; 
+\begin{figure}[h!]
+\centering
+\includegraphics{mppics/pic-35}
+\end{figure}
 a fan with $n+1$ vertex will be denoted by $F_n$. 
-
-\begin{center}
-\begin{lpic}[t(0 mm),b(0 mm),r(0 mm),l(-10 mm)]{pics/veera(1)}
-\lbl[br]{12,15;$F_1$}
-\lbl[br]{27.5,16.5;$F_2$}
-\lbl[br]{43.2,17.5;$F_3$}
-\lbl[br]{57.5,18.5;$F_4$}
-\lbl[br]{73,20;$F_5$}
-\lbl[l]{83,14;{\Large$\dots$}}
-\end{lpic}
-\end{center}
 
 \begin{thm}{Theorem}\label{thm:fans}
 $s(F_n)=f_{2\cdot n}$.
 \end{thm}
 
 \parit{Proof.}
-Applying the deletion-plus-contraction formula, we can draw the following infinite diagram. 
+Applying the deletion-plus-contraction formula, we can draw the following infinite diagram.
+\begin{figure}[h!]
+\centering
+\includegraphics{mppics/pic-36}
+\end{figure}
+(We ignore loops and end vertexes since they do not change the number of spanning trees.)
 In addition to the fans $F_n$ we use its variations $F_n'$, which differ from $F_n$ by an extra parallel edge.
-\begin{center}
-\begin{lpic}[t(0 mm),b(0 mm),r(0 mm),l(0 mm)]{pics/veera-skhema(1)}
-\lbl[br]{4,49;$F_6$}
-\lbl[br]{42,49;$F_5$}
-\lbl[br]{76,47;$F_4$}
-\lbl[tr]{25,7;$F'_5$}
-\lbl[tr]{63,8;$F'_4$}
-\lbl[l]{77,13;{\Large$\dots$}}
-\lbl[r]{17,13;{\Large$\dots$}}
-\lbl[r]{0,43;{\Large$\dots$}}
-\lbl[l]{85,43;{\Large$\dots$}}
-\end{lpic}
-\end{center}
 
 Set $a_n=s(F_n)$ and $a'_n=s(F'_n)$.
 From the diagram, we get the following two recursive relations:
@@ -203,16 +199,11 @@ that is, $\lfloor x\rfloor$ is the maximal integer that does not exceed $x$.
 
 \begin{thm}{Exercise}
 Consider the sequence of zig-zag graphs $Z_n$ of the following type:
-\begin{center}
-\begin{lpic}[t(1 mm),b(0 mm),r(0 mm),l(0 mm)]{pics/a-extra(1)}
-\lbl[b]{5.5,5;$Z_1$}
-\lbl[b]{14.5,9;$Z_2$}
-\lbl[b]{24.5,11;$Z_3$}
-\lbl[b]{34,13;$Z_4$}
-\lbl[b]{45.5,15;$Z_5$}
-\lbl[l]{49.5,8;{\Large$\dots$}}
-\end{lpic}
-\end{center}
+\begin{figure}[h!]
+\centering
+\includegraphics{mppics/pic-37}
+\end{figure}
+
 Show that $s(Z_n)=f_{2\cdot n}$ for any $n$. 
 \end{thm}
 
@@ -222,26 +213,20 @@ Show that $s(Z_n)=f_{2\cdot n}$ for any $n$.
 \begin{thm}{Exercise}
 Let us denote by $b_n$ the number of spanning trees in the {}\emph{$n$-step ladder} $L_n$; that is, in the graph of the following type:
 
-\begin{center}
-\begin{lpic}[t(1 mm),b(0 mm),r(0 mm),l(0 mm)]{pics/a1-4(1)}
-\lbl[b]{5.5,4;$L_1$}
-\lbl[b]{15.5,9;$L_2$}
-\lbl[b]{25.5,14;$L_3$}
-\lbl[b]{35.5,19;$L_4$}
-\lbl[b]{45.5,24;$L_5$}
-\lbl[l]{50.5,13;{\Large$\dots$}}
-\end{lpic}
-\end{center}
+\begin{figure}[h!]
+\centering
+\includegraphics{mppics/pic-38}
+\end{figure}
 
 Apply the method we used for the fans $F_n$ to show that the sequence $b_n$ satisfies the following linear recursive relation:
 \[b_{n+1}=4\cdot b_n-b_{n-1}.\]
+
 \end{thm}
 
 \begin{wrapfigure}{r}{20 mm}
-\begin{lpic}[t(-4 mm),b(0 mm),r(0 mm),l(0 mm)]{pics/lestnitza-shtrih(1)}
-\lbl[b]{5,23.5;$L_3'$}
-\lbl[b]{15,21;$L_3''$}
-\end{lpic}
+\vskip-12mm
+\centering
+\includegraphics{mppics/pic-39}
 \end{wrapfigure}
 
 \parit{Hint:} To construct the recursive relation, in addition to the ladders $L_n$, you will need two of its analogs --- $L_n'$ and $L_n''$, shown on the diagram.
@@ -255,16 +240,12 @@ The following exercise is analogous, but more complicated.
 
 \begin{thm}{Advanced exercise}
 Recall that a wheel $W_n$ is the graph of following type:
-\begin{center}
-\begin{lpic}[t(1 mm),b(0 mm),r(0 mm),l(0 mm)]{pics/kolesa(1)}
-\lbl[br]{3,11.5;$W_1$}
-\lbl[b]{16,11.5;$W_2$}
-\lbl[b]{30.5,11.5;$W_3$}
-\lbl[b]{46,11.5;$W_4$}
-\lbl[b]{61.5,11.5;$W_5$}
-\lbl[l]{74,7;{\Large$\dots$}}
-\end{lpic}
-\end{center}
+
+\begin{figure}[h!]
+\centering
+\includegraphics{mppics/pic-30}
+\end{figure}
+
 Show that the sequence $c_n=s(W_n)$ satisfies the following recursive relation:
 \[c_{n+1}=4\cdot c_n-4\cdot c_{n-1}+c_{n-2}.\]
 

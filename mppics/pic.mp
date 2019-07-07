@@ -50,6 +50,10 @@ draw
 for i=45 step 45 until 360: 
 (z.a rotated i)-- endfor cycle;
 
+
+for i=45 step 45 until 180: 
+draw (z.a rotated i)--(z.a rotated (180+i)); endfor
+
 for i=45 step 45 until 360: dOt (z.a rotated i); endfor
 
 draw 
@@ -139,6 +143,530 @@ z.c+z.d,
 z.a+z.b+z.c,z.a+z.b+z.d,z.a+z.c+z.d,z.b+z.c+z.d,
 z.a+z.b+z.c+z.d;
 endfig;
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+beginfig(31) 
+save u;
+u:=.5cm;
+
+z.shift1=(3,1.5)*u;
+z.shift2=(3,-1.4)*u;
+
+z.a0=origin;
+z.a1=(0,1)*u;
+z.a2=z.a1 rotated 90;
+z.a3=z.a1 rotated 180;
+z.a4=z.a1 rotated -90;
+
+draw z.a1..z.a2..z.a3..z.a4..cycle;
+draw z.a1--z.a3;
+draw z.a2--z.a4;
+
+rimmark(z.a1--z.a0);
+
+dOt z.a0,z.a1,z.a2,z.a3,z.a4;
+
+draw (z.a1..z.a2..z.a3..z.a4..cycle) shifted z.shift1;
+draw (z.a0--z.a3) shifted z.shift1;
+draw (z.a2--z.a4) shifted z.shift1;
+
+dOt z.a0+z.shift1,z.a1+z.shift1,z.a2+z.shift1,z.a3+z.shift1,z.a4+z.shift1;
+
+draw ((.5*z.a1)..{down}z.a2..z.a3..z.a4{up}..(.5*z.a1)) shifted (z.shift2);
+draw ((.5*z.a1)--z.a3) shifted (z.shift2);
+draw (z.a2{right}..(.5*z.a1)) shifted (z.shift2);
+draw ((.5*z.a1)..{right}z.a4) shifted (z.shift2);
+
+dOt .5*z.a1+(z.shift2),z.a2+(z.shift2),z.a3+(z.shift2),z.a4+(z.shift2);
+
+label.lft(btex $G$ etex, z.a2);
+label.urt(btex $G\backslash e$ etex, (z.a1 rotated -45)+z.shift1);
+label.lrt(btex $G/e$ etex, (z.a1 rotated -135)+z.shift2);
+endfig;
+
+beginfig(32) 
+save u;
+u:=.5cm;
+
+z.shift=(5.5,0)*u;
+
+z.a0=origin;
+z.a1=(1,0)*u;
+z.a2=z.a1 rotated 60;
+z.a3=z.a1 rotated 180;
+z.a4=z.a1 rotated -60;
+
+draw z.a1..z.a2..z.a3..z.a4..cycle;
+draw z.a0--z.a2;
+draw z.a0--z.a3;
+draw z.a0--z.a4;
+
+z.b0=z.a0+z.shift;
+z.b1=z.a1+z.shift;
+z.b2=(z.a1 rotated 90)+z.shift;
+z.b3=(z.a1 zscaled (-1,1))+z.shift;
+z.b4=-z.a1+z.shift;
+z.b5=(z.a1 zscaled (-1,-1))+z.shift;
+z.b6=(z.a1 zscaled (0,-1))+z.shift;
+z.b7=(z.a1 zscaled (1,-1))+z.shift;
+
+draw z.b1{up}..{left}z.b2--z.b3--z.b4--z.b5--z.b6--z.b7--cycle;
+draw z.b0--z.b1;
+draw z.b0--z.b2;
+draw z.b0--z.b4;
+draw z.b0--z.b6;
+
+draw z.a1--z.b4 dashed evenly;
+
+dOt z.a0,z.a1,z.a2,z.a3,z.a4;
+
+dOt z.b0,z.b1,z.b2,z.b3,z.b4,z.b5,z.b6,z.b7;
+
+label.bot(btex bank etex, z.a1 rotated -90);
+label.bot(btex bank etex, z.b6);
+label.bot(btex bridge etex, .5[z.a1,z.b4]);
+
+endfig;
+
+beginfig(33) 
+save u;
+u:=.5cm;
+
+z.shift1=(4,1.5)*u;
+z.shift2=(4,-1.4)*u;
+
+z.a0=origin;
+z.a1=(0,1)*u;
+z.a2=z.a1 rotated 90;
+z.a3=z.a1 rotated 180;
+z.a4=z.a1 rotated -90;
+
+draw z.a1..z.a2..z.a3..z.a4..cycle;
+draw z.a1--z.a3;
+draw z.a2--z.a4;
+
+rimmark(z.a1--z.a0);
+
+dOt z.a0,z.a1,z.a2,z.a3,z.a4;
+
+draw (z.a1..z.a2..z.a3..z.a4..cycle) shifted z.shift1;
+draw (z.a0--z.a3) shifted z.shift1;
+draw (z.a2--z.a4) shifted z.shift1;
+
+dOt z.a0+z.shift1,z.a1+z.shift1,z.a2+z.shift1,z.a3+z.shift1,z.a4+z.shift1;
+
+draw ((.5*z.a1)..{down}z.a2..z.a3..z.a4{up}..(.5*z.a1)) shifted (z.shift2);
+draw ((.5*z.a1)--z.a3) shifted (z.shift2);
+draw (z.a2{right}..(.5*z.a1)) shifted (z.shift2);
+draw ((.5*z.a1)..{right}z.a4) shifted (z.shift2);
+
+drawdblarrow z.shift2+(1.5*z.a1 rotated 60)--1.5*z.a4--z.shift1+(1.5*z.a1 rotated 120);
+
+dOt .5*z.a1+(z.shift2),z.a2+(z.shift2),z.a3+(z.shift2),z.a4+(z.shift2);
+
+label.lft(btex $G$ etex, z.a2);
+label.urt(btex $G{\backslash}e$ etex, (z.a1 rotated -45)+z.shift1);
+label.lrt(btex $G/e$ etex, (z.a1 rotated -135)+z.shift2);
+
+endfig;
+
+beginfig(34) 
+save u;
+u:=.5cm;
+
+z.shift1=(4,2)*u;
+z.shift2=(4,-2)*u;
+
+z.a0=origin;
+z.a1=(0,1)*u;
+z.a2=z.a1 rotated 90;
+z.a3=z.a1 rotated 180;
+z.a4=z.a1 rotated -90;
+
+draw z.a1..z.a2..z.a3..z.a4..cycle;
+draw z.a1--z.a3;
+draw z.a2--z.a4;
+draw z.a1{1,1.2}..{-1,1.2}(2*z.a1);
+draw z.a1{-1,1.2}..{1,1.2}(2*z.a1);
+
+rimmark(z.a1{-1,1.2}..{1,1.2}(2*z.a1));
+
+draw (z.a1..z.a2..z.a3..z.a4..cycle) shifted z.shift1;
+draw (z.a1--z.a3) shifted z.shift1;
+draw (z.a2--z.a4) shifted z.shift1;
+draw (z.a1{1,1.2}..(1.6*z.a1)..z.a1{1,-1.2}) shifted z.shift1;
+
+draw (z.a1..z.a2..z.a3..z.a4..cycle) shifted z.shift2;
+draw (z.a1--z.a3) shifted z.shift2;
+draw (z.a2--z.a4) shifted z.shift2;
+draw (z.a1--(2*z.a1)) shifted z.shift2;
+
+draw (z.a1..z.a2..z.a3..z.a4..cycle) shifted (z.shift2+z.shift1);
+draw (z.a1--z.a3) shifted (z.shift2+z.shift1);
+draw (z.a2--z.a4) shifted (z.shift2+z.shift1);
+
+drawdblarrow z.shift2+(1.5*z.a1 rotated 45)--1.5*z.a4--z.shift1+(1.5*z.a1 rotated 135);
+drawdblarrow z.shift2+(1.5*z.a1 rotated -60)--z.shift1+z.shift2+(1.5*z.a1 rotated 120);
+drawdblarrow z.shift1+(1.5*z.a1 rotated -120)--z.shift1+z.shift2+(1.5*z.a1 rotated 60);
+
+dOt z.a0,z.a1,2*z.a1,z.a2,z.a3,z.a4;
+dOt z.a0+z.shift1,z.a1+z.shift1,z.a2+z.shift1,z.a3+z.shift1,z.a4+z.shift1;
+dOt z.a0+z.shift2,z.a1+z.shift2,2*z.a1+z.shift2,z.a2+z.shift2,z.a3+z.shift2,z.a4+z.shift2;
+dOt z.a0+z.shift1+z.shift2,z.a1+z.shift1+z.shift2,z.a2+z.shift1+z.shift2,z.a3+z.shift1+z.shift2,z.a4+z.shift1+z.shift2;
+
+label.llft(btex $G$ etex, z.a1 rotated 120);
+label.lrt(btex $H$ etex, (z.a1 rotated -120)+z.shift1+z.shift2);
+endfig;
+
+beginfig(35) 
+save u;
+u:=.8cm;
+
+z.shift=(2,0)*u;
+
+z.a=origin;
+z.b=(1,0)*u;
+
+draw z.a--z.b;
+
+dOt z.a,z.b;
+
+draw 
+(for i=-1 step 2 until 1: 
+(z.b rotated (i*15))-- endfor z.a--cycle) shifted z.shift;
+
+for i=-1 step 2 until 1:
+dOt((z.b rotated (i*15)) shifted z.shift);
+endfor
+
+dOt z.a + z.shift;
+
+
+draw 
+(for i=-2 step 2 until 2: 
+(z.b rotated (i*15))-- endfor z.a--cycle) shifted (2*z.shift);
+
+for i=0 step 2 until 0:
+draw (z.a--(z.b rotated (i*15))) shifted (2*z.shift);
+endfor
+
+for i=-2 step 2 until 2:
+dOt((z.b rotated (i*15)) shifted (2*z.shift));
+endfor
+
+dOt z.a + 2*z.shift;
+
+draw 
+(for i=-3 step 2 until 3: 
+(z.b rotated (i*15))-- endfor z.a--cycle) shifted (3*z.shift);
+
+for i=-1 step 2 until 1:
+draw (z.a--(z.b rotated (i*15))) shifted (3*z.shift);
+endfor
+
+for i=-3 step 2 until 3:
+dOt((z.b rotated (i*15)) shifted (3*z.shift));
+endfor
+
+dOt z.a + 3*z.shift;
+
+draw 
+(for i=-4 step 2 until 4: 
+(z.b rotated (i*15))-- endfor z.a--cycle) shifted (4*z.shift);
+
+for i=-2 step 2 until 2:
+draw (z.a--(z.b rotated (i*15))) shifted (4*z.shift);
+endfor
+
+for i=-4 step 2 until 4:
+dOt((z.b rotated (i*15)) shifted (4*z.shift));
+endfor
+
+dOt z.a + 4*z.shift;
+
+draw 
+(for i=-5 step 2 until 5: 
+(z.b rotated (i*15))-- endfor z.a--cycle) shifted (5*z.shift);
+
+for i=-3 step 2 until 3:
+draw (z.a--(z.b rotated (i*15))) shifted (5*z.shift);
+endfor
+
+for i=-5 step 2 until 5:
+dOt((z.b rotated (i*15)) shifted (5*z.shift));
+endfor
+
+dOt z.a + 5*z.shift;
+
+
+
+label.top(btex $F_1$ etex, .5*z.b);
+label.top(btex $F_2$ etex, (.5*z.b rotated (1*20))+1*(z.shift+(-.5,-1)));
+label.top(btex $F_3$ etex, (.5*z.b rotated (2*20))+2*(z.shift+(-.5,-1)));
+label.top(btex $F_4$ etex, (.5*z.b rotated (3*20))+3*(z.shift+(-.5,-1)));
+label.top(btex $F_5$ etex, (.5*z.b rotated (4*20))+4*(z.shift+(-.5,-1)));
+label.top(btex $F_6$ etex, (.5*z.b rotated (5*20))+5*(z.shift+(-.5,-1)));
+label(btex {\Large$\dots$} etex, 6*z.shift);
+endfig;
+
+beginfig(36) 
+save u;
+u:=.8cm;
+
+z.shift=(-3,0)*u;
+z.vertshift=(1.5,-3)*u;
+
+z.a=origin;
+z.b=(1,0)*u;
+
+draw 
+(for i=-3 step 2 until 3: 
+(z.b rotated (i*15))-- endfor z.a--cycle) shifted (3*z.shift);
+
+rimmark(((z.b rotated (3*15))+3*z.shift--z.a+3*z.shift));
+
+for i=-1 step 2 until 1:
+draw (z.a--(z.b rotated (i*15))) shifted (3*z.shift);
+endfor
+
+for i=-3 step 2 until 3:
+dOt((z.b rotated (i*15)) shifted (3*z.shift));
+endfor
+
+dOt z.a + 3*z.shift;
+
+draw 
+(for i=-4 step 2 until 4: 
+(z.b rotated (i*15))-- endfor z.a--cycle) shifted (4*z.shift);
+
+rimmark(((z.b rotated (4*15))+4*z.shift--z.a+4*z.shift));
+
+for i=-2 step 2 until 2:
+draw (z.a--(z.b rotated (i*15))) shifted (4*z.shift);
+endfor
+
+for i=-4 step 2 until 4:
+dOt((z.b rotated (i*15)) shifted (4*z.shift));
+endfor
+
+dOt z.a + 4*z.shift;
+
+
+draw 
+(for i=-4 step 2 until 2: 
+(z.b rotated (i*15))-- endfor z.a--cycle) shifted (4*z.shift+z.vertshift);
+
+for i=-2 step 2 until 0:
+draw (z.a--(z.b rotated (i*15))) shifted (4*z.shift+z.vertshift);
+endfor
+
+draw (z.a{z.b rotated (6*15)}..(z.b rotated (2*15))) shifted (4*z.shift+z.vertshift);
+rimmark((z.a{z.b rotated (6*15)}..(z.b rotated (2*15))) shifted (4*z.shift+z.vertshift));
+
+for i=-4 step 2 until 2:
+dOt((z.b rotated (i*15)) shifted (4*z.shift+z.vertshift));
+endfor
+
+dOt z.a + 4*z.shift+z.vertshift;
+
+draw 
+(for i=-5 step 2 until 5: 
+(z.b rotated (i*15))-- endfor z.a--cycle) shifted (5*z.shift);
+
+rimmark(((z.b rotated (5*15))+5*z.shift--z.a+5*z.shift));
+
+for i=-3 step 2 until 3:
+draw (z.a--(z.b rotated (i*15))) shifted (5*z.shift);
+endfor
+
+for i=-5 step 2 until 5:
+dOt((z.b rotated (i*15)) shifted (5*z.shift));
+endfor
+
+dOt z.a + 5*z.shift;
+
+draw 
+(for i=-5 step 2 until 3: 
+(z.b rotated (i*15))-- endfor z.a--cycle) shifted (5*z.shift+z.vertshift);
+
+for i=-3 step 2 until 1:
+draw (z.a--(z.b rotated (i*15))) shifted (5*z.shift+z.vertshift);
+endfor
+
+draw (z.a{z.b rotated (7*15)}..(z.b rotated (3*15))) shifted (5*z.shift+z.vertshift);
+rimmark((z.a{z.b rotated (7*15)}..(z.b rotated (3*15))) shifted (5*z.shift+z.vertshift));
+
+for i=-5 step 2 until 3:
+dOt((z.b rotated (i*15)) shifted (5*z.shift+z.vertshift));
+endfor
+
+dOt z.a + 5*z.shift+z.vertshift;
+
+drawdblarrow (0,1)*u+ 5*z.shift+z.vertshift--(1.1,-.6)*u+ 5*z.shift--(-.2,-.2)*u+ 4*z.shift;
+drawdblarrow (0,1)*u+ 4*z.shift+z.vertshift--(1.1,-.6)*u+ 4*z.shift--(-.2,-.2)*u+ 3*z.shift;
+
+drawdblarrow (0,-1)*u+4*z.shift--(1.1,.6)*u+ 5*z.shift+z.vertshift--(-.2,.3)*u+ 4*z.shift+z.vertshift;
+
+label.top(btex $F_4$ etex, (.5*z.b rotated (3*20))+3*(z.shift+(-.5,-1))+(-1,1));
+label.top(btex $F_5$ etex, (.5*z.b rotated (4*20))+4*(z.shift+(-.5,-1))+(-1,1));
+label.top(btex $F_6$ etex, (.5*z.b rotated (5*20))+5*(z.shift+(-.5,-1))+(-1,1));
+
+label(btex $F_4'$ etex, (.5*z.b rotated (-4*20))+4*(z.shift+(-.5,-1))+(-1,-1)+z.vertshift);
+label(btex $F_5'$ etex, (.5*z.b rotated (-5*20))+5*(z.shift+(-.5,-1))+(-1,-1)+z.vertshift);
+
+label(btex {\Large$\dots$} etex, 5*z.shift-(1,0)*u);
+label(btex {\Large$\dots$} etex, 5*z.shift-(1,0)*u+z.vertshift);
+label(btex {\Large$\dots$} etex, 3*z.shift+z.b+(1,0)*u);
+label(btex {\Large$\dots$} etex, 4*z.shift+z.vertshift+z.b+(1,0)*u);
+endfig;
+
+beginfig(37) 
+save u;
+u:=.5cm;
+
+
+z2=(0,1)*u;
+z1=z2 rotated 60;
+
+z.shift=-z2/4+(2.5,0)*u;
+
+for j=3 step 1 until 10:
+z[j]=z[j-2]+z2;
+endfor
+
+for i=2 step 1 until 7:
+draw (z1--z2) shifted (i*z.shift);
+for j=3 step 1 until i:
+draw (z[j-2]--z[j]--z[j-1]) shifted (i*z.shift);
+endfor
+for j=1 step 1 until i:
+dOt z[j]+i*z.shift;
+endfor
+endfor
+
+label(btex $Z_1$ etex, .5[z[2+1],z[2+2]]+2*z.shift+(0,-3));
+label(btex $Z_2$ etex, .5[z[3+1],z[3+2]]+3*z.shift+(0,-3));
+label(btex $Z_3$ etex, .5[z[4+1],z[4+2]]+4*z.shift+(0,-3));
+label(btex $Z_4$ etex, .5[z[5+1],z[5+2]]+5*z.shift+(0,-3));
+label(btex $Z_5$ etex, .5[z[6+1],z[6+2]]+6*z.shift+(0,-3));
+label(btex $Z_6$ etex, .5[z[7+1],z[7+2]]+7*z.shift+(0,-3));
+
+label.rt(btex {\Large$\dots$} etex, z[4]+7*z.shift+(5,0));
+endfig;
+
+
+beginfig(38) 
+save u;
+u:=.5cm;
+
+z1=origin;
+z2=(1,0)*u;
+z3=z2 rotated 90;
+
+z.shift=-z3/2+(2.5,0)*u;
+
+for j=4 step 1 until 20:
+z[j]=z[j-2]+z3;
+endfor
+
+for i=1 step 1 until 6:
+draw (z1--z2) shifted (i*z.shift);
+for j=3 step 2 until 2*i:
+draw (z[j-2]--z[j]--z[j+1]--z[j-1]) shifted (i*z.shift);
+endfor
+for j=1 step 1 until 2*i:
+dOt z[j]+i*z.shift;
+endfor
+endfor
+
+label.top(btex $L_1$ etex, .5[z[2*1-1],z[2*1]]+1*z.shift+(0,2));
+label.top(btex $L_2$ etex, .5[z[2*2-1],z[2*2]]+2*z.shift+(0,2));
+label.top(btex $L_3$ etex, .5[z[2*3-1],z[2*3]]+3*z.shift+(0,2));
+label.top(btex $L_4$ etex, .5[z[2*4-1],z[2*4]]+4*z.shift+(0,2));
+label.top(btex $L_5$ etex, .5[z[2*5-1],z[2*5]]+5*z.shift+(0,2));
+label.top(btex $L_6$ etex, .5[z[2*6-1],z[2*6]]+6*z.shift+(0,2));
+
+label.rt(btex {\Large$\dots$} etex, .5[z[6],z[8]]+6*z.shift+(5,0));
+endfig;
+
+beginfig(39) 
+save u;
+u:=.5cm;
+
+z1=origin;
+z2=(1,0)*u;
+z3=z2 rotated 90;
+
+z.shift=(2.5,0)*u;
+
+for j=4 step 1 until 20:
+z[j]=z[j-2]+z3;
+endfor
+
+z.a=(z[2] rotated 60)+ z[7]+4*z.shift;
+
+draw z[7]+4*z.shift--z.a--z[8]+4*z.shift;
+dOt z.a;
+
+draw z[7]+5*z.shift{up}..{down}z[8]+5*z.shift;
+
+draw (z1--z2) shifted (4*z.shift);
+for j=3 step 2 until 2*4:
+draw (z[j-2]--z[j]--z[j+1]--z[j-1]) shifted (4*z.shift);
+endfor
+for j=1 step 1 until 2*4:
+dOt z[j]+4*z.shift;
+endfor
+
+draw (z1--z2) shifted (5*z.shift);
+for j=3 step 2 until 2*4:
+draw (z[j-2]--z[j]--z[j+1]--z[j-1]) shifted (5*z.shift);
+endfor
+for j=1 step 1 until 2*4:
+dOt z[j]+5*z.shift;
+endfor
+
+label.bot(btex $L_3'$ etex, .5[z[1],z[2]]+4*z.shift+(0,-2));
+label.bot(btex $L_3''$ etex, .5[z[1],z[2]]+5*z.shift+(0,-2));
+
+endfig;
+
+
+beginfig(30) 
+save u;
+u:=.5cm;
+
+z.shift=(2.5,0)*u;
+
+z.r=(.7,0)*u;
+
+save p;
+path p[];
+
+p0=circle(origin,z.r);
+
+for i=1 step 1 until 6:
+draw p0 shifted (i*z.shift);
+for j=0 step 1 until i-1:
+draw (i*z.shift)--(z.r rotated ((j/i)*360))+i*z.shift;
+dOt (z.r rotated ((j/i)*360))+i*z.shift;
+endfor
+dOt i*z.shift;
+endfor
+
+
+label.top(btex $W_1$ etex, (z.r rotated 90)+1*z.shift+(0,2));
+label.top(btex $W_2$ etex, (z.r rotated 90)+2*z.shift+(0,2));
+label.top(btex $W_3$ etex, (z.r rotated 90)+3*z.shift+(0,2));
+label.top(btex $W_4$ etex, (z.r rotated 90)+4*z.shift+(0,2));
+label.top(btex $W_5$ etex, (z.r rotated 90)+5*z.shift+(0,2));
+label.top(btex $W_6$ etex, (z.r rotated 90)+6*z.shift+(0,2));
+
+label.rt(btex {\Large$\dots$} etex, z.r+6*z.shift+(5,0));
+endfig;
+%%%%%%%%%%%%%%%%%%%%%%
 
 beginfig(1) 
 save u;
