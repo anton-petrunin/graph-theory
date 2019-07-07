@@ -21,9 +21,9 @@ mppics/pic-38.mps
 mppics/pic-39.mps
 mppics/pic-30.mps
 matrix.tex
-pics/p=2.eps
+mppics/pic-41.mps
 polynomials.tex
-pics/deletion-deletion.eps
+mppics/pic-51.mps
 marriage.tex
 pics/alternating.eps
 pics/vertex-cover.eps

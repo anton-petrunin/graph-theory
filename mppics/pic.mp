@@ -668,6 +668,53 @@ label.rt(btex {\Large$\dots$} etex, z.r+6*z.shift+(5,0));
 endfig;
 %%%%%%%%%%%%%%%%%%%%%%
 
+beginfig(41) 
+save u;
+u:=1cm;
+
+z.a=(0,0)*u;
+z.b=(2,0)*u;
+
+for i=-45 step 15 until 45:
+draw z.a{dir i}..{dir -i}z.b;
+endfor
+
+dOt z.a,z.b;
+
+endfig;
+%%%%%%%%%%%%%%%%%%%%%%
+
+beginfig(51) 
+save u;
+u:=.5cm;
+
+z.o=origin;
+z.r=(1,0)*u;
+
+z.shift1=(3.6,1.8)*u;
+z.shift2=(3.6,-1.8)*u;
+
+rimmark(z.o--(z.r rotated 90));
+
+draw circle(z.o,z.r);
+draw -z.r--z.r;
+draw (-z.r--z.r) rotated 90;
+dOt z.o,z.r,z.r rotated 90,z.r rotated 180,z.r rotated -90;
+
+draw circle(z.o,z.r) shifted z.shift1;
+draw (-z.r--z.r) shifted z.shift1;
+draw ((z.o--(-z.r)) rotated 90) shifted z.shift1;
+dOt z.o+z.shift1,z.r+z.shift1,(z.r rotated 90)+z.shift1,(z.r rotated 180)+z.shift1,(z.r rotated -90)+z.shift1;
+
+draw (-z.r{down}..z.r rotated -90..{up}z.r) shifted z.shift2;
+dOt z.r+z.shift2,(z.r rotated 180)+z.shift2,(z.r rotated -90)+z.shift2;
+
+label.bot(btex $G$ etex, (z.r rotated -90)+(0,-2));
+label.bot(btex $G{\backslash} e$ etex, (z.r rotated -90)+z.shift1+(0,-2));
+label.bot(btex $G{\backslash} \bar e$ etex, (z.r rotated -90)+z.shift2+(0,-2));
+endfig;
+%%%%%%%%%%%%%%%%%%%%%%
+
 beginfig(1) 
 save u;
 u:=.5cm;
