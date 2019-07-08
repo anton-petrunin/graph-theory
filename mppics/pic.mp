@@ -780,9 +780,9 @@ draw z.a1+(-1,-1)*u/4..tension 1.5..z.b1+(1,-1)*u/4..tension 2..z.b2+(1,1)*u/4..
 
 draw z.a6+(-1,-1)*u/4..tension 2..z.b5+(1,-1)*u/4..tension 2..z.b7+(1,1)*u/4..tension 1.5..z.a7+(-1,1)*u/4..tension 2..cycle penhair;
 
-draw z.a1+(-1,-1)*u/4..tension 2..z.a1+(1,-1)*u/4..tension 4..z.a7+(1,1)*u/4..tension 2..z.a7+(-1,1)*u/4..tension 4..cycle penhair;
+draw z.a1+(-1,-1)*u/4..tension 1..z.a1+(1,-1)*u/4..tension 4..z.a7+(1,1)*u/4..tension 1..z.a7+(-1,1)*u/4..tension 2.5..cycle penhair;
 
-draw z.b1+(-1,-1)*u/4..tension 2..z.b1+(1,-1)*u/4..tension 4..z.b7+(1,1)*u/4..tension 2..z.b7+(-1,1)*u/4..tension 4..cycle penhair;
+draw z.b1+(-1,-1)*u/4..tension 1..z.b1+(1,-1)*u/4..tension 2.5..z.b7+(1,1)*u/4..tension 1..z.b7+(-1,1)*u/4..tension 4..cycle penhair;
 
 dOt z.a1,z.a2,z.b3,z.b4,z.b5,z.b6,z.a3, z.b7;
 Dot z.a4,z.a5,z.a6,z.a7,z.b1,z.b2;
@@ -1009,46 +1009,7 @@ endfig;
 
 %%%%%%%%%%%%%%%%%%%%%%
 
-beginfig(1) 
-save u;
-u:=.5cm;
-
-draw (-4.3,2)*u--(4.3,2)*u penbold;
-draw (0,1)*u--(0,3)*u penbold;
-draw (1,1)*u--(1,3)*u penbold;
-draw (2,1)*u--(2,3)*u penbold;
-draw (3,1)*u--(3,3)*u penbold;
-draw (4,1)*u--(4,3)*u penbold;
-
-draw (-4.3,-2)*u--(4.3,-2)*u penbold;
-draw (0,-2)*u--(0,-1)*u penbold;
-draw (1,-3)*u--(1,-1)*u penbold;
-draw (2,-3)*u--(2,-1)*u penbold;
-draw (3,-3)*u--(3,-1)*u penbold;
-draw (4,-3)*u--(4,-1)*u penbold;
-
-dOt 
-(-4,2)*u,(-3,2)*u,(-2,2)*u,(-1,2)*u,(-0,2)*u,(1,2)*u,(2,2)*u,(3,2)*u,(4,2)*u,
-(-0,3)*u,(1,3)*u,(2,3)*u,(3,3)*u,(4,3)*u,
-(1,1)*u,(2,1)*u,(3,1)*u,(4,1)*u,
-(-4,-2)*u,(-3,-2)*u,(-2,-2)*u,(-1,-2)*u,(-0,-2)*u,(1,-2)*u,(2,-2)*u,(3,-2)*u,(4,-2)*u,
-(1,-1)*u,(2,-1)*u,(3,-1)*u,(4,-1)*u,
-(1,-3)*u,(2,-3)*u,(3,-3)*u,(4,-3)*u,
-(-0,1)*u,(-0,-1)*u
-;
-
-dOtc (-0,1)*u,(-0,-1)*u; 
-
-label.lft(btex $\dots$ etex, (-4.3,2)*u);
-label.lft(btex $\dots$ etex, (-4.3,-2)*u);
-label.rt(btex $\dots$ etex, (4.3,2)*u);
-label.rt(btex $\dots$ etex, (4.3,-2)*u);
-
-label.top(btex $T$ etex, (-1.5,2)*u);
-label.top(btex $T'$ etex, (-1.5,-2)*u);
-endfig;
-
-beginfig(2) 
+beginfig(71) 
 save u;
 u:=.5cm;
 
@@ -1090,6 +1051,47 @@ label(btex $G_3$ etex, (0,-1.8)*u);
 label(btex $G_2$ etex, (0,-1.8)*u+z.shift);
 label(btex $G_1$ etex, (0,-1.8)*u+2*z.shift);
 endfig;
+
+beginfig(72) 
+save u;
+u:=.5cm;
+
+draw (-4.3,2)*u--(4.3,2)*u penbold;
+draw (0,1)*u--(0,3)*u penbold;
+draw (1,1)*u--(1,3)*u penbold;
+draw (2,1)*u--(2,3)*u penbold;
+draw (3,1)*u--(3,3)*u penbold;
+draw (4,1)*u--(4,3)*u penbold;
+
+draw (-4.3,-2)*u--(4.3,-2)*u penbold;
+draw (0,-2)*u--(0,-1)*u penbold;
+draw (1,-3)*u--(1,-1)*u penbold;
+draw (2,-3)*u--(2,-1)*u penbold;
+draw (3,-3)*u--(3,-1)*u penbold;
+draw (4,-3)*u--(4,-1)*u penbold;
+
+dOt 
+(-4,2)*u,(-3,2)*u,(-2,2)*u,(-1,2)*u,(-0,2)*u,(1,2)*u,(2,2)*u,(3,2)*u,(4,2)*u,
+(-0,3)*u,(1,3)*u,(2,3)*u,(3,3)*u,(4,3)*u,
+(1,1)*u,(2,1)*u,(3,1)*u,(4,1)*u,
+(-4,-2)*u,(-3,-2)*u,(-2,-2)*u,(-1,-2)*u,(-0,-2)*u,(1,-2)*u,(2,-2)*u,(3,-2)*u,(4,-2)*u,
+(1,-1)*u,(2,-1)*u,(3,-1)*u,(4,-1)*u,
+(1,-3)*u,(2,-3)*u,(3,-3)*u,(4,-3)*u,
+(-0,1)*u,(-0,-1)*u
+;
+
+dOtc (-0,1)*u,(-0,-1)*u; 
+
+label.lft(btex $\dots$ etex, (-4.3,2)*u);
+label.lft(btex $\dots$ etex, (-4.3,-2)*u);
+label.rt(btex $\dots$ etex, (4.3,2)*u);
+label.rt(btex $\dots$ etex, (4.3,-2)*u);
+
+label.top(btex $T$ etex, (-1.5,2)*u);
+label.top(btex $T'$ etex, (-1.5,-2)*u);
+endfig;
+
+
 
 beginfig(4) 
 save u;
