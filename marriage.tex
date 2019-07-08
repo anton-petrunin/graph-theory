@@ -1,26 +1,37 @@
 \chapter[Marriage theorem and its relatives]{Marriage theorem\\ and its relatives}
 \chaptermark{Marriage theorem}
 
+Recall that a \index{matching}\emph{matching} in a graph is a set of edges without common vertices. 
+
 Let $G$ be a graph and $M$ a matching in $G$.
-Recall that a path $P$ in $G$ is called \index{alternated path}\emph{$M$-alternated} if the edges in $P$ 
+A path $P$ in $G$ is called \index{alternated path}\emph{$M$-alternated} if the edges in $P$ 
 alternate between edges from $M$ and edges not from $M$.
-If the path $P$ connects two unmatched vertexes of $G$, then it is called \index{augmenting path}\emph{$M$-augmenting}.
 
-If there is an $M$-augmenting path $P$, then the matching $M$ can be improved by deleting all the edges of $P$ in $M$
-and adding the remaining edges of $P$.
-On the diagrams we denote the edges in $M$ by solid lines and the remaining edges by dashed lines; the following diagram gives an example of the improvement.
-
-\begin{center}
-\begin{lpic}[t(-0 mm),b(0 mm),r(0 mm),l(0 mm)]{pics/alternating(1)}
-\end{lpic}
-\end{center}
-
+If an alternated path path connects two unmatched vertexes of $G$, then it is called \index{augmenting path}\emph{$M$-augmenting}.
+An $M$-augmenting path $P$ can be used to improve the matching $M$;
+namely by deleting all the edges of $P$ in $M$
+and adding the remaining edges of $P$ we obtain a matching $M'$ with more edges.
 This construction implies the following:
 
 \begin{thm}{Observation}\label{obs:augmenting}
 Assume $G$ is a graph and $M$ is a maximal matching in $G$.
 Then $G$ has no $M$-augmenting paths.
 \end{thm} 
+
+\begin{wrapfigure}[5]{r}{28 mm}
+\vskip-4mm
+\centering
+\includegraphics{mppics/pic-61}
+\vskip-0mm
+\end{wrapfigure}
+
+On the diagrams we denote the edges in $M$ by solid lines and the remaining edges by dashed lines.
+
+\begin{thm}{Exercise}
+Find an  augmenting path in the graph on the diagram
+and use it to construct a larger matching.
+\end{thm}
+
 
 Recall that the term {}\emph{bigraph} is an abbreviation for a {}\emph{bipartite graph}.
 The following two exercises follow from the definitions given above; 
@@ -38,8 +49,6 @@ Let $M$ be a maximal matching in a bigraph $G$.
 Assume two unmatched vertexes $l$ and $r$ lie on the opposite parts of $G$.
 Show that no pair of $M$-alternated paths starting from $l$ and $r$ can have a common vertex.
 \end{thm}
-
-In this chapter we will show more ways to use this construction.
 
 \section*{Marriage theorem}
 
@@ -143,32 +152,30 @@ Fix a bigraph $G$;
 denote by $L$ and $R$ its left and right parts.
 Let $M$ be a matching and $S$ be a vertex cover in $G$.
 
-
-\begin{wrapfigure}{r}{35 mm}
-\begin{lpic}[t(-3 mm),b(0 mm),r(0 mm),l(0 mm)]{pics/vertex-cover(1)}
-\lbl{16,6;$Q_L$}
-\lbl{16,74;$Q_R$}
-\lbl{5,43;$L$}
-\lbl{28,38;$R$}
-\end{lpic}
-\end{wrapfigure}
-
 By the definition of vertex cover, any edge $m$ in $M$ is incident to at least one vertex in $S$.
 Therefore 
 \[|S|\ge |M|.\] 
 That is, the number of vertexes in $S$ is at least as large as the number of edges in any matching $M$.
 
 Now assume that $M$ is a maximal matching.
-Let us construct a vertex cover $S$ such that $|S|=|M|$.
+Let us construct a vertex cover $S$ such that $|S|\z=|M|$.
 
-Denote by $U_L$ and $U_R$ the set of left and right unmatched vertexes.
+\begin{wrapfigure}{r}{30 mm}
+\vskip-4mm
+\centering
+\includegraphics{mppics/pic-62}
+\vskip2mm
+\end{wrapfigure}
+
+
+Denote by $U_L$ and $U_R$ the set of left and right unmatched vertexes (these are marked by cross on the diagram).
 Denote by $Q_L$ and $Q_R$ the set of vertexes in $G$ which can be reached by $M$-alternated paths starting from $U_L$ and from $U_R$ correspondingly.
 
 Note that according to Exercise \ref{ex:two-paths}, $Q_L$ and $Q_R$ do not overlap.
 
 Further note that if $m$ is an edge in $M$, then both of its end vertexes lie either in $Q_L$ or $Q_R$, or neither.
 
-Let us construct the set $S$ by taking one end vertex (left or right) of each edge $m$ in $M$ by the following rule:
+Let us construct the set $S$ by taking one vertex (left or right) of each edge $m$ in $M$ by the following rule:
 \emph{if $m$ connects vertexes in $Q_L$, then include its right vertex in $S$;
 otherwise include the left vertex}.
 Since $S$ has exactly one vertex incident to each edge of $M$, we have
@@ -202,13 +209,15 @@ Show that the minimal number of ranks and files that cover all marked squares is
 
 A collection of edges $N$ in a graph is called an \index{edge cover}\emph{edge cover} if every vertex is incident with at least one of the edges in $N$.
 
-On the following diagram, two edge covers of the same graph are marked in solid lines.
-The second cover is minimal --- there is no edge cover with smaller number of edges.
+\begin{wrapfigure}{r}{25 mm}
+\vskip-6mm
+\centering
+\includegraphics{mppics/pic-63}
+\vskip0mm
+\end{wrapfigure}
 
-\begin{center}
-\begin{lpic}[t(-0 mm),b(0 mm),r(0 mm),l(0 mm)]{pics/edge-cover(1)}
-\end{lpic}
-\end{center}
+On the diagram, two edge covers of the same graph are marked in solid lines.
+The second cover is minimal --- there is no edge cover with smaller number of edges.
 
 \begin{thm}{Exercise}\label{ex:monotree}
 Show that a minimal edge cover of any graph contains no paths of length 3 and no triangle.
@@ -252,36 +261,45 @@ Consider the new orientation on $G$ where each path $P_i$ is oriented backwards 
 
 Consider the set $S$ of the vertexes which are reachable from $s$ by oriented paths for this new orientation.
 
-\begin{wrapfigure}{r}{45 mm}
-\begin{lpic}[t(-0 mm),b(0 mm),r(0 mm),l(0 mm)]{pics/paths(1)}
-\lbl[t]{3,6;$s$}
-\lbl[b]{15,10;$w$}
-\lbl[t]{31,6;$v$}
-\lbl[b]{43,10;$t$}
-\end{lpic}
-\end{wrapfigure}
-
 Assume $S$ contains $t$; that is, there is a path $Q$ from $s$ to $t$, which
 can move along $P_i$ only backwards.
-(Further, the path $Q$ will be used the same way as the augmenting path in the proof of marriage theorem.)
+
+\begin{wrapfigure}{r}{30 mm}
+\vskip-6mm
+\centering
+\includegraphics{mppics/pic-64}
+\vskip0mm
+\end{wrapfigure}
+
+(Further, the path $Q$ will be used the same way as the augmenting path in the proof of marriage theorem.
+In a sequence of moves, we will improve the collection $Q,P_1,\dots,P_m$ so that there will be no overlaps.
+On the diagram a case with $m=1$ that requires two moves is shown;
+$P_1$ is marked by solid line and $Q$ is marked by dashed line.)
 
 Since $P_1,\dots,P_m$ is a maximal collection, $Q$ overlaps with some of the paths $P_1,\dots,P_m$.
 Without loss of generality, we can assume that $Q$ first overlaps with $P_1$ --- assume it meets $P_1$ at the vertex $v$ and leaves it at the vertex $w$.
 Let us modify the paths $Q$ and $P_1$ the following way:
-Instead of the path $P_1$ consider the path $P_1'$ which goes along $Q$ from $s$ to $v$ and after that goes along $P_1$ to $t$.
+Instead of the path $P_1$ consider the path $P_1'$ that goes along $Q$ from $s$ to $v$ and after that goes along $P_1$ to $t$.
 Instead of the path $Q$, consider the trail $Q'$ which goes along $P_1$ from $s$ to $w$ and after that goes along $Q$ to $t$.
 
 If the constructed trail $Q'$ is not a path (that is, if $Q'$ visits some vertexes several times), then we can discard some circuits from $Q'$ to obtain a genuine path, 
 which we will still denote by $Q'$.
 
 Note that the obtained collection of paths $Q', P_1',P_2\dots,P_m$ satisfies the same conditions as the original collection.
-Further the total number of edges in $Q', P_1',P_2\dots,P_m$
-is smaller than in but the original collection $Q, P_1,P_2\dots,P_m$;
-indeed we discarded the part of $P_1$ from $w$ to $v$.
+Further, since we discarded the part of $P_1$ from $w$ to $v$, the total number of edges in $Q', P_1',P_2\dots,P_m$
+is smaller than in the original collection $Q, P_1,P_2\z\dots,P_m$.
 Therefore, by repeating the described procedure several times, we get $m+1$ paths without overlaps --- a contradiction.
 
 It follows that $S\not\ni t$.
-In this case, all edges which connect $S$ to the remaining vertexes of $G$ are oriented toward to $S$.
+
+\begin{wrapfigure}{r}{40 mm}
+\vskip-6mm
+\centering
+\includegraphics{mppics/pic-65}
+\vskip0mm
+\end{wrapfigure}
+
+Note that all edges which connect $S$ to the remaining vertexes of $G$ are oriented toward to $S$.
 That is, every such edge which comes out of $S$ in the original orientation belongs to one of the paths $P_1,\dots,P_m$.
 
 Moreover, for each path $P_i$ there is only one such edge.
@@ -294,39 +312,32 @@ In particular, we can disconnect $t$ from $s$ by cutting $m$ edges from $G$; tha
 \parbf{Remark.}
 The described process has the following physical interpretation.
 Think of each path $P_1,\dots,P_m$, and $Q$ like water pipelines from $s$ to $t$.
-At each overlap of $Q$ with the remaining paths, the water runs the opposite directions.
-So we can cut the overlapping edges and connect the open ends of the pipes to each other while keeping the water flow unchanged.
+At each overlap of $Q$ with another path $P_i$, the water in $P_i$ and $Q$ runs the opposite directions.
+So we can cut the overlapping edges and reconnect the open ends of the pipes to each other while keeping the water flow from $s$ to $t$ unchanged.
 As the result, we get $m+1$ pipes form $s$ to $t$ with no common edges and possibly some cycles which we can discard.
-\begin{figure}[h!]
+\begin{figure}[h!]%{r}{30 mm}
+\vskip-0mm
 \centering
-\begin{lpic}[t(-0 mm),b(0 mm),r(0 mm),l(0 mm)]{mppics/pic-6(1)}
-\end{lpic}
+\includegraphics{mppics/pic-66}
+\vskip0mm
 \end{figure}
-An example of this procedure two paths $P_1$ and $Q$ is shown on the diagram;
-$P_1$ is marked in bold.
+An example of this procedure for two paths $P_1$ and $Q$ is shown on the diagram; as above, $P_1$ is marked by solid line and $Q$ is marked by dashed line.
 
-\medskip
+\begin{wrapfigure}[7]{r}{45 mm}
+\vskip-8mm
+\centering
+\includegraphics{mppics/pic-67}
+\end{wrapfigure}
 
+\begin{thm}{Advanced exercise}
 Assume $G$ is a bigraph.
 Let us add two vertexes, $s$ and $t$, to $G$ so that $s$ is connected to each vertex in the left part of $G$, and $t$ is connected to each vertex in the right part of $G$.
 Orient the graph from left to right.
 Denote the obtained digraph by~$\hat G$.
 
-
-\begin{center}
-\begin{lpic}[t(-0 mm),b(0 mm),r(0 mm),l(0 mm)]{pics/hat-graph(1)}
-\lbl{10,4;$G$}
-\lbl{50,4;$\hat G$}
-\lbl[rt]{34,20;$s$}
-\lbl[tl]{66,20;$t$}
-\end{lpic}
-\end{center}
-
-
-
-\begin{thm}{Advanced exercise}
-Give another proof of the marriage theorem for a bigraph $G$, applying the min-cut theorem to $\hat G$. 
+Give another proof of the marriage theorem for a bigraph $G$, applying the min-cut theorem to the digraph $\hat G$. 
 \end{thm}
+
 
 \section*{Remarks}
 
