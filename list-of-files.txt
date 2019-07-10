@@ -37,6 +37,8 @@ mppics/pic-71.mps
 pics/Rado_graph.eps
 mppics/pic-72.mps
 generating-functions.tex
+mppics/pic-81.mps
+mppics/pic-82.mps
 appendix.tex
 graph-theory.ind
 list-of-files.txt
