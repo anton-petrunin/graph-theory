@@ -7,7 +7,7 @@ For this chapter, the reader has to be familiar with power series.
 
 The power series 
 \[A(x)=a_0+a_1\cdot x+\tfrac12\cdot a_2\cdot x^2+\dots+\tfrac1{n!}\cdot a_n\cdot x^n+\dots\]
-is called the \index{exponential generating function}\emph{exponential generating function} of the sequence $a_0,a_1,\dots$.
+is called the \index{exponential generating function}\emph{exponential generating function} of the sequence $a_0,a_1,\dots$
 
 If the series $A(x)$ converges in some neighborhood of zero, then it defines a function which remembers all information of the sequence~$a_n$.
 The latter follows since 
@@ -197,27 +197,25 @@ we need to show that
 
 Assume that a spanning graph with $k+1$ ordered connected components of $K_n$ is given.
 Denote by $m$ the number of vertexes in the first $k$ components.
-There are $\tbinom mn$ ways to choose these vertexes among $n$ vertexes of $K_n$ and for each choice we have
-$v_m$ ways to choose spanning subgraph with $k$ components in it;
-the last component has $m-n$ vertexes and we have $c_{n-m}$ ways to choose a subgraph from $\mathcal{S}$.
-All together we get that
-\[\tbinom mn\cdot v_m\cdot c_n.\]
-Summing it up for all $m$ we get the multiplication formula \ref{eq:multiplication} for exponential generating functions.
-Hence \ref{eq:VkC} follows.
+There are $\tbinom mn$ ways to choose these vertexes among $n$ vertexes of $K_n$. 
+For each choice we have
+$v_m$ ways to choose a spanning subgraph with $k$ components in it.
+The last component has $m-n$ vertexes and we have $c_{n-m}$ ways to choose a subgraph from $\mathcal{S}$.
+All together we get,
+\[\tbinom mn\cdot v_m\cdot c_n\]
+spanning graphs with $k+1$ ordered connected components and $m$ vertexes in the first $k$ components.
+Summing it up for all $m$, we get the multiplication formula \ref{eq:multiplication} for exponential generating functions; whence \ref{eq:VkC} follows.
 
 \parit{\ref{thm:exp-formula:all}.}
-To count all graphs we need to add number of spanning graphs for all number of components;
-that is,
+Note that $a_n$ is the sum of numbers of spanning graphs in $K_n$ with $1, 2,\dots$ components.
+That is,
 \begin{align*}A(x)&=W_1(x)+W_2(x)+\dots=
 \intertext{applying part \ref{thm:exp-formula:Wk}, we can continue}
 &=C(x)+\tfrac12\cdot C(x)^2+\tfrac16\cdot C(x)^3+\dots=
-\\
+\intertext{since $e^x=1+x+\tfrac12\cdot x^2+\tfrac16\cdot x^3+\dots$, we can rewrite it as}
 &=e^{C(x)}-1.
 \end{align*}
-The last equality follows since 
-\[e^x=1+x+\tfrac12\cdot x^2+\tfrac16\cdot x^3+\dots\]
-Hence the result.
-\qeds
+\qedsf
 
 \section*{Sample applications}
 
@@ -225,11 +223,11 @@ The following calculations can be done without using Theorem~\ref{thm:exp-formul
 this theorem only provides a general point of view to these problems.
 
 \parbf{Perfect matchings.}
-Recall that a perfect matching is 1-factor of the graph. 
-In other words, it is a set of isolated edges which cover all the vertexes.
+Recall that a perfect matching is a 1-factor of the graph. 
+In other words, it is a set of isolated edges which covers all the vertexes.
 Note that if a graph admits a perfect matching, then the number of its vertexes is even.
 
-Recall that \index{double factorial}\emph{double factorial} is the product of all the integers from $1$ up to some non-negative integer $n$ that have the same parity (odd or even) as $n$;
+Recall that the \index{double factorial}\emph{double factorial} is defined as the product of all the integers from $1$ up to some non-negative integer $n$ that have the same parity (odd or even) as $n$;
 the double factorial of $n$ is denoted by $n!!$.
 For example, 
 \[9!! = 9\cdot 7 \cdot 5 \cdot 3 \cdot  1 = 945
@@ -238,14 +236,14 @@ For example,
 \]
 
 \begin{thm}{Exercise}\label{ex:matching}
-Let $a_n$ denotes the number of perfect matching in $K_n$.
+Let $a_n$ denote the number of perfect matchings in $K_n$.
 Show that 
 \begin{enumerate}[(a)]
  \item $a_2=1$;
- \item $a_n=0$ for odd $n$;
+ \item $a_n=0$ for any odd $n$;
  \item\label{ex:matching:recursion} $a_{n+1}=n\cdot a_{n-1}$ for any integer $n\ge 2$.
  \item\label{ex:matching:n!!} 
- Conclude that $a_n=0$ and $a_{n+1}=n!!$ for odd $n$.
+ Conclude that $a_n=0$ and $a_{n+1}=n!!$ for any oodd $n$.
 \end{enumerate}
 
 \end{thm}
@@ -253,11 +251,11 @@ Show that
 Now we give a more complicated proof of Exercise~\ref{ex:matching}\ref{ex:matching:n!!}.
 
 \begin{thm}{Problem}
-Use Theorem~\ref{thm:exp-formula} to show that number of perfect matching in $K_{2\cdot n}$ is $(2\cdot n-1)!!$.
+Use Theorem~\ref{thm:exp-formula} to show that the number of perfect matching in $K_{2\cdot n}$ is $(2\cdot n-1)!!$.
 \end{thm}
 
 \parit{Solution.} 
-Denote by $a_n$ the number of perfect matching in $K_{n}$ and let $A(x)$ be the corresponding exponential generating function.
+Denote by $a_n$ the number of perfect matchings in $K_{n}$ and let $A(x)$ be the corresponding exponential generating function.
 
 Note that a perfect matching can be defined as a spanning subgraph such that each connected component is isomorphic to $K_2$.
 So we can apply the formula in Theorem~\ref{thm:exp-formula} for the set $\mathcal{S}$ consisting of only one graph $K_2$.
@@ -294,7 +292,7 @@ a_{2\cdot n}&=\frac{(2\cdot n)!}{n!\cdot 2^n}=
 &=(2\cdot n-1)!!
 \end{align*}
 
-That is, $a_n=0$ for odd $n$ and $a_n=(n-1)!!$ for even $n$.
+That is, $a_n=0$ for any odd $n$ and $a_n=(n-1)!!$ for even $n$.
 \qeds
 
 \parbf{Remark.}
@@ -305,21 +303,21 @@ which is equivalent to the recursive identity
 in Exercise~\ref{ex:matching}\ref{ex:matching:recursion}.
 
 \parbf{All matchings.}
-Now let $\mathcal{S}$ is the set of two graphs $K_1$ or $K_2$.
+Now let $\mathcal{S}$ be the set of two graphs $K_1$ and $K_2$.
 Evidently $c_1(\mathcal{S})\z=c_2(\mathcal{S})=1$.
-Further we have that $c_n(\mathcal{S})=0$ for all $n\ge 3$ since $K_n$ contains no spanning subgraphs isomorphic to $K_1$ or $K_2$.
+Further, we have that $c_n(\mathcal{S})=0$ for all $n\ge 3$ since $K_n$ contains no spanning subgraphs isomorphic to $K_1$ or $K_2$.
 
 Therefore the exponential generating function of the sequence $c_n(\mathcal{S})$ is a polynomial of degree 2
 \[C(x)=x+\tfrac12\cdot x^2.\]
 
-Note that a matching in a graph $G$ can be identified with a spanning subgraph with all connected components isomorphic to  $K_1$ or $K_2$ --- that is, few isolated edges and few isolated vertexes.
+Note that a matching in a graph $G$ can be identified with a spanning subgraph with all connected components isomorphic to  $K_1$ or $K_2$.
 If we denote by $a_n$ the number of all matchings and by $A(x)$ the corresponding exponential generating function, then by  Theorem~\ref{thm:exp-formula}\ref{thm:exp-formula:all}, we get that
-\[A(x)=e^{x+\frac12\cdot x^2}.\]
+\[A(x)=e^{x+\frac12\cdot x^2}-1.\]
 Applying Corollary~\ref{cor:exp-formula}, we also have
 \[A'(x)=[1+A(x)]\cdot (1+x).\]
 The latter is equivalent to the following recursive formula for $a_n$:
 \[a_{n+1}=a_n+n\cdot a_{n-1}.\eqlbl{an+nan-1}\]
-Since $a_1=1$ and $a_2=2$, we can easily find first few terms of this sequence:
+Since $a_1=1$ and $a_2=2$, we can easily find first the few terms of this sequence:
 \[1,2,4,10,26,\dots\]
 
 \begin{thm}{Exercise}
@@ -330,8 +328,8 @@ Compare to Exercise~\ref{ex:deletion-deletion-total}\ref{ex:deletion-deletion-K}
 \parbf{2-factors.}
 Let $\mathcal{S}$ be the set of all cycles.
 
-Note that $2$-factor of graph can be defined as a spanning subgraph with components isomorphic to cycles.
-Denote by $a_n$ and $c_n$ the number of $2$-factors and spanning cycles in $K_n$.
+Note that a \index{$2$-factor}\emph{$2$-factor} of a graph can be defined as a spanning subgraph with components isomorphic to cycles.
+Denote by $a_n$ and $c_n$ the number of $2$-factors and spanning cycles in $K_n$ respectively.
 Let $A(x)$ and $C(x)$ be the corresponding exponential generating functions.
 
 \begin{thm}{Exercise}
@@ -341,15 +339,15 @@ Let $A(x)$ and $C(x)$ be the corresponding exponential generating functions.
 for $n\ge 3$.
 In particular,
 \[c_1=0, c_2=0, c_3=1, c_4=3, c_5=12, c_6=60.\]
-\item\label{ex:2-factor:recursive} Use the identity
+\item\label{ex:2-factor:recursive} Use part \ref{ex:2-factor:cn} and the identity
 \[A'(x)=[1+A(x)]\cdot C'(x)\]
-to find $a_1,\dots, a_6$ using the part \ref{ex:2-factor:cn}.
-\item Count the number of 2-factors in $K_1,\dots ,K_6$ and compare with the result in the part \ref{ex:2-factor:recursive}.
+to find $a_1,\dots, a_6$.
+\item Count the number of 2-factors in $K_1,\dots,K_6$ by hands, and compare it to the result in part \ref{ex:2-factor:recursive}.
 \item\label{ex:2-factor:C} Use part \ref{ex:2-factor:cn} to conclude that 
-\[C(x)=\tfrac12\cdot\ln(1-x)-\tfrac12\cdot x-\tfrac14\cdot x^2\]
+\[C(x)=-\tfrac12\cdot\ln(1-x)-\tfrac12\cdot x-\tfrac14\cdot x^2.\]
 \item Use part \ref{ex:2-factor:C} and Theorem~\ref{thm:exp-formula}\ref{thm:exp-formula:all}
 to show that
-\[A(x)=\sqrt{1-x}/e^{\frac x2+\frac{x^2}4}.\]
+\[A(x)=\frac{1}{ e^{\frac x2+\frac{x^2}4}\cdot\sqrt{1-x}}-1.\]
 
 
 \end{enumerate}
@@ -436,7 +434,7 @@ but the recursive formula is nearly as good.
 Let us mention another application of exponential generating functions.
 
 Assume $r_n$ denotes the number of rooted spanning trees in $K_n$.
-(A tree with one marked vertex is called \index{rooted tree}\emph{rooted tree} and the marked vertex is called its {}\emph{root}).
+(A~tree with one marked vertex is called \index{rooted tree}\emph{rooted tree} and the marked vertex is called its {}\emph{root}).
 Then it is not hard to see that the exponential generating function of $r_n$ satisfies the following identity
 \[R(x)=x\cdot e^{R(x)}.
 \eqlbl{eq:rooted}\]

@@ -7,7 +7,7 @@ Let $G$ be a graph and $M$ a matching in $G$.
 A path $P$ in $G$ is called \index{alternated path}\emph{$M$-alternated} if the edges in $P$ 
 alternate between edges from $M$ and edges not from $M$.
 
-If an alternated path path connects two unmatched vertexes of $G$, then it is called \index{augmenting path}\emph{$M$-augmenting}.
+If an alternated path connects two unmatched vertexes of $G$, then it is called \index{augmenting path}\emph{$M$-augmenting}.
 An $M$-augmenting path $P$ can be used to improve the matching $M$;
 namely by deleting all the edges of $P$ in $M$
 and adding the remaining edges of $P$ we obtain a matching $M'$ with more edges.
@@ -155,12 +155,12 @@ Let $M$ be a matching and $S$ be a vertex cover in $G$.
 By the definition of vertex cover, any edge $m$ in $M$ is incident to at least one vertex in $S$.
 Therefore 
 \[|S|\ge |M|.\] 
-That is, the number of vertexes in $S$ is at least as large as the number of edges in any matching $M$.
+That is, the number of vertexes in any vertex cover $S$ is at least as large as the number of edges in any matching $M$.
 
 Now assume that $M$ is a maximal matching.
 Let us construct a vertex cover $S$ such that $|S|\z=|M|$.
 
-\begin{wrapfigure}{r}{30 mm}
+\begin{wrapfigure}{o}{30 mm}
 \vskip-4mm
 \centering
 \includegraphics{mppics/pic-62}
@@ -171,21 +171,24 @@ Let us construct a vertex cover $S$ such that $|S|\z=|M|$.
 Denote by $U_L$ and $U_R$ the set of left and right unmatched vertexes (these are marked by cross on the diagram).
 Denote by $Q_L$ and $Q_R$ the set of vertexes in $G$ which can be reached by $M$-alternated paths starting from $U_L$ and from $U_R$ correspondingly.
 
-Note that according to Exercise \ref{ex:two-paths}, $Q_L$ and $Q_R$ do not overlap.
+Note that $Q_L$ and $Q_R$ do not overlap.
+Otherwise there would be an $M$-augmenting path from $U_L$ to $U_R$.
+Therefore $M$ is not maximal --- a contradiction.
 
 Further note that if $m$ is an edge in $M$, then both of its end vertexes lie either in $Q_L$ or $Q_R$, or neither.
 
-Let us construct the set $S$ by taking one vertex (left or right) of each edge $m$ in $M$ by the following rule:
+Let us construct the set $S$ by taking one incident vertex (left or right) of each edge $m$ in $M$ by the following rule:
 \emph{if $m$ connects vertexes in $Q_L$, then include its right vertex in $S$;
-otherwise include the left vertex}.
+otherwise include its left vertex}.
 Since $S$ has exactly one vertex incident to each edge of $M$, we have
 \[|S|=|M|.\]
 
-It remains to prove that $S$ is a cover;
+It remains to prove that $S$ is a vertex cover;
 that is, at least one vertex of any edge $e$ in $G$ is in $S$.
-Note that if the left vertex of $e$ lies in $Q_L$,
-then so is the right vertex;
-it follows since in this case $e$ is an edge on an $M$-alternated path.
+
+Note that if the left vertex of $e$ lies in $Q_L$, then $e$ is an edge on an $M$-alternated path starting from $U_L$. 
+Therefore the right vertex of $e$ also lies in $Q_L$.
+
 Therefore it is sufficient to consider only the following three cases:
 \begin{itemize}
 \item The edge $e$ has
@@ -264,7 +267,7 @@ Consider the set $S$ of the vertexes which are reachable from $s$ by oriented pa
 Assume $S$ contains $t$; that is, there is a path $Q$ from $s$ to $t$, which
 can move along $P_i$ only backwards.
 
-\begin{wrapfigure}{r}{30 mm}
+\begin{wrapfigure}{o}{30 mm}
 \vskip-6mm
 \centering
 \includegraphics{mppics/pic-64}
@@ -290,14 +293,14 @@ Further, since we discarded the part of $P_1$ from $w$ to $v$, the total number 
 is smaller than in the original collection $Q, P_1,P_2\z\dots,P_m$.
 Therefore, by repeating the described procedure several times, we get $m+1$ paths without overlaps --- a contradiction.
 
-It follows that $S\not\ni t$.
-
-\begin{wrapfigure}{r}{40 mm}
-\vskip-6mm
+\begin{wrapfigure}{o}{40 mm}
+\vskip-2mm
 \centering
 \includegraphics{mppics/pic-65}
 \vskip0mm
 \end{wrapfigure}
+
+It follows that $S\not\ni t$.
 
 Note that all edges which connect $S$ to the remaining vertexes of $G$ are oriented toward to $S$.
 That is, every such edge which comes out of $S$ in the original orientation belongs to one of the paths $P_1,\dots,P_m$.
@@ -323,7 +326,7 @@ As the result, we get $m+1$ pipes form $s$ to $t$ with no common edges and possi
 \end{figure}
 An example of this procedure for two paths $P_1$ and $Q$ is shown on the diagram; as above, $P_1$ is marked by solid line and $Q$ is marked by dashed line.
 
-\begin{wrapfigure}[7]{r}{45 mm}
+\begin{wrapfigure}{r}{35 mm}
 \vskip-8mm
 \centering
 \includegraphics{mppics/pic-67}

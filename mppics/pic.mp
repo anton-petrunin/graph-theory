@@ -954,7 +954,7 @@ endfig;
 
 beginfig(67) 
 save u;
-u:=1cm;
+u:=.7cm;
 
 z.x=(.7,0)*u;
 z.y=(0,1)*u;
@@ -1056,19 +1056,19 @@ beginfig(72)
 save u;
 u:=.5cm;
 
-draw (-4.3,2)*u--(4.3,2)*u penbold;
-draw (0,1)*u--(0,3)*u penbold;
-draw (1,1)*u--(1,3)*u penbold;
-draw (2,1)*u--(2,3)*u penbold;
-draw (3,1)*u--(3,3)*u penbold;
-draw (4,1)*u--(4,3)*u penbold;
+draw (-4.3,2)*u--(4.3,2)*u;
+draw (0,1)*u--(0,3)*u;
+draw (1,1)*u--(1,3)*u;
+draw (2,1)*u--(2,3)*u;
+draw (3,1)*u--(3,3)*u;
+draw (4,1)*u--(4,3)*u;
 
-draw (-4.3,-2)*u--(4.3,-2)*u penbold;
-draw (0,-2)*u--(0,-1)*u penbold;
-draw (1,-3)*u--(1,-1)*u penbold;
-draw (2,-3)*u--(2,-1)*u penbold;
-draw (3,-3)*u--(3,-1)*u penbold;
-draw (4,-3)*u--(4,-1)*u penbold;
+draw (-4.3,-2)*u--(4.3,-2)*u;
+draw (0,-2)*u--(0,-1)*u;
+draw (1,-3)*u--(1,-1)*u;
+draw (2,-3)*u--(2,-1)*u;
+draw (3,-3)*u--(3,-1)*u;
+draw (4,-3)*u--(4,-1)*u;
 
 dOt 
 (-4,2)*u,(-3,2)*u,(-2,2)*u,(-1,2)*u,(-0,2)*u,(1,2)*u,(2,2)*u,(3,2)*u,(4,2)*u,
@@ -1091,7 +1091,7 @@ label.top(btex $T$ etex, (-1.5,2)*u);
 label.top(btex $T'$ etex, (-1.5,-2)*u);
 endfig;
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 beginfig(4) 
 save u;
