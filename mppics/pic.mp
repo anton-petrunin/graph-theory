@@ -1092,6 +1092,48 @@ label.top(btex $T'$ etex, (-1.5,-2)*u);
 endfig;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+beginfig(81) 
+save u;
+u:=.5cm;
+
+z.shift=(3,0)*u;
+z.a1=origin;
+z.a2=(1,0)*u;
+z.a3=z.a2 rotated 60;
+
+draw (z.a1--z.a2) shifted (1*z.shift);
+draw (z.a2--z.a3) shifted (2*z.shift);
+draw (z.a1--z.a3) shifted (3*z.shift);
+draw (z.a1--z.a3--z.a2) shifted (4*z.shift);
+draw (z.a2--z.a1--z.a3) shifted (5*z.shift);
+draw (z.a1--z.a2--z.a3) shifted (6*z.shift);
+
+for i=0 step 1 until 6:
+dOt z.a1+i*z.shift,z.a2+i*z.shift,z.a3+i*z.shift;
+endfor
+
+endfig;
+
+beginfig(82) 
+save u;
+u:=.5cm;
+
+z.shift=(3,0)*u;
+z.a1=origin;
+z.a2=(1,0)*u;
+z.a3=z.a2 rotated 60;
+draw (z.a1--z.a2--z.a3--cycle) shifted (0*z.shift);
+draw (z.a1--z.a3--z.a2) shifted (1*z.shift);
+draw (z.a2--z.a1--z.a3) shifted (2*z.shift);
+draw (z.a1--z.a2--z.a3) shifted (3*z.shift);
+
+for i=0 step 1 until 3:
+dOt z.a1+i*z.shift,z.a2+i*z.shift,z.a3+i*z.shift;
+endfor
+
+endfig;
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 beginfig(4) 
 save u;
