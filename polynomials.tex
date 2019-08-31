@@ -56,13 +56,14 @@ Further, removing one of the parallel edges from $G$ does not change $P_G(x)$.
 Recall that polynomial $P$ of $x$ is an expression of the following type
 \[P(x)=a_0+a_1\cdot x+\dots+a_n\cdot x^n,\]
 with constants $a_0,\dots, a_n$, which are called {}\emph{coefficients} of the polynomial.
+The coefficient $a_0$ is called \index{free term}\emph{free term} of the polynomial.
 If $a_n\ne 0$, it is called the \index{leading coefficient}\emph{leading coefficient} of $P$;
 in this case $n$ is the degree of $P$.
 If the leading coefficient is 1, then the polynomial is called \index{monic polynomial}\emph{monic}.
 
 \begin{thm}{Theorem}\label{thm:chromatic-polynomial}
 Let $G$ be a pseudograph with $p$ vertexes.
-Then $P_G(x)$ is a polynomial with integer coefficients.
+Then $P_G(x)$ is a polynomial with integer coefficients and vanishing free term.
 
 Moreover, if $G$ has a loop, then $P_G(x)\equiv 0$;
 otherwise $P_G(x)$ is monic and has degree $p$.
@@ -80,14 +81,14 @@ that is, the graph with $p$ vertexes and no edges.
 Since $N_p$ has no edges, any coloring of $N_p$ is admissible.
 We have $x$ choices for each of $n$ vertexes therefore
 \[P_{N_p}(x)=x^p.\]
-In particular, the function $x\mapsto P_{N_p}(x)$ is given by a monic polynomial of degree $p$ with integer coefficients.
+In particular, the function $x\mapsto P_{N_p}(x)$ is given by a monic polynomial of degree $p$ with integer coefficients and vanishing free term.
 
 Assume that the first statement holds for all pseudographs with at most $q-1$ edges.
 Fix a pseudograph $G$ with $q$ edges. 
 Applying the deletion-minus-contraction formula for some edge $e$ in $G$, we get that
 \[P_G(x)=P_{G\backslash e}(x)-P_{G/e}(x).\eqlbl{eq:deleting-contracting}\]
 Note that the pseudographs $G\backslash e$ and $G/e$ have $q-1$ edges.
-By the induction hypothesis, $P_{G\backslash e}(x)$ and $P_{G/e}(x)$ are polynomials with integer coefficients.
+By the induction hypothesis, $P_{G\backslash e}(x)$ and $P_{G/e}(x)$ are polynomials with integer coefficients and vanishing free terms.
 Hence \ref{eq:deleting-contracting} implies the same for $P_G(x)$.
 
 If $G$ has a loop, then $P_G(x)=0$, as $G$ has no valid colorings.
@@ -106,8 +107,10 @@ It remains to apply \ref{eq:deleting-contracting}.
 \qeds
 
 \begin{thm}{Advanced exercise}
-Let $G$ be a graph with $p$ vertexes and $q$ edges.
-Show that the coefficient in front of $x^{p-1}$ of its chromatic polynomial $P_G(x)$ equals to $(-q)$.
+Let $G$ be a graph with $p$ vertexes, $q$ edges, and $n$ connected components.
+Show that 
+\[P_G(x)=x^p-a_{p-1}\cdot x^{p-1}+a_{p-2}\cdot x^{p-2}+\dots+(-1)^{p-n}a_n\cdot x^n,\]
+where $a_n,\dots,a_{p-1}$ are positive integers and $a_{p-1}=q$.
 \end{thm}
 
 \parit{Hint:} Apply induction on $q$ and use the deletion-minus-contraction formula the same way as in the proof of the theorem.
@@ -117,12 +120,17 @@ Use induction and the deletion-minus-contraction formula to show that
 \begin{enumerate}[(a)]
 \item $P_{T}(x)=x\cdot(x-1)^q$ for any tree $T$ with $q$ edges;
 \item $P_{C_p}(x)=(x-1)^p+(-1)^p\cdot(x-1)$ for the cycle $C_p$ of length $p$.
+\item if $G$ is a graph with $p$ vertexes, then $P_G(x)\ge 0$
+for any $x\ge p-1$.
 \end{enumerate}
 \end{thm}
 
 
-\begin{thm}{Exercise} Show that graph $G$ is a tree if and only if \[P_G(x)= x\cdot(x-1)^{p-1}\] for some positive integer $p$.
+\begin{thm}{Exercise} Show that graph $G$ is a tree if and only if
+\[P_G(x)= x\cdot(x-1)^{p-1}\]
+for some positive integer $p$.
 \end{thm}
+
 
 \begin{thm}{Exercise}\label{ex:chrom(K_p)}
 Show that 
@@ -308,9 +316,9 @@ Conclude that $s(K_{m,n})=m^{n-1}\cdot n^{m-1}$.
 
 \section*{Remarks}
 
-A very good expository paper on chromatic polynomials is written by
-Ronald Read \cite[see][]{read}. 
-Matching polynomials are discussed in a paper of Christopher Godsil and Ivan Gutman \cite[see][]{godsil-gutman}.
+Very good expository papers on chromatic polynomials are written by
+Ronald Read \cite{read} and Alexandr Evnin \cite{evnin-chnom}. 
+Matching polynomials are discussed in a paper of Christopher Godsil and Ivan Gutman \cite{godsil-gutman}.
 
 Our discussion of spanning-tree polynomials is based on a modification of Fedor Petrov \cite{petrov} of the original proof of Arthur Cayley~\cite{cayley}. 
 
