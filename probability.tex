@@ -228,13 +228,13 @@ Despite that this method of proof uses probability, the final conclusion is dete
 
 \begin{thm}{Theorem}\label{thm:ramsey-lower}
 Assume that the inequality 
-\[\tbinom N n < 2^{{\binom n 2} - 1}\]
-holds for a pair of positive integers $N$ and $n$.
-Then $r(n,n)>N$.
+\[\tbinom R n < 2^{{\binom n 2} - 1}\]
+holds for a pair of positive integers $R$ and $n$.
+Then $r(n,n)>R$.
 \end{thm}
 
 \parit{Proof.} 
-We need to show that the complete graph $K_N$
+We need to show that the complete graph $K_R$
 admits a coloring of edges in red and blue such that it has no monochromatic subgraph isomorphic to $K_n$.
 
 Let us color the edges randomly ---
@@ -242,7 +242,7 @@ color each edge independently with probability $\tfrac12$ in red and otherwise i
 
 Fix a set $S$ of $n$ vertexes. 
 Define the variable $X(S)$ to be $1$ if every edge between the vertexes in $S$ has the same color, and otherwise set $X(S)=0$.
-Note that the number of monochromatic $n$-subgraphs in $K_N$ is the sum of $X(S)$ over all possible $n$-vertex subsets $S$. 
+Note that the number of monochromatic $n$-subgraphs in $K_R$ is the sum of $X(S)$ over all possible $n$-vertex subsets $S$. 
 
 Note that the expected value of $X(S)$ is simply the probability that all of the $\tbinom n 2=\tfrac{n\cdot(n-1)}{2}$
 edges in $S$ are the same color. 
@@ -250,17 +250,17 @@ The probability that all the edges with the ends in $S$ are blue is ${2^{-\binom
 Since these two possibilities exclude each other, the expected value of $X(S)$ is 
 ${2}\cdot {2^{-\binom n 2}}.$
 
-This holds for any $n$-vertex subset $S$ of the vertexes of $K_N$.
-The total number of such subsets is $\tbinom N n$.
+This holds for any $n$-vertex subset $S$ of the vertexes of $K_R$.
+The total number of such subsets is $\tbinom R n$.
 Therefore the expected value for the sum of $X(S)$ over all $n$-vertex subsets $S$ is
-\[W=2\cdot \tbinom N n\cdot 2^{-\binom n 2}.\]
+\[W=2\cdot \tbinom R n\cdot 2^{-\binom n 2}.\]
 
-In other words, $W$ is the expected number of monochromatic $K_n$'s in a random coloring of $K_N$.
+In other words, $W$ is the expected number of monochromatic $K_n$'s in a random coloring of $K_R$.
 For any coloring, this number has to be an integer.
-Therefore, if $W<1$, then at least one edge-coloring of $K_N$ has no monochromatic $K_n$. 
+Therefore, if $W<1$, then at least one edge-coloring of $K_R$ has no monochromatic $K_n$. 
 That is, if
-$\tbinom N n < 2^{\binom n 2 - 1},$
-then there is a coloring $K_N$ without any monochromatic $n$-subgraphs.
+$\tbinom R n < 2^{\binom n 2 - 1},$
+then there is a coloring $K_R$ without any monochromatic $n$-subgraphs.
 \qeds
 
 The following corollary implies that the function $n\mapsto r(n,n)$ grows at least exponentially. 
@@ -270,17 +270,17 @@ $r(n, n)> \tfrac1{8}\cdot 2^{\frac{n}{2}}$.
 \end{thm}
 
 \parit{Proof.}
-Set $N=\lfloor\tfrac1{8}\cdot 2^{\frac{n}{2}}\rfloor$;
-that is, $N$ is the largest integer $\le\tfrac1{8}\cdot 2^{\frac{n}{2}}$.
+Set $R=\lfloor\tfrac1{8}\cdot 2^{\frac{n}{2}}\rfloor$;
+that is, $R$ is the largest integer $\le\tfrac1{8}\cdot 2^{\frac{n}{2}}$.
 
 Note that 
-\[2^{\binom n 2 - 1}> (2^{\frac{n-3}2})^n\ge N^n.\]
+\[2^{\binom n 2 - 1}> (2^{\frac{n-3}2})^n\ge R^n.\]
 and
-\[\tbinom N n=\frac{N\cdot(N-1)\cdots (N-n+1)}{n!}<  N^n.\]
+\[\tbinom R n=\frac{R\cdot(R-1)\cdots (R-n+1)}{n!}<  R^n.\]
 
 Therefore  
-\[\tbinom N n<2^{\binom n 2 - 1}.\]
-By Theorem~\ref{thm:ramsey-lower}, we get that $r(n,n)> N$.
+\[\tbinom R n<2^{\binom n 2 - 1}.\]
+By Theorem~\ref{thm:ramsey-lower}, we get that $r(n,n)> R$.
 \qeds
 
 \begin{thm}{Exercise}
@@ -311,18 +311,18 @@ In principle,  any probabilistic proof admits such a translation,
 but in most cases, the translation is less intuitive. 
 
 \parit{Proof of \ref{thm:ramsey-lower}.}
-The graph $K_N$ has $\tbinom{N}{2}$ edges.
+The graph $K_R$ has $\tbinom{R}{2}$ edges.
 Each edge can be colored in blue or red;
-therefore the total number of different colorings is \[\Omega=2^{\binom{N}{2}}.\]
+therefore the total number of different colorings is \[\Omega=2^{\binom{R}{2}}.\]
 
-Fix a subgraph isomorphic to $K_n$ in $K_N$.
+Fix a subgraph isomorphic to $K_n$ in $K_R$.
 Note that this graph is red in $\Omega/2^{\binom n2}$ different colorings
 and yet in $\Omega/2^{\binom n2}$ different colorings this subgraph is blue.
 
-There are $\tbinom Nn$ different subgraphs isomorphic to $K_n$ in $K_N$.
+There are $\tbinom Rn$ different subgraphs isomorphic to $K_n$ in $K_R$.
 Therefore the total number of monochromatic $K_n$'s in all the colorings 
 is 
-\[M=\tbinom Nn\cdot\Omega\cdot  2/2^{\binom n2}.\]
+\[M=\tbinom Rn\cdot\Omega\cdot  2/2^{\binom n2}.\]
 
 If $M<\Omega$, then by the pigeonhole principle,
 there is a coloring with no monochromatic $K_n$.
@@ -465,26 +465,40 @@ it is still uncontrollably hard to describe a concrete example.
 
 More involved examples of proofs based on the probabilistic method deal with {}\emph{typical properties} of random graphs.
 
-To describe the concept, let us consider the following {}\emph{random process} which generates a graph $G_p$ with $p$ vertexes.
+To describe the concept, let us consider the following {}\emph{random process} which generates a graph $G_n$ with $n$ vertexes.
 
-Fix a positive integer $p$. 
-Consider a graph $G_p$ with the vertexes labeled by $1,\dots,p$,
-where every edge in $G_p$ exists with probability $\tfrac12$.
+Fix a positive integer $n$. 
+Consider a graph $G_n$ with the vertexes labeled by $1,\dots,n$,
+where existence of edge between every pair of vertexes is decided independently by flipping a coin.
 
-Note that the described process depends only on $p$, and as a result we can get any graph with the given $p$ vertexes with the same probability $1/2^{\binom{p}{2}}$.
+Note that the described process depends only on $n$, and as a result we can get a graph isomorphic to any given graph with $n$ vertexes.
+
+\begin{thm}{Exercise}
+Let $H$ be a graph with $n$ vertexes.
+Denote by $\alpha$ the probability that $G_n$ is isomorphic to $H$.
+Show that 
+\[1/2^{\binom n2}\le \alpha\le n!/2^{\binom n2}.\]
+
+\end{thm}
+
 
 Fix a property of a graph (for example connectedness)
-and let $\alpha_p$ be the probability that $G_p$ has this property.
-We say that the property is \index{typical property}\emph{typical} if $\alpha_p\to 1$ as $p\to \infty$.
+and denote by $\alpha_n$ the probability that $G_n$ has this property.
+We say that the property is \index{typical property}\emph{typical} if $\alpha_n\to 1$ as $n\to \infty$.
 
 \begin{thm}{Exercise}
 Show that random graphs typically have a diameter of 2.
-That is, the probability that $G_p$ is has a diameter of 2 converges to~1 as $p\to \infty$.
+That is, the probability that $G_n$ is has a diameter of 2 converges to~1 as $n\to \infty$.
 \end{thm}
 
-\parit{Hint:} Find the probability that two given vertexes lie on a distance $>2$ from each other in $G_p$; find the average number of such pairs in $G_p$; make a conclusion.
+\parit{Hint:} Find the probability that two given vertexes lie on a distance $>2$ from each other in $G_n$; find the average number of such pairs in $G_n$; make a conclusion.
 
 \medskip
+
+\begin{thm}{Exercise}
+Show that random graphs typically has a subgraph isomorphic to $K_{100}$.
+That is, the probability that $G_n$ has a subgraph isomorphic to $K_{100}$ converges to~1 as $n\to \infty$.
+\end{thm}
 
 Note that from the exercise above, it follows that in the described random process, the random graphs are {}\emph{typically connected}.
 
