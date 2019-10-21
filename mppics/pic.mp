@@ -628,8 +628,8 @@ for j=1 step 1 until 2*4:
 dOt z[j]+5*z.shift;
 endfor
 
-label.bot(btex $L_3'$ etex, .5[z[1],z[2]]+4*z.shift+(0,-2));
-label.bot(btex $L_3''$ etex, .5[z[1],z[2]]+5*z.shift+(0,-2));
+label.bot(btex $L_4'$ etex, .5[z[1],z[2]]+4*z.shift+(0,-2));
+label.bot(btex $L_4''$ etex, .5[z[1],z[2]]+5*z.shift+(0,-2));
 
 endfig;
 
