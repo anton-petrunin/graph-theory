@@ -253,12 +253,12 @@ $S_G(x_1,\dots,x_p)$.
 
 For example, the graph $G$ shown on the diagram has three spanning trees; each is obtained by deleting one of the edges in the cycle $xyz$.
 Abusing notation slightly, let us use the same label for a vertex in $G$ and for the corresponding variable.
-The monomial for the tree obtained by deleting the edge $xy$ is $x^2\cdot y\cdot z$;
-indeed in the obtained tree $x$ has degree 3 while $y$ and $z$ have degree $2$.
+The monomial for the tree obtained by deleting the edge $xy$ is $x^2\cdot y\cdot z$.
+Indeed, in this tree the vertex $x$ has degree 3, vertexes $y$ and $z$ have degree $2$ and the remaining vertexes $u$, $v$, and $w$ have degree 1.
 The monomials for the other two trees are $x^2\cdot z^2$ and $x^3\cdot z$.
 Therefore 
 \[S_G(x,y,z,u,v,w)= x^2\cdot y\cdot z+x^2\cdot z^2+x^3\cdot z.\]
-Note that $S_G(x,y,z,u,v,w)$ does not depend on $u$, $v$ and $w$ since the corresponding vertexes have degree 1 in any spanning tree.
+Note that $S_G(x,y,z,u,v,w)$ does not depend on $u$, $v$ and $w$ since the corresponding vertexes have degree 1 in any spanning tree of $G$.
 
 
 Note that $s(G)=S_G(1,\dots,1)$ for any graph $G$; that is, $S_G(1,\dots,1)$ is the total number of spanning trees in $G$.
@@ -275,7 +275,7 @@ Show the following:
 \item The partial derivative
 \[\frac{\partial S_G}{\partial x_1}(0,1,\dots,1)\]
 is the numbers of spanning trees in $G$ with degree 2 at the first vertex.
-\item The values 
+\item The two values 
 \[\tfrac12\cdot\left[S_G(1,1,\dots,1)\pm S_G(-1,1,\dots,1)\right]\]
 are the numbers of spanning trees in $G$ with odd or correspondingly even degree at the first vertex.
 \end{enumerate}
@@ -327,12 +327,12 @@ To get the sum of all monomials in $S_{K_p}$ without $x_p$, we need to sum up th
 \[S_{K_{p-1}}(x_1,\dots,x_{p-1})\cdot(x_1+\dots+x_{p-1}).\]
 By \ref{eq:S-K(n-1)}, the latter equals to
 \[(x_1+\dots+x_{p-1})^{p-2}\]
-which proves \ref{clm:sum-up}.
+which implies \ref{clm:sum-up}.
 
 Now assume \ref{eq:S-K(n)} does not hold.
 Denote by $P(x_1,\dots,x_p)$ the left hand side in \ref{eq:S-K(n)}.
 Observe that $P$ is a {}\emph{symmetric} {}\emph{homogeneous} polynomial of degree $p\z-2$.
-That is, any permutation of values $x_1,\dots, x_p$ does not change $P(x_1,\dots,x_p)$ and after combining of like terms, each monomial in $P$ has total degree $p-2$.
+That is, any permutation of values $x_1,\dots, x_p$ does not change $P(x_1,\dots,x_p)$ and each monomial in $P$ has total degree $p-2$.
 
 By Lemma~\ref{lem:polyx} and \ref{clm:sum-up}, we get that $P$ is divisible by $x_p$.
 Since $P$ is symmetric it is divisible by each $x_i$;
