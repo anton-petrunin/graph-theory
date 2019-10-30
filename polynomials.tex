@@ -174,10 +174,17 @@ The expression
 \[M_G(x)=m_0+m_1\cdot x+\dots +m_k\cdot x^k\]
 is called the \index{matching polynomial}\emph{matching polynomial} of $G$.
 
-The matching polynomial $M_G(x)$ gives a convenient way to work with all the numbers $m_n(G)$ simultaneously.
-The degree of $M_G(x)$ is the matching number of $G$ and
+The matching polynomial $M_G(x)$ conviniently organizes the numbers $m_n(G)$ so we can work with all of them simultaneously.
+For example, the degree of $M_G(x)$ is the matching number of $G$ and
 the total number of matching in $G$ is its value at $1$:  
 \[M_G(1)=m_0+m_1+\dots +m_k.\]
+
+\begin{thm}{Exercise}
+Assume that a graph $G$ has exactly two connected components $H_1$ and $H_2$.
+Show that 
+\[M_G(x)=M_{H_1}(x)\cdot M_{H_2}(x)\]
+for any $x$.
+\end{thm}
 
 \begin{thm}{Exercise}
 Show that the values
@@ -196,9 +203,9 @@ equal to the number of matchings with even and odd number of edges corresponding
 
 Assume $e$ is an edge in a graph $G$.
 Recall that the graph $G\backslash e$ is obtained by deleting $e$ from $G$.
-Let us denote by $G\backslash \bar e$ the graph obtained by deleting the vertexes of $e$ with all their edges from $G$;
+Let us denote by $G\backslash [e]$ the graph obtained by deleting the vertexes of $e$ with all their edges from $G$;
 that is, if $e$ connects two vertexes $v$ and $w$, then 
-\[G\backslash \bar e=G\backslash \{v,w\}.\]
+\[G\backslash [e]=G\backslash \{v,w\}.\]
 
 }
 
@@ -208,11 +215,11 @@ The following exercise is analogous to the deletion-contraction formulas \ref{th
 Let $G$ be a graph.
 \begin{enumerate}[(a)]
 \item\label{ex:deletion-deletion} Show that
-\[M_G(x)=M_{G\backslash e}(x)+x\cdot M_{G\backslash \bar e}(x)\]
+\[M_G(x)=M_{G\backslash e}(x)+x\cdot M_{G\backslash [e]}(x)\]
 for any edge $e$ in $G$.
 
 \item\label{ex:deletion-deletion-K} Use part \ref{ex:deletion-deletion} to show that the matching polynomials of complete graphs satisfy the following recursive relation:
-\[M_{K_{p+1}}(x)=M_{K_{p}}(x)+p\cdot x\cdot M_{K_{p-1}}(x).\]
+\[M_{K_{n+1}}(x)=M_{K_{n}}(x)+n\cdot x\cdot M_{K_{n-1}}(x).\]
 
 \item Use \ref{ex:deletion-deletion-K} to calculate $M_{K_n}(x)$ for $1\le n\le 6$.
 \end{enumerate}
@@ -234,24 +241,39 @@ $d_1+\dots+d_p=2\cdot(p-1)$.
 It follows that the total degrees of the monomial is $p-2$.
 
 The sum of these monomials is a polynomial of degree $p-2$ of $p$ variables $x_1,\dots, x_p$.
-This polynomial will be called the \index{spanning-tree polynomial}\emph{spanning-tree polynomial}of $G$ and it will be denoted by 
+This polynomial will be called the \index{spanning-tree polynomial}\emph{spanning-tree polynomial} of $G$ and it will be denoted by 
 $S_G(x_1,\dots,x_p)$.
 
-Note that the total number of spanning trees in $G$ equals to the value
-$S_G(1,\dots,1)$.
-The following exercise shows that,
-the polynomial $S_G$ keeps a lot more information about spanning trees in $G$.
+\begin{wrapfigure}{o}{25 mm}
+\vskip-0mm
+\centering
+\includegraphics{mppics/pic-52}
+\vskip-0mm
+\end{wrapfigure}
 
-%Abusing notation slightly, we will use the variables $x_1,\dots,x_p$ as label of the corresponding vertex in $G$; for instance, we can say ``$x_2$ has degree 5 in $G$'' instead of ``the second vertex has degree 5 in $G$''.   
+For example, the graph $G$ shown on the diagram has three spanning trees; each is obtained by deleting one of the edges in the cycle $xyz$.
+Abusing notation slightly, let us use the same label for a vertex in $G$ and for the corresponding variable.
+The monomial for the tree obtained by deleting the edge $xy$ is $x^2\cdot y\cdot z$;
+indeed in the obtained tree $x$ has degree 3 while $y$ and $z$ have degree $2$.
+The monomials for the other two trees are $x^2\cdot z^2$ and $x^3\cdot z$.
+Therefore 
+\[S_G(x,y,z,u,v,w)= x^2\cdot y\cdot z+x^2\cdot z^2+x^3\cdot z.\]
+Note that $S_G(x,y,z,u,v,w)$ does not depend on $u$, $v$ and $w$ since the corresponding vertexes have degree 1 in any spanning tree.
+
+
+Note that $s(G)=S_G(1,\dots,1)$ for any graph $G$; that is, $S_G(1,\dots,1)$ is the total number of spanning trees in $G$.
+Indeed each spanning tree in $G$ contributes one monomial to $S_G$ and each monomial contributes $1$ to the value $S_G(1,\dots,1)$.
+The following exercise shows that,
+the polynomial $S_G$ keeps a lot more information about spanning trees in $G$.   
 
 \begin{thm}{Exercise}
 Let $S_G(x_1,\dots,x_p)$ be the spanning-tree polynomial of a graph $G$.
 Show the following:
 \begin{enumerate}[(a)]
-\item The value $S_G(0,1,\dots,1)$ can be interpreted as the number of spanning trees with the leaf the first vertex.
+\item $S_G(0,1,\dots,1)$ is the number of spanning trees with a leaf at the first vertex.
 \item The coefficient of $S_G$ in front of $x_1\cdots x_{p-2}$ equals to the number of paths of length $p-1$ connecting $(p-1)$-th and $p$-th vertexes.
 \item The partial derivative
-\[\tfrac{\partial}{\partial x_1}S_G(0,1,\dots,1)\]
+\[\frac{\partial S_G}{\partial x_1}(0,1,\dots,1)\]
 is the numbers of spanning trees in $G$ with degree 2 at the first vertex.
 \item The values 
 \[\tfrac12\cdot\left[S_G(1,1,\dots,1)\pm S_G(-1,1,\dots,1)\right]\]
@@ -259,50 +281,66 @@ are the numbers of spanning trees in $G$ with odd or correspondingly even degree
 \end{enumerate}
 \end{thm}
 
-The following theorem generalizes the Cayley formula (\ref{thm:cayley}).
-
 \begin{thm}{Theorem}\label{thm:spanning-tree-polynomial}
 \[S_{K_p}(x_1,\dots,x_p)=(x_1+\dots +x_p)^{p-2},\]
 where $K_p$ is the complete graph with $p\ge 2$ vertexes.
-In particular, $s(K_p)=p^{p-2}$;
-that is, the number of spanning trees in $K_p$ is $p^{p-2}$.
 \end{thm}
 
-\parit{Proof.}
+Note that the theorem above generalizes the Cayley formula (\ref{thm:cayley}).
+Indeed, 
+\[s(K_p)=S_{K_p}(1,\dots,1)=
+(1+\dots+1)^{p-2}=p^{p-2}.\]
+
+In the proof we will use the following algebraic lemma; its proof is left to the reader.
+
+
+\begin{thm}{Lemma}\label{lem:polyx} Assume a polynomial $P(x_1,\dots,x_n)$ vanish if $x_n=0$, then $P$ is divisible by $x_n$;
+that is, there is a polynomial $Q(x_1,\dots,x_n)$ such that
+\[P(x_1,\dots,x_n)=x_n\cdot Q(x_1,\dots,x_n).\]
+\end{thm}
+
+
+\parit{Proof of \ref{thm:spanning-tree-polynomial}.}
 Let us apply induction on $p$;
 the base case $p=2$ is evident.
 
 Assume that the statement holds for $p-1$; that is,
-\[S_{K_{p-1}}(x_1,\dots,x_{p-1})=(x_1+\dots+x_{p-1})^{p-3}.
+\[S_{K_{p-1}}(x_1,\dots,x_{p-1})-(x_1+\dots+x_{p-1})^{p-3}=0.
 \eqlbl{eq:S-K(n-1)}\]
 We need to show that 
-\[S_{K_p}(x_1,\dots,x_p)=(x_1+\dots+x_p)^{p-2}.\]
+\[S_{K_p}(x_1,\dots,x_{p-1},x_p)-(x_1+\dots+x_{p-1}+x_p)^{p-2}=0.
+\eqlbl{eq:S-K(n)}\]
 
-Observe that $S_{K_p}$ is a {}\emph{homogeneous} {}\emph{symmetric} polynomial of degree $p\z-2$.
-That is, each monomial in $S_{K_{p}}$ has degree $p-2$ and any permutation of values $x_1,\dots, x_p$ does not change the value $S_G(x_1,\dots,x_p)$.
-
-Therefore it suffices to prove that 
-\begin{clm}{}\label{clm:sum-up}
-all monomials in $S_{K_p}$ without $x_p$ sum up to $(x_1+\dots+x_{p-1})^{p-2}$. 
-\end{clm}
-
-Note that each of these monomials corresponds to a spanning tree $T$ with $d_p=1$;
-that is, the vertex $x_p$ is a leaf of $T$.
-In other words, the tree $T$ is obtained from another tree $T'$ with the vertexes $x_1,\dots,x_{p-1}$ 
+First let us show that the equality holds if $x_p=0$; that is,
+\[S_{K_p}(x_1,\dots,x_{p-1},0)-(x_1+\dots+x_{p-1})^{p-2}=0.
+\eqlbl{clm:sum-up}\]
+Indeed, $S_{K_p}(x_1,\dots,x_{p-1},0)$ is the sum of all monomials in $S_{K_p}$ without~$x_p$.
+Each of these monomials correspond to a spanning tree $T$ in $K_p$ with $d_p=1$; in other words, $T$ has a leaf at $x_p$.%
+\footnote{We use $x_i$ as a label of a vertex in $K_p$ and as the corresponding variable.}
+Note that the tree $T$ is obtained from another tree $T'$ with the vertexes $x_1,\dots,x_{p-1}$ 
 by adding an edge from $x_p$ to $x_i$ for some $i<p$.
+
 Note that the monomial in $S_{K_p}$ that corresponds to $T$ equals 
 to the product of $x_i$ times the monomial in $S_{K_{p-1}}$
 that corresponds to $T'$.
-
 To get the sum of all monomials in $S_{K_p}$ without $x_p$, we need to sum up these products for all $i<p$ and all the monomials in $S_{K_{p-1}}$; this way we get 
 \[S_{K_{p-1}}(x_1,\dots,x_{p-1})\cdot(x_1+\dots+x_{p-1}).\]
 By \ref{eq:S-K(n-1)}, the latter equals to
 \[(x_1+\dots+x_{p-1})^{p-2}\]
 which proves \ref{clm:sum-up}.
 
-To prove the last statement, it remains to note that 
-\[s(G)=S_G(1,\dots,1)=(1+\dots+1)^{p-2}=p^{p-2}.\]
-\qedsf
+Now assume \ref{eq:S-K(n)} does not hold.
+Denote by $P(x_1,\dots,x_p)$ the left hand side in \ref{eq:S-K(n)}.
+Observe that $P$ is a {}\emph{symmetric} {}\emph{homogeneous} polynomial of degree $p\z-2$.
+That is, any permutation of values $x_1,\dots, x_p$ does not change $P(x_1,\dots,x_p)$ and after combining of like terms, each monomial in $P$ has total degree $p-2$.
+
+By Lemma~\ref{lem:polyx} and \ref{clm:sum-up}, we get that $P$ is divisible by $x_p$.
+Since $P$ is symmetric it is divisible by each $x_i$;
+that is, there is a polynomial $Q(x_1,\dots,x_p)$ such that 
+\[P(x_1,\dots,x_p)=x_1\cdots x_p\cdot Q(x_1,\dots,x_p).\]
+Since $P\ne 0$, the total degree of $P$ is at least $p$.
+But $P$ has degree $p-2$, a contraction.
+\qeds
 
 \begin{thm}{Exercise}
 Assume that the vertexes of the left part of $K_{m,n}$ have corresponding variables $x_1,\dots,x_m$ and the vertexes in the right part have corresponding variables $y_1,\dots,y_n$. 

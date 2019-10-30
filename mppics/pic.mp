@@ -715,6 +715,32 @@ label.bot(btex $G{\backslash} e$ etex, (z.r rotated -90)+z.shift1+(0,-2));
 label.bot(btex $G{\backslash} \bar e$ etex, (z.r rotated -90)+z.shift2+(0,-2));
 endfig;
 
+beginfig(52) 
+save u;
+u:=.7cm;
+
+z.x=(0,0)*u;
+z.z=(1,0)*u;
+z.y=z.z rotated -60;
+z.w=(1,1)*u;
+z.v=(0,1)*u;
+z.u=(-1,0)*u;
+
+draw z.u--z.x--z.v;
+draw z.w--z.z;
+draw z.y--z.x--z.z--cycle;
+
+dOt z.x,z.y,z.z,z.u,z.v,z.w;
+
+label.llft(btex $x$ etex, z.x);
+label.bot(btex $y$ etex, z.y);
+label.rt(btex $z$ etex, z.z);
+label.lft(btex $u$ etex, z.u);
+label.top(btex $v$ etex, z.v);
+label.top(btex $w$ etex, z.w);
+
+endfig;
+
 %%%%%%%%%%%%%%%%%%%%%%
 
 beginfig(61) 
