@@ -1,7 +1,8 @@
 %\RequirePackage{snapshot}
 \special{! /setdistillerparams where {pop}{userdict /setdistillerparams {pop} put}ifelse
  <</AutoRotatePages /None>> setdistillerparams} %turning off AutoRotatePages --- needed for arXiv
-\documentclass[twoside]{book}
+
+ \documentclass[twoside]{book}
 \usepackage{book}
 \geometry{top=0.9in, bottom=0.9in,inner=0.9in, outer=0.8in, paperwidth=6in, paperheight=9in}
 \hypersetup{pdftitle={Extra pearls in graph theory}}
@@ -16,7 +17,9 @@
 \input{deletion-contraction.tex}
 \input{matrix.tex}
 \input{polynomials.tex}
+\input{algorithms.tex}
 \input{marriage.tex}
+\input{surfaces.tex}
 \input{rado.tex}
 \appendix
 \input{generating-functions.tex}
@@ -27,11 +30,7 @@
 
 \clearpage
 
-\sloppy
-{\scriptsize
-\input{graph-theory.ind}
-}
-%\input{bibl.tex}
+%\sloppy{\scriptsize\input{graph-theory.ind}}
 \printbibliography[heading=bibintoc]
 \fussy
 

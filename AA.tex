@@ -1,4 +1,536 @@
 
+\section*{Large girth}
+
+Recall that \index{girth}\emph{girth} of a graph is the length of its shortest cycle.
+
+\begin{thm}{Theorem}
+Any toroidal graph with girth at least $4$ has chromatic number at most $4$.
+\end{thm}
+
+The following exercise guides you to a proof.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{thm}{Lemma}\label{lem:W<G}
+Suppose that $W$ is a drawing of a connected pseudograph on a torus and $V$ is a connected subgraph in $W$.
+Then 
+\[\Sigma_W\le \Sigma_U.\eqlbl{W<G}\]
+\end{thm}
+
+\parit{Proof.} Let $V$ be a maximal connected subgraph of $W$ that contains $U$ and such that 
+\[\Sigma_V\le \Sigma_U.\]
+
+If the inequality \ref{W<G} does not hold, then $V\ne W$.
+Therefore there is an edge $e$ that lies in $W$, but not in $V$.
+Since both graphs are connected we may assume that one of the vertexes of $e$ is in $V$.
+We have three cases:
+\begin{enumerate}[(i)]
+\item The other vertex of $e$ is not in $V$.
+In this case we have to add this vertex as well.
+Note that in this case the added edge does not separate the region containing $e$.
+Therefore 
+\[\Sigma_{V+e}=\Sigma_{V}.\]
+\item The other vertex $e$ is in $V$ and $e$ cuts its region in two.
+In this case we leave the number of vertexes unchanged and number of edges and regions is increased by 1.
+Therefore 
+\[\Sigma_{V+e}=\Sigma_{V}.\] 
+\item\label{p-q+r<p-q+r} The other vertex $e$ is in $V$ and $e$ leaves its region connected.
+In this case we leave the number of vertexes and regions unchanged and number of edges is increased by 1.
+Therefore 
+\[\Sigma_{V+e}=\Sigma_{V}-1.\]
+\end{enumerate}
+Note that in each case, the subgraph $V$ is not maximal --- a contradiction.
+
+Hence $V=W$ and therefore \ref{W<G} holds.
+\qeds
+
+\begin{thm}{Lemma}\label{lem:W=G}
+Suppose that $W$ is a drawing of a connected pseudograph on a torus and $V$ is a connected subgraph in $W$.
+Suppose all regions of $V$ are simple.
+Then 
+\[\Sigma_W= \Sigma_U.\eqlbl{W=G}\]
+\end{thm}
+
+The proof of these two lemmas are nearly identical.
+
+\parit{Proof.} Let $V$ be a maximal connected subgraph of $W$ that contains $U$ and such that 
+\[\Sigma_V= \Sigma_U.\]
+Since all regions of $U$ are simple, Claim~\ref{clm:simple-regions} implies that all regions of $V$ are simple.
+
+If the inequality \ref{W=G} does not hold, then $V\ne W$.
+Therefore there is an edge $e$ that lies in $W$, but not in $V$.
+Since both graphs are connected we may assume that one of the vertexes of $e$ is in $V$.
+We have three cases:
+\begin{enumerate}[(i)]
+\item The other vertex of $e$ is not in $V$.
+In this case we have to add this vertex as well.
+Note that in this case the added edge does not separate the region containing $e$.
+Therefore 
+\[\Sigma_{V+e}=\Sigma_{V}.\]
+\item The other vertex $e$ is in $V$.
+Since all regions of $V$ are simple, $e$ separates its region in two.
+In this case we leave the number of vertexes unchanged and number of edges and regions is increased by 1.
+Therefore 
+\[\Sigma_{V+e}=\Sigma_{V}.\] 
+\end{enumerate}
+Note that in each case, the subgraph $V$ is not maximal --- a contradiction.
+
+Hence $V=W$ and therefore \ref{W<G} holds.
+\qeds
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{thm}{Claim}\label{clm:simple-connected}
+If a pseudograph $G$ has a drawing on torus or sphere with simple regions, then $G$ is connected. 
+\end{thm}
+
+
+\begin{thm}{Claim}\label{clm:simple-regions}
+Let $G$ be a drawing of a connected pseudograph on a torus or sphere.
+Suppose that has $G$ has a subgraph $H$ with all simple regions.
+Then all regions of $G$ are simple as well.
+\end{thm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Note that $S'$ shares with $T$ one more edge than $S$.
+Repeating this construction,
+
+This inequality together with \ref{s>=t} implies that
+\[\weight(s)= \weight(t).\]
+
+Consider the path $P$ in $T$ that connects the ends of $e'$.
+
+Note that $P$ contains an edge $e$ that is not in $S$;
+such that $S'=S-e'+e$ is a spanning tree.
+Indeed, $S-e'$ has two components say $S_1$ and $S_2$;
+moreover the ends on $P$ lie in the different components of $S-e'$.
+Therefore there is an edge $e$ in $P$ that connects $S_0$ to $S_1$;
+that is, $S-e'+e$ is a connected spanning subgraph of $G$.
+
+Note that $S$ and $S'$ have the same number of edges and vertexes.
+Since $S$ is a tree, so it $S'$.
+
+otherwise $P+e'$ would be a cycle in $S$.
+
+Note that  $T+e'$ contains a cycle with $e$ in it.
+Removing the edge $e$ from the cycle, leaves the graph connected;
+therefore $T'=T+e'-e$ is a connected spanning subgraph of $G$.
+
+By construction $T'$ is a neighbor of $T$.
+Therefore
+\begin{align*}
+\weight(T')&=\weight(T)+\weight(e')-\weight(e)\le
+\\
+&\ge\weight(T).
+\end{align*}
+It follows that 
+\[\weight(e')\ge\weight(e)\]
+
+Further, observe that $S'=S+e-e'$ is a spanning tree.
+
+
+Evidently $T+e'-e$ and $T$ have the same number of edges.
+Whence $T+e'-e$ is tree as well as $T$.
+
+By assumption 
+\[\weight(e')\ge \weight(e).\]
+Therefore 
+\begin{align*}
+\weight(S')&=\weight(S)+\weight(e)-\weight(e')\le
+\\
+&\le\weight(S).
+\end{align*}
+
+Applying the lemma, we get that $S'=S+e-e'$ is a spanning tree.
+Since the $S$ has minimal weight, we have an equality in the last inequality.
+That is, $S'$ is another minimum weight spanning tree in $G$.
+But $S'$ shares with $T$ an additional edge ($e$);
+so $S'$ has $k+1$ common edges with $T$.
+But $k$ is maximal --- a contradiction.
+\qeds
+\qeds
+
+In the proof we will use the following lemma.
+
+\begin{thm}{Lemma}
+Let $T$ be a spanning tree in a graph $G$.
+Suppose that the ends of a path $P$ in $T$ are connected by an edge $e'$.
+Then $T'=T+e'-e$ is a spanning tree in $G$.
+\end{thm}
+
+\parit{Proof.}
+Note that $T+e'$ contains a cycle formed by $P$ and $e'$.
+Removing the edge $e$ from the cycle, leaves the graph connected;
+therefore $T'$ is a connected spanning subgraph of $G$.
+
+Evidently $T'$ and $T$ have the same number of edges; whence $T'$ is tree as well as $T$.
+\qeds
+
+
+\parit{Proof of \ref{thm:mst-iff}; ``only-if'' part.}
+Suppose that the condition does not hold for a path $P$ in $T$ and edges $e$ and $e'$.
+By lemma, $T'=T+e'-e$ is a spanning tree.
+Since $\weight(e')<\weight(e)$, we have that
+\begin{align*}
+\weight(T')&=\weight(T)+\weight(e')-\weight(e)<
+\\
+&<\weight(T);
+\end{align*}
+that is, $T$ is not a minimum weight spanning tree.
+
+\parit{``If'' part.}
+Suppose a spanning tree $T$ satisfies the condition.
+Consider a minimum weight spanning tree $T'$ in $G$.
+If there few minimum weight spanning trees, we can assume that $T'$ is chosen so that it has maximal number of common edges with $T$; denote this number by $k$.
+
+Arguing by contradiction, assume $T\ne T'$.
+Then there is an edge $e'$ in $T'$ that is not in $T$.
+Consider the path $P$ in $T$ that connects the ends of $e'$.
+Note that $P$ contains an edge $e$ that is not in $T'$;
+otherwise $P+e'$ would be a cycle in $T'$. 
+By assumption 
+\[\weight(e')\ge \weight(e).\]
+Therefore 
+\begin{align*}
+\weight(T'')&=\weight(T')+\weight(e)-\weight(e')\le
+\\
+&\le\weight(T').
+\end{align*}
+
+Applying the lemma, we get that $T''=T'+e-e'$ is a spanning tree.
+Since the $T'$ has minimal weight, we have an equality in the last inequality.
+That is, $T''$ is another minimum weight spanning tree in $G$.
+But $T''$ shares with $T$ an additional edge ($e$);
+so $T''$ has $k+1$ common edges with $T$.
+But $k$ is maximal --- a contradiction.
+\qeds
+
+\begin{thm}{Exercise}
+Let $G$ be a connected pseudograph with weighted edges.
+Suppose all weights are different.
+\begin{enumerate}[(a)]
+\item Let $e$ be an edge in $G$ that has minimal weight.
+Show that there is a minimum weight spanning tree $T$ in $G$ that contains $e$.
+\item Given a vertex $w$, denote by $e_w$ an edge adjacent to $w$ that has minimal weight.
+Show that there is a minimum weight spanning tree $T$ in $G$ that contains $e_w$.
+\item Given a set of vertexes $W$, denote by $e_W$ an edge that has minimal weight among all the edges connecting a vertex in $W$ to a vertex not in $W$.
+Show that there is a minimum weight spanning tree $T$ in $G$ that contains $e_w$.
+\end{enumerate}
+
+\end{thm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The theorem below states that the obtained tree has minimal total weight.
+
+
+
+The following lemma is the key to the proof.
+
+\begin{thm}{Lemma}\label{lem:kruskal}
+Let $G$ be a connected pseudograph with weighted edges and $e$ is a an edge in $G$ that is not a loop and has minimal weight.
+Then there is a minimum weight spanning tree $T$ in $G$ that contains $e$.
+\end{thm}
+
+\parit{Proof.}
+Fix a minimum weight spanning tree $T$ in $G$.
+If $T$ contains $e$, then lemma follows.
+
+Assume $e$ does not belong to $T$.
+Consider the subgraph $T+e$; it contains a cycle $C$.
+Removing another edge $e'$ from $C$ produces another spanning tree $T'$.
+Since $e$ has minimal weight, we have $\mathrm{weight}(e)\le \mathrm{weight}(e')$.
+Therefore
+\begin{align*}
+ \mathrm{weight}(T')&=\mathrm{weight}(T)+\mathrm{weight}(e)-\mathrm{weight}(e')<
+ \\
+ &\le\mathrm{weight}(T).
+\end{align*}
+Since $T$ has minimal total weight, so is $T'$.
+By construction, $T'$ contains~$e$.
+\qeds
+
+
+
+\parit{Proof of the theorem.}
+Let $T$ be a spanning tree produced by Kruskal’s algorithm.
+Assume 
+\[e_1,\dots,e_{k-1},e_k,\dots e_{p-1}\eqlbl{eq:e-e}\] 
+are the edges of $T$ listed in order of their weights
+(in this order they are added by Kruskal’s algorithm).
+
+Suppose that $T'$ is a spanning tree.
+Let $k$ be the maximal number such that the edges  $e_1,\dots,e_{k-1}$ are in $T'$ (if $k=1$, then this list is empty). 
+In other words, if we list all its edges in $T'$ in order of their weights, then 
+we obtain a sequence 
+\[e_1,\dots,,e_{k-1},e'_k,\dots e'_{p-1}\]
+with $e'_k\ne e_k$.
+
+Assume that $T'$ minimizes weight.
+Further, if there are more than one spanning tree that minimizes weight, suppose that $T'$ has maximal value $k$ defined above.
+
+Arguing by contradiction, assume $\mathrm{weight}(T')< \mathrm{weight}(T)$.
+
+Consider the graph $\bar G=G/\{e_1,\dots,e_{k-1}\}$;
+that is, $G$ with contracted edges $e_1,\dots,e_{k-1}$.
+Note that $\bar T=T/\{e_1,\dots,e_{k-1}\}$ and $\bar T'\z=T'/\{e_1,\dots,e_{k-1}\}$ are spanning trees in $\bar G$.
+Further 
+\begin{align*}
+\mathrm{weight}(\bar T)&+\mathrm{weight}(T)-\mathrm{weight}(e_1)-\mathrm{weight}(e_{k-1}),
+\\
+\mathrm{weight}(\bar T')&+\mathrm{weight}(T')-\mathrm{weight}(e_1)-\mathrm{weight}(e_{k-1}).
+\end{align*}
+It follows that 
+$\bar T'$ is a minimal weight spanning tree in $\bar G$.
+
+Note that $e_k$ 
+
+
+Note that the edge $e_k$ is in $T$, but not in $T'$; otherwise $k$ is not maximal.
+
+The edge in $T'$ provided by Lemma~\ref{lem:T+e-e} lies in $T'$, but not in $T$;
+therefore it must be $e'_j$ for $j\ge k$.
+By the Kruskal’s algorithm,
+\[\mathrm{weight}(e_k)\le \mathrm{weight}(e'_k)\le \mathrm{weight}(e'_j).\]
+By Lemma~\ref{lem:T+e-e}, $T''=T'+e_k-e'_j$ is a sapnning tree.
+
+If $\mathrm{weight}(e_k)< \mathrm{weight}(e'_j)$, then $\mathrm{weight}(T'')<\mathrm{weight}(T')$ --- a contradiction.
+
+If $\mathrm{weight}(e_k)=\mathrm{weight}(e'_j)$, then $\mathrm{weight}(T'')=\mathrm{weight}(T')$, so $T''$ minimize the weight, and shares edges $e_1,\dots,e_k$ with $T$.
+The latter contradicts maximality of $k$.
+\qeds
+
+\parit{Proof of \ref{thm:kruskal}.}
+Let us apply induction on the number of vertexes $p$.
+The base $p=1$ is trivial.
+
+Assume the statement holds for any graph with at most $p-1$ vertexes.
+Choose a graph $G$ with $p$ vertexes.
+
+Let $e$ is a an edge in $G$ with minimal weight.
+According to the lemma, we can choose a minimum weight spanning tree $T$ that contains $e$.
+
+Note that $T/e$ is a spanning tree in $G/e$.
+Since 
+\[\mathrm{weight}(T/e)=\mathrm{weight}(T)-\mathrm{weight}(e).\]
+$T$ is a minimum weight spanning tree in $G$, if and only if  
+$T/e$ is a minimum weight spanning tree in $G/e$.
+
+By the induction hypothesis, 
+
+By induction hypothesis it can be constructed using 
+
+Assume we start with a given pseudograph $G$ and repeat the following operation until it collapses to one vertex graph:
+\begin{itemize}
+\item Remove all loops from $G$. Choose the edge with minimal weight and contruct it.
+\end{itemize}
+Note that the set of contracted edges $e_1,\dots,e_{p-1}$ from a spanning tree in the original graph.
+Moreover this construction is a reformulation of Kruskal's algorithm.
+In particular if $e_1,\dots,e_{p-1}$ are listed in the order of their weights,
+then in the same order they are added by Kruskal’s algorithm and in the same order they have been constructed by the above procedure.
+
+
+
+
+Let us describe Kruskal’s algorithm in a slightly different way:
+\begin{enumerate}[1.]
+\item Contrcut in $G$ an edge with minimal weight that is not a loop and include it.
+If this edge connects different trees in $F$, then add it to $F$.
+\item Repeat the procedure \ref{Kruskal:main} until $F$ contains $p-1$ edge.
+\end{enumerate}
+
+Let us apply induction on the number of vertexes in the graph, which will be denoted by $p$.
+The base case $p=1$ is trivial.
+
+Suppose that the statement holds for all graphs with at most $p-1$ vertexes.
+Fix a connected weighted graph $G$ with $p$ vertexes.
+Let $T$ be a spanning tree in $G$ that minimize the total weight.
+
+According to Lemma~\ref{lem:kruskal}, the edge $e$ with minimal weight belongs to $T$. 
+It follows that $T/e$ is a spanning tree in $G/e$.
+
+Note that $G/e$ has $p-1$ vertexes;
+therefore by the induction hypothesis, the Kruskal's algorithm produces unique minimum weight spanning tree in $G/e$.
+
+Note that 
+
+
+Suppose that $e$ is an edge in $G$ with a minimal weight.
+Note that $T$ contains $e$.
+Indeed, if this is not the case then $T+e$ contains a cycle $C$.
+Removing any other edge $e'$ from $C$ will produce another spanning tree $T'$.
+Since $e$ is minimal, $\mathrm{weight}(e')>\mathrm{weight}(e)$ and therefore $\mathrm{weight}(T')<\mathrm{weight}(T)$.
+But $T$ has a minimal weight --- a contradiction.
+
+Since $T$ contains $e$, we have that $T/e$ is a spanning tree in $G/e$.
+Evidently if $T$ minimize its weight then so does $T/e$.
+The pseudograph $G/e$ has $p-1$ and therefore $T/e$ can be obtained by applying Kruskal’s algorithm to $G/e$.
+\qeds
+\qeds
+
+In the proof we will use the following lemma, which is identical to \cite[Exercises 7.1.6]{hartsfield-ringel}. 
+
+\begin{thm}{Lemma}\label{lem:T+e-e}
+Suppose that $T$ and $T'$ are two different spanning trees of a connected
+graph. 
+If $e$ is an edge of $T$ that is not in $T'$, then there is an edge $e'$
+in $T'$ but not in $T$ with the property that 
+\[T''=T' + e - e'\]
+is a spanning tree of the
+graph.
+\end{thm}
+
+\parit{Proof.}
+Note that $T' + e$ has a cycle $C$ with $e$ in it.
+Since $T$ is a tree, it can not contain $C$.
+Therefore $C$ has an edge that is not in $T$;
+denote it by $e'$.
+
+The graph $T''=T' + e-e'$ is connected since it is obtained by deleting one edge from a cycle $C$ in a connected graph $T' + e$.
+Clearly, $T''$ has the same number of edges as the tree $T'$.
+Therefore $T''$ is a spanning tree.
+\qeds
+
+\parit{Proof of the theorem.}
+Let $T$ be a spanning tree produced by Kruskal’s algorithm.
+Assume 
+\[e_1,\dots,e_{k-1},e_k,\dots e_{p-1}\eqlbl{eq:e-e}\] 
+are the edges of $T$ listed in order of their weights
+(in this order they are added by Kruskal’s algorithm).
+
+Suppose that $T'$ is a spanning tree.
+Let $k$ be the maximal number such that the edges  $e_1,\dots,e_{k-1}$ are in $T'$ (if $k=1$, then this list is empty). 
+In other words, if we list all its edges in $T'$ in order of their weights, then 
+we obtain a sequence 
+\[e_1,\dots,,e_{k-1},e'_k,\dots e'_{p-1}\]
+with $e'_k\ne e_k$.
+
+Assume that $T'$ minimizes weight.
+Further, if there are more than one spanning tree that minimizes weight, suppose that $T'$ has maximal value $k$ defined above.
+
+Assume $T$ does not minimize the total weight, so $\mathrm{weight}(T')\z< \mathrm{weight}(T)$.
+
+Note that the edge $e_k$ is in $T$, but not in $T'$; otherwise $k$ is not maximal.
+
+The edge in $T'$ provided by Lemma~\ref{lem:T+e-e} lies in $T'$, but not in $T$;
+therefore it must be $e'_j$ for $j\ge k$.
+By the Kruskal’s algorithm,
+\[\mathrm{weight}(e_k)\le \mathrm{weight}(e'_k)\le \mathrm{weight}(e'_j).\]
+By Lemma~\ref{lem:T+e-e}, $T''=T'+e_k-e'_j$ is a sapnning tree.
+
+If $\mathrm{weight}(e_k)< \mathrm{weight}(e'_j)$, then $\mathrm{weight}(T'')<\mathrm{weight}(T')$ --- a contradiction.
+
+If $\mathrm{weight}(e_k)=\mathrm{weight}(e'_j)$, then $\mathrm{weight}(T'')=\mathrm{weight}(T')$, so $T''$ minimize the weight, and shares edges $e_1,\dots,e_k$ with $T$.
+The latter contradicts maximality of $k$.
+\qeds
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Our next aim is to figure out how to find Kirchhoff minors $K_{G\backslash e}$ and $K_{G/e}$ of the graphs $G\backslash e$ and $G/e$ from $K=K_G$.
 
 

@@ -27,7 +27,7 @@ urlcolor=black%
 \DeclareUnicodeCharacter{2010}{-}% support older LaTeX versions
 
 \usepackage[
-sorting=none,
+sorting=debug,
 bibencoding=auto,
 backend=biber,
 maxnames=10,
@@ -43,6 +43,7 @@ isbn=false]{biblatex}
 \renewbibmacro{in:}{}
 \renewcommand*{\bibfont}{\scriptsize}
 \addbibresource{library.bib}
+
 \usepackage{epigraph}
 
 \usepackage{comment}
@@ -93,11 +94,6 @@ isbn=false]{biblatex}
 \par\medskip}
 \newenvironment{thm}{\claim}{\endclaim}
 
-\def\a{\textit{a}}
-%\def\abs{$\!\!{}^{{}^{\a}}$}
-\def\a{\checkmark}
-\def\abs{$\!{}^{\a}$}
-
 \def\epsilon{\varepsilon}
 \def\phi{\varphi}
 \def\theta{\vartheta}
@@ -109,11 +105,7 @@ isbn=false]{biblatex}
 
 \def\:{\colon}
 
-\def\defect{\mathop{\rm defect}\nolimits}
-\def\area{\mathop{\rm area}\nolimits}
-\def\circum{\mathop{\rm circum}\nolimits}
-\def\Re{\mathop{\rm Re}\nolimits}
-\def\Im{\mathop{\rm Im}\nolimits}
+\def\weight{\mathop{\rm weight}\nolimits}
 
 \def\solidtriangle{\text{\ding{115}}}
 \def\solidsquare{\blacksquare}

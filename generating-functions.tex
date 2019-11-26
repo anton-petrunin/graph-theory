@@ -52,7 +52,7 @@ p_3&=a_0\cdot b_3+3\cdot a_1\cdot b_2+3\cdot a_2\cdot b_1+a_3\cdot b_0,
 \\
 &\dots
 \\
-p_n&=\sum_{i=0}^n\tbinom in\cdot a_i\cdot b_{n-i}.
+p_n&=\sum_{i=0}^n\tbinom ni\cdot a_i\cdot b_{n-i}.
 \end{aligned}
 \eqlbl{eq:multiplication}
 \]
@@ -197,14 +197,14 @@ we need to show that
 
 Assume that a spanning graph with $k+1$ ordered connected components of $K_n$ is given.
 Denote by $m$ the number of vertexes in the first $k$ components.
-There are $\tbinom mn$ ways to choose these vertexes among $n$ vertexes of $K_n$. 
+There are $\tbinom nm$ ways to choose these $m$ vertexes among $n$ vertexes of $K_n$. 
 For each choice, we have
 $v_m$ ways to choose a spanning subgraph with $k$ components in it.
 The last component has $m-n$ vertexes and we have $c_{n-m}$ ways to choose a subgraph from $\mathcal{S}$.
 All together, we get
-\[\tbinom mn\cdot v_m\cdot c_n\]
+\[\tbinom nm\cdot v_m\cdot c_n\]
 spanning graphs with $k+1$ ordered connected components and $m$ vertexes in the first $k$ components.
-Summing it up for all $m$, we get the multiplication formula \ref{eq:multiplication} for exponential generating functions; whence \ref{eq:VkC} follows.
+Summing it up for all $m$, we get the multiplication formula \ref{eq:multiplication} for exponential generating functions; hence \ref{eq:VkC} follows.
 
 \parit{\ref{thm:exp-formula:all}.}
 Note that $a_n$ is the sum of numbers of spanning graphs in $K_n$ with $1, 2,\dots$ components.
@@ -217,10 +217,7 @@ That is,
 \end{align*}
 \qedsf
 
-\section*{Sample applications}
-
-The following calculations can be done without using Theorem~\ref{thm:exp-formula};
-this theorem only provides a general point of view to these problems.
+\section*{Applications}
 
 \parbf{Perfect matchings.}
 Recall that a perfect matching is a 1-factor of the graph. 
@@ -329,7 +326,7 @@ Compare to Exercise~\ref{ex:deletion-deletion-total}\ref{ex:deletion-deletion-K}
 Let $\mathcal{S}$ be the set of all cycles.
 
 Note that a \index{$2$-factor}\emph{$2$-factor} of a graph can be defined as a spanning subgraph with components isomorphic to cycles.
-Denote by $a_n$ and $c_n$ the number of $2$-factors and spanning cycles in $K_n$ respectively.
+Denote by $a_n$ and $c_n$ the number of $2$-factors and \emph{spanning cycles}\footnote{Also known as \emph{Hamiltonian cycles}.} in $K_n$ respectively.
 Let $A(x)$ and $C(x)$ be the corresponding exponential generating functions.
 
 \begin{thm}{Exercise}
@@ -442,8 +439,8 @@ c_4&=a_4-3\cdot a_1\cdot c_3-3\cdot a_2\cdot c_2-1\cdot a_3\cdot c_1=
 \end{align*}
 
 Note that in the previous section we found $a_n$ from $c_n$, and now we go in the opposite direction.
-For the general term of $c_n$, no closed formula is known,
-but the recursive formula is nearly as good.
+No closed formula is known for $c_n$,
+but the recursive formula gives a sufficiently good way to calculate it.
 
 \section*{Remarks}
 

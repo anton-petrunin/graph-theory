@@ -743,7 +743,7 @@ endfig;
 
 %%%%%%%%%%%%%%%%%%%%%%
 
-beginfig(61) 
+beginfig(60) 
 save u;
 u:=1cm;
 
@@ -760,6 +760,40 @@ draw z3--z5;
 
 dOt z1,z2,z3,z4,z5,z6;
 
+endfig;
+
+beginfig(61) 
+save u;
+u:=.4cm;
+
+z0=origin;
+z1=(0,1)*u;
+z2=1.8*z1;
+z3=3*z1;
+z4=z1 zscaled (2,1);
+z5=z1 zscaled (2,-1);
+
+
+draw z1..z4..z3..z5..cycle;
+draw z4..z2..z5;
+draw z2--z3;
+draw z0--z1;
+
+draw (z1..z4..z3..z5..cycle) rotated 120;
+draw (z4..z2..z5) rotated 120;
+draw (z2--z3) rotated 120;
+draw (z0--z1) rotated 120;
+
+draw (z1..z4..z3..z5..cycle) rotated -120;
+draw (z4..z2..z5) rotated -120;
+draw (z2--z3) rotated -120;
+draw (z0--z1) rotated -120;
+
+dOt z0,z1,z2,z3,z4,z5;
+
+dOt z1 rotated 120,z2 rotated 120,z3 rotated 120,z4 rotated 120,z5 rotated 120;
+
+dOt z1 rotated -120,z2 rotated -120,z3 rotated -120,z4 rotated -120,z5 rotated -120;
 endfig;
 
 beginfig(62) 
@@ -1158,6 +1192,638 @@ dOt z.a1+i*z.shift,z.a2+i*z.shift,z.a3+i*z.shift;
 endfor
 
 endfig;
+
+beginfig(91) 
+save u;
+u:=.5cm;
+
+z0=origin;
+z1=(0,1)*u;
+z2=z1 rotated 120;
+z3=z1 rotated -120;
+z4=z1-z2;
+z5=z1-z3;
+
+z.shift=(3,0)*u;
+
+draw (z2--z5) shifted (-1*z.shift);
+draw (z3--z4) shifted (-1*z.shift);
+draw (z2--z0) shifted (-1*z.shift);
+draw (z4--z5) shifted (-1*z.shift);
+draw (z5--z0) shifted (-1*z.shift);
+draw (z5--z1) shifted (-1*z.shift);
+draw (z0--z1) shifted (-1*z.shift);
+draw (z0--z3) shifted (-1*z.shift);
+draw (z4--z1) shifted (-1*z.shift);
+
+
+draw z0--z1;
+draw z0--z2;
+draw z0--z3;
+draw z4--z1;
+draw z5--z1;
+
+draw (z0--z2) shifted (1*z.shift);
+draw (z0--z3) shifted (1*z.shift);
+draw (z4--z1) shifted (1*z.shift);
+draw (z5--z1) shifted (1*z.shift);
+
+draw (z4--z1) shifted (2*z.shift);
+draw (z0--z5) shifted (2*z.shift);
+draw (z4--z5) shifted (2*z.shift);
+draw (z4--z3) shifted (2*z.shift);
+draw (z5--z2) shifted (2*z.shift);
+
+draw (z4--z1) shifted (3*z.shift);
+draw (z0--z5) shifted (3*z.shift);
+draw (z4--z5) shifted (3*z.shift);
+
+draw (z4--z1) shifted (4*z.shift);
+draw (z0--z1) shifted (4*z.shift);
+draw (z4--z5) shifted (4*z.shift);
+draw (z4--z3) shifted (4*z.shift);
+draw (z5--z2) shifted (4*z.shift);
+
+draw (z0--z5) shifted (5*z.shift);
+draw (z0--z2) shifted (5*z.shift);
+draw (z0--z3) shifted (5*z.shift);
+draw (z4--z1) shifted (5*z.shift);
+draw (z5--z1) shifted (5*z.shift);
+
+
+dOt z0 shifted (-1*z.shift),z1 shifted (-1*z.shift),z2 shifted (-1*z.shift),z3 shifted (-1*z.shift),z4 shifted (-1*z.shift),z5 shifted (-1*z.shift);
+dOt z0,z1,z2,z3,z4,z5;
+dOt z0 shifted (1*z.shift),z1 shifted (1*z.shift),z2 shifted (1*z.shift),z3 shifted (1*z.shift),z4 shifted (1*z.shift),z5 shifted (1*z.shift);
+dOt z0 shifted (2*z.shift),z1 shifted (2*z.shift),z2 shifted (2*z.shift),z3 shifted (2*z.shift),z4 shifted (2*z.shift),z5 shifted (2*z.shift);
+dOt z0 shifted (3*z.shift),z1 shifted (3*z.shift),z4 shifted (3*z.shift),z5 shifted (3*z.shift);
+dOt z0 shifted (4*z.shift),z1 shifted (4*z.shift),z2 shifted (4*z.shift),z3 shifted (4*z.shift),z4 shifted (4*z.shift),z5 shifted (4*z.shift);
+dOt z0 shifted (5*z.shift),z1 shifted (5*z.shift),z2 shifted (5*z.shift),z3 shifted (5*z.shift),z4 shifted (5*z.shift),z5 shifted (5*z.shift);
+
+label.lft(btex $s$ etex, .5[z0,z1] +(.5,0));
+label.lft(btex $t$ etex, .3[z0,z5] +(.5,0) shifted (2*z.shift));
+label.bot(btex $G$ etex, .5[z2,z3] shifted (-1*z.shift));
+label.bot(btex $S$ etex, .5[z2,z3]);
+label.bot(btex $T$ etex, .5[z2,z3] shifted (2*z.shift));
+label.bot(btex $P$ etex, .5[z2,z3] shifted (3*z.shift));
+label.bot(btex $T'$ etex, .5[z2,z3] shifted (4*z.shift));
+label.bot(btex $S'$ etex, .5[z2,z3] shifted (5*z.shift));
+
+label.bot(btex $S_1$ etex, z0 shifted (1*z.shift)+(0,-2));
+label.top(btex $S_2$ etex, z1 shifted (1*z.shift)+(0,2));
+endfig;
+
+beginfig(101) 
+save u,n;
+u:=.6cm;
+
+z.shift=(6,0)*u;
+z0=origin;
+z1=(3,2)*u;
+z11=(x1,-y1);
+
+
+z.a=(2,.2)*u;
+z.b=(4,.2)*u;
+
+path p[];
+p0=z.a{1,-1}..{1,1}z.b;
+p1=z0..z1..z0+z.shift..z11
+..cycle;
+p2=.15[z0,z.shift]+(0,.5*u)..tension 2..(.85)[z0,z.shift]+(0,.5*u)..tension 2..cycle;
+
+z3=(.3,3.2);
+
+p3= point x3 of p0{direction x3 of p0}..tension 1.8..point y3 of p1{direction y3 of p1}..tension 1.8..cycle;
+
+draw p0;
+draw ((subpath (.2,.8) of p0) reflectedabout(point .2 of p0,point .8 of p0));
+
+draw p1;
+
+draw subpath(0,1) of p3 dashed evenly penhair;
+draw subpath(1,2) of p3 penhair;
+draw p2 penhair;
+endfig;
+
+beginfig(102) 
+save u;
+u:=1.4cm;
+
+draw (-1,-1)*u--(-1,1)*u--(1,1)*u--(1,-1)*u--cycle penhair;
+
+draw (-1,0)*u--(1,0)*u pensemibold;
+draw (0,-1)*u--(0,1)*u pensemibold;
+x.r=.6*u;
+draw (0,x.r)--(x.r,0)--(0,-x.r)--(-x.r,0)--cycle pensemibold;
+
+dOt origin,(0,x.r),(x.r,0),(0,-x.r),(-x.r,0); 
+
+label.urt(btex $u$ etex, origin);
+label.urt(btex $v$ etex, (0,x.r));
+label.lrt(btex $w$ etex, (0,-x.r));
+label.urt(btex $x$ etex, (x.r,0));
+label.llft(btex $y$ etex, (-x.r,0));
+
+endfig;
+
+beginfig(104) 
+save u;
+u:=1.4cm;
+
+draw (-1,-1)*u--(-1,1)*u--(1,1)*u--(1,-1)*u--cycle penhair;
+
+draw (-1,-1)*u--(1,1)*u pensemibold;
+draw (1,-1)*u--(-1,1)*u pensemibold;
+draw (0,1)*u--(1,0)*u--(0,-1)*u--(-1,0)*u--cycle pensemibold;
+
+dOt origin,(-1,-1)*u,(1,1)*u,(1,-1)*u,(-1,1)*u,(0,1)*u,(1,0)*u,(0,-1)*u,(-1,0)*u,.5*(-1,-1)*u,.5*(1,1)*u,.5*(1,-1)*u,.5*(-1,1)*u; 
+
+label.top(btex $a$ etex, .5*(1,1)*u);
+label.top(btex $b$ etex, .5*(1,-1)*u);
+label.top(btex $c$ etex, .5*(-1,-1)*u);
+label.top(btex $d$ etex, .5*(-1,1)*u);
+
+label.bot(btex $2$ etex, origin+(0,-1));
+label.urt(btex $1$ etex, (1,1)*u);
+label.lrt(btex $1$ etex, (1,-1)*u);
+label.llft(btex $1$ etex, (-1,-1)*u);
+label.ulft(btex $1$ etex, (-1,1)*u);
+label.top(btex $4$ etex, (0,1)*u);
+label.bot(btex $4$ etex, (0,-1)*u);
+label.rt(btex $3$ etex, (1,0)*u);
+label.lft(btex $3$ etex, (-1,0)*u);
+
+endfig;
+
+beginfig(106) 
+save u;
+u:=1.4cm;
+
+
+
+draw (-1,-1)*u--(1,-1)*u pensemibold;
+draw (-1,1)*u--(1,1)*u pensemibold;
+
+draw (-2*6/7,1)*u
+for i=-6 step 1 until 5:
+--(2*(i+3)/7,-1)*u--(2*(i+1)/7,1)*u
+endfor 
+pensemibold
+;
+
+clip currentpicture to (-1,-1)*u--(-1,1)*u--(1,1)*u--(1,-1)*u--cycle;
+draw (-1,-1)*u--(-1,1)*u--(1,1)*u--(1,-1)*u--cycle penhair;
+
+dOt
+for i=-4 step 1 until 2:
+,(2*(i+1)/7,-1)*u,(2*(i+1)/7,1)*u
+endfor
+;
+
+label.top(btex $1$ etex, (-6/7,1)*u);
+label.top(btex $2$ etex, (-4/7,1)*u);
+label.top(btex $3$ etex, (-2/7,1)*u);
+label.top(btex $4$ etex, (0,1)*u);
+label.top(btex $5$ etex, (2/7,1)*u);
+label.top(btex $6$ etex, (4/7,1)*u);
+label.top(btex $7$ etex, (6/7,1)*u);
+
+label.bot(btex $1$ etex, (-6/7,-1)*u);
+label.bot(btex $2$ etex, (-4/7,-1)*u);
+label.bot(btex $3$ etex, (-2/7,-1)*u);
+label.bot(btex $4$ etex, (0,-1)*u);
+label.bot(btex $5$ etex, (2/7,-1)*u);
+label.bot(btex $6$ etex, (4/7,-1)*u);
+label.bot(btex $7$ etex, (6/7,-1)*u);
+
+endfig;
+
+beginfig(107) 
+save u;
+u:=.8cm;
+
+z0=origin;
+z1=(0,1)*u;
+for i=2 step 1 until 9:
+z[i]=z[i-1] rotated (360/9);
+endfor
+
+draw z1--z2--z3--z4--z5--z6--z7--z8--z9--cycle pensemibold;
+for i=1 step 1 until 9:
+draw z[i]--z[i] rotated (3*360/9) pensemibold;
+endfor
+
+dOt z1,z2,z3,z4,z5,z6,z7,z8,z9;
+
+endfig;
+
+beginfig(108) 
+save u;
+u:=.8cm;
+
+z0=origin;
+z1=(0,1)*u;
+for i=2 step 1 until 9:
+z[i]=z[i-1] rotated (360/9);
+endfor
+
+draw z1--z2--z3--z4--z5--z6--z7--z8--z9--cycle pensemibold;
+draw z0--z1 pensemibold;
+draw z0--z4 pensemibold;
+draw z0--z7 pensemibold;
+draw z2--z6 pensemibold;
+draw z3--z8 pensemibold;
+draw z5--z9 pensemibold;
+
+dOt z0,z1,z2,z3,z4,z5,z6,z7,z8,z9;
+
+endfig;
+
+beginfig(109) 
+save u;
+u:=.7cm;
+
+path p[];
+p1=circle(origin,1*u);
+p2=circle(origin,2*u);
+
+fill reverse(p1) --p2--cycle withcolor .5;
+draw p1 pensemibold;
+draw p2 pensemibold;
+endfig;
+
+beginfig(110) 
+save u;
+u:=1.4cm;
+
+draw (-1,-1)*u--(-1,1)*u--(1,1)*u--(1,-1)*u--cycle penhair;
+
+
+x.r=.6*u;
+draw (0,x.r)--(x.r,0)--(0,-x.r)--(-x.r,0)--cycle pensemibold;
+draw (-1,0)*u--(-x.r,0) pensemibold;
+draw (1,0)*u--(x.r,0) pensemibold;
+draw (0,-x.r)--(0,x.r) pensemibold;
+
+dOt (0,x.r),(x.r,0),(0,-x.r),(-x.r,0); 
+
+label.bot(btex $A$ etex, (0,1)*u);
+label.top(btex $A$ etex, (0,-1)*u);
+label.lft(btex $B$ etex, origin +(-2,0));
+label.rt(btex $C$ etex, origin +(2,0));
+endfig;
+
+beginfig(111) 
+save u;
+u:=1.4cm;
+
+draw (-1,-1)*u--(-1,1)*u--(1,1)*u--(1,-1)*u--cycle penhair;
+
+
+x.r=.6*u;
+draw (0,x.r)--(x.r,0)--(0,-x.r)--(-x.r,0)--cycle pensemibold;
+draw (-1,0)*u--(-x.r,0) pensemibold;
+draw (1,0)*u--(x.r,0) pensemibold;
+
+draw (0,1)*u--(0,x.r) pensemibold;
+draw (0,-1)*u--(0,-x.r) pensemibold;
+
+
+dOt (0,x.r),(x.r,0),(0,-x.r),(-x.r,0); 
+
+label.lrt(btex $D$ etex, (-1,1)*u +(2,-2));
+label.urt(btex $D$ etex, (-1,-1)*u +(2,2));
+label.llft(btex $D$ etex, (1,1)*u +(-2,-2));
+label.ulft(btex $D$ etex, (1,-1)*u +(-2,2));
+label(btex $E$ etex, origin);
+endfig;
+
+beginfig(113) 
+save u,n;
+u:=.6cm;
+
+z.shift=(6,0)*u;
+z0=origin;
+z1=(3,2)*u;
+z11=(x1,-y1);
+
+
+z.a=(2,.2)*u;
+z.b=(4,.2)*u;
+
+path p[];
+p0=z.a{1,-1}..{1,1}z.b;
+p1=z0..z1..z0+z.shift..z11
+..cycle;
+p2=.15[z0,z.shift]+(0,.5*u)..tension 2..(.85)[z0,z.shift]+(0,.5*u)..tension 2..cycle;
+
+z3=(.3,3.2);
+
+p3= point x3 of p0{direction x3 of p0}..tension 1.8..point y3 of p1{direction y3 of p1}..tension 1.8..cycle;
+
+draw p0;
+draw ((subpath (.2,.8) of p0) reflectedabout(point .2 of p0,point .8 of p0));
+
+draw p1;
+
+draw subpath(0,1) of p3 dashed evenly pensemibold;
+draw subpath(1,2) of p3 pensemibold;
+draw p2 pensemibold;
+
+dOt subpath(1,2) of p3 intersectionpoint p2;
+endfig;
+
+
+beginfig(115) 
+save u,n;
+u:=.6cm;
+
+z.shift=(6,0)*u;
+z0=origin;
+z1=(3,2)*u;
+z11=(x1,-y1);
+
+
+z.a=(2,.2)*u;
+z.b=(4,.2)*u;
+
+path p[];
+p0=z.a{1,-1}..{1,1}z.b;
+p1=z0..z1..z0+z.shift..z11
+..cycle;
+p2=.15[z0,z.shift]+(0,.5*u)..tension 2..(.85)[z0,z.shift]+(0,.5*u)..tension 2..cycle;
+
+z3=(.3,3.2);
+
+p3= point x3 of p0{direction x3 of p0}..tension 1.8..point y3 of p1{direction y3 of p1}..tension 1.8..cycle;
+
+draw p0;
+draw ((subpath (.2,.8) of p0) reflectedabout(point .2 of p0,point .8 of p0));
+
+draw p1;
+
+draw subpath(0,1) of p3 dashed evenly pensemibold;
+draw subpath(1,2) of p3 pensemibold;
+draw p2 pensemibold;
+
+dOt p2 intersectionpoint subpath(1,2) of p3;
+endfig;
+
+beginfig(117) 
+save u;
+u:=.57cm;
+
+draw (0,0)*u--(2,0)*u pensemibold;
+draw (0,1)*u--(2,1)*u pensemibold;
+draw (0,2)*u--(2,2)*u pensemibold;
+draw (0,0)*u--(0,2)*u pensemibold;
+draw (1,0)*u--(1,2)*u pensemibold;
+draw (2,0)*u--(2,2)*u pensemibold;
+
+draw (0,0)*u..(2,0)*u..(2,2)*u..(0,2)*u..cycle pensemibold;
+draw (0,1)*u{1,1}..{1,-1}(2,1)*u pensemibold;
+draw (1,0)*u{-1,1}..{1,1}(1,2)*u pensemibold;
+
+
+dOt (0,0)*u,(1,0)*u,(2,0)*u,
+(0,1)*u,(1,1)*u,(2,1)*u,
+(0,2)*u,(1,2)*u,(2,2)*u;
+endfig;
+
+beginfig(120)
+save u;
+u:=.7cm;
+
+path p[];
+p1=circle(origin,1*u);
+
+fill p1 withcolor .5;
+draw p1 pensemibold;
+
+p2=(-.3,0)*u{1,.5}..{1,.5}(1,0)*u;
+
+draw p2 pensemibold dashed evenly;
+
+dOt (-.3,0)*u,(1,0)*u;
+
+label.top(btex $e$ etex, point .5 of p2);
+label.top(btex $R$ etex, (0,-.8)*u);
+endfig;
+
+beginfig(121)
+save u;
+u:=.7cm;
+
+path p[];
+p1=circle(origin,1*u);
+
+fill p1 withcolor .5;
+draw p1 pensemibold;
+
+p2=(-.8,.6)*u{1,-.5}..{1,.5}(1,0)*u;
+
+draw p2 pensemibold dashed evenly;
+
+dOt (-.8,.6)*u,(1,0)*u;
+
+label.top(btex $e$ etex, point .5 of p2);
+label.top(btex $R$ etex, (0,-.8)*u);
+endfig;
+
+beginfig(122) 
+save u,n;
+u:=.3cm;
+n:=3;
+
+z.shift=(6,0)*u;
+z0=origin;
+z1=(3,2)*u;
+z2=(6,.8)*u;
+z11=(x1,-y1);
+z22=(x2,-y2);
+
+z.a=(2,.2)*u;
+z.b=(4,.2)*u;
+
+
+path p[];
+p0=z.a{1,-1}..{1,1}z.b;
+
+
+for i=0 step 1 until n:
+draw p0 shifted (i*z.shift);
+draw ((subpath (.2,.8) of p0) reflectedabout(point .2 of p0,point .8 of p0)) shifted (i*z.shift);
+endfor
+
+draw z0..z1..z2
+for i=1 step 1 until n-1:
+..z1+i*z.shift..z2+i*z.shift
+endfor
+..z1+n*z.shift..z0+(n+1)*z.shift..z11+n*z.shift
+for i=n-1 step -1 until 0:
+..z22+i*z.shift..z11+i*z.shift
+endfor
+..cycle
+;
+
+endfig;
+
+
+
+beginfig(123) 
+save u,n;
+u:=.3cm;
+n:=3;
+
+z.shift=(6,0)*u;
+z.shift2=(2,-7)*u;
+
+z0=origin;
+z1=(3,2)*u;
+z2=(6,.8)*u;
+z11=(x1,-y1);
+z22=(x2,-y2);
+
+z.a=(2,.2)*u;
+z.b=(4,.2)*u;
+z.c=(5.5,0)*u;
+z.d=(4.4,-.8)*u;
+
+path p[];
+p0=z.a{1,-1}..{1,1}z.b;
+
+p1=z.c..tension 1.4..z.d..tension 1.4..cycle;
+p2= p1 reflectedabout((3,0)*u,(3,1)*u);
+
+fill p1 shifted (n*z.shift) withcolor .8;
+draw p1 shifted (n*z.shift) dashed evenly penhair;
+fill p2 shifted ((n+1.5)*z.shift) withcolor .8;
+draw p2 shifted ((n+1.5)*z.shift) dashed evenly penhair;
+
+
+for i=0 step 1 until n:
+draw p0 shifted (i*z.shift);
+draw ((subpath (.2,.8) of p0) reflectedabout(point .2 of p0,point .8 of p0)) shifted (i*z.shift);
+endfor
+
+p3=z0..z1..z2
+for i=1 step 1 until n-1:
+..z1+i*z.shift..z2+i*z.shift
+endfor
+..z1+n*z.shift..z0+(n+1)*z.shift..z11+n*z.shift
+for i=n-1 step -1 until 0:
+..z22+i*z.shift..z11+i*z.shift
+endfor
+..cycle
+;
+
+draw p3;
+
+draw p0 shifted ((n+1.5)*z.shift);
+draw ((subpath (.2,.8) of p0) reflectedabout(point .2 of p0,point .8 of p0)) shifted ((n+1.5)*z.shift);
+
+p4= (z0..z1..z0+z.shift..z11
+..cycle) shifted ((n+1.5)*z.shift)
+;
+
+draw p4;
+
+p5=(z0..z1..z2
+for i=1 step 1 until n:
+..z1+i*z.shift..z2+i*z.shift
+endfor
+..z1+(n+1)*z.shift..z0+(n+2)*z.shift..z11+(n+1)*z.shift
+for i=n step -1 until 0:
+..z22+i*z.shift..z11+i*z.shift
+endfor
+..cycle) shifted z.shift2
+;
+
+draw p5;
+
+for i=0 step 1 until n+1:
+draw p0 shifted (i*z.shift) shifted z.shift2;
+draw ((subpath (.2,.8) of p0) reflectedabout(point .2 of p0,point .8 of p0)) shifted (i*z.shift) shifted z.shift2;
+
+draw point 2*(n+1) of p5{direction 2*(n+1) of p5}..tension 3..point 2*(n+3) of p5{direction 2*(n+3) of p5}..tension 3..cycle dashed evenly penhair;
+endfor
+
+label.top(btex $S$ etex, point 2*n-1 of p3);
+label.top(btex $T$ etex, point 1 of p4);
+label.bot(btex $S'$ etex, point 2*n+7 of p5);
+endfig;
+
+beginfig(124) 
+save u,n;
+u:=.3cm;
+n:=3;
+
+z.shift=(6,0)*u;
+z0=origin;
+z1=(3,2)*u;
+z2=(6,.8)*u;
+z11=(x1,-y1);
+z22=(x2,-y2);
+
+z.a=(2,.2)*u;
+z.b=(4,.2)*u;
+
+path p[];
+p0=z.a{1,-1}..{1,1}z.b;
+
+p10= (-.8)[point .2 of p0,point .8 of p0]..tension 1.5..(1.8)[point .2 of p0,point .8 of p0]..tension 1.5..cycle; 
+
+
+for i=0 step 1 until n:
+draw p0 shifted (i*z.shift);
+draw ((subpath (.2,.8) of p0) reflectedabout(point .2 of p0,point .8 of p0)) shifted (i*z.shift);
+draw p10 shifted (i*z.shift) penhair;
+endfor
+
+p1= z0..z1..z2
+for i=1 step 1 until n-1:
+..z1+i*z.shift..z2+i*z.shift
+endfor
+..z1+n*z.shift..z0+(n+1)*z.shift..z11+n*z.shift
+for i=n-1 step -1 until 0:
+..z22+i*z.shift..z11+i*z.shift
+endfor
+..cycle
+;
+
+draw p1;
+
+p20= point .4 of p0{direction .4 of p0}..tension 1.8..point 4*n+3.3 of p1{direction 4*n+3.3 of p1}..tension 1.8..cycle;
+p21= point .4 of p0 shifted (1*z.shift){direction .4 of p0}..tension 1.8..point 4*n+1.3 of p1{direction 4*n+1.3 of p1}..tension 1.8..cycle;
+p22= point .4 of p0 shifted (2*z.shift){direction .4 of p0}..tension 1.8..point 4*n-.7 of p1{direction 4*n-.7 of p1}..tension 1.8..cycle;
+p23= point .4 of p0 shifted (3*z.shift){direction .4 of p0}..tension 1.8..point 4*n-2.7 of p1{direction 4*n-2.7 of p1}..tension 1.8..cycle;
+
+draw subpath (0,1) of p20 penhair dashed evenly;
+draw subpath (1,2) of p20 penhair;
+draw subpath (0,1) of p21 penhair dashed evenly;
+draw subpath (1,2) of p21 penhair;
+draw subpath (0,1) of p22 penhair dashed evenly;
+draw subpath (1,2) of p22 penhair;
+draw subpath (0,1) of p23 penhair dashed evenly;
+draw subpath (1,2) of p23 penhair;
+
+
+z.c=point 1.1 of p10;
+z.d=point 1.9 of p10 shifted (1*z.shift);
+
+for i=0 step 1 until n-1:
+draw (z.c{1,-.4}..z.d) shifted (i*z.shift) penhair;
+Dot z.c shifted (i*z.shift),z.d shifted (i*z.shift);
+endfor
+
+Dot 
+subpath (1,2) of p20 intersectionpoint p10, 
+subpath (1,2) of p21 intersectionpoint (p10 shifted (1*z.shift)),
+subpath (1,2) of p22 intersectionpoint (p10 shifted (2*z.shift)),
+subpath (1,2) of p23 intersectionpoint (p10 shifted (3*z.shift)),
+;
+endfig;
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
