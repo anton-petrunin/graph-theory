@@ -1,0 +1,232 @@
+\chapter{Minimum spanning tree}
+
+
+\section*{Optimization problems}
+
+We say that a graph $G$ has \index{weight}\emph{weighted edges} if each edge in $G$ is labeled by a real number, called its \emph{weight}.
+In this case \emph{weight of a subgraph} $H$ (briefly $\weight(H)$) is defined as the sum of the weights of its edges.
+
+An optimization problem typically asks for a subgraph in $G$ of certain type that minimize its weight.
+The so called \index{travelling salesman problem}\emph{travelling salesman problem} gives a classical example of optimization problem.
+It asks to find a Hamiltonian cycle with minimal weight (if it exists in the graph).
+
+No fast algorithm known for this problem and it is expected that no fast algorithms.
+We say {}\emph{fast} if the required time depends polynomially on the number of the vertexes in the graph.
+The best known algorithms require exponential time, which is just a bit better than checcking all possible Hamiltonian cycles and choosing one with minimal weight.
+
+In fact the travelling salesman problem is a classical example of the so called {}\emph{NP-hard problems}; it means that if you find a fast algorithm to solve it, then you solve the \index{P=NP problem}\emph{P=NP problem} --- the most important question in modern mathematics.
+
+The so called \index{nearest neighbour algorithm}\emph{nearest neighbour algorithm} gives a heuristic way to find a Hamilton cycle with small (but not necessary smallest weight).
+In the following description, we assume that the graph is complete.
+\begin{enumerate}[(i)]
+\item Start at arbitrary vertex.
+\item\label{NNA-main} Find the edge with minimal weight connecting the current vertex $v$ and an unvisited vertex $w$. Move to $w$ and add the edge to the path.
+\item Repeat step \ref{NNA-main} until all vertexes are visited and return to the original vertex.
+\end{enumerate}
+
+\begin{wrapfigure}{o}{25 mm}
+\vskip-0mm
+\centering
+\includegraphics{mppics/pic-90}
+\end{wrapfigure}
+
+The nearest neighbour algorithm is an example of \index{greedy algorithm}\emph{greedy algorithms}; in other words, it chooses a cheapest step at each stage.
+It may not find an optimal solution --- the cheap choices at the beginning might force to make expansive choices at the end. 
+In fact a greedy algorithm might give the worse solution.
+For example if we start from the vertex $a$ in the shown weighted graph, then nearest neighbour algorithm produce the cycle $abcd$ which is the worse solution --- this cycle has weight 11 and the other two  Hamiltonian cycles have weights $9$ and $10$.
+
+Let us list few other classical examples of optimization problems.
+Unlike the travelling salesman problem, there are fast algorithms which solve them.
+\begin{itemize}
+\item The \index{shortest path problem}\emph{shortest path problem} asks for a path with minimal weight, connecting two given vertexes.
+It can be thought as optimal driving directions between two locations.
+\item The \index{assignment problem}\emph{assignment problem}  asks for a matching of a given size with minimal weigh, in a bipartite graph.
+It can be used to minimize the total cost of work, assuming that available workers charge different prices for each task.
+This problem is closely related to the subject of the next chapter.
+\item The \index{minimum spanning tree proble}\emph{minimum spanning tree problem} asks for a spanning tree with minimal weight.
+For example we may think of minimizing cost to build a computer network between the given locations.
+This problem will be the main subject of the remaining sections of this chapter.
+\end{itemize}
+
+
+\section*{Neighbors of a spanning tree}
+
+Let $G$ be a connected graph.
+Suppose $T$ and $T'$ are spanning trees in $G$.
+If 
+\[T'=T-e+e'\]
+for some edges $e$ and $e'$,
+then we say that $T'$ is a \index{neighbor}\emph{neighbor} of $T$.
+
+\begin{thm}{Exercise}
+Let $G$ be a connected graph that is not a tree.
+Suppose that any two distinct spanning trees in $G$ are neighbors.
+Show that $G$ has exactly one cycle.
+\end{thm}
+
+\begin{thm}{Theorem}\label{thm:mst-iff}
+Let $G$ be graph with weighted edges.
+A spanning tree $T$ in $G$ has minimal weight if and only if
+\[\weight(T)\le \weight(T')\]
+for any neighbor $T'$ of $T$.
+\end{thm}
+
+The proof is based on the following lemma.
+
+\begin{thm}{Lemma}
+Let $S$ and $T$ be spanning trees in a graph $G$.
+Then for any edge $s$ in $S$ that is not in $T$ there is an edge $t$ in $T$, but not in $S$ such that the subgraphs
+\[S'=S-s+t\quad\text{and}\quad T'=T+s-t\]
+are spanning trees in $G$.
+\end{thm}
+
+\parit{Proof.}
+Note that $S-s$ has two components, denote them by $S_1$ and $S_2$.
+
+Let $P$ be a path in $T$ that connect the vertexes of $s$.
+Note that the path $P$ starts in $S_1$ and ends in $S_2$.
+Therefore one of the edges of $P$, say $t$, connects $S_1$ to $S_2$.
+
+\begin{figure}[h!]
+\vskip-0mm
+\centering
+\includegraphics{mppics/pic-91}
+\end{figure}
+
+The subgraph $T+s$ has a cycle created by $P$ and~$s$.
+Removing the edge $t$ from this cycle leaves a connected subgraph $T'=T-t+s$.
+Evidently $T'$ and $T$ have the same number of vertexes and edges;
+since $T$ is a tree, so is $T'$.
+
+Further $S'=S-s+t=S_1+S_2+t$.
+Since $t$ connects two connected subgraphs $S_1$ and $S_2$, the resulting subgraph $S'$ is connected.
+Again $S'$ and $S$ have the same number of vertexes and edges;
+since $S$ is a tree, so is $S'$.
+\qeds
+
+\parit{Proof of \ref{thm:mst-iff}.} The ``only-if'' part is trivial --- if $T$ has minimal weight among all spanning trees, then, in particular, it has to be minimal among its neighbors. 
+It remains to show the ``if'' part.
+
+Suppose that a spanning tree $T$ has minimal weight among its neighbors.
+Consider a minimum weight spanning tree $S$ in $G$;
+if there are more than one, then
+we assume in addition that $S$ has maximal possible number of common edges with $T$. 
+
+Arguing by contradiction, assume $T$ is not a minimum weight spanning tree;
+in this case $T\ne S$.
+Then there is an edge $s$ in $S$ that is not in~$T$.
+Let $t$ be an edge in $T$ provided by the lemma; in particular, 
+$S'=S-s+t$ and $T'=T+s-t$ are spanning trees.
+
+Since $T'$ is a neighbor of $T$, we have 
+\begin{align*}
+\weight(T)&\le \weight(T')=
+\\
+&=\weight(T)+\weight(s)-\weight(t).
+\intertext{Therefore $\weight(s)\ge \weight(t)$ and}
+\weight(S')&=\weight(S)-\weight(s)+\weight(t)\le
+\\
+&\le\weight(S).
+\end{align*}
+Since $S$ has minimal weight, we have an equality in the last inequality.
+That is, $S'$ is another minimum weight spanning tree in $G$.
+By construction $S'$ has one more common edge with $T$;
+the latter contradicts the choice of $S$.
+\qeds
+
+\begin{thm}{Exercise} Let $G$ be graph with weighted edges and  $T$ a minimal weight spanning tree in $G$.
+
+Suppose that for each edge $e$, we change its weight from $w$ to $e^w$.
+Show that $T$ remains to be a minimal weight spanning tree in $G$ with the new weights.
+\end{thm}
+
+
+\section*{Kruskal’s algorithm}
+
+Kruskal’s algorithm finds a minimum weight spanning tree in a given connected graph.
+If the graph is not connected, the algorithm finds a spanning tree in each component of the graph.
+Let us describe it informally.
+\begin{enumerate}[(i)]
+\item Suppose $G$ is a graph with weighted edges.
+Start with the spanning forest $F$ in $G$ formed by all vertexes and no edges.
+\item\label{Kruskal:main} Remove from $G$ an edge with minimal weight.
+If this edge connects different trees in $F$, then add it to $F$.
+\item Repeat the procedure while $G$ has some edges.
+\end{enumerate}
+
+Note that Kruskal’s algorithm is {}\emph{greedy} --- it chooses a cheapest step at each stage.
+It turns out that for this problem a greedy algorithm produces an optimal result.
+
+\begin{thm}{Theorem}\label{thm:kruskal}
+Kruskal’s algorithm finds a minimum weight spanning tree in any connected pseudograph with weighted edges.
+\end{thm}
+
+\parit{Proof.}
+Evidently the the subgraph $F$ remains to be a forest at all stages.
+If at the end $F$ has more than one component, then the original graph $G$ could not have edges connecting these components;
+otherwise algorithm would choose it at some stage.
+Therefore the resulting graph is a tree.
+
+Suppose the spanning tree $T$ produced by Kruskal’s algorithm does not have minimal total weight.
+Then $T$ does not satisfies Theorem~\ref{thm:mst-iff};
+that is, there is a neighbor $T'=T+e'-e$ of $T$ such that 
+\begin{align*}
+\weight(T)&>\weight(T')=
+\\
+&=\weight(T)+\weight(e')-\weight(e).
+\end{align*}
+Therefore $\weight(e')<\weight(e)$.
+
+Denote by $F$ the forest at the stage right before adding $e$ to it.
+Note that $F$ is a subgraph of $T-e$.
+Since $e'$ connects different trees in $T-e$,
+it connects different trees in $F$.
+But $\weight(e)>\weight(e')$, therefore the algorithm should reject $e$ at this stage --- a contradiction.
+\qeds
+
+\section*{Other algorithms}
+
+Let us describe two more algorithms which find  a minimal weight spanning tree in a given connected graph $G$.
+For simplicity, we assume that $G$ have distinct weights.
+
+\parbf{Prim's algorithm.}
+\begin{enumerate}[(i)]
+\item Start with a tree $T$ formed by an arbitrarily vertex $v$ in $G$.
+\item\label{main:prim} Choose an edge $e$ with the minimal weight that connects $T$ to a vertex not yet in the tree.
+Add $e$ to $T$.
+\item Repeat the step \ref{main:prim} until all vertexes are in the tree $T$.
+\end{enumerate}
+
+\parbf{Borůvka's algorithm.}
+\begin{enumerate}[(i)]
+\item Start with the forest $F$ formed by all vertexes of $G$ and no edges.
+\item\label{main:boruvka} For each component $T$ of $F$ find an edge $e$ with minimal weight that connects $T$ to another component of $F$; add $e$ to $F$.
+\item Repeat step \ref{main:boruvka} until $F$ has one component. 
+\end{enumerate}
+
+
+\begin{thm}{Exercise}
+Show that the (a) Prim's algorithm and (b) Borůvka's algorithm produce a minimum weight spanning tree of a given weighted connected graph with all different weights.
+\end{thm}
+
+\parit{Hint:} Mimic the proof for Kruskal’s algorithm.
+
+\begin{thm}{Exercise}
+Compare the tree algorithms Kruskal’s algorithm, Prim's algorithm, and Borůvka's algorithm.
+Which one should works faster?
+Why?
+\end{thm}
+
+\begin{thm}{Exercise}\label{ex:deleting-algorithm}
+Assume $G$ is a connected graph with weighted edges and all weights are different.
+Let $T$ be a minimum weight spanning tree in $G$.
+\begin{enumerate}[(a)]
+\item\label{ex:deleting-algorithm:a} Suppose $v$ is an end vertex in $G$ and $e$ is its adjacent edge.
+Show that $e$ belongs to $T$.
+\item\label{ex:deleting-algorithm:b} Suppose $C$ is a cycle in $T$ and $f$ is an edge in $C$ with maximal weight.
+Show that $f$ does not belong to $T$.
+\item Find a minimum-spanning-tree algorithm that is based on observations \ref{ex:deleting-algorithm:a} and \ref{ex:deleting-algorithm:b}.
+\end{enumerate}
+\end{thm}
+
+

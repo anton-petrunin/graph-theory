@@ -23,14 +23,14 @@ where $W_n$ denotes a wheel with $n$ spokes and $C_n$ is a cycle of length~$n$.
 
 \begin{thm}{Deletion-minus-contraction formula}\label{thm:deletion-minus-contraction}\index{deletion-minus-contraction formula}
 For any edge $e$ in the pseudograph $G$ we have
-\[P_G(x)=P_{G\backslash e}(x)-P_{G/e}(x).\eqlbl{eq:deletion-minus-contraction}\]
+\[P_G(x)=P_{G- e}(x)-P_{G/e}(x).\eqlbl{eq:deletion-minus-contraction}\]
 \end{thm}
 
 \parit{Proof.}
-The valid colorings of $G\backslash e$ can be divided into two groups: 
+The valid colorings of $G- e$ can be divided into two groups: 
 (1) those where the ends of the edge $e$ get different colors --- these remain to be valid colorings of $G$ and (2) those where the ends of $e$ get the same color --- each of such colorings corresponds to a unique coloring of $G/e$.
 Hence
-\[P_{G\backslash e}(x)=P_G(x)+P_{G/e}(x),\]
+\[P_{G- e}(x)=P_G(x)+P_{G/e}(x),\]
 which is equivalent to the deletion-minus-contraction formula \ref{eq:deletion-minus-contraction}.
 \qeds
 
@@ -38,15 +38,15 @@ Note that if the pseudograph $G$ has loops, then $P_G(x)=0$ for any $x$.
 Indeed, in a valid coloring the ends of a loop should get different colors, which is impossible.
 
 The latter can also be proved using the deletion-minus-contraction formula.
-Indeed, if $e$ is a loop in $G$, then $G/e=G\backslash e$.
-Therefore $P_{G\backslash e}(x)\z=P_{G/e}(x)$ and
-\[P_G(x)=P_{G\backslash e}(x)-P_{G/e}(x) =0.\]
+Indeed, if $e$ is a loop in $G$, then $G/e=G- e$.
+Therefore $P_{G- e}(x)\z=P_{G/e}(x)$ and
+\[P_G(x)=P_{G- e}(x)-P_{G/e}(x) =0.\]
 
 Similarly, removing a parallel edge from a pseudograph $G$ does not change the value $P_G(x)$ for any $x$.
 Indeed, if $e$ is an edge of $G$ which has a parallel edge $f$, then in $G/e$ the edge $f$ becomes a loop.
 Therefore $P_{G/e}(x)=0$ for any $x$ and by the deletion-minus-contraction formula we get that
-\[P_G(x)=P_{G\backslash e}(x).\]
-The same identity can be seen directly --- any admissible coloring of $G\backslash e$ is also admissible in $G$ --- since the ends of $f$ get different colors, so does $e$. 
+\[P_G(x)=P_{G- e}(x).\]
+The same identity can be seen directly --- any admissible coloring of $G- e$ is also admissible in $G$ --- since the ends of $f$ get different colors, so does $e$. 
 
 Summarizing the discussion above:
 the problem of finding $P_G(x)$ for a pseudograph $G$ can be reduced to the case when $G$ is a graph; that is, $G$ has no loops and no parallel edges.
@@ -86,9 +86,9 @@ In particular, the function $x\mapsto P_{N_p}(x)$ is given by a monic polynomial
 Assume that the first statement holds for all pseudographs with at most $q-1$ edges.
 Fix a pseudograph $G$ with $q$ edges. 
 Applying the deletion-minus-contraction formula for some edge $e$ in $G$, we get that
-\[P_G(x)=P_{G\backslash e}(x)-P_{G/e}(x).\eqlbl{eq:deleting-contracting}\]
-Note that the pseudographs $G\backslash e$ and $G/e$ have $q-1$ edges.
-By the induction hypothesis, $P_{G\backslash e}(x)$ and $P_{G/e}(x)$ are polynomials with integer coefficients and vanishing free terms.
+\[P_G(x)=P_{G- e}(x)-P_{G/e}(x).\eqlbl{eq:deleting-contracting}\]
+Note that the pseudographs $G- e$ and $G/e$ have $q-1$ edges.
+By the induction hypothesis, $P_{G- e}(x)$ and $P_{G/e}(x)$ are polynomials with integer coefficients and vanishing free terms.
 Hence \ref{eq:deleting-contracting} implies the same for $P_G(x)$.
 
 If $G$ has a loop, then $P_G(x)=0$, as $G$ has no valid colorings.
@@ -97,12 +97,12 @@ It remains to show that if $G$ has no loops, then $P_G(x)$ is a monic polynomial
 Assume that the statement holds for any multigraph $G$ with at most $q-1$ edges and at most $p$ vertexes.
 
 Fix a multigraph $G$ with $p$ vertexes and $q$ edges.
-Note that $G\backslash e$ is a multigraph with $p$ vertexes and $q-1$ edges.
-By the assumption, its chromatic polynomial $P_{G\backslash e}$ is monic of degree $p$.
+Note that $G- e$ is a multigraph with $p$ vertexes and $q-1$ edges.
+By the assumption, its chromatic polynomial $P_{G- e}$ is monic of degree $p$.
 
 Further the pseudograph $G/e$ has $p-1$ vertexes,
 and its chromatic polynomial $P_{G/e}$ either vanishes or it has degree $p-1$.
-In both cases the difference $P_{G\backslash e}-P_{G/e}$ is a monic polynomial of degree~$p$.
+In both cases the difference $P_{G- e}-P_{G/e}$ is a monic polynomial of degree~$p$.
 It remains to apply \ref{eq:deleting-contracting}.
 \qeds
 
@@ -204,10 +204,10 @@ equal to the number of matchings with even and odd number of edges corresponding
 \end{wrapfigure}
 
 Assume $e$ is an edge in a graph $G$.
-Recall that the graph $G\backslash e$ is obtained by deleting $e$ from $G$.
-Let us denote by $G\backslash [e]$ the graph obtained by deleting the vertexes of $e$ with all their edges from $G$;
+Recall that the graph $G- e$ is obtained by deleting $e$ from $G$.
+Let us denote by $G- [e]$ the graph obtained by deleting the vertexes of $e$ with all their edges from $G$;
 that is, if $e$ connects two vertexes $v$ and $w$, then 
-\[G\backslash [e]=G\backslash \{v,w\}.\]
+\[G- [e]=G- \{v,w\}.\]
 
 }
 
@@ -217,7 +217,7 @@ The following exercise is analogous to the deletion-contraction formulas \ref{th
 Let $G$ be a graph.
 \begin{enumerate}[(a)]
 \item\label{ex:deletion-deletion} Show that
-\[M_G(x)=M_{G\backslash e}(x)+x\cdot M_{G\backslash [e]}(x)\]
+\[M_G(x)=M_{G- e}(x)+x\cdot M_{G- [e]}(x)\]
 for any edge $e$ in $G$.
 
 \item\label{ex:deletion-deletion-K} Use part \ref{ex:deletion-deletion} to show that the matching polynomials of complete graphs satisfy the following recursive relation:

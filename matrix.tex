@@ -252,7 +252,7 @@ Assume an edge $e$ connects the first and the last vertex of a labeled multigrap
    (12) edge node{}(12);
 \node[align=center, yshift=2em] (title) 
     at (current bounding box.north)
-    {$G\backslash e$};
+    {$G- e$};
 \end{tikzpicture}
 \hskip10mm
 \begin{tikzpicture}[scale=1.4,
@@ -289,7 +289,7 @@ That is, since
 \end{matrix}
 \right),\]
 we have
-\[M_{G\backslash e}=\left(
+\[M_{G- e}=\left(
 \begin{matrix}
 1&-1&0
 \\
@@ -313,12 +313,12 @@ Summarizing the above discussion we get the following:
 Assume $e$ is an edge of a labeled multigraph $G$ between the first and last vertex and $M_G$ is the Kirchhoff minor of~$G$.
 Then 
 \begin{enumerate}[(a)]
-\item the Kirchhoff minor  $M_{G\backslash e}$ of $G\backslash e$ can be obtained from  $M_G$ by subtracting 1 from the corner element with index (1,1);
+\item the Kirchhoff minor  $M_{G- e}$ of $G- e$ can be obtained from  $M_G$ by subtracting 1 from the corner element with index (1,1);
 \item the Kirchhoff minor $M_{G/e}$ of $G/e$ can be obtained  from  $M_G$ by removing the first row and the first column in $M_G$.
 \end{enumerate}
 
 In particular, applying the cofactor expansion of a determinant, we get that
-\[\det M_G=\det M_{G\backslash e}+\det M_{G/ e}.\]
+\[\det M_G=\det M_{G- e}+\det M_{G/ e}.\]
 
 \end{thm}
 
@@ -367,19 +367,19 @@ Note that we may assume that the first and last vertexes of $G$ are adjacent;
 otherwise permute pair of labels $1$ and some $j<p$  and apply Observation~\ref{observaiton:swap}.
 Denote by $e$ the edge between the first and last vertex.
 
-Note that the total number of vertexes and edges in the pseudographs $G\backslash e$ and $G/e$ are smaller than $p+q$.
+Note that the total number of vertexes and edges in the pseudographs $G- e$ and $G/e$ are smaller than $p+q$.
 Therefore we have that
 \begin{align*}
-s(G\backslash e)&=\det M_{G\backslash e},
+s(G- e)&=\det M_{G- e},
 &
 s(G/e)&=\det M_{G/e}.
 \end{align*}
 Applying these two identities together with the deletion-plus-contraction formula 
 and Observation~\ref{observaiton:dpc}, we get that
 \begin{align*}
-s(G)&=s(G\backslash e)+s(G/e)=
+s(G)&=s(G- e)+s(G/e)=
 \\
-&=\det M_{G\backslash e}+\det M_{G/e}=
+&=\det M_{G- e}+\det M_{G/e}=
 \\
 &=\det M_G;
 \end{align*}

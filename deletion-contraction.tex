@@ -12,14 +12,14 @@
 \end{wrapfigure}
 
 Let $G$ be a pseudograph with a marked edge~$e$.
-Denote by $G\backslash e$ the pseudograph obtained from $G$ by deleting $e$,
+Denote by $G- e$ the pseudograph obtained from $G$ by deleting $e$,
 and by $G/e$ the pseudograph obtained from $G$ by contracting the edge $e$ to a point; see the diagram.
 
 Assume $G$ is a graph; that is, $G$ has no loops and no parallel edges.
-In this case, $G\backslash e$ is also a graph.
+In this case, $G- e$ is also a graph.
 However, $G/e$ might have parallel edges, but no loops; that is, $G/e$ is a multigraph.
 
-If $G$ is a multigraph, then so is $G\backslash e$.
+If $G$ is a multigraph, then so is $G- e$.
 If the edge $e$ is parallel to $f$ in $G$, then $f$ in $G/e$ becomes a loop; that is, $G/e$ is a pseudograph in general.
 
 
@@ -52,7 +52,7 @@ Show that
 \label{thm:deletion-plus-contraction}
 Let $e$ be an edge in the pseudograph $G$.
 Assume $e$ is not a loop, then the following identity holds
-\[s(G)=s(G\backslash e)+s(G/e).\eqlbl{eq:deletion-plus-contraction}\]
+\[s(G)=s(G- e)+s(G/e).\eqlbl{eq:deletion-plus-contraction}\]
 
 \end{thm}
 
@@ -72,7 +72,7 @@ the edge $e$ is marked in $G$.
 
 \parit{Proof.} Note that the spanning trees of $G$ can be subdivided into two groups ---
 (1)~those which contain the edge $e$ and (2)~those which do not.
-For the trees in the first group, the contraction of $e$ to a point  gives a spanning tree in~$G/e$, while the trees in the second group are also spanning trees in~$G\backslash e$.
+For the trees in the first group, the contraction of $e$ to a point  gives a spanning tree in~$G/e$, while the trees in the second group are also spanning trees in~$G- e$.
 
 Moreover, both of the described correspondences are one-to-one.
 Hence the formula follows.
@@ -84,26 +84,26 @@ Let us state it precisely.
 
 \begin{thm}{Claim}
 If $e$ is a loop in a pseudograph $G$, then 
-\[s(G)=s(G\backslash e).\]
+\[s(G)=s(G- e).\]
 
 \end{thm}
 
 The proof of the following claim uses the deletion-plus-contraction formula.
 
 \begin{thm}{Claim}
-If one removes an end vertex $w$ from a pseudograph $G$, then in the obtained graph $G\backslash w$
+If one removes an end vertex $w$ from a pseudograph $G$, then in the obtained graph $G- w$
 the number of spanning trees remains unchanged;
 that is,
-\[s(G)=s(G\backslash w).\eqlbl{eq:deletion-plus-contraction-w}\]
+\[s(G)=s(G- w).\eqlbl{eq:deletion-plus-contraction-w}\]
 
 \end{thm}
 
 \parit{Proof.}
 Denote by $e$ the only edge incident to $w$. 
-Note that the graph $G\backslash e$ is not connected, since the vertex $w$ is isolated.
+Note that the graph $G- e$ is not connected, since the vertex $w$ is isolated.
 In particular,
-$s(G\backslash e)=0$.
-On the other hand, $G/e=G\backslash w$.
+$s(G- e)=0$.
+On the other hand, $G/e=G- w$.
 Therefore the deletion-plus-contraction formula \ref{eq:deletion-plus-contraction} implies~\ref{eq:deletion-plus-contraction-w}.
 \qeds
 
@@ -119,7 +119,7 @@ For example, using deletion-plus-contraction formula together with the claims, w
 \[s(G)=2\cdot s(H).\]
 
 Note that the deletion-plus-contraction formula gives an algorithm to calculate  the value $s(G)$ for a given pseudograph $G$.
-Indeed, for any edge $e$, both graphs $G\backslash e$ and $G/e$ have smaller number of edges.
+Indeed, for any edge $e$, both graphs $G- e$ and $G/e$ have smaller number of edges.
 That is, the deletion-plus-contraction formula reduces the problem of finding the number of the trees to simpler graphs;
 applying this formula a few times we can reduce the question to a collection of graphs with an evident answer for each.
 In the next section we will show how it works.

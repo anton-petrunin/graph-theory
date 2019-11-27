@@ -1193,6 +1193,39 @@ endfor
 
 endfig;
 
+beginfig(90) 
+save u;
+u:=1cm;
+
+z.a=origin;
+z.b=(0,1)*u;
+z.c=z.b rotated 120;
+z.d=z.b rotated -120;
+z.bc=z.b rotated 60;
+z.db=z.b rotated -60;
+z.cd=-z.b;
+
+draw circle(z.a,z.b);
+draw z.a--z.b;
+draw z.a--z.c;
+draw z.a--z.d;
+
+dOt z.a,z.b,z.c,z.d;
+
+label.urt(btex $a$ etex,z.a);
+label.top(btex $b$ etex,z.b);
+label.llft(btex $c$ etex,z.c);
+label.lrt(btex $d$ etex,z.d);
+
+label.lft(btex $1$ etex,.5[z.a,z.b]);
+label.lrt(btex $2$ etex,.5[z.a,z.c]);
+label.llft(btex $4$ etex,.5[z.a,z.d]);
+label.ulft(btex $1$ etex,z.bc);
+label.bot(btex $5$ etex,z.cd);
+label.urt(btex $2$ etex,z.db);
+
+endfig;
+
 beginfig(91) 
 save u;
 u:=.5cm;

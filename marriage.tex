@@ -34,7 +34,7 @@ Find an  augmenting path for the matching on the diagram
 and use it to construct a larger matching.
 \end{thm}
 
-Recall that \index{bigraph}\emph{bigraph} stands for \emph{biparted graph}.
+Recall that \index{bigraph}\emph{bigraph} stands for \emph{bipartite graph}.
 
 \begin{thm}{Exercise}
 Let  $M$ be a matching in a bigraph $G$.
@@ -88,7 +88,7 @@ it proves the ``only if'' part.
 
 Consider a maximal matching $M$ of $G$.
 To prove the ``if'' part, it is sufficient to show that $M$ covers $L$.
-Assume the contrary; that is, there is a vertex $w$ in $L$ which is not incident to any edge in $M$.
+Arguing by contradiction, assume that there is a vertex $w$ in $L$ which is not incident to any edge in $M$.
 
 Consider the maximal set $S$ of vertexes in $G$ which are reachable from $w$ by 
 $M$-alternating paths.
@@ -132,7 +132,7 @@ it was discovered by Noga Alon [see \ncite{alon} and also \ncite{kalai}].
 \vskip-0mm
 \end{wrapfigure}
 
-In Exercise~\ref{ex:1-factor} one has to assume that $G$ is biparted.
+In Exercise~\ref{ex:1-factor} one has to assume that $G$ is bipartite.
 Indeed, the following exercise states that the graph on the diagram has no 1-factor,
 while it is 3-regular.
 
@@ -263,23 +263,39 @@ A collection of edges $N$ in a graph is called an \index{edge cover}\emph{edge c
 On the diagram, two edge covers of the same graph are marked in solid lines.
 The second cover is minimal --- there is no edge cover with smaller number of edges.
 
-\begin{thm}{Exercise}\label{ex:monotree}
-Show that a minimal edge cover of any graph contains no paths of length 3 and no triangle.
-
-Conclude that each component of the subgraph formed by a minimal edge cover is a \index{star}\emph{star};
-that is, it is isomorphic to $K_{1,k}$ for some $k$. 
-\end{thm}
-
-
-\begin{thm}{Exercise}
+\begin{thm}{Theorem}
 Let $G$ be a connected graph with $p$ vertexes and $p>1$.
 Assume that a minimal edge cover $N$ of $G$ contains $n$ edges, and a maximal matching $M$ of $G$ contains $m$ edges.
-Show that 
+Then
 \[m+n=p.\]
+\end{thm}
+
+The following exercise will guide you thru the proof;
+indeed the theorem follows from \ref{ex:monotree:m+n>=p} and \ref{ex:monotree:m+n=<p}.
+
+
+\begin{thm}{Exercise}\label{ex:monotree}
+Suppose $G$, $N$, $M$, $p$, $n$ and $m$ are as in the theorem.
+Let $m'$ be the  the number of components in $N$.
+\begin{enumerate}[(a)]
+\item\label{ex:monotree:m'+n=p} Show that $N$ contains no paths of length 3 and no triangle.
+Conclude that each component of the subgraph formed by a minimal edge cover is a \index{star}\emph{star};
+that is, it is isomorphic to $K_{1,k}$ for some $k$.
+Use it to show that 
+\[m'+n=p.\]
+\item\label{ex:monotree:m+n>=p} Choose $m'$ edges, one in each component of $N$.
+Observe that it is a matching.
+Conclude that $m'\le m$.
+Use \ref{ex:monotree:m'+n=p} to show that 
+\[m+n\ge p.\]
+\item\label{ex:monotree:m+n=<p} Consider a subgraph $H$ of $G$ formed by all edges in the matching $M$ and one edge incident to each unmatched vertex in $G$.
+Observe that $H$ is a vertex cover with $p-m$ edges. 
+Conclude that 
+\[m+n\le p.\]
+\end{enumerate}
 
 \end{thm}
 
-\parit{Hint:} Show that the subgraph formed by $N$ has exactly $m$ components and use Exercise~\ref{ex:monotree}.
 
 \section*{Minimal cut}
 
