@@ -360,7 +360,8 @@ Further note that $M_G=(q)$; that is,  the Kirchhoff minor $M_G$ is a $1{\times}
 In particular, $\det M_G=q$ and therefore the equality \ref{eq:matrix-formula} holds.
 
 Assume the equality \ref{eq:matrix-formula} does not hold in general;
-choose a graph $G$ that minimize the value $p+q$ among the graphs violating \ref{eq:matrix-formula}.
+choose a \emph{minimal criminal graph} $G$;
+that is a graph that minimize the value $p+q$ among the graphs violating \ref{eq:matrix-formula}.
 
 From above we have that $p>2$ and $d>0$.
 Note that we may assume that the first and last vertexes of $G$ are adjacent;
@@ -605,6 +606,10 @@ Therefore, applying the matrix theorem, we get the following:
 \begin{thm}{Cayley formula}\label{thm:cayley}
  \[s(K_p)=p^{p-2};\]
 that is, the number of spanning trees in the complete graph $K_p$ is $p^{p-2}$.
+\end{thm}
+
+\begin{thm}{Exercise}
+Show $s(K_p-e)=(p-2)\cdot p^{n-3}$ for any edge $e$ in~$K_p$. 
 \end{thm}
 
 \begin{thm}{Exercise}

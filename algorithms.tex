@@ -6,22 +6,23 @@
 We say that a graph $G$ has \index{weight}\emph{weighted edges} if each edge in $G$ is labeled by a real number, called its \emph{weight}.
 In this case \emph{weight of a subgraph} $H$ (briefly $\weight(H)$) is defined as the sum of the weights of its edges.
 
-An optimization problem typically asks for a subgraph in $G$ of certain type that minimize its weight.
-The so called \index{travelling salesman problem}\emph{travelling salesman problem} gives a classical example of optimization problem.
+An {}\emph{optimization problem} typically asks to minimize weight of subgraph of a certain type.
+A classical example is the so called \index{travelling salesman problem}\emph{travelling salesman problem}.
 It asks to find a Hamiltonian cycle with minimal weight (if it exists in the graph).
 
-No fast algorithm known for this problem and it is expected that no fast algorithms.
+No fast algorithm are known for this problem and it is expected that no fast algorithms.
 We say {}\emph{fast} if the required time depends polynomially on the number of the vertexes in the graph.
 The best known algorithms require exponential time, which is just a bit better than checcking all possible Hamiltonian cycles and choosing one with minimal weight.
 
-In fact the travelling salesman problem is a classical example of the so called {}\emph{NP-hard problems}; it means that if you find a fast algorithm to solve it, then you solve the \index{P=NP problem}\emph{P=NP problem} --- the most important question in modern mathematics.
+In fact the travelling salesman problem is a classical example of the so called {}\emph{NP-hard problems}; it means that if you find a fast algorithm to solve it, then you solve the \index{P=NP problem}\emph{P=NP problem}, which is the most important question in modern mathematics.
 
 The so called \index{nearest neighbour algorithm}\emph{nearest neighbour algorithm} gives a heuristic way to find a Hamilton cycle with small (but not necessary smallest weight).
 In the following description, we assume that the graph is complete.
 \begin{enumerate}[(i)]
 \item Start at arbitrary vertex.
-\item\label{NNA-main} Find the edge with minimal weight connecting the current vertex $v$ and an unvisited vertex $w$. Move to $w$ and add the edge to the path.
-\item Repeat step \ref{NNA-main} until all vertexes are visited and return to the original vertex.
+\item\label{NNA-main} Find the edge with minimal weight connecting the current vertex $v$ and an unvisited vertex $w$ and move to $w$.
+\item Repeat step \ref{NNA-main} until all vertexes are visited and then return to the original vertex.
+This way we walked along a Hamiltonian cycle.
 \end{enumerate}
 
 \begin{wrapfigure}{o}{25 mm}
@@ -31,9 +32,10 @@ In the following description, we assume that the graph is complete.
 \end{wrapfigure}
 
 The nearest neighbour algorithm is an example of \index{greedy algorithm}\emph{greedy algorithms}; in other words, it chooses a cheapest step at each stage.
-It may not find an optimal solution --- the cheap choices at the beginning might force to make expansive choices at the end. 
+The cheap choices at the beginning might force to make expansive choices at the end,
+so it may not find an optimal solution. 
 In fact a greedy algorithm might give the worse solution.
-For example if we start from the vertex $a$ in the shown weighted graph, then nearest neighbour algorithm produce the cycle $abcd$ which is the worse solution --- this cycle has weight 11 and the other two  Hamiltonian cycles have weights $9$ and $10$.
+For example if we start from the vertex $a$ in the shown weighted graph, then nearest neighbour algorithm produce the cycle $abcd$ which is the worse solution --- this cycle has total weight $11=1+1+5+4$ and the other two  Hamiltonian cycles have weights $9$ and $10$.
 
 Let us list few other classical examples of optimization problems.
 Unlike the travelling salesman problem, there are fast algorithms which solve them.
@@ -155,7 +157,6 @@ If this edge connects different trees in $F$, then add it to $F$.
 \end{enumerate}
 
 Note that Kruskal’s algorithm is {}\emph{greedy} --- it chooses a cheapest step at each stage.
-It turns out that for this problem a greedy algorithm produces an optimal result.
 
 \begin{thm}{Theorem}\label{thm:kruskal}
 Kruskal’s algorithm finds a minimum weight spanning tree in any connected pseudograph with weighted edges.
@@ -187,11 +188,11 @@ But $\weight(e)>\weight(e')$, therefore the algorithm should reject $e$ at this 
 \section*{Other algorithms}
 
 Let us describe two more algorithms which find  a minimal weight spanning tree in a given connected graph $G$.
-For simplicity, we assume that $G$ have distinct weights.
+For simplicity, we assume that $G$ has distinct weights.
 
 \parbf{Prim's algorithm.}
 \begin{enumerate}[(i)]
-\item Start with a tree $T$ formed by an arbitrarily vertex $v$ in $G$.
+\item Start with a tree $T$ formed by a single vertex $v$ in $G$.
 \item\label{main:prim} Choose an edge $e$ with the minimal weight that connects $T$ to a vertex not yet in the tree.
 Add $e$ to $T$.
 \item Repeat the step \ref{main:prim} until all vertexes are in the tree $T$.
@@ -206,15 +207,15 @@ Add $e$ to $T$.
 
 
 \begin{thm}{Exercise}
-Show that the (a) Prim's algorithm and (b) Borůvka's algorithm produce a minimum weight spanning tree of a given weighted connected graph with all different weights.
+Show that the (a) Prim's algorithm and (b) Borůvka's algorithm produce a minimum weight spanning tree of a given connected graph with all different weights.
 \end{thm}
 
 \parit{Hint:} Mimic the proof for Kruskal’s algorithm.
 
 \begin{thm}{Exercise}
-Compare the tree algorithms Kruskal’s algorithm, Prim's algorithm, and Borůvka's algorithm.
+Compare Kruskal’s algorithm, Prim's algorithm, and Borůvka's algorithm.
 Which one should works faster?
-Why?
+When and why?
 \end{thm}
 
 \begin{thm}{Exercise}\label{ex:deleting-algorithm}

@@ -190,7 +190,7 @@ The vertexes of the cover are marked in black and the remaining vertexes in whit
 the unmatched vertexes are marked by a cross.
 
 \begin{wrapfigure}{o}{30 mm}
-\vskip-3mm
+\vskip-5mm
 \centering
 \includegraphics{mppics/pic-62}
 \vskip1mm
@@ -246,7 +246,7 @@ In this case, the left vertex of $e$ is in~$S$.
 \begin{thm}{Exercise}
 A few squares
  on a chessboard are marked.
-Show that the minimal number of ranks and files that cover all marked squares is the same as the maximal number of rooks on the marked squares that do not threaten each other.
+Show that the minimal number of rows and columns that cover all marked squares is the same as the maximal number of rooks on the marked squares that do not threaten each other.
 \end{thm}
 
 \section*{Edge cover}
@@ -254,14 +254,13 @@ Show that the minimal number of ranks and files that cover all marked squares is
 A collection of edges $N$ in a graph is called an \index{edge cover}\emph{edge cover} if every vertex is incident with at least one of the edges in $N$.
 
 \begin{wrapfigure}{r}{25 mm}
-\vskip-6mm
+\vskip-2mm
 \centering
 \includegraphics{mppics/pic-63}
 \vskip0mm
 \end{wrapfigure}
 
 On the diagram, two edge covers of the same graph are marked in solid lines.
-The second cover is minimal --- there is no edge cover with smaller number of edges.
 
 \begin{thm}{Theorem}
 Let $G$ be a connected graph with $p$ vertexes and $p>1$.
@@ -270,16 +269,15 @@ Then
 \[m+n=p.\]
 \end{thm}
 
-The following exercise will guide you thru the proof;
-indeed the theorem follows from \ref{ex:monotree:m+n>=p} and \ref{ex:monotree:m+n=<p}.
+The following exercise will guide you thru the proof.
 
 
 \begin{thm}{Exercise}\label{ex:monotree}
-Suppose $G$, $N$, $M$, $p$, $n$ and $m$ are as in the theorem.
-Let $m'$ be the  the number of components in $N$.
+Suppose $G$, $N$, $M$, $p$, $n$, and $m$ are as in the theorem.
+Denote by $m'$ the  the number of components in $N$.
 \begin{enumerate}[(a)]
 \item\label{ex:monotree:m'+n=p} Show that $N$ contains no paths of length 3 and no triangle.
-Conclude that each component of the subgraph formed by a minimal edge cover is a \index{star}\emph{star};
+Conclude that each component of $N$ is a \index{star}\emph{star};
 that is, it is isomorphic to $K_{1,k}$ for some $k$.
 Use it to show that 
 \[m'+n=p.\]
@@ -292,6 +290,7 @@ Use \ref{ex:monotree:m'+n=p} to show that
 Observe that $H$ is a vertex cover with $p-m$ edges. 
 Conclude that 
 \[m+n\le p.\]
+\item Observe that \ref{ex:monotree:m+n>=p} and \ref{ex:monotree:m+n=<p} imply the theorem.
 \end{enumerate}
 
 \end{thm}
@@ -338,7 +337,7 @@ Instead of the path $Q$, consider the trail $Q'$ which goes along $P_1$ from $s$
 
 
 \begin{wrapfigure}{o}{30 mm}
-\vskip-2mm
+\vskip-0mm
 \centering
 \includegraphics{mppics/pic-64}
 \vskip0mm
@@ -351,21 +350,19 @@ Further, since we discarded the part of $P_1$ from $w$ to $v$, the total number 
 is smaller than in the original collection $Q, P_1,P_2\z\dots,P_m$.
 Therefore, by repeating the described procedure several times, we get $m+1$ paths without overlaps --- a contradiction.
 
-
-
-It follows that $S\not\ni t$.
-
-Note that all edges which connect $S$ to the remaining vertexes of $G$ are oriented toward to $S$.
-That is, every such edge which comes out of $S$ in the original orientation belongs to one of the paths $P_1,\dots,P_m$.
-
 {
 
-\begin{wrapfigure}{o}{40 mm}
+\begin{wrapfigure}{r}{40 mm}
 \vskip-2mm
 \centering
 \includegraphics{mppics/pic-65}
 \vskip0mm
 \end{wrapfigure}
+
+It follows that $S\not\ni t$.
+
+Note that all edges which connect $S$ to the remaining vertexes of $G$ are oriented toward to $S$.
+That is, every such edge which comes out of $S$ in the original orientation belongs to one of the paths $P_1,\dots,P_m$.
 
 Moreover, for each path $P_i$ there is only one such edge.
 In other words, if a path $P_i$ leaves $S$, then it can not come back. 

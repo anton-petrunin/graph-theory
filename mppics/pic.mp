@@ -182,7 +182,7 @@ draw ((.5*z.a1)..{right}z.a4) shifted (z.shift2);
 dOt .5*z.a1+(z.shift2),z.a2+(z.shift2),z.a3+(z.shift2),z.a4+(z.shift2);
 
 label.lft(btex $G$ etex, z.a2);
-label.urt(btex $G\backslash e$ etex, (z.a1 rotated -45)+z.shift1);
+label.urt(btex $G{-}e$ etex, (z.a1 rotated -45)+z.shift1);
 label.lrt(btex $G/e$ etex, (z.a1 rotated -135)+z.shift2);
 endfig;
 
@@ -267,7 +267,7 @@ drawdblarrow z.shift2+(1.5*z.a1 rotated 60)--1.5*z.a4--z.shift1+(1.5*z.a1 rotate
 dOt .5*z.a1+(z.shift2),z.a2+(z.shift2),z.a3+(z.shift2),z.a4+(z.shift2);
 
 label.lft(btex $G$ etex, z.a2);
-label.urt(btex $G{\backslash}e$ etex, (z.a1 rotated -45)+z.shift1);
+label.urt(btex $G{-}e$ etex, (z.a1 rotated -45)+z.shift1);
 label.lrt(btex $G/e$ etex, (z.a1 rotated -135)+z.shift2);
 
 endfig;
@@ -711,8 +711,8 @@ draw (-z.r{down}..z.r rotated -90..{up}z.r) shifted z.shift2;
 dOt z.r+z.shift2,(z.r rotated 180)+z.shift2,(z.r rotated -90)+z.shift2;
 
 label.bot(btex $G$ etex, (z.r rotated -90)+(0,-2));
-label.bot(btex $G{\backslash} e$ etex, (z.r rotated -90)+z.shift1+(0,-2));
-label.bot(btex $G{\backslash} \bar e$ etex, (z.r rotated -90)+z.shift2+(0,-2));
+label.bot(btex $G{-}e$ etex, (z.r rotated -90)+z.shift1+(0,-2));
+label.bot(btex $G{-}[e]$ etex, (z.r rotated -90)+z.shift2+(0,-2));
 endfig;
 
 beginfig(52) 
@@ -1293,7 +1293,10 @@ dOt z0 shifted (4*z.shift),z1 shifted (4*z.shift),z2 shifted (4*z.shift),z3 shif
 dOt z0 shifted (5*z.shift),z1 shifted (5*z.shift),z2 shifted (5*z.shift),z3 shifted (5*z.shift),z4 shifted (5*z.shift),z5 shifted (5*z.shift);
 
 label.lft(btex $s$ etex, .5[z0,z1] +(.5,0));
+label.lft(btex $s$ etex, .5[z0,z1] +(.5,0) shifted (4*z.shift));
 label.lft(btex $t$ etex, .3[z0,z5] +(.5,0) shifted (2*z.shift));
+label.lft(btex $t$ etex, .3[z0,z5] +(.5,0) shifted (3*z.shift));
+label.lft(btex $t$ etex, .3[z0,z5] +(.5,0) shifted (5*z.shift));
 label.bot(btex $G$ etex, .5[z2,z3] shifted (-1*z.shift));
 label.bot(btex $S$ etex, .5[z2,z3]);
 label.bot(btex $T$ etex, .5[z2,z3] shifted (2*z.shift));
