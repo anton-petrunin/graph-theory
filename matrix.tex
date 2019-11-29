@@ -627,7 +627,8 @@ and random walks; a good survey is given in the book of Peter Doyle and Laurie S
 
 Assume that the graph $G$ describes an electric chain;
 each edge has resistance one Ohm and a battery is connected to the vertexes $a$ and $b$.
-Assume that the total current between these vertexes is one Ampere and we need to calculate the current thru a given edge $e$.
+Assume that the total current between these vertexes is one Ampere.
+The following procedure calculates the current $I_e$ along a given edge $e$.
 
 Fix an orientation of $e$.
 Note that any spanning tree $T$ of $G$ has exactly one the following three properties:
@@ -637,8 +638,7 @@ Note that any spanning tree $T$ of $G$ has exactly one the following three prope
 Denote by $s_+$, $s_-$, and $s_0$ the number of the trees in each group.
 Clearly,
 \[s(G)=s_++s_-+s_0.\]
-
-The current $I_e$ along $e$ can be calculated using the following formula:
+Then  the current $I_e$ can be calculated using the following formula:
 \[I_e=\frac{s_+-s_-}{s(G)}\cdot I.\]
 This statement can be proved by checking Kirchhoff's rules for the currents calculated by this formula.
 
@@ -646,9 +646,6 @@ There are many other applications of Kirchhoff's rules to graph theory.
 For example, in \cite{levi}, they were used to prove the Euler's formula
 \[p-q+r=2,\]
 where $p$, $q$, and $r$ denote the number of vertexes, edges and regions of in a plane drawing of graph.
-
-A few interesting proofs of Cayley formula are given in \cite[Chapter 30]{aigner-ziegler};
-the most popular proof using the Pr\"ufer's code is given in \cite{hartsfield-ringel}.
 
 
 

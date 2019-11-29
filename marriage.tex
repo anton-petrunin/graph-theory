@@ -12,7 +12,7 @@ alternate between edges from $M$ and edges not from $M$.
 If an alternating path connects two unmatched vertexes of $G$, then it is called \index{augmenting path}\emph{$M$-augmenting}.
 An $M$-augmenting path $P$ can be used to improve the matching $M$;
 namely by deleting all the edges of $P$ in $M$
-and adding the remaining edges of $P$, we obtain a matching $M'$ with more edges.
+and adding the remaining edges of $P$, we obtain a new matching $M'$ with more edges.
 This construction implies the following:
 
 \begin{thm}{Observation}\label{obs:augmenting}
@@ -48,7 +48,7 @@ Assume $M$ is a matching in a graph $G$.
 If $M$ is not maximal, then $G$ contains an $M$-augmenting path.
 \end{thm}
 
-This theorem implies that Hungarian algorithm produces a maximal matching.
+This theorem implies that Hungarian algorithm \cite[Section 7.2]{hartsfield-ringel} produces a maximal matching.
 Indeed, the Hungarian algorithm checks all $M$-alternating paths in the graph and it will find an $M$-augmenting path if it exists.
 Once it is found it could be used to improve the matching $M$.
 Therefore, by the theorem, Hungarian algorithm improves any nonmaximal matching;
@@ -58,10 +58,10 @@ in other words, it can stop only at a maximal matching.
 Suppose $M$ is nonmaximal matching; that is, there is a matching $M'$ with lager number of edges.
 Consider the subgraph $H$ of $G$ formed by all edges in $M$ and $M'$.
 
-Note that each component of $H$ is either $M$-alternating path or cycle.
+Note that each component of $H$ is either an $M$-alternating path or a cycle.
 Each cycle in $H$ has the same number of edges from $M$ and $M'$.
 Since $|M'|>|M|$, the one component of $H$ has to be a path that starts and ends by a edge in $M'$.
-Evidently this path is $M$-augmenting.
+Evidently such path is $M$-augmenting.
 \qeds
 
 \section*{Marriage theorem}
@@ -415,5 +415,8 @@ it has many applications in all branches of mathematics.
 The theorem on vertex cover was discovered by D\'enes K\H{o}nig \cite{konig} and independently by Jen\H{o} Egerv\'ary \cite{egervary}.
 The theorem on min-cut was proved by Peter Elias, Amiel Feinstein, and Claude Shannon \cite{elias-feinstein-shannon}, 
 and independently also by Lester Ford and Delbert Fulkerson \cite{ford-fulkerson}.
+
+These theorems form a base for the Hungarian algorithm that solves the \emph{assignment problem}; see page \pageref{assignment problem}.
+This algorithm was found by Harold Kuhn, but much latter François Ollivier discovered that essentially the same algorithm was found much earlier by Carl Gustav Jacobi~\cite{ollivier}.
 
 An extensive overview of the marriage theorem and its relatives is given by Alexandr Evnin in \cite{evnin}.

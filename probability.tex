@@ -389,22 +389,29 @@ The probability $P_n$ to obtain less than one third heads after $n$ fair tosses 
 in fact $P_n<0.95^n$ for any $n$.
 \end{thm}
 
-In the proof, we will use the following observation, which is called \index{Chebyshov's inequality}\emph{Chebyshov's inequality}.
+In the proof, we will use the following observation.
 
+\begin{thm}{Chebyshov's inequality}\index{Chebyshov's inequality}
 Suppose $Y$ is a nonnegative random variable and $c> 0$.
 Denote by $P$ the probability of the event $Y\ge c$ and by $y$ the expected value of $Y$.
 Then 
 \[P\cdot c\le y.
 \eqlbl{eq:cebyshov}\]
-Indeed, consider another random variable $\bar Y$ such that $\bar Y=c$ if $Y\ge c$ and $\bar Y=0$ otherwise;
-denote by $\bar y$ its expected value.
-Note that $\bar Y\z\le Y$ and therefore $\bar y\le y$.
-The random variable $\bar Y$ takes value $c$ with probability $P$ and $0$ with probability $1-P$.
-Therefore $\bar y=P\cdot c$; whence \ref{eq:cebyshov} follows.
-
+\end{thm}
 
 \parit{Proof.}
-Let us introduce independent $n$ random variables $X_1,\dots X_n$;
+Consider another random variable $\bar Y$ such that $\bar Y=c$ if $Y\ge c$ and $\bar Y=0$ otherwise;
+denote by $\bar y$ its expected value.
+
+Note that $\bar Y\z\le Y$ and therefore
+\[\bar y\le y.\]
+The random variable $\bar Y$ takes the value $c$ with probability $P$ and $0$ with probability $1-P$.
+Therefore $\bar y=P\cdot c$; whence \ref{eq:cebyshov} follows.
+\qeds
+
+
+\parit{Proof of \ref{clm:coin}.}
+Let us introduce independent $n$ random variables $X_1,\z\dots X_n$;
 each $X_i$ returns the number of heads after $i$-th toss of the coin;
 in particular, each $X_i$ takes values $0$ or $1$ with the probability of $\tfrac12$ each.
 We need to show that the probability $P_n$ of the event $X_1+\dots+X_n\le\tfrac n3$ is less than 

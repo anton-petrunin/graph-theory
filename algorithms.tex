@@ -42,7 +42,7 @@ Unlike the travelling salesman problem, there are fast algorithms which solve th
 \begin{itemize}
 \item The \index{shortest path problem}\emph{shortest path problem} asks for a path with minimal weight, connecting two given vertexes.
 It can be thought as optimal driving directions between two locations.
-\item The \index{assignment problem}\emph{assignment problem}  asks for a matching of a given size with minimal weigh, in a bipartite graph.
+\item The \label{assignment problem}\index{assignment problem}\emph{assignment problem}  asks for a matching of a given size with minimal weigh, in a bipartite graph.
 It can be used to minimize the total cost of work, assuming that available workers charge different prices for each task.
 This problem is closely related to the subject of the next chapter.
 \item The \index{minimum spanning tree proble}\emph{minimum spanning tree problem} asks for a spanning tree with minimal weight.
@@ -230,4 +230,13 @@ Show that $f$ does not belong to $T$.
 \end{enumerate}
 \end{thm}
 
+\section*{Remarks}
+
+The NP-hardness of the travelling salesman problem follows from a result of Richard Karp \cite{karp}.
+The discussed algorithms are named after Joseph Kruskal, Robert Prim and Otakar Borůvka.
+Joseph Kruskal also described the so called \emph{reverse-delete algorithm} \cite{kruskal} which is closely relevant to a solution of Exercise~\ref{ex:deleting-algorithm}.
+The Prim's algorithm was first discovered by Vojtěch Jarník,
+rediscovered  independently two times: by Robert Prim and by Edsger Dijkstra.
+
+For more on the subject, read the book by Dieter Jungnickel \cite{jungnickel}.
 
