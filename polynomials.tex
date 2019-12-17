@@ -1,4 +1,4 @@
-\chapter{Polynomials}
+\chapter{Graph-polynomials}
 
 Counting problems often lead to an organized collection of numbers.
 Sometimes it is convenient to consider a polynomial with these numbers as coefficients.
@@ -345,6 +345,13 @@ But $P$ has degree $p-2$, a contraction.
 \qeds
 
 \begin{thm}{Exercise}
+Show that the number of spanning trees in $K_p$ with degree $k$ at the first vertex equals to $\tbinom{p-2}{k-1}\cdot (p-1)^{p-k-1}$.
+\end{thm}
+
+\parit{Hint:} Calculate $N=\tfrac{\partial^{k-1} }{\partial x_1^{k-1}}S_{K_n}(0,1,\dots,1)$ using the expression for $S_{K_n}$ given in Theorem~\ref{thm:spanning-tree-polynomial} and find how much a tree with degree $d$ at the first vertex contributes to the value $N$.
+
+
+\begin{thm}{Exercise}
 Assume that the vertexes of the left part of $K_{m,n}$ have corresponding variables $x_1,\dots,x_m$ and the vertexes in the right part have corresponding variables $y_1,\dots,y_n$. 
 Show that
 \[S_{K_{m,n}}(x_1,\dots,x_m,y_1,\dots,y_n)=(x_1+\dots +x_m)^{n-1}\cdot(y_1+\dots +y_n)^{m-1}.\]
@@ -352,7 +359,7 @@ Conclude that $s(K_{m,n})=m^{n-1}\cdot n^{m-1}$.
 
 \end{thm}
 
-\parit{Hint:} Modify the proof of Theorem \ref{thm:spanning-tree-polynomial}.
+\parit{Hint:} Modify the proof of Theorem~\ref{thm:spanning-tree-polynomial}.
 
 \section*{Remarks}
 
@@ -362,4 +369,4 @@ Matching polynomials are discussed in a paper of Christopher Godsil and Ivan Gut
 
 Our discussion of spanning-tree polynomials is based on a modification of Fedor Petrov \cite{petrov} of the original proof of Arthur Cayley~\cite{cayley}. 
 
-Generating functions discussed in Appendix~\ref{Generating functions} give connections between graph theory and power series; this subject is more challenging, but worth to learn.   
+Generating functions discussed in Chapter~\ref{Generating functions} give connections between graph theory and power series; this subject is more challenging, but worth to learn.   

@@ -217,14 +217,13 @@ That is,
 \end{align*}
 \qedsf
 
-\section*{Applications}
+\section*{Perfect matchings}
 
-\parbf{Perfect matchings.}
-Recall that a perfect matching is a 1-factor of the graph. 
+Recall that a \index{perfect matching}\emph{perfect matching} is a 1-factor of the graph. 
 In other words, it is a set of isolated edges which covers all the vertexes.
 Note that if a graph admits a perfect matching, then the number of its vertexes is even.
 
-Recall that the \index{double factorial}\emph{double factorial} is defined as the product of all the integers from $1$ up to some non-negative integer $n$ that have the same parity (odd or even) as $n$;
+The \index{double factorial}\emph{double factorial} is defined as the product of all the integers from $1$ up to some non-negative integer $n$ that have the same parity (odd or even) as $n$;
 the double factorial of $n$ is denoted by $n!!$.
 For example, 
 \[9!! = 9\cdot 7 \cdot 5 \cdot 3 \cdot  1 = 945
@@ -299,7 +298,8 @@ which is equivalent to the recursive identity
 \[a_{n+1}=n \cdot a_{n-1}\]
 in Exercise~\ref{ex:matching}\ref{ex:matching:recursion}.
 
-\parbf{All matchings.}
+\section*{All matchings}
+
 Now let $\mathcal{S}$ be the set of two graphs $K_1$ and $K_2$.
 Evidently $c_1(\mathcal{S})\z=c_2(\mathcal{S})=1$.
 Further, we have that $c_n(\mathcal{S})=0$ for all $n\ge 3$ since $K_n$ contains no spanning subgraphs isomorphic to $K_1$ or $K_2$.
@@ -322,7 +322,8 @@ Prove formula \ref{an+nan-1} directly --- without using generating functions.
 Compare to Exercise~\ref{ex:deletion-deletion-total}\ref{ex:deletion-deletion-K}.
 \end{thm}
 
-\parbf{2-factors.}
+\section*{Two-factors}
+
 Let $\mathcal{S}$ be the set of all cycles.
 
 Note that a \index{$2$-factor}\emph{$2$-factor} of a graph can be defined as a spanning subgraph with components isomorphic to cycles.
@@ -345,8 +346,6 @@ to find $a_1,\dots, a_6$.
 \item Use part \ref{ex:2-factor:C} and Theorem~\ref{thm:exp-formula}\ref{thm:exp-formula:all}
 to show that
 \[A(x)=\frac{1}{ e^{\frac x2+\frac{x^2}4}\cdot\sqrt{1-x}}-1.\]
-
-
 \end{enumerate}
 
 \end{thm}
@@ -355,17 +354,19 @@ to show that
 
 \section*{Counting spanning forests}
 
+
 Recall that a \index{forest}\emph{forest} is a graph without cycles.
 Assume we want to count the number of spanning forests in $K_n$;
 denote by $a_n$ its number and by $c_n$ the number of connected spanning forests. 
 That is, $c_n$ is the number of spanning trees in $K_n$.
-\begin{figure}[h!]%{r}{20 mm}
+For example, $K_3$ has the following 7 spanning forests; therefore $a_3\z=7$.
+\begin{figure}[H]%{r}{20 mm}
 \vskip-0mm
 \centering
 \includegraphics{mppics/pic-81}
 \vskip-0mm
 \end{figure}
-For example, $K_3$ has the following 7 spanning forests; therefore $a_3=7$.
+
 
 By Corollary~\ref{cor:exp-formula}, the following identity
 \[A'(x)=[1+A(x)]\cdot C'(x)\]

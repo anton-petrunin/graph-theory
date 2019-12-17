@@ -1931,4 +1931,81 @@ dOOOt origin,z.a,z.b,z.c,z.a-z.c,z.a-z.b,z.b-z.a,z.b-z.c,z.c-z.a,z.c-z.b,z.c-z.a
 
 endfig;
 
+beginfig(6)% Folkman graph
+save u, n;
+u:=1.5cm;
+n:=20;
+
+z0=(0,1)*u;
+
+for i=1 step 1 until 2*n:
+z[i]=z0 rotated (i*360/n);
+endfor
+
+draw circle(origin,z0) penbold;
+
+
+for i=0 step 1 until 4:
+%z[4*i]{z[4*i]}..z[4*i+7]{-z[4*i+7]}..z[4*i+14]{z[4*i+14]}..z[4*i+9]{-z[4*i+9]}..
+
+z.a[i]= z[4*i] zscaled (1,whatever)=z[4*i+7] zscaled (1,whatever);
+z.aa[i]=z[4*i] rotatedabout(z.a[i], 30);
+draw arc(z[4*i], z.aa[i],z[4*i+7]) penbold;
+
+z.b[i]= z[4*i+7] zscaled (1,whatever)=z[4*i+14] zscaled (1,whatever);
+z.bb[i]=z[4*i+7] rotatedabout(z.b[i], -10);
+draw arc(z[4*i+7], z.bb[i],z[4*i+14]) penbold;
+
+z.c[i]= z[4*i+14] zscaled (1,whatever)=z[4*i+9] zscaled (1,whatever);
+z.cc[i]=z[4*i+14] rotatedabout(z.c[i], -10);
+draw arc(z[4*i+14], z.cc[i],z[4*i+9]) penbold;
+
+z.d[i]= z[4*i+9] zscaled (1,whatever)=z[4*i+4] zscaled (1,whatever);
+z.dd[i]=z[4*i+9] rotatedabout(z.d[i], 10);
+draw arc(z[4*i+9], z.dd[i],z[4*i+4]) penbold;
+endfor
+
+
+dOOOt
+for i=1 step 1 until n:
+z[i],
+endfor;
+
+endfig;
+
+beginfig(7) %Grötzsch graph
+save u, k;
+u:=1cm;
+k:=2;
+
+z0=origin;
+
+z1=(0,1)*u;
+for i=2 step 1 until 20:
+z[i]=z1 rotated ((i-1)*360/5);
+endfor
+
+for i=1 step 1 until 6:
+draw z0--z[i] penbold;
+endfor
+
+draw
+for i=1 step 1 until 5:
+k*z[i]--
+endfor
+cycle penbold;
+
+draw
+for i=1 step 1 until 5:
+z[2*i]--k*z[2*i+1]--
+endfor
+cycle penbold;
+
+dOOOt z0,
+for i=1 step 1 until 5:
+z[i],k*z[i],
+endfor;
+
+endfig;
+%фрагментов Татта, Граф Хершеля, Граф Грёча
 end
