@@ -1605,6 +1605,32 @@ draw p2 pensemibold;
 dOt p2 intersectionpoint subpath(1,2) of p3;
 endfig;
 
+beginfig(116) 
+save u;
+u:=.7cm;
+
+z.O1=(-1,0)*u;
+z.O2=(1,0)*u;
+
+z.A1=origin rotatedabout(z.O1,72);
+z.B1=origin rotatedabout(z.O1,144);
+z.C1=origin rotatedabout(z.O1,-144);
+z.D1=origin rotatedabout(z.O1,-72);
+z.E=origin;
+
+z.A2=origin rotatedabout(z.O2,72);
+z.B2=origin rotatedabout(z.O2,144);
+z.C2=origin rotatedabout(z.O2,-144);
+z.D2=origin rotatedabout(z.O2,-72);
+
+draw z.A1--z.B1--z.C1--z.D1--z.E--cycle;
+draw z.A1--z.C1--z.E--z.B1--z.D1--cycle;
+draw z.A2--z.B2--z.C2--z.D2--z.E--cycle;
+draw z.A2--z.C2--z.E--z.B2--z.D2--cycle;
+
+dOt z.A1,z.B1,z.C1,z.D1,z.E,z.A2,z.B2,z.C2,z.D2;
+endfig;
+
 beginfig(117) 
 save u;
 u:=.57cm;

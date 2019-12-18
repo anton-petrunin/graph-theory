@@ -10,13 +10,13 @@ An {}\emph{optimization problem} typically asks to minimize weight of subgraph o
 A classical example is the so called \index{travelling salesman problem}\emph{travelling salesman problem}.
 It asks to find a Hamiltonian cycle with minimal weight (if it exists in the graph).
 
-No fast algorithm are known for this problem and it is expected that no fast algorithms.
+No fast algorithm are known for this problem and it is expected that no fast algorithm exists.
 We say {}\emph{fast} if the required time depends polynomially on the number of the vertexes in the graph.
-The best known algorithms require exponential time, which is just a bit better than checcking all possible Hamiltonian cycles and choosing one with minimal weight.
+The best known algorithms require exponential time, which is just a bit better than a brute force checking all possible Hamiltonian cycles.
 
-In fact the travelling salesman problem is a classical example of the so called {}\emph{NP-hard problems}; it means that if you find a fast algorithm to solve it, then you solve the \index{P=NP problem}\emph{P=NP problem}, which is the most important question in modern mathematics.
+In fact the traveling salesman problem is a classical example of the so called {}\emph{NP-hard problems}; it means that if you find a fast algorithm to solve it, then you solve the \index{P=NP problem}\emph{P=NP problem} --- the most important question in modern mathematics.
 
-The so called \index{nearest neighbour algorithm}\emph{nearest neighbour algorithm} gives a heuristic way to find a Hamilton cycle with small (but not necessary smallest weight).
+The so called \index{nearest neighbor algorithm}\emph{nearest neighbor algorithm} gives a heuristic way to find a Hamilton cycle with small (but not necessary smallest weight).
 In the following description, we assume that the graph is complete.
 \begin{enumerate}[(i)]
 \item Start at arbitrary vertex.
@@ -31,14 +31,14 @@ This way we walked along a Hamiltonian cycle.
 \includegraphics{mppics/pic-90}
 \end{wrapfigure}
 
-The nearest neighbour algorithm is an example of \index{greedy algorithm}\emph{greedy algorithms}; in other words, it chooses a cheapest step at each stage.
+The nearest neighbor algorithm is an example of \index{greedy algorithm}\emph{greedy algorithms}; in other words, it chooses a cheapest step at each stage.
 The cheap choices at the beginning might force to make expansive choices at the end,
 so it may not find an optimal solution. 
 In fact a greedy algorithm might give the worse solution.
-For example if we start from the vertex $a$ in the shown weighted graph, then nearest neighbour algorithm produce the cycle $abcd$ which is the worse solution --- this cycle has total weight $11=1+1+5+4$ and the other two  Hamiltonian cycles have weights $9$ and $10$.
+For example if we start from the vertex $a$ in the shown weighted graph, then nearest neighbor algorithm produce the cycle $abcd$ which is the worse --- this cycle has total weight $11=1+1+5+4$ and the other two  Hamiltonian cycles have weights $9$ and $10$.
 
 Let us list few other classical examples of optimization problems.
-Unlike the travelling salesman problem, there are fast algorithms which solve them.
+Unlike the traveling salesman problem, there are fast algorithms which solve them.
 \begin{itemize}
 \item The \index{shortest path problem}\emph{shortest path problem} asks for a path with minimal weight, connecting two given vertexes.
 It can be thought as optimal driving directions between two locations.
@@ -67,7 +67,7 @@ Show that $G$ has exactly one cycle.
 \end{thm}
 
 \begin{thm}{Theorem}\label{thm:mst-iff}
-Let $G$ be graph with weighted edges.
+Let $G$ be a graph with weighted edges.
 A spanning tree $T$ in $G$ has minimal weight if and only if
 \[\weight(T)\le \weight(T')\]
 for any neighbor $T'$ of $T$.
@@ -112,11 +112,11 @@ It remains to show the ``if'' part.
 Suppose that a spanning tree $T$ has minimal weight among its neighbors.
 Consider a minimum weight spanning tree $S$ in $G$;
 if there are more than one, then
-we assume in addition that $S$ has maximal possible number of common edges with $T$. 
+we assume in addition that $S$ shares with $T$ the maximal number of edges. 
 
 Arguing by contradiction, assume $T$ is not a minimum weight spanning tree;
 in this case $T\ne S$.
-Then there is an edge $s$ in $S$ that is not in~$T$.
+Then there is an edge $s$ in $S$, but not in~$T$.
 Let $t$ be an edge in $T$ provided by the lemma; in particular, 
 $S'=S-s+t$ and $T'=T+s-t$ are spanning trees.
 
@@ -232,7 +232,7 @@ Show that $f$ does not belong to $T$.
 
 \section*{Remarks}
 
-The NP-hardness of the travelling salesman problem follows from a result of Richard Karp \cite{karp}.
+The NP-hardness of the traveling salesman problem follows from a result of Richard Karp \cite{karp}.
 The discussed algorithms are named after Joseph Kruskal, Robert Prim and Otakar Borůvka.
 Joseph Kruskal also described the so called \emph{reverse-delete algorithm} \cite{kruskal} which is closely relevant to a solution of Exercise~\ref{ex:deleting-algorithm}.
 The Prim's algorithm was first discovered by Vojtěch Jarník,
