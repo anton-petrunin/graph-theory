@@ -73,9 +73,7 @@ A spanning tree $T$ in $G$ has minimal weight if and only if
 for any neighbor $T'$ of $T$.
 \end{thm}
 
-The proof is based on the following lemma.
-
-\begin{thm}{Lemma}
+\begin{thm}{Exchange lemma}
 Let $S$ and $T$ be spanning trees in a graph $G$.
 Then for any edge $s$ in $S$ that is not in $T$ there is an edge $t$ in $T$, but not in $S$ such that the subgraphs
 \[S'=S-s+t\quad\text{and}\quad T'=T+s-t\]
@@ -117,7 +115,7 @@ we assume in addition that $S$ shares with $T$ the maximal number of edges.
 Arguing by contradiction, assume $T$ is not a minimum weight spanning tree;
 in this case $T\ne S$.
 Then there is an edge $s$ in $S$, but not in~$T$.
-Let $t$ be an edge in $T$ provided by the lemma; in particular, 
+Let $t$ be an edge in $T$ provided by the exchange lemma; in particular, 
 $S'=S-s+t$ and $T'=T+s-t$ are spanning trees.
 
 Since $T'$ is a neighbor of $T$, we have 

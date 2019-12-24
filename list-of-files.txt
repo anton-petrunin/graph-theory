@@ -1,3 +1,6 @@
+graph-theory.ind
+list-of-files.txt
+my-book.sty
 library.bib
 graph-theory.tex
 graph-theory.bbl
@@ -6,10 +9,7 @@ pics/by-sa.eps
 definitions.tex
 probability.tex
 mppics/pic-21.mps
-mppics/pic-21.mps
 mppics/pic-22.mps
-mppics/pic-22.mps
-mppics/pic-23.mps
 mppics/pic-23.mps
 mppics/pic-24.mps
 deletion-contraction.tex
