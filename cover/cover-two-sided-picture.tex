@@ -2,6 +2,7 @@
 \usepackage{rotating}
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage[margin=0cm]{geometry}
+\usepackage[T1]{fontenc}
 
 \setlength{\unitlength}{1in}
 \setlength{\fboxsep}{0mm}
@@ -15,7 +16,7 @@
 %,cropmarks, cropframe
 ]{zwpagelayout}%0.125" + 6" + 84*0.002252" + 6" + .125" = 12.689168 
 \linespread{1}
-\definecolor{mycolor}{HTML}{868A08}%{5d793a}%{RGB}{0,190,190}%{250,205,25}%{100, 149, 237}
+\definecolor{mycolor}{HTML}{868A08}%{5d793a}%{RGB}{0,190,190}%{100, 149, 237}{RGB}{250,205,25}%
 \pagecolor{mycolor}
 
 \usepackage{letltxmacro}
@@ -40,13 +41,13 @@
 \begin{document}
 \begin{picture}(10, 0)(1.25,8.125)
 
-\put(8.5,8){{\hbox{
-\hspace{3em}\parbox{.3\textwidth}{\begin{center}
-        \ttfamily\bfseries\Huge  Extra pearls in graph theory                           
+\put(7.6,7.9){{\hbox{
+\hspace{3em}\parbox{.4\textwidth}{\begin{center}
+        \ttfamily\bfseries\fontsize{1.2cm}{1.4cm}\selectfont  Extra pearls in graph theory                           
                                   \end{center}
 }}}}
 
-\put(9.9,7.3){\ttfamily\large Anton Petrunin}
+\put(9.6,7.1){\ttfamily\large Anton Petrunin}
 
 \put(7,.5){\ttfamily  \textsc{second edition}
 }
