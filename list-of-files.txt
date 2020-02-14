@@ -66,4 +66,3 @@ mppics/pic-71.mps
 pics/Rado_graph.eps
 mppics/pic-72.mps
 appendix.tex
-graph-theory.ind
