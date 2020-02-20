@@ -351,6 +351,8 @@ Graph $Q_4$ is shown on the diagram.
 Note that each vertex of $Q_n$ has degree $n$.
 
 
+Recall that \index{distance}\emph{distance} between two vertexes in a graph $G$ is the length of a shortest path connecting the vertexes. The maximal distance between vertexes in $G$ is called \index{diameter}\emph{diameter} of $G$.
+ 
 \begin{thm}{Exercise}
 Show that the diameter of $Q_n$ is $n$. 
 \end{thm}
@@ -367,28 +369,30 @@ However, it is hard to construct such a set explicitly.
 Instead, we will show that if one chooses that many vertexes randomly, then they lie far from each other with a positive probability.
 To choose a random vertex in $Q_n$, one can toss a coin $n$ times, each time writing 1 for a head and 0 for a tail and then take the vertex labeled by the obtained sequence.
 
-The following exercise guides you to a solution of the problem above.
+The following exercise guides you to a solution of the problem.
 The same argument shows that for any coefficient $k<\tfrac12$, the maximal number of vertexes in $Q_n$ on the distance larger than $k\cdot n$ from each other grows exponentially in $n$.
-According to Exercise~\ref{ex:lin-Qn}, the picture is very different for $k= \tfrac12$.
+According to Exercise~\ref{ex:lin-Qn}, the case $k= \tfrac12$ is very different.
 
 \begin{thm}{Exercise}
 Let $P_n$ denote the probability that randomly chosen vertexes in $Q_n$ lie with the distance $\le\tfrac n3$ between them.
 \begin{enumerate}[(a)]
-\item Use Claim~\ref{clm:coin} to show that 
-\[P_n<0.95^n.\]
 
-\item Assume $k$ vertexes  $v_1,\dots ,v_k$ in $Q_n$ are fixed. 
-Show that the probability that a random vertex $v$ lies on a distance larger than $\tfrac n3$ from each of $v_i$ is at least $1-k\cdot P_n$.
+\item\label{Pn} Use Claim~\ref{clm:coin} to show that 
+\[P_n<.95^n.\]
+
+\item\label{kPn} Assume $k$ vertexes  $v_1,\dots ,v_k$ in $Q_n$ are fixed and $v$ is a random vertex.
+Show that $k\cdot P_n$ is the average number of vertexes $v_i$ that lies on a distance $\le\tfrac n3$ from $v$.
+Conclude that $v$ lies on a distance larger than $\tfrac n3$ from each of $v_i$ with probability at least $1-k\cdot P_n$.
 
 
-\item Conclude that there are at least $1.05^n$ vertexes in $Q_n$ on a distance larger than $\tfrac n3$ from each other.
+\item Apply \ref{Pn} and \ref{kPn} to show that there are at least $1.05^n$ vertexes in $Q_n$ on a distance larger than $\tfrac n3$ from each other.
 \end{enumerate}
 \end{thm}
 
 
 \begin{thm}{Claim}\label{clm:coin}
 The probability $P_n$ to obtain less than one third heads after $n$ fair tosses of a coin decays exponentially in $n$;
-in fact $P_n<0.95^n$ for any $n$.
+in fact $P_n<.95^n$ for any $n$.
 \end{thm}
 
 In the proof, we will use the following observation.
@@ -417,7 +421,7 @@ Let us introduce independent $n$ random variables $X_1,\z\dots X_n$;
 each $X_i$ returns the number of heads after $i$-th toss of the coin;
 in particular, each $X_i$ takes values $0$ or $1$ with the probability of $\tfrac12$ each.
 We need to show that the probability $P_n$ of the event $X_1+\dots+X_n\le\tfrac n3$ is less than 
-$0.95^n$.
+$.95^n$.
 
 Consider the random variable 
 \[Y=2^{-X_1-\dots-X_n};\]
@@ -436,13 +440,13 @@ Since the random variables $X_i$ are independent, we have that
 \[y=\left(\tfrac34\right)^n.\]
 
 It follows that 
-\[P_n\le \left(\tfrac34\cdot 2^{\frac13}\right)^n< 0.95^n.\]
+\[P_n\le \left(\tfrac34\cdot 2^{\frac13}\right)^n< .95^n.\]
 \qedsf
 
 \pagebreak[1]
 \begin{thm}{Advanced exercise}\label{ex:lin-Qn}
 \begin{enumerate}[(a)]
-\item Show that $Q_n$ contains at most $2\cdot n$ vertexes on a distance at least $\tfrac n2$ from each other. 
+\item Show that $Q_n$ contains at most $2\cdot n$ vertexes on a distance at least $\tfrac n2$ from each other.%\footnote{In fact the equality holds if and only if $n$ is a power of 2.}
 \item Show that $Q_n$ contains at most $n+1$ vertexes on a distance larger than $\tfrac n2$ from each other. 
 \end{enumerate}
 \end{thm}
