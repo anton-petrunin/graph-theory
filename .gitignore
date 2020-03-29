@@ -14,7 +14,12 @@ www/*
 *.out
 *.ilg
 *.toc
+*.bbl
+*.bcf
+*.blg
+*.dep
 *.patch
 *.kilepr
 */*.zip
+.kile/*
 
