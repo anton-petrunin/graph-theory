@@ -341,7 +341,7 @@ Denote by $d$ the degree of the last vertex in $G$.
 
 Assume $d=0$.
 Then $G$ is not connected and therefore $s(G)=0$.
-On the other hand, the sum in each row of $M_G$ vanish (compare to Exercise~\ref{ex:sum-kirchhoff}).
+On the other hand, the sum in each row of $M_G$ vanishes (compare to Exercise~\ref{ex:sum-kirchhoff}).
 Hence the sum of all columns in $M_G$ vanish;
 in particular, the columns in $M_G$ are linearly dependent and hence $\det M_G=0$.
 Hence the equality \ref{eq:matrix-formula} holds if $d=0$.
@@ -356,7 +356,7 @@ As usual, we denote by $p$ and $q$ the number of vertexes and edges in $G$; by t
 
 Assume $p=2$; that is, $G$ has two vertexes and $q$ parallel edges connecting them.
 Clearly, $s(G)=q$.
-Further note that $M_G=(q)$; that is,  the Kirchhoff minor $M_G$ is a $1{\times}1$ matrix with single component $q$.
+Further note that $M_G=(q)$; that is,  the Kirchhoff minor $M_G$ is a $1{\times}1$ matrix with a single component $q$.
 In particular, $\det M_G=q$ and therefore the equality \ref{eq:matrix-formula} holds.
 
 Assume the equality \ref{eq:matrix-formula} does not hold in general;
@@ -456,7 +456,7 @@ a_3&b_3&c_3
 \right).\]
 However, the properties described above give a more convenient and faster way to calculate the determinant, especially for larger values~$n$.
 
-Let us show it on one example which will be needed in the next section.
+Let us show it in one example which will be needed in the next section.
 \begin{align*}
 \det\left(
 \begin{matrix}
@@ -621,7 +621,7 @@ Use the matrix theorem to show that
 
 \section*{Remarks}
 
-There is strong connection between counting spanning trees of a given graph,
+There is a strong connection between counting spanning trees of a given graph,
 calculations of currents in an electric chain 
 and random walks; a good survey is given in the book of Peter Doyle and Laurie Snell \cite{doyle-snell}. Let us give some examples.
 
@@ -632,7 +632,7 @@ The following procedure calculates the current $I_e$ along a given edge $e$.
 
 Fix an orientation of $e$.
 Note that any spanning tree $T$ of $G$ has exactly one the following three properties:
-(1) the edge $e$ appears on the (necessary unique) path from $a$ to $b$ in $T$ with a positive orientation,
+(1) the edge $e$ appears on the (necessarily unique) path from $a$ to $b$ in $T$ with a positive orientation,
 (2) the edge $e$ appears on the path from $a$ to $b$ in $T$ with a negative orientation,
 (3) the edge $e$ does not appear on the path from $a$ to $b$ in $T$.
 Denote by $s_+$, $s_-$, and $s_0$ the number of the trees in each group.
@@ -645,7 +645,7 @@ This statement can be proved by checking Kirchhoff's rules for the currents calc
 There are many other applications of Kirchhoff's rules to graph theory.
 For example, in \cite{levi}, they were used to prove the Euler's formula
 \[p-q+r=2,\]
-where $p$, $q$, and $r$ denote the number of vertexes, edges and regions of in a plane drawing of graph.
+where $p$, $q$, and $r$ denote the number of vertexes, edges and regions in a plane drawings of graphs.
 
 
 

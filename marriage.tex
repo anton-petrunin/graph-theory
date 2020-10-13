@@ -61,7 +61,7 @@ Consider the subgraph $H$ of $G$ formed by all edges in $M$ and $M'$.
 Note that each component of $H$ is either an $M$-alternating path or a cycle.
 Each cycle in $H$ has the same number of edges from $M$ and $M'$.
 Since $|M'|>|M|$, the one component of $H$ has to be a path that starts and ends by an edge in $M'$.
-Evidently such path is $M$-augmenting.
+Evidently such a path is $M$-augmenting.
 \qeds
 
 \section*{Marriage theorem}
@@ -274,7 +274,7 @@ The following exercise will guide you thru the proof.
 
 \begin{thm}{Exercise}\label{ex:monotree}
 Suppose $G$, $N$, $M$, $p$, $n$, and $m$ are as in the theorem.
-Denote by $m'$ the  the number of components in $N$.
+Denote by $m'$ the number of components in $N$.
 \begin{enumerate}[(a)]
 \item\label{ex:monotree:m'+n=p} Show that $N$ contains no paths of length 3 and no triangle.
 Conclude that each component of $N$ is a \index{star}\emph{star};
@@ -313,7 +313,7 @@ Denote by $m$ the maximal number of oriented paths from $s$ to $t$ which do not 
 Denote by $n$ the minimal number of edges one can remove from $G$ to disconnect $t$ from $s$; more precisely, after removing $n$ edges from $G$, there will be no oriented path from $s$ to~$t$.
 
 Let $P_1, \dots, P_m$ be a maximal collection of oriented paths from $s$ to $t$ which have no common edges.
-Note that in order to disconnected $t$ from $s$, we have to cut at least one edge in each path $P_1, \dots, P_m$.
+Note that in order to disconnect $t$ from $s$, we have to cut at least one edge in each path $P_1, \dots, P_m$.
 In particular, $n\ge m$.
 
 Consider the new orientation on $G$ where each path $P_i$ is oriented backwards --- from $t$ to $s$.
@@ -384,7 +384,7 @@ Think of each path $P_1,\dots,P_m$, and $Q$ like water pipelines from $s$ to $t$
 \end{figure}
 At each overlap of $Q$ with another path $P_i$, the water in $P_i$ and $Q$ runs the opposite directions.
 So we can cut the overlapping edges and reconnect the open ends of the pipes to each other while keeping the water flow from $s$ to $t$ unchanged.
-As the result, we get $m+1$ pipes form $s$ to $t$ with no common edges and possibly some cycles which we can discard.
+As a result, we get $m+1$ pipes from $s$ to $t$ with no common edges and possibly some cycles which we can discard.
 An example of this procedure for two paths $P_1$ and $Q$ is shown on the diagram;
 as above, $P_1$ is marked by a solid line and $Q$ is marked by a dashed line.
 
