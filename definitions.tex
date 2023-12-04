@@ -53,13 +53,10 @@ We say that a vertex $x$ is \index{incident}\emph{incident} with an edge $e$ if 
 
 \section*{Wolf, goat, and cabbage}
 
-Usually we visualize the vertexes of a graph by points
-and its edges are represented by a line connecting two vertexes.
+Тhe vertexes and edges of the graph might have a very different nature.
+As an example, let us consider the following classic puzzle.
 
-However, the vertexes and edges of the graph might have a very different nature.
-As an example, let us consider the following classic problem.
-
-\begin{thm}{Problem}
+\begin{thm}{Puzzle}
 A farmer purchased a wolf, a goat, and a cabbage;
 he needs to cross a river with them.
 He has a boat, but he can carry only himself and a single one of his purchases: the wolf, the goat, or the cabbage.
@@ -100,11 +97,11 @@ each edge is labeled by the transported purchase.
    (1) edge node[auto]{$g$}(2)
    (2) edge node{}(3)
    (3) edge node[auto]{$c$}(4)
-   (3) edge node[auto]{$w$}(5)
-   (5) edge node[auto]{$g$}(6)
+   (5) edge node[auto]{$w$}(3)
+   (6) edge node[auto]{$g$}(5)
    (4) edge node[auto]{$g$}(7)
    (7) edge node[auto]{$w$}(8)
-   (6) edge node[auto]{$c$}(8)
+   (8) edge node[auto]{$c$}(6)
    (8) edge node[auto]{}(9)
    (9) edge node[auto]{$g$}(10);
 \end{tikzpicture}
@@ -117,20 +114,41 @@ assuming that the farmer does not want to repeat the same position twice.
 
 Often, a graph comes with an extra structure; for example, labeling of edges and/or vertexes as in the example above.
 
-Here is a small variation of another classic problem.
+Formally speaking, the described graph representation can be applied to nearly any puzzle.
+However, it might be impossible to apply due to a huge number of states and transitions;
+think of Rubik's cube or the 15 puzzle.
 
-\begin{thm}{Problem} Missionaries and cannibals must cross a river using a boat which can carry at most two people, under the constraint that, for both banks, if there are missionaries present on the bank, they cannot be outnumbered by cannibals; otherwise the missionaries will be eaten.
+Here is a small variation of another classic puzzle.
+
+\begin{thm}{Puzzle} Four issionaries and four cannibals must cross a river using a boat which can carry at most two people, under the constraint that, for both banks, if there are missionaries present on the bank, they cannot be outnumbered by cannibals; otherwise the missionaries will be eaten.
 The boat cannot cross the river by itself with no people on board.
 \end{thm}
 
-Let us introduce a notation to describe the positions of the missionaries, cannibals, and the boat on the banks.
+Let us introduce a notation to describe the states and and transitions in this puzzle.
 The river will be denoted by ${\parallel}$;
 let $*$ denote the boat, we will write the number of cannibals on each side of ${\parallel}$, and the number of missionaries by subscript. 
 For example, $4_2^*{\parallel}0_2$ means that on the left bank we have four cannibals, two missionaries, and the boat (these two missionaries will be eaten), and on the right bank there are no cannibals and two missionaries.
 
 \begin{thm}{Exercise}
-Assume four missionaries and four cannibals need to cross the river; in other words, the beginning stage is $4_4^*{\parallel}0_0$.
-Draw a graph for all possible positions which can be achieved.
+Here is a part of the corresponding graph.
+Finish it and conclude that the puzzle has no solutions.
 
-Conclude that all of them can not cross the river.
+\begin{center}
+\begin{tikzpicture}[scale=1.8,
+  thick,main node/.style={circle,draw,font=\sffamily\bfseries,minimum size=1mm}]
+  \node[main node] (1) at (0,0) {{\small${4^*_4}{\parallel}{0_0}$}};
+  \node[main node] (2) at (1,-1){{\small${2_4}{\parallel}{2^*_0}$}};
+  \node[main node] (3) at (0,-1){{\small${3_3}{\parallel}{1^*_1}$}};
+  \node[main node] (4) at (1,-2){{\small${3^*_4}{\parallel}{1_0}$}};
+    \node[main node] (5) at (-1,-1){{\small${3_4}{\parallel}{1^*_0}$}};
+  \path[every node/.style={font=\sffamily\small}]
+   (1) edge node[auto]{$2_0$}(2)
+   (3) edge node[auto]{$1_1$}(1)
+   (5) edge node[auto]{$1_0$}(1)
+   (4) edge node[auto]{$0_1$}(3)
+   (2) edge node[auto]{$1_0$}(4);
+\end{tikzpicture}
+\end{center}
+
 \end{thm}
+

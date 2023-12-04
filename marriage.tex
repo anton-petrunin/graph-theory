@@ -66,16 +66,17 @@ Evidently such a path is $M$-augmenting.
 
 \section*{Marriage theorem}
 
-Assume that $G$ is a graph and $S$ is a set of its vertexes.
+Assume that $G$ is a graph and $S$ is a subset of its vertex set.
 We say that a matching $M$ of $G$ {}\emph{covers} $S$ if any vertex in $S$ is incident to an edge in $M$.
 
 Given a set of vertexes $W$ in a graph $G$, the set $W'$ of all vertexes  adjacent to at least one of vertexes in $W$ will be called the \index{set of neighbors}\emph{set of neighbors} of $W$.
 Note that if $G$ is a bigraph and $W$ lies in the left part, then $W'$ lies in the right part. 
 
 \begin{thm}{Marriage theorem}
-Let $G$ be a bigraph with the left and right parts $L$ and $R$.
-Then $G$ has a matching which covers $L$ if and only if for any subset $W\subset L$ the set $W'\subset R$ of all neighbors of $W$ contains at least as many vertexes as $W$; that is, 
-\[|W'|\ge |W|.\] 
+Let $L$ and $R$ be the left and right parts of a bigraph $G$.
+There is a matching that covers $L$ if and only if for any $W\subset L$, we have 
+\[|W'|\ge |W|\]
+where $W'\subset R$ is the set of all neighbors of $W$.
 
 \end{thm}
 
