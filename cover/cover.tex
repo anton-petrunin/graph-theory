@@ -1,0 +1,103 @@
+%Lualatex+needs P22UndergroundCYBookSC.tt and P22-Underground-Reg.ttf
+\documentclass[
+coverheight=9in,
+coverwidth=6in,
+spinewidth=.449168in,
+bleedwidth=.125in,
+marklength=0in,
+markcolor=black]{bookcover}
+
+\usepackage{xcolor}
+\usepackage{background}
+\usepackage{blindtext}
+\usepackage{fontspec}
+
+\newbookcoverpart{pfront}{
+\setpartposx{\marklength+\bleedwidth+\spinewidth+\coverwidth+10mm}
+\setpartposy{\marklength+\bleedwidth+10mm}
+\setpartheight{\coverheight-20mm}
+\setpartwidth{\coverwidth-20mm}
+\settrimmedpart{0mm}{0mm}{0pt}{0pt}
+}
+
+\newbookcoverpart{pback}{
+\setpartposx{\marklength+\bleedwidth+10mm}
+\setpartposy{\marklength+\bleedwidth+10mm}\setpartheight{\coverheight-20mm}
+\setpartwidth{\coverwidth-20mm}
+\settrimmedpart{0mm}{0mm}{0pt}{0pt}
+}
+
+\begin{document}
+
+\begin{bookcover}
+
+\definecolor{mycolor}{HTML}{868A08}%{HTML}{41758A}%{92A42C}%{5E4BA4}%{3A73D5}%{250,205,25}
+\bookcovercomponent{color}{bg whole}{mycolor}
+%\bookcovercomponent{center}{bg whole}{\includegraphics{fon}}
+
+\setmainfont{P22-Underground-Reg}
+
+
+
+
+\bookcovercomponent{normal}{pfront}{
+\begin{flushright}
+{\color{white}\fontsize{42}{48}\selectfont
+Extra pearls in\\ graph theory
+}
+\\[4mm]
+{\color{white}\fontsize{15}{48}\selectfont
+Anton Petrunin
+}
+\vfill
+\includegraphics{../mppics/pic-5}
+\end{flushright}
+}
+
+\setmainfont{P22UndergroundCYBookSC}
+
+\bookcovercomponent{normal}{pfront}{
+\begin{flushleft}
+\vfill
+{\color{white}\fontsize{10}{48}\selectfont
+second edition\\
+forth printing}
+\end{flushleft}
+
+}
+
+\setmainfont{P22-Underground-Reg}
+
+\bookcovercomponent{normal}{pback}{
+\begin{flushleft}
+\parbox{.35\textwidth}{
+\color{white}\fontsize{10}{14}\selectfont
+This is a supplement for ``Pearls in graph theory'' --- a textbook written by Nora Hartsfield and Gerhard Ringel.
+We discuss the following topics:
+\begin{itemize}
+\item Ramsey theory
+\item Probabilistic method
+\item Deletion-contraction formulas
+\item Matrix theorem
+\item Graph-polynomials 
+\item Generating functions
+\item Minimum spanning trees
+\item Marriage theorem and its relatives 
+\item Toroidal graphs
+\item Rado graph
+\item Rewriting systems
+\end{itemize}
+}
+\\
+\vfill
+\includegraphics{../mppics/pic-7} 
+\\[6mm]
+\color{white}\fontsize{10}{14}\selectfont
+arXiv:1812.06627v12
+\\[1mm]
+anton-petrunin.github.io/graph-theory/
+\end{flushleft}
+}
+
+\end{bookcover}
+\end{document}

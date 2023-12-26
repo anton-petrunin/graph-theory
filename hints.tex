@@ -1,0 +1,541 @@
+\backmatter
+
+\chapter{Hints}
+
+
+\raggedcolumns\setlength{\multicolsep}{10mm}
+\spell{\begin{multicols}{2}}{}
+
+\refstepcounter{chapter}
+\setcounter{eqtn}{0}
+
+\parbf{\ref{ex:cannibals}.}
+Here is a part of the needed graph.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.8,
+  thick,main node/.style={circle,draw,font=\sffamily\bfseries,minimum size=1mm}]
+  \node[main node] (1) at (0,0) {{\small${4^*_4}{\parallel}{0_0}$}};
+  \node[main node] (2) at (1,-1){{\small${2_4}{\parallel}{2^*_0}$}};
+  \node[main node] (3) at (0,-1){{\small${3_3}{\parallel}{1^*_1}$}};
+  \node[main node] (4) at (1,-2){{\small${3^*_4}{\parallel}{1_0}$}};
+    \node[main node] (5) at (-1,-1){{\small${3_4}{\parallel}{1^*_0}$}};
+  \path[every node/.style={font=\sffamily\small}]
+   (1) edge node[auto]{$2_0$}(2)
+   (3) edge node[auto]{$1_1$}(1)
+   (5) edge node[auto]{$1_0$}(1)
+   (4) edge node[auto]{$0_1$}(3)
+   (2) edge node[auto]{$1_0$}(4);
+\end{tikzpicture}
+\end{center}
+
+\refstepcounter{chapter}
+\setcounter{eqtn}{0}
+
+\parbf{\ref{ex:r(2,n)}.}
+Use the following observation:
+\textit{if there is no blue $K_2$, then all edges are red.}
+
+\parbf{\ref{ex:K8+K17}.} 
+Assuming such a subgraph exists.
+Fix a vertex $v$.
+Note that we can assume that the subgraph contains $v$; otherwise rotate it.
+In each case, draw the subgraph induced by the vertices connected to $v$.
+(If uncertain, see definition of \textit{induced subgraph}.)
+
+\refstepcounter{chapter}
+\setcounter{eqtn}{0}
+
+\parbf{\ref{ex:number(ham-cycles)}.}
+Show that $K_{100}$ has $\tfrac{99!}2$ Hamiltonian cycles.
+Find the probability $P$ that that a given Hamiltonian cycle is monochromatic.
+Show that $N\cdot P$ is the expected number of Hamiltonian cycles.
+Estimate $N\cdot P$; you can use
+Stirling's inequality
+\[n!>\sqrt{2\cdot \pi\cdot n}\cdot \left(\frac{n}{e}\right)^n.\]
+
+\parbf{\ref{ex:Qn-dist};} \textit{\ref{Pn}}.
+Use that the distance between two vertices is the number of different digits in their sequences.
+
+\parit{\ref{kPn}}. Use that expected value of sum is the sum of expected values. 
+
+\parit{\ref{ex:Qn-dist:end}}. Show and use that $1.05\cdot0.95<1$.
+
+\parbf{\ref{ex:lin-Qn};} \textit{\ref{ex:lin-Qn:n+1}}.
+Identify the vertices of $Q_n$ by $n$-dimensional vectors with $\pm1$ components.
+Observe that two vertices $v$ and $w$ are at a distance $>\tfrac n2$ if and only if $\langle v,w\rangle <0$;
+here $\langle\ ,\ \rangle$ denotes the scalar product (also known as dot product).
+
+Suppose $v_1,\dots,v_k$ are $n$-dimensional vectors such that $\langle v_i,v_j\rangle <0$ if $i< j$.
+Denote by $w_i$ the projection of $v_i$ to the hyperplane perpendicular to $v_k$.
+Show that $\langle w_i,w_j\rangle <0$ if $i<j<k$.
+Apply it with induction by $k$.
+
+\parit{\ref{ex:lin-Qn:2n}}
+Choose a hyperplane $H$ thru the center of the cube that does not pass thru any vertices of the cube.
+It subdivides the vertices in our set into two collections.
+
+Project one of these collection to $H$ and argue as in \textit{\ref{ex:lin-Qn:n+1}} to show that it has at most $n$ vertices.
+
+\parit{Remark.}
+The equality in \textit{\ref{ex:lin-Qn:2n}} holds only if $n$ is a power of 2.
+Try to prove it.
+
+\parbf{\ref{ex:prob(isom)}.} Identify vertices of $H$ and $G_n$.
+Calculate probability that $H=G_n$; it gives the first inequality.
+Note that there are $n!$ ways to identify vertices of $H$ and $G_n$;
+it implies the second inequality.
+
+The first inequality becomes equality if permuting vertices of $H$ gives the same graph.
+There only two graphs of that type; try to find both.
+
+The second inequality becomes equality if $H$ has no symmetries;
+that is, there is no nontrivial permutation of vertices that induces an isomorphism from $H$ to itself.
+Try to construct such a graph with 10 vertices.
+
+\parbf{\ref{ex:diam=2}.}
+Let $P_n$ be the probability that two vertices $v$ and $w$ in $G_n$ cannot be connected by a path of length $2$.
+
+Find $P_n$.
+Show that $\binom n2\cdot P_n$ is the expected number of such pairs.
+Apply Markov's inequality.
+You should get that a typical graph has diameter at most 2.
+
+Finally, find probability that $G_n$ has diameter $<2$.
+Make a conclusion.
+
+\parbf{\ref{ex:typ(K100)}.}
+Denote by $P$ the probability that the subgraph induced by $100$ vertices in $G_n$ is $K_{100}$;
+note that $P>0$.
+
+Choose disjoint 100-element subsets $S_1,\dots,S_k$ of vertices in $G_n$.
+We may assume that $k>\tfrac n{100}-1$; in particular, $k\to \infty$ as $n\to \infty$.
+
+Show that probability that at least one of $S_i$ induces a subgraph isomorphic to $K_{100}$ is at least 
+\[1-(1-P)^k.\]
+Make a conclusion.
+
+\refstepcounter{chapter}
+\setcounter{eqtn}{0}
+
+\parbf{\ref{ex:bridge}.}
+Show and use that any spanning tree of $G$ contains the bridge.
+
+\parbf{\ref{ex:zig-zag}.}
+Use induction on $n$ and/or mimic the proof of \ref{thm:fans} with the following analogs of $Z_n$:
+
+\begin{Figure}
+\centering
+\includegraphics{mppics/pic-371}
+\end{Figure}
+
+\begin{wrapfigure}{r}{20 mm}
+\vskip-4mm
+\centering
+\includegraphics{mppics/pic-39}
+\end{wrapfigure}
+
+\parbf{\ref{ex:ladder}.}
+To construct the recursive relation, in addition to the ladders $L_n$, you will need two of its analogs --- $L_n'$ and $L_n''$, shown on the diagram.
+
+\parbf{\ref{ex:wheel}.} Start with a spoke of the wheel.
+The diagram will contain wheels, and several analogs of fans.
+
+\refstepcounter{chapter}
+\setcounter{eqtn}{0}
+
+\parbf{\ref{ex:n(walks)}.}
+Apply induction on $n$.
+
+\parbf{\ref{ex:Kirchhoff-row}.}
+Use property \ref{3} on page \pageref{3}.
+
+\parbf{\ref{ex:minor>graph}.}
+Revert the steps of the construction of the Kirchhoff minor.
+(Since the Kirchhoff minor is $5{\times}5$, 
+the graph should have 6 vertices.)
+
+\parbf{\ref{ex:sum-kirchhoff}.}
+Apply \ref{ex:Kirchhoff-row}.
+
+\parbf{\ref{ex:K33W6Q3}.}
+Apply the construction of Kirchhoff minor.
+
+\parbf{\ref{ex:det}.}
+Apply property \ref{3} twice and property \ref{2} (see page \pageref{3}).
+
+\parbf{\ref{ex:s(Kp-e)}.}
+We can assume that $e$ connects the last two vertices of $K_p$.
+In this case
+\[
+M=\left(
+\begin{matrix}
+p{-}1&-1&\cdots&-1
+\\
+-1&\ddots&\ddots&\vdots
+\\
+\vdots&\ddots&p{-}1&-1
+\\
+-1&\cdots&-1&p{-}2
+\end{matrix}
+\right)
+\]
+is the Kirchhoff minor of $K_p-e$.
+It remains to find $\det M$.
+
+Follow the calculations in the proof of the Cayley formula.
+
+\parbf{\ref{ex:s(Kmn)}.}
+Note that
+\[
+M=
+\left(
+\begin{matrix}
+3&0&0&0&-1&-1
+\\
+0&3&0&0&-1&-1
+\\
+0&0&3&0&-1&-1
+\\
+0&0&0&3&-1&-1
+\\
+-1&-1&-1&-1&4&0
+\\
+-1&-1&-1&-1&0&4
+\end{matrix}
+\right)\]
+is a Kirchhoff minor of $K_{4,3}$.
+
+First, show that $\det M=3^3\cdot 4^2$,
+and then generalize the argument to $K_{m,n}$.
+
+\refstepcounter{chapter}
+\setcounter{eqtn}{0}
+
+\parbf{\ref{ex:PG=PHPH}.}
+Use that the subgrahs $H_1$ and $H_2$ can be colored independently.
+
+\parbf{\ref{ex:PWn}.} Let $v$ be the center of $W_n$.
+Suppose we have $x+1$ choices for color of $v$;
+once this choice is made, the rest of $W_n-v$ has to be colored in the remaining $x$ colors.
+Show and use that each such coloring corresponds to a coloring of $C_n$ in $x$ colors. 
+
+\parbf{\ref{ex:PGpqn}.} 
+By \ref{thm:chromatic-polynomial}, $P_G$ is a monic polynomial of degree $p$.
+Show that $P_H(0)=0$ for any connected graph $H$.
+Use \ref{ex:PG=PHPH} to show that for any $k<n$ the coefficient of $P_G$ in front of $x^k$ vanish.
+
+To show that $a_{p-1}=q$,
+use the deletion-minus-contraction formula in an induction on $q$.
+
+\parbf{\ref{ex:P(tree)}.} The only-if part follows from \ref{ex:PTCpFnLn}\ref{ex:PTCpFnLn:tree}.
+For the if part, apply \ref{ex:PGpqn} to show that $G$ is connected, has $p$ vertices and $p-1$ edges.
+Make a conclusion.
+
+\parbf{\ref{ex:chrom(K_p)}.} Apply the induction on $p$.
+
+\parbf{\ref{ex:P=nonisom}.} Use \ref{ex:PTCpFnLn}\ref{ex:PTCpFnLn:tree}.
+
+\parbf{\ref{ex:MG=MHMH}.} Use that the matchings in $H_1$ and $H_2$ can be chosen independently.
+
+\parbf{\ref{ex:matchings}.} Use the definition of $M_G$.
+
+\parbf{\ref{ex:deletion-deletion-total};}
+\textit{\ref{ex:deletion-deletion}.}
+Show and use that 
+$$m_n(G)=m_n(G-e)+m_{n-1}(G-[e]).$$
+
+\parit{\ref{ex:deletion-deletion-K}.}
+Apply it $p$ times to all edges at one vertex of $K_p$.
+
+\parbf{\ref{ex:SG}.} Use the definition of $S_G$.
+
+\parbf{\ref{ex:S(Kp)}.}
+Calculate $N=\tfrac{\partial^{k-1} }{\partial x_1^{k-1}}S_{K_n}(0,1,\dots,1)$ using the expression for $S_{K_n}$ given in Theorem~\ref{thm:spanning-tree-polynomial} and determine how much a tree with degree $d$ at the first vertex contributes to the value $N$.
+
+\parbf{\ref{ex:S(Kmn)}.}
+Modify the proof of Theorem~\ref{thm:spanning-tree-polynomial}.
+
+\refstepcounter{chapter}
+\setcounter{eqtn}{0}
+
+\parbf{\ref{ex:B=xA}+\ref{ex:B=xA'}.} Apply the definition of exponential generating function.
+
+\parbf{\ref{ex:exp(Fn)}.}
+For \textit{\ref{ex:exp(Fn):F''}},
+apply the definitions of Fibonacci numbers and exponential generating function.
+
+For \textit{\ref{ex:exp(Fn):F(x)}}, solve the differential equation in \textit{\ref{ex:exp(Fn):F''}} and use that $f_0=f_1=1$.
+
+For \textit{\ref{ex:exp(Fn):Binet}}, use the Taylor expansion 
+\[e^x=1+\tfrac x{1!}+\tfrac {x^2}{2!}+\tfrac {x^3}{3!}+\dots\]
+
+\parbf{\ref{ex:perfect-matching}.} 
+Apply \ref{ex:deletion-deletion-total}\textit{\ref{ex:deletion-deletion-K}}.
+
+\parbf{\ref{ex:an+nan-1}.}
+Apply \ref{ex:deletion-deletion-total}\textit{\ref{ex:deletion-deletion-K}} for $x=1$.
+
+\parbf{\ref{ex:ex:2-factor};} \textit{\ref{ex:2-factor:cn}.}
+Enumerate the vertices of $K_n$.
+Choose a cycle and list the numbers of the vertices in the order they appear on the cycle after $n$.
+Count all possible orders.
+Show and use that we have exactly two different orders for one cycle.
+
+\refstepcounter{chapter}
+\setcounter{eqtn}{0}
+
+\parbf{\ref{ex:neighbor-trees}.}
+Suppose $G$ is a minimal connected graph with two cycles;
+that is, removing an edge or a vertex from $G$ makes it disconnected or reduces the number of cycles.
+
+Show that $G$ contains two spanning trees that are not neighbors.
+Use it to prove the general case.
+
+\parbf{\ref{ex:w>2w}.} Denote the two weights by $\weight_1$ and $\weight_2$.
+Suppose $T$ is a spanning tree and $T'$ is its neighbor. 
+Show that 
+\begin{align*}
+\weight_1(T)&\le \weight_1(T')
+\\
+&\Updownarrow
+\\
+\weight_2(T)&\le \weight_2(T').
+\end{align*}
+Apply \ref{thm:mst-iff}.
+
+\parbf{\ref{ex:PB}.} Apply \ref{thm:mst-iff}.
+
+\parbf{\ref{ex:KPB}.}
+Compare the number of edges that have to be checked in each algorithm.
+Note that the organization of data might give an essential difference.
+Think which steps could be done parallelly (say, on different computers).
+
+
+\parbf{\ref{ex:deleting-algorithm}.}
+Part \textit{\ref{ex:deleting-algorithm:a}} should be evident.
+For part \textit{\ref{ex:deleting-algorithm:b}}, use \ref{thm:mst-iff}.
+
+\parit{\ref{ex:deleting-algorithm:c}.}
+Start to walk from an arbitrary vertex without coming back.
+Stop at the end vertex or at the first vertex that was visited twice.
+Decide what to do in each case and start over.
+
+\refstepcounter{chapter}
+\setcounter{eqtn}{0}
+
+\parbf{\ref{ex:bigraph-matching}.} Show and use that $P$ has odd length.
+
+\parbf{\ref{ex:1-factor};} \textit{\ref{ex:1-factor:a}.}
+Note that a 1-factor is a matching.
+Apply \ref{thm:marriage}.
+
+\parit{\ref{ex:1-factor:b}.}
+Remove the 1-factor provided by \textit{\ref{ex:1-factor:a}}. Apply \textit{\ref{ex:1-factor:a}} again and again.
+
+\parit{Remark.}
+If $r=2^n$ for an integer $n\ge 1$, then $G$ has an Euler's circuit. 
+Note that the total number of edges in $G$ is even, so we can delete all odd edges from the circuit.
+The obtained graph $G'$ is regular with degree $2^{n-1}$.
+Repeating the described procedure recursively $n$ times, 
+we will end up with a 1-factor of $G$.
+
+There is a tricky way to make this idea work for arbitrary $r$, not necessarily a power of $2$; 
+it was discovered by Noga Alon [see \ncite{alon} and also \ncite{kalai}]. 
+
+\parbf{\ref{ex:no-1-factor}.}
+Assume the graph, say $G$, has a matching.
+Then the central vertex $v$ is matched with one of its three neighbors, say $w$.
+Show and use that $G-v-w$ has even number of vertices in each connected component.
+
+\parbf{\ref{ex:kids}.}
+Consider the bigraph with vertices labeled by rows and countries.
+Connect a row-vertex to a country-vertex if a kid from the corresponding county stands in the corresponding row.
+Try to apply \ref{thm:marriage}.
+
+\parbf{\ref{ex:sons(king)}.}
+Consider the bigraph with vertices labeled by 23 old parts and 24 new parts.
+Connect an old-part vertex to a new-part vertex if the corresponding parts overlap.
+Try to apply \ref{thm:marriage}.
+
+\parbf{\ref{ex:nxn-table}.}
+Consider the bigraph with vertices labeled by rows and columns.
+Connect a row vertex to a column vertex if a positive number stands in the common cell.
+Try to apply \ref{thm:marriage}.
+
+\parbf{\ref{ex:camel17}.}
+Add $s$ boys that everyone likes.
+Apply \ref{thm:marriage} and remove these $s$ boys.
+
+\parbf{\ref{ex:two-paths}.}
+Assume that two $M$-alternating paths starting from $l$ and $r$ can have a common vertex~$v$.
+Show and use that there is an $M$-alternating paths starting from $l$ to $r$.
+
+\parbf{\ref{ex:rooks}.} Consider the bigraph with a vertex for each column and row.
+Connect a row vertex to a column vertex if their common cell is marked.
+Apply \ref{thm:vertex-cover}.
+
+\parbf{\ref{ex:min-cut-marriage}.} 
+Let $m$ be the minimal number of edges one can remove from $\hat G$ 
+so that there will be no directed path from $s$ to $t$.
+Show that the assumptions in \ref{thm:marriage} imply that $m=|L|$.
+Construct a bijection between directed paths from $s$ to $t$ in $\hat G$ 
+corresponds to an edge in to an edge in $G$.
+Apply \ref{thm:mincut}.
+
+\refstepcounter{chapter}
+\setcounter{eqtn}{0}
+
+\parbf{\ref{ex:crossing1}.}
+Attach a small handle to the sphere so that one edge can go thru it over the crossing.
+
+\parbf{\ref{ex:toroidal-graphs}.}
+\textit{(a)}
+Modify the diagram for $K_7$.
+
+\parit{(b)}+\textit{(c)} Start with the following square diagrams and draw the remaining edges.
+\vskip2mm
+\includegraphics{mppics/pic-119}
+\hskip5mm
+\includegraphics{mppics/pic-118}
+
+\parbf{\ref{ex:nonplanar-toroidal}.}
+Suppose that $\Delta$ is a nonsimple region in the drawing.
+Cut $\Delta$ from the sphere and glue instead a disc or two to get a sphere.
+
+
+\parbf{\ref{ex:toroidal-girth}.}
+Show that $q\ge 2\cdot r$ and apply
+\ref{thm:euler>=}.
+
+\parbf{\ref{ex:K5-torus}.}
+Assume it is possible.
+Show that the drawing has 5 squares.
+Try to glue 5 squares to each other side-to-side to obtain a torus. 
+
+\parbf{\ref{ex:forbidden-minors}.}
+Show that the answers are $K_{1,5}$ and $K_4-e$.
+
+\parbf{\ref{ex:nontoroidal}.}
+Formally, one needs to show that deletion and contraction of every edge makes the graph toroidal.
+(Indeed, deleting a vertex produces a minor in a graph after deleting an edge.)
+But the graph has many symmetries.
+It reduces the number of cases to four:
+two deletions and two constructions.
+
+\parbf{\ref{ex:K6moebius}.} 
+Make a Möbius strip; better use transparent paper.
+Redraw the diagram on the strip and try to draw the remaining 6 edges.
+
+\begin{Figure}
+\centering
+\includegraphics{mppics/pic-125}
+\end{Figure}
+
+\refstepcounter{chapter}
+\setcounter{eqtn}{0}
+
+\parbf{\ref{ex:rado-infty}.}
+Assume it is finite,
+then apply the definition including all the vertices in $V\cap W$. 
+
+
+\parbf{\ref{ex:rado-diam}.}
+Apply the definition for $V=\emptyset$ and a single vertex in $V$.
+Conclude that the diameter is at least 2.
+
+Choose two vertices $x$ and $y$.
+Apply the definition for $V=\{x,y\}$ and $W=\emptyset$.
+Conclude that there is a path of length 2 from $x$ to $y$,
+and therefore the diameter is at most 2.
+
+\parbf{\ref{ex:rado-partition}.}
+Let $P$ and $Q$ be the induced subgraphs in the Rado graph $R$.
+Assume $P$ is not Rado; that is, there is a pair of finite vertex sets $V$ and $W$ in $P$, such that any vertex $v$ in $R$ that meet the Rado property for $V$ and $W$ does not lie in $P$ (and therefore it lies in~$Q$).
+Use $V$ and $W$ to show that $Q$ is Rado.
+
+\parbf{\ref{ex:R-e-v-rev}+\ref{ex:rado-link}+\ref{ex:rado-costructive}.}
+Check the definition in each case.
+For \ref{ex:rado-costructive}, use the binary numeral system.
+
+
+\parbf{\ref{ex:rado-path10}.}
+Argue as in \ref{thm:rado-subgraph}.
+
+\parbf{\ref{ex:rado-isom-generalization}.}
+Find how to weaken the conditions at the odd steps of the construction.
+
+\parbf{\ref{ex:Rv>w}.}
+Apply \ref{thm:rado-isom}.
+
+\parbf{\ref{ex:finite-subgraphs}.}
+Show and use that the graphs have the same number of vertices and edges.
+
+\parbf{\ref{ex:rado-radnom}.}
+Choose two finite subsets of vertices $V$ and~$W$, and a vertex $v\notin V\cup W$.
+Show that $v$ satisfies the definition with a fixed positive probability $\beta$.
+Conclude that the definition holds with probability 1.
+
+Finally, use that there is only countably many of choices for $V$ and $W$.
+
+\parbf{\ref{ex:x+1}.}
+Use the order 
+\[1\prec 2\prec 4\prec 3\prec 6\prec 5\prec 8\prec 7\prec\dots\]
+
+\parit{Remark.}
+Proving that a given rewriting system is terminating might be difficult.
+For example,
+it is unknown if the following system is terminating:
+the vertex set formed by all positive integers and the rules $x\to \tfrac x2$ if $x$ is even and $x\to 3\cdot x+1$ if $x>1$ is add.
+This is the so-called $(3\cdot x+1)$-problem.
+
+\parbf{\ref{ex:balls}.}
+Consider the following order on pairs of integers:
+$(m,n)\succ(m',n')$ in two cases: if $m>m'$, or if $m=m'$ and $n>n'$.
+(In fact it is the lexicographic or on pairs.)
+Apply this order assuming that the pair $(m,n)$ describes a box with $m$ white balls and $n$ black balls.
+
+\parbf{\ref{ex:ab>ba,aba>}.}
+Use the shortlex order.
+
+\parbf{\ref{ex:complete}.}
+\textit{\ref{ex:complete:a}} It is terminating but not confluent.
+
+\parit{Remark.} Note that the systems in \ref{em:baaba>a}, \ref{em:baaba>a,baaa>aaba}, and \textit{\ref{ex:complete:a}} have the same equivalence relation $\sim$.
+The Knuth--Bendix procedure that led us from \ref{em:baaba>a} to \ref{em:baaba>a,baaa>aaba} lasts indefinitely, but all new relations that arise have the form
+\[bb(ab)^{m}aaa\to a(ba)^m.\]
+All of them, taken at $m=0,1,2,\dots$ together with the relation $aaba\to baaa$, form a complete system.
+
+\begin{wrapfigure}{r}{20 mm}
+\vskip-2mm
+\centering
+\begin{tikzpicture}[node distance=1.3cm, auto]
+\node (x) {$cba$};
+\node (y) [right of=x] {$bca$};
+\node (zz) [below of=x, node distance=.9cm] {$cab$};
+\node (v) [below of=y, node distance=.9cm] {$abc$};
+\draw[->] (x) to (zz);
+\draw[->] (x) to (y);
+\draw[->,decorate,decoration=zigzag] (y) to (v);
+\draw[->,decorate,decoration=zigzag] (zz) to (v);
+\end{tikzpicture}
+\end{wrapfigure}
+
+\parit{\ref{ex:complete:b}}
+Use lexicographic order to show that the system is terminating.
+For confluence, check the following diagram and show that this is the only thing to check.
+
+
+\parit{\ref{ex:complete:c}}
+Note that each rule shortens the word.
+Use it to show that the system is terminating.
+
+There are 6 possible overlaps here, but they are all of the same type.
+It is sufficient to consider one word $xXx$.
+
+\parit{Remark.}
+А discerning reader could notice that this example describes a free group of rank 3;
+capital letters correspond to inverses. 
+
+\spell{\end{multicols}}{}
+\newpage
