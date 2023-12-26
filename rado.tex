@@ -1,41 +1,45 @@
 \chapter{Rado graph}
 
 In this chapter, we consider one graph with many surprising properties.
-Unlike most of the graphs we considered so far, this graph has an infinite set of vertexes.
+Unlike most of the graphs we have considered so far, this graph has an infinite set of vertices.
 
-\section*{Definition}
+\section{Definition}
 
 Recall that a set is \index{countable set}\emph{countable} if it can be enumerated by natural numbers $1,2,\dots$;
 it might be infinite or finite.
 
-A \index{countable graph}\emph{countable graph} is a graph with a countable set of vertexes;
-the set of vertexes can be infinite or finite, but it can not be empty since we always assume that a graph has a nonempty set of vertexes.
+A \index{countable graph}\emph{countable graph} is a graph with a countable set of vertices;
+the set of vertices can be infinite or finite, but it cannot be empty since we always assume that a graph has a nonempty set of vertices.
 
 
 \begin{thm}{Definition}
 A \index{Rado graph}\emph{Rado graph} is a countable graph satisfying the following property:
 
-Given two finite disjoint sets of vertexes $V$ and $W$, there exists a
+Given two finite disjoint sets of vertices $V$ and $W$, there exists a
 vertex $v\notin V\cup W$ that is adjacent to any vertex in $V$ and nonadjacent to any vertex in $W$.
 \end{thm}
 
-The property in the definition will be called the \index{Rado property}\emph{Rado property}; so we can say that \emph{for the sets of vertexes $V$ and $W$ in a graph, the Rado property holds} or \emph{does not hold}.
+The property in the definition will be called the \index{Rado property}\emph{Rado property}; so we can say that \textit{for the sets of vertices $V$ and $W$ in a graph, the Rado property holds} or \textit{does not hold}.
 
-\begin{thm}{Exercise}
-Show that any Rado graph has an infinite number of vertexes. 
+\begin{thm}{Exercise}\label{ex:rado-infty}
+Show that any Rado graph has an infinite number of vertices. 
 \end{thm}
 
-\begin{thm}{Exercise}
+\begin{thm}{Exercise}\label{ex:rado-diam}
 Show that any Rado graph has diameter 2.
 \end{thm}
 
-\section*{Stability}
+\section{Stability}
 
 The following exercises show that the Rado property is very stable --- 
-small changes can not destroy it.
+small changes cannot destroy it.
 
+\begin{thm}{Exercise}\label{ex:rado-partition}
+Assume the set of vertices of a Rado graph is partitioned into two subsets.
+Show that the subgraph induced by one of these subsets is Rado.
+\end{thm}
 
-\begin{thm}{Exercise}
+\begin{thm}{Exercise}\label{ex:R-e-v-rev}
 Let $R$ be a countable graph. 
 \begin{enumerate}[(a)]
  \item Assume  $e$ is an edge in $R$. 
@@ -51,42 +55,33 @@ Let $R$ be a countable graph.
 
 \end{thm}
 
-\begin{thm}{Exercise}
-Assume the set of vertexes of a Rado graph is partitioned into two subsets.
-Show that the subgraph induced by one of these subsets is Rado.
-\end{thm}
-
-\parit{Hint:} Let $P$ and $Q$ be the induced subgraphs in the Rado graph $R$.
-Assume $P$ is not Rado; that is, there is a pair of finite vertex sets $V$ and $W$ in $P$, such that any vertex $v$ in $R$ that meet the Rado property for $V$ and $W$ does not lie in $P$ (and therefore it lies in~$Q$).
-Use the pair of sets $V$ and $W$ to show that $Q$ is Rado.
-
-\begin{thm}{Exercise}
+\begin{thm}{Exercise}\label{ex:rado-link}
 Let $R$ be a Rado graph.
-Assume that $Z$ is the set of all vertexes in $R$ adjacent to a given vertex $z$.
+Assume that $Z$ is the set of all vertices in $R$ adjacent to a given vertex $z$.
 Show that the subgraph induced by $Z$ is Rado.
 \end{thm}
 
 
-\section*{Existence}
+\section{Existence}
 
 \begin{thm}{Theorem}
-There is a Rado graph.
+There exists a Rado graph.
 \end{thm}
 
 \parit{Proof.}
 Let $G$ be a finite graph.
 Denote by $G'$ the graph obtained from $G$ according to the following rule:
-for each subset $V$ of vertexes in $G$ add a vertex $v$ and connect it to all the vertexes in $V$.
+for each subset $V$ of vertices in $G$ add a vertex $v$ and connect it to all the vertices in $V$.
 
-Note that if $G$ has $p$ vertexes, then $G'$ has $p+2^p$ vertexes --- it has $p$ vertexes of $G$ and $2^p$ additional vertexes --- one for each of $2^p$ subsets of the $p$-element set (including the empty set).
+Note that if $G$ has $p$ vertices, then $G'$ has $p+2^p$ vertices --- it has $p$ vertices of $G$ and $2^p$ additional vertices --- one for each of $2^p$ subsets of the $p$-element set (including the empty set).
 
 The original graph $G$ is an induced subgraph in $G'$.
-Note also that $G'$ is finite --- it has $p+2^p$ vertexes.
+Note also that $G'$ is finite --- it has $p+2^p$ vertices.
 
-By construction, the Rado property holds in $G'$ for any two sets $V$ and $W$ of vertexes in $G$ --- the required vertex $v$ is the vertex in $G'$ that corresponds to the subset $V$.
+By construction, the Rado property holds in $G'$ for any two sets $V$ and $W$ of vertices in $G$ --- the required vertex $v$ is the vertex in $G'$ that corresponds to the subset $V$.
 
 Let $G_1$ be a graph with one vertex.
-\begin{figure}[h!]%{r}{20 mm}
+\begin{figure}[ht!]%{r}{20 mm}
 \vskip-0mm
 \centering
 \includegraphics{mppics/pic-71}
@@ -96,22 +91,22 @@ By repeating the construction, we get a sequence of graphs
 $G_1, G_2,G_3,\dots$,
 such that $G_{n+1}=G_n'$ for any~$n$.
 The graphs $G_1, G_2,G_3$ are shown on the diagram.%
-\footnote{It would be hard to draw $G_4$ since it contains $1+2^1+2^{3}+2^{11}=2059$ vertexes, and 
-it is impossible to draw $G_5$ --- it has $1+2^1\z+2^{3}\z+2^{11}+2^{2059}$ vertexes which exceeds by many orders the number of particles in the observable universe.}
+\footnote{It would be hard to draw $G_4$ since it contains $1+2^1+2^{3}+2^{11}=2059$ vertices, and 
+it is impossible to draw $G_5$ --- it has $2059+2^{2059}$ vertices which exceeds by many orders the number of particles in the observable universe.}
 
 Since $G_n$ is a subgraph of $G_{n+1}$ for any $n$, we can consider the union of the graphs in the sequence $(G_n)$; denote it by $R$.
-By construction, each graph $G_n$ is a subgraph $R$ induced by finitely many vertexes.
+By construction, each graph $G_n$ is a subgraph of $R$ induced by finitely many vertices.
 Moreover,  any vertex or edge of $R$ belongs to any $G_n$ with a sufficiently large~$n$.
 
-Note that $R$ is Rado.
-Indeed, any two finite sets of vertexes $V$ and $W$ belong to $G_n$ for some $n$.
+It remains to show that $R$ is Rado.
+Indeed, any two finite sets of vertices $V$ and $W$ belong to $G_n$ for some $n$.
 From above, the Rado property holds for $V$ and $W$ in $G_{n+1}$, and therefore in $R$.
 \qeds
 
 \parbf{Another construction.}
-One could also construct a Rado graph by directly specifying which vertexes are adjacent.
-Namely, consider the graph $R$ as on the diagram with vertexes $r_0,r_1,\dots$
-\begin{figure}[h!]%{r}{45 mm}
+One could also construct a Rado graph by directly specifying which vertices are adjacent.
+Namely, consider the graph $R$ as on the diagram with vertices $r_0,r_1,\dots$
+\begin{figure}[ht!]%{r}{45 mm}
 \centering
 \begin{lpic}[t(-0 mm),b(0 mm),r(0 mm),l(0 mm)]{pics/Rado_graph(.5)}
 \lbl[]{5.5,39;$r_0$}
@@ -131,14 +126,14 @@ For instance,  vertex $r_0$ is adjacent to all $r_n$ with odd $n$, because the n
 Vertex $r_1$ is adjacent to $r_0$ (since 1 is odd) and to all $r_n$ with $n\equiv 2$ or $3 \pmod 4$;
 and so on.
 
-\begin{thm}{Exercise}
+\begin{thm}{Exercise}\label{ex:rado-costructive}
 Show that the described graph is Rado.
 \end{thm}
 
 
-\section*{Uniqueness}
+\section{Uniqueness}
 
-In this section we will prove that any two Rado graphs are isomorphic, so essentially there is only one Rado graph.
+In this section, we will prove that any two Rado graphs are isomorphic, so essentially, there is only one Rado graph.
 First, let us prove a simpler statement.
 
 \begin{thm}{Theorem}\label{thm:rado-subgraph}
@@ -147,25 +142,27 @@ Then any countable graph $G$ (finite or infinite) is isomorphic to an induced su
 \end{thm}
 
 \parit{Proof.}
-Enumerate the vertexes of $G$ as $v_1 , v_2 , \dots$ (the sequence might be finite or infinite).
+Enumerate the vertices of $G$ as $v_1 , v_2 , \dots$ (the sequence might be finite or infinite).
 
-It is sufficient to construct a sequence $r_1,r_2,\dots$ of vertexes in $R$ such that $r_i$ is adjacent to $r_j$ if and only if $v_i$ is adjacent to $v_j$.
+It is sufficient to construct a sequence $r_1,r_2,\dots$ of vertices in $R$ such that $r_i$ is adjacent to $r_j$ if and only if $v_i$ is adjacent to $v_j$.
 In this case, the graph $G$ is isomorphic to the subgraph of $R$ induced by $\{r_1,r_2\dots\}$.
 
 We may choose any vertex of $R$ as $r_1$.
 Suppose that the sequence $r_1,\dots,r_n$ is constructed.
-If $G$ has $n$ vertexes, then the required sequence is already constructed.
-Otherwise note that the Rado property implies that there is a vertex $r_{n+1}$ in $R$ that is adjacent to $r_i$ for $i\le n$ if and only if $v_{n+1}$ is adjacent to $v_i$.
+If $G$ has $n$ vertices, then the required sequence is already constructed.
+Otherwise, note that the Rado property implies that there is a vertex $r_{n+1}$ in $R$ that is adjacent to $r_i$ for $i\le n$ if and only if $v_{n+1}$ is adjacent to $v_i$.
 
 Clearly, the new vertex $r_{n+1}$ meets all the required properties.
 Repeating this procedure infinitely many times, or until the sequence $(v_n)$ terminates, produces the required sequence $(r_n)$.
 \qeds
 
 
-\begin{thm}{Exercise} Show that any two vertexes in a Rado graph can be connected by a path of length 10. \end{thm}
+\begin{thm}{Exercise}\label{ex:rado-path10}
+Show that any two vertices in a Rado graph can be connected by a path of length 10.
+\end{thm}
 
 
-\begin{thm}{Theorem}
+\begin{thm}{Theorem}\label{thm:rado-isom}
 Any two Rado graphs $R$ and $S$ are isomorphic.
 
 Moreover any isomorphism $f_0\:S_0\to R_0$ between finite induced subgraphs in $R$ and $S$ can be extended to an isomorphism $f\:S\z\to R$.
@@ -176,21 +173,21 @@ For finite graphs these two properties would imply that the graphs are isomorphi
 As the following example shows, it does not hold for infinite graphs.
 It is instructive to understand this example before going into the proof.
 
-\begin{figure}[h!]%{r}{20 mm}
+\begin{figure}[ht!]%{r}{20 mm}
 \vskip-0mm
 \centering
 \includegraphics{mppics/pic-72}
 \vskip-0mm
 \end{figure}
  
-The first graph $T$ on the diagram has an infinite number of vertexes, non of which has degree 3.
+The first graph $T$ on the diagram has an infinite number of vertices, non of which has degree 3.
 The second graph $T'$ has exactly one vertex of degree 3. 
-Therefore these two graphs are not isomorphic.
+Therefore, these two graphs are not isomorphic.
 
-Deleting the marked vertexes from one graph produces the other one. 
-Therefore $T$ is isomorphic to a subgraph of $T'$ and the other way around.
+Deleting the marked vertices from one graph produces the other one. 
+Therefore, $T$ is isomorphic to a subgraph of $T'$ and the other way around.
 
-The proof below uses the same construction as in the proof of Theorem~\ref{thm:rado-subgraph}, but it is applied \textit{back and forth} to ensure that the constructed subgraphs contain all the vertexes of the original graph.
+The proof below uses the same construction as in the proof of Theorem~\ref{thm:rado-subgraph}, but it is applied \textit{back and forth} to ensure that the constructed subgraphs contain all the vertices of the original graph.
 
 
 \parit{Proof.}
@@ -198,52 +195,52 @@ Once we have proved the second statement,
 the first statement will follow if you apply it to single-vertex subgraphs $R_0$ and $S_0$.
 
 Since the graphs are countable,
-we can enumerate the vertexes of $R$ and $S$, as $r_1 , r_2 , \dots$ and $s_1, s_2,\dots$ respectively. 
+we can enumerate the vertices of $R$ and $S$, as $r_1 , r_2 , \dots$ and $s_1, s_2,\dots$, respectively. 
 We will construct a sequence of induced subgraphs $R_n$ in $R$ and $S_n$ in $S$ with a sequence isomorphisms $f_n\:R_n\to S_n$.
 
 Suppose that an isomorphism $f_n\:R_n\to S_n$ is constructed. 
 
 If $n$ is even, set $m$ to be the smallest index such that $r_m$ not in $R_n$.
 The Rado property guarantees that there is a vertex $s_k$ such that for any vertex $r_i$ in $R_n$, $s_k$ is adjacent to $f_n(r_i)$ if and only if $r_m$ is adjacent to $r_i$.
-Set $R_{n+1}$ to be the graph induced by vertexes of $R_n$ and $r_m$;
-further set $S_{n+1}$ to be the graph induced by vertexes of $S_n$ and $s_k$.
+Set $R_{n+1}$ to be the graph induced by vertices of $R_n$ and $r_m$;
+further set $S_{n+1}$ to be the graph induced by vertices of $S_n$ and $s_k$.
 The isomorphism $f_n$ can be extended to the isomorphism $f_{n+1}\:R_{n+1}\to S_{n+1}$ by
 setting $f_{n+1}(r_m)=s_k$.  
 
 If $n$ is odd, we do the same, but backwards.
 Let $m$ be the smallest index such that $s_m$ not in $S_n$.
 The Rado property guarantees that there is a vertex $r_k$ which is adjacent to a vertex $r_i$ in $R_n$ if and only if $f_n(r_i)$ is adjacent to $s_m$.
-Set $R_{n+1}$ to be the graph induced by vertexes of $R_n$ and $r_k$;
-further set $S_{n+1}$ to be the graph induced by vertexes of $S_n$ and $s_m$.
+Set $R_{n+1}$ to be the graph induced by vertices of $R_n$ and $r_k$;
+further set $S_{n+1}$ to be the graph induced by vertices of $S_n$ and $s_m$.
 The isomorphism $f_n$ can be extended to the isomorphism $f_{n+1}\:R_{n+1}\to S_{n+1}$ by
 setting $f_{n+1}(r_k)=s_m$.
 
 Note that if $f_n(r_i)=s_j$, then $f_m(r_i)=s_j$ for all $m\ge n$.
-Therefore we can define $f(r_i)=s_j$ if $f_n(r_i)=s_j$ for some $n$.
+Therefore, we can define $f(r_i)=s_j$ if $f_n(r_i)=s_j$ for some $n$.
 
 
 By construction we get that 
 \begin{itemize}
-\item $f_n(r_i)$ is defined for any $n>2\cdot i$. Therefore $f$ is defined at any vertex of $R$.
+\item $f_n(r_i)$ is defined for any $n>2\cdot i$. Therefore, $f$ is defined at any vertex of $R$.
 \item $s_j$ lies in the range of $f_n$ for any $n>2\cdot j$.
-Therefore the range of $f$ contains all the vertexes of $S$.
+Therefore, the range of $f$ contains all the vertices of $S$.
 \item $r_i$ is adjacent to $r_j$ if and only if $f(r_i)$ is adjacent to $f(r_j)$.
 \end{itemize}
-Therefore $f\:R\to S$ is an isomorphism.
+Therefore, $f\:R\to S$ is an isomorphism.
 \qeds
 
-\begin{thm}{Exercise}
-Explain how to modify the proof of theorem above to prove the following theorem.
+\begin{thm}{Exercise}\label{ex:rado-isom-generalization}
+Explain how to modify the proof of \ref{thm:rado-isom} to prove the following theorem.
 \end{thm}
 
 
 \begin{thm}{Theorem}
 Let $R$ be a Rado graph.
-A countable graph $G$ is isomorphic to a spanning subgraph of $R$ if and only if, given any finite set $V$ of vertexes of $G$, there is a vertex $w$ that is not adjacent to any vertex in $V$.
+A countable graph $G$ is isomorphic to a spanning subgraph of $R$ if and only if, given any finite set $V$ of vertices of $G$, there is a vertex $w$ that is not adjacent to any vertex in $V$.
 \end{thm}
 
-\begin{thm}{Exercise}
-Let $v$ and $w$ be two vertexes in a Rado graph $R$.
+\begin{thm}{Exercise}\label{ex:Rv>w}
+Let $v$ and $w$ be two vertices in a Rado graph $R$.
 Show that there is an isomorphism from $R$ to itself that sends $v$ to $w$.
 \end{thm}
 
@@ -255,43 +252,43 @@ Show that $G$ is isomorphic to $H$.
 \end{thm}
 
 
-\section*{The random graph}
+\section{The random graph}
 
-The following theorem explains why a Rado graph is also named {}\emph{random graph}.
+The following theorem explains why a Rado graph is also named \textit{the random graph}.
 
 \begin{thm}{Theorem}\label{thm:the-random-graph}
-Assume an infinite countable graph is chosen at random 
-by choosing an edge, independently and with probability $\tfrac12$ for each pair of vertexes.
-Then, with probability 1, the resulting graph Rado.
+Suppose $V$ is an infinite countable set of vertices.
+Let us connect each pair in $V$ by an edge independently and with probability $\tfrac12$.
+Then, with probability 1, we obtain a Rado graph.
 \end{thm}
 
 \parit{Proof.}
-It is sufficient to show that for two given finite sets of vertexes $V$ and $W$, the Rado property fails with probability 0.
+It is sufficient to show that for two given finite sets of vertices $V$ and $W$, the Rado property fails with probability 0.
 
-Assume $n=|V|+|W|$; that is, $n$ is the total number of vertexes in $V$ and $W$.
+Assume $n=|V|+|W|$; that is, $n$ is the total number of vertices in $V$ and $W$.
 The probability that a given vertex $v$ outside of $V$ and $W$ satisfies the Rado property for $V$ and $W$
 is $\tfrac1{2^n}$.
-Therefore probability that a given vertex $v$ does {}\emph{not} satisfy this property
+Therefore, probability that a given vertex $v$ does \textit{not} satisfy this property
 is $1-\tfrac1{2^n}$.
 
 Note that events that a given vertex does not satisfy the property are independent.
-Therefore the probability that $N$ different vertexes $v_1,\dots,v_N$ outside of $V$ and $W$ do not satisfy the Rado property for $V$ and $W$ is 
+Therefore, the probability that $N$ different vertices $v_1,\dots,v_N$ outside of $V$ and $W$ do not satisfy the Rado property for $V$ and $W$ is 
 \[(1-\tfrac1{2^n})^N.\]
 This value tends to 0 as $N \to \infty$; 
 therefore the event that no vertex is correctly joined has probability 0.
 \qeds
 
-\begin{thm}{Exercise}
+\begin{thm}{Exercise}\label{ex:rado-radnom}
 Let $0<\alpha<1$.
 Assume an infinite countable graph is chosen at random by selecting edges independently with probability $\alpha$ from the set of 2-element subsets of the vertex set.
 Show that with probability 1, the resulting graph is a Rado graph.
 \end{thm}
 
-\section*{Remarks}
+\section{Remarks}
 
-The {}\emph{Rado graph} is also called the \emph{Erd\H{o}s–R\'enyi graph} or \emph{random graph};
+The {}\emph{Rado graph} is also called the \index{Erd\H{o}s–R\'enyi graph}\emph{Erd\H{o}s–R\'enyi graph} or \index{random graph}\emph{random graph};
 it was first discovered by Wilhelm Ackermann, rediscovered later by
-Paul Erd\H{o}s and Alfr\'ed R\'enyi and yet by Richard Rado. 
+Paul Erd\H{o}s and Alfr\'ed R\'enyi, and yet again by Richard Rado. 
 An analogous object in metric geometry was discovered much earlier by Pavel Urysohn. 
 
 Theorem \ref{thm:the-random-graph} was proved by Paul Erd\H{o}s and Alfr\'ed R\'enyi.

@@ -1,5 +1,6 @@
 \chapter{Introduction}
-\section*{Terminology}
+
+\section{Terminology}
 
 \begin{wrapfigure}{r}{33 mm}
 \begin{tikzpicture}[scale=1.4,
@@ -16,44 +17,45 @@
    (2) edge[bend left] (12)
    (2) edge[bend right] (12)
    (2) edge (11)
-   (11) edge (12)
-   (12) edge (12);
+   (11) edge (12);
 \end{tikzpicture}
 \end{wrapfigure}
 
 The diagram on the right may describe regular flights of an airline.
-It has six flights which serve four airports labeled by $a$, $b$, $c$, and~$d$.
+It has six flights,  which serve four airports labeled by $a$, $b$, $c$, and~$d$.
 
-For this and similar type of data, mathematicians use the notion of \index{pseudograph}\emph{pseudograph}.
+For this and similar types of data, mathematicians use the notion of a \index{pseudograph}\emph{pseudograph}.
 
-Formally, a pseudograph is a finite nonempty set of \index{vertex}\emph{vertexes}  (in our example a vertex is an airport) 
-and a finite collection of \index{edge}\emph{edges}; each edge connects two vertexes (in the example above, an edge is a regular flight).
-A pair of vertexes can be connected by a few edges, such edges are called \index{parallel edges}\emph{parallel} (in our example, it might mean that the airline makes few flights a day between these airports). 
-Also, an edge can connect a vertex to itself, such an edge is called a \index{loop}\emph{loop} (we might think of it as a sightseeing flight).
+Formally, a pseudograph is a finite nonempty set of \index{vertex}\emph{vertices}  (in our example a vertex is an airport) 
+and a finite collection of \index{edge}\emph{edges}; each edge connects two vertices (in the example above, an edge is a regular flight).
+A pair of vertices can be connected by multiple edges;
+such edges are called \index{parallel edges}\emph{parallel}
+(in our example, it might indicate that the airline operates multiple flights a day between these airports). 
+Also, an edge can connect a vertex to itself; such an edge is called a \index{loop}\emph{loop} (we might think of it as a sightseeing flight).
 
-Thus, from a mathematical point of view, the diagram above describes an example of a pseudograph with vertexes $a$, $b$, $c$, $d$, and 
-six edges, among them is one loop at $c$ and a pair of parallel edges between $b$ and $d$.
+Thus, from a mathematical point of view, the diagram above describes a pseudograph with vertices $a$, $b$, $c$, $d$, and 
+six edges, including one loop at $c$ and a pair of parallel edges between $b$ and $d$.
 
 \smallskip
 
-The number of edges coming from one vertex is called its \index{degree}\emph{degree}, the loops are counted twice.
+The number of edges coming from one vertex is called its \index{degree}\emph{degree}; loops are counted twice.
 In the example above,
-the degrees of $a,b,c,$ and $d$ are $1,4,4,$ and $3$ respectively.
+the degrees of $a,b,c,$ and $d$ are $1,4,4,$ and $3$, respectively.
 
-A vertex with zero degree is called \index{isolated vertex}\emph{isolated} and a vertex of degree one is called an \index{end vertex}\emph{end vertex}.
+A vertex with zero degree is called \index{isolated vertex}\emph{isolated}, and a vertex of degree one is called an \index{end vertex}\emph{end vertex}.
 
 \smallskip
 
-A pseudograph without loops is also called a \index{multigraph}\emph{multigraph}.
-A multigraph without parallel edges is also called a \index{graph}\emph{graph}.
+A pseudograph without loops is also called a \index{multigraph}\emph{multigraph},
+and a multigraph without parallel edges is also called a \index{graph}\emph{graph}.
 Most of the time we will work with graphs.
 
-If $x$ and $y$ are vertexes of a pseudograph $G$, we say that $x$ is \index{adjacent}\emph{adjacent} to $y$ if there is an edge between $x$ and $y$.
+If $x$ and $y$ are vertices of a pseudograph $G$, we say that $x$ is \index{adjacent}\emph{adjacent} to $y$ if there is an edge between $x$ and $y$.
 We say that a vertex $x$ is \index{incident}\emph{incident} with an edge $e$ if $x$ is an end vertex of $e$.
 
-\section*{Wolf, goat, and cabbage}
+\section{Wolf, goat, and cabbage}
 
-Тhe vertexes and edges of the graph might have a very different nature.
+Тhe vertices and edges of the graph might have very different nature.
 As an example, let us consider the following classic puzzle.
 
 \begin{thm}{Puzzle}
@@ -74,7 +76,7 @@ For example, $wc{\parallel}{*}g$ means that the wolf and cabbage are on the left
 {\sloppy
 
 The starting position is $wgc{*}{\parallel}$; that is, everyone is on the left bank.
-The following graph describes all possible positions which can be achieved;
+The following graph describes all possible positions that can be achieved;
 each edge is labeled by the transported purchase.
 
 }
@@ -108,11 +110,11 @@ each edge is labeled by the transported purchase.
 \end{center}
 
 This graph shows that the farmer can achieve ${}{\parallel}{{*}wgc}$ by legal moves.
-It solves the problem, and also shows that there are exactly two different solutions,
+It solves the problem and also shows that there are exactly two different solutions,
 assuming that the farmer does not want to repeat the same position twice. 
 \qeds
 
-Often, a graph comes with an extra structure; for example, labeling of edges and/or vertexes as in the example above.
+Often, a graph comes with extra structure; for example, labeling of edges and/or vertices as in the example above.
 
 Formally speaking, the described graph representation can be applied to nearly any puzzle.
 However, it might be impossible to apply due to a huge number of states and transitions;
@@ -120,35 +122,20 @@ think of Rubik's cube or the 15 puzzle.
 
 Here is a small variation of another classic puzzle.
 
-\begin{thm}{Puzzle} Four issionaries and four cannibals must cross a river using a boat which can carry at most two people, under the constraint that, for both banks, if there are missionaries present on the bank, they cannot be outnumbered by cannibals; otherwise the missionaries will be eaten.
+\begin{thm}{Puzzle} Four missionaries and four cannibals must cross a river using a boat that can carry at most two people.
 The boat cannot cross the river by itself with no people on board.
+If there are missionaries on one bank, they cannot be outnumbered by cannibals;
+otherwise the missionaries will be eaten.
+
+Can the missionaries and cannibals safely cross the river?
 \end{thm}
 
-Let us introduce a notation to describe the states and and transitions in this puzzle.
+Let us introduce a notation to describe the states and transitions in this puzzle.
 The river will be denoted by ${\parallel}$;
 let $*$ denote the boat, we will write the number of cannibals on each side of ${\parallel}$, and the number of missionaries by subscript. 
 For example, $4_2^*{\parallel}0_2$ means that on the left bank we have four cannibals, two missionaries, and the boat (these two missionaries will be eaten), and on the right bank there are no cannibals and two missionaries.
 
-\begin{thm}{Exercise}
-Here is a part of the corresponding graph.
-Finish it and conclude that the puzzle has no solutions.
-
-\begin{center}
-\begin{tikzpicture}[scale=1.8,
-  thick,main node/.style={circle,draw,font=\sffamily\bfseries,minimum size=1mm}]
-  \node[main node] (1) at (0,0) {{\small${4^*_4}{\parallel}{0_0}$}};
-  \node[main node] (2) at (1,-1){{\small${2_4}{\parallel}{2^*_0}$}};
-  \node[main node] (3) at (0,-1){{\small${3_3}{\parallel}{1^*_1}$}};
-  \node[main node] (4) at (1,-2){{\small${3^*_4}{\parallel}{1_0}$}};
-    \node[main node] (5) at (-1,-1){{\small${3_4}{\parallel}{1^*_0}$}};
-  \path[every node/.style={font=\sffamily\small}]
-   (1) edge node[auto]{$2_0$}(2)
-   (3) edge node[auto]{$1_1$}(1)
-   (5) edge node[auto]{$1_0$}(1)
-   (4) edge node[auto]{$0_1$}(3)
-   (2) edge node[auto]{$1_0$}(4);
-\end{tikzpicture}
-\end{center}
-
+\begin{thm}{Exercise}\label{ex:cannibals}
+Draw the corresponding graph.
+Conclude that the puzzle has no solutions.
 \end{thm}
-

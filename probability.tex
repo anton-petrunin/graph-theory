@@ -1,26 +1,27 @@
-\chapter{Probabilistic method}
+\chapter{Ramsey numbers}
 
-In this chapter we give a general discussion of Ramsey numbers, introduce the probabilistic method, and use it to give a lower bound on Ramsey number.
+In this chapter, we discuss Ramsey numbers.
+The will be used as an illustration of the next chapter.
 
-\section*{Ramsey numbers}
+\section{Ramsey numbers}
 
-Recall that the Ramsey number $r(m,n)$ is a least positive integer such that every blue-red coloring of edges in the complete graph $K_{r(m, n)}$ contains a blue $K_m$ or a red $K_n$.
+Recall that the Ramsey number $r(m,n)$ is the least positive integer such that every blue-red coloring of edges in the complete graph $K_{r(m, n)}$ contains a blue $K_m$ or a red $K_n$.
 
 Switching colors in the definition shows that $r(m,n)=r(n,m)$ for any $m$ and $n$.
-Therefore we may assume that $m\le n$.
+Therefore, we may assume that $m\le n$.
 
 Note that $r(1,n)=1$ for any positive integer $n$.
 Indeed, the one-vertex graph $K_1$ has no edges;
-therefore we can say that all its edges are blue (as well as red and \emph{deep green-cyan turquoise} at the same time).
+therefore we can say that all its edges are blue (as well as \textit{red} and \textit{deep green-cyan turquoise} at the same time).
 
-\begin{thm}{Exercise}
+\begin{thm}{Exercise}\label{ex:r(2,n)}
 Show that $r(2,n)=n$ for any positive integer $n$.
 \end{thm}
 
-The following table from \cite{radziszowski} gives the values of $r(m,n)$;
-it includes all currently known values for $n\ge m\ge 3$:
+The following table from \cite{radziszowski} 
+includes all known values of $r(m,n)$ for $n\ge m\ge 3$:
 
-\begin{table}[h!]\label{ramsey-table}
+\begin{table}[ht!]\label{ramsey-table}
 \centering{%
     \begin{tabular}{|c|*{9}{c|}}
       \hline
@@ -40,42 +41,42 @@ it includes all currently known values for $n\ge m\ge 3$:
 \end{table}
 
 For example, the table says that $r(4,4)=18$.
-In order to prove it, one has to prove two inequalities $r(4,4)\z\ge 18$ and $r(4,4)\z\le 18$.
-The inequality $r(4,4)\z\ge 18$ means that there is a blue-red coloring of edges of $K_{17}$ that has no monochromatic $K_4$.
+In order to show this, one has to prove two inequalities $r(4,4)\z\ge 18$ and $r(4,4)\z\le 18$.
+The inequality $r(4,4)\z\ge 18$ means that there is a blue-red coloring of edges of $K_{17}$ that has no monochromatic $K_4$; this will be done in Exercise~\ref{ex:K8+K17}.
 The inequality $r(4,4)\le 18$ means that in any blue-red coloring of $K_{18}$ there is a monochromatic~$K_4$.
+The latter follows from $r(3,4)\le 9$ via the inequality \ref{eq:ramsey-inq} below, and
+a proof of $r(3,4)\le 9$ is given in \cite[4.3]{hartsfield-ringel}.
 
-\section*{Binomial coefficients}
+\section{Binomial coefficients}
 
-In this section we review properties of binomial coefficients that will be needed further.
+In this section, we review properties of binomial coefficients that will be needed further.
 
-\index{binomial coefficient}\emph{Binomial coefficients} will be denoted by $\tbinom{n}{m}$.
-They can be defined as unique numbers such that the identity
+\index{binomial coefficient}\emph{Binomial coefficients} will be denoted by $\tbinom{n}{m}$;
+they can be defined as unique numbers satisfying the identity
 \[(a+b)^n=\tbinom{n}{0}\cdot a^0\cdot b^n+\tbinom{n}{1}\cdot a^1\cdot b^{n-1}+\dots +\tbinom{n}{n}\cdot a^n\cdot b^{0}\eqlbl{eq:binom-thm}
 \]
-holds for any real numbers $a,b$ and integer $n\ge 0$.
-This identity is called \emph{binomial expansion}.
+for any real numbers $a,b$ and integer $n\ge 0$.
+This identity is called \index{binomial expansion}\emph{binomial expansion}.
 It can be used to derive some identities on binomial coefficients; for example, 
 \[\tbinom{n}{0}+\tbinom{n}{1}+\dots +\tbinom{n}{n}=(1+1)^n=2^n.\eqlbl{eq:binom-2n}\]
 
-The number $\tbinom{n}{m}$ plays an important role in combinatorics ---
-it gives the number of ways that $m$ objects can be chosen from $n$ different objects;
-this value can be found explicitly:
+The number $\tbinom{n}{m}$ plays an important role in combinatorics, as
+it gives the number of ways that $m$ objects can be chosen from $n$ different objects.
+This value can be found explicitly using the formula
 \[\tbinom nm=\frac{n!}{m!\cdot (n-m)!}.\]
 
-Note that all $\tbinom{n}{m}$ different ways to choose $m$ objects from $n$ different objects are falling into two categories: (1) those which include the last object --- there are $\tbinom{n-1}{m-1}$ of them, and (2) those which do not include it --- there are $\tbinom{n-1}{m}$ of them.
+Note that all $\tbinom{n}{m}$ different ways to choose $m$ objects from $n$ different objects fall into two categories: (1) those which include the last object --- there are $\tbinom{n-1}{m-1}$ of them, and (2) those which do not include it --- there are $\tbinom{n-1}{m}$ of them.
 It follows that 
 \[\tbinom{n}{m}=\tbinom{n-1}{m-1}+\tbinom{n-1}{m}.\eqlbl{eq:binomial}\]
 This identity will be used in the proof of Theorem~\ref{thm:ramsey-up}.
 
-
-
-\section*{Upper bound}
+\section{Upper bound}
 
 Recall that according to Theorem 4.3.2 in \cite{hartsfield-ringel}, the inequality
 \[r(m,n) \le r(m-1, n) + r(m, n-1)\eqlbl{eq:ramsey-inq}\]
 holds for all integers $m,n\ge 2$.
 
-In other words, any value $r(m,n)$ in the table above can not exceed the sum of values in the cells directly above and on the left from it.
+In other words, any value $r(m,n)$ in the table above cannot exceed the sum of values in the cells directly above and on the left from it.
 The inequality \ref{eq:ramsey-inq} might be strict; for example,
 \[r(3,4)=9<4+6=r(2,4)+r(3,3).\]
 
@@ -101,7 +102,7 @@ Similarly $s(n,1)=\tbinom{n-1}{n-1}$, and there is only one choice of $n-1$ obje
 
 The above observations make it possible to calculate the values of $s(m,n)$ recursively.
 The following table provides some of its
-\begin{table}[h!]
+\begin{table}[ht!]
 \centering{%
     \begin{tabular}{|c|*{9}{c|}}
       \hline
@@ -120,7 +121,7 @@ The following table provides some of its
   }%
 \end{table}
  values.
-The inequality \ref{eq:r<s} means that any value in this table can not exceed the corresponding value in the table for $r(m,n)$ on page~\pageref{ramsey-table}. 
+The inequality \ref{eq:r<s} means that any value in this table cannot exceed the corresponding value in the table for $r(m,n)$ on page~\pageref{ramsey-table}. 
 The latter is nearly evident from \ref{eq:ramsey-inq} and \ref{eq:binomial-s};
 let us show it formally.
 
@@ -129,7 +130,7 @@ Since
 the inequality \ref{eq:r<s} holds if $m=1$ or $n=1$.
 
 Assume the inequality \ref{eq:r<s} does not hold for some $m$ and $n$.
-Choose a \emph{minimal criminal} pair $(m,n)$;
+Choose a \index{minimal criminal}\emph{minimal criminal} pair $(m,n)$;
 that is, a pair with minimal value $m+n$ such that \ref{eq:r<s} does not hold.
 From above we have that $m,n\ge2$.
 Since $m+n$ is minimal, we have that
@@ -157,7 +158,7 @@ r(n,n)&\le \tbinom{2\cdot n-2}{n-1}\le
 \end{align*}
 \qedsf
 
-\section*{Lower bound}
+\section{Lower bound}
 
 In order to show that 
 \[r(m,n)\ge s+1,\] 
@@ -173,8 +174,8 @@ Equivalently, it is sufficient to decompose $K_s$ into two subgraphs with no iso
 \end{lpic}
 \end{wrapfigure}
 
-For example, the subgraphs in the decomposition of $K_5$ on the diagram has no monochromatic triangles;
-the latter implies that $r(3,3)\ge 6$.
+For example, the subgraphs in the decomposition of $K_5$ in the diagram have no monochromatic triangles;
+this implies that $r(3,3)\ge 6$.
 We already showed that for any decomposition of $K_6$ into two subgraphs,
 one of the subgraphs has a triangle;
 that is, $r(3,3)=6$.
@@ -184,47 +185,96 @@ In fact, in any decomposition of $K_9$ into two subgraphs,
 either the first subgraph contains a triangle or the second contains a $K_4$.
 That is, $r(3,4)=9$ \cite[see][p. 82--83]{hartsfield-ringel}.
 
-Further, to show that $r(4,4)\ge 18$, we need to construct a decomposition of $K_{17}$ into two subgraphs with no $K_4$.
-(In fact, $r(4,4)=18$, but we are not going to prove it.)
-The corresponding decomposition is given on the  diagram.
+Applying \ref{eq:ramsey-inq}, we get 
+\[r(4,4)\le 2\cdot r(3,4)=18.\]
+Therefore, to prove that $r(4,4)= 18$, we need to show that  $r(4,4)\ge 18$;
+that is, we need to construct a decomposition of $K_{17}$ into two subgraphs with no $K_4$.
+
+The required decomposition is given on the  diagram.
 The constructed decomposition is rationally symmetric; the first subgraph contains the chords of angle lengths 1, 2, 4, and 8 and the second contains all the chords of angle lengths 3, 5, 6, and 7.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 \centering
 \begin{lpic}[t(-0 mm),b(0 mm),r(0 mm),l(0 mm)]{mppics/pic-23}
 \end{lpic}
 \end{figure}
 
-\begin{thm}{Exercise}
+\begin{thm}{Exercise}\label{ex:K8+K17}
 Show that 
 
 \begin{enumerate}[(a)]
 \item In the decomposition of $K_8$ above, the left graph contains no triangle, and the right graph contains no $K_4$.
 \item In the decomposition of $K_{17}$, neither graph contains any $K_4$.
 \end{enumerate}
-\end{thm}
-
-\parit{Hint:}
-Assuming such a subgraph exists.
-Fix a vertex $v$.
-Note that we can assume that the subgraph contains $v$; otherwise rotate it.
-In each case, draw the subgraph induced by the vertexes connected to $v$.
-(If uncertain, see the definition of {}\emph{induced subgraph}.)
-
-
-\medskip
+\end{thm} 
 
 For larger values $m$ and $n$, the problem of finding the exact lower bound for $r(m,n)$ quickly becomes too hard.
 Even getting a reasonable estimate is challenging.
-In the next section we will show how to obtain such an estimate by using probability.
+In the next chapter we will show how to obtain such an estimate by using probability.
 
-\section*{Probabilistic method}
+\chapter{Probabilistic method}
 
-The probabilistic method makes it possible to prove the existence of graphs with certain properties without constructing them explicitly.
-The idea is to show that if one randomly chooses a graph or its coloring from a specified class, then the probability that the result is of the needed property is more than zero.
-The latter implies that a graph with needed property exists.
+We assume that the reader is familiar with the notion of a random variable and expected value,
+at least on an intuitive level.
+An introductory part in any textbook on probability should be sufficient;
+see for example \cite{feller, lawler, williams}.
 
-Despite that this method of proof uses probability, the final conclusion is determined for certain, without any possible error.
+
+\section{Markov's inequality}
+
+A \index{random variable}\emph{random variable} is a real number that depends on a random event.
+We will consider random variables that take only finitely many values. 
+
+Two random variables are called \index{independent random variables}\emph{independent} if the occurrence of one does not affect the other.
+
+The \index{expected value}\emph{expected value} is the average of a large number of independently selected outcomes of the random variable.
+The expected value of a random variable $X$ will be denoted by $\EE[X]$.
+Suppose a random variable $X$ takes only values $x_1,\dots,x_n$ with probabilities $P_1,\dots,P_n$, respectively,
+so $P_1+\dots+P_n=1$.
+Then 
+\[\EE[X]=P_1\cdot x_1+\dots+P_n\cdot x_n.
+\eqlbl{eq:E(X)}
+\]
+For example, if $X$ is the result of rolling a die, then it takes each value $1,2,\dots,6$ with probability $\tfrac16$;
+therefore 
+\[\EE[X]=\tfrac16\cdot 1+\dots+\tfrac16\cdot6=3.5.\]
+
+\begin{thm}{Claim}\label{clm:E}
+For any two random variables $X$ and $Y$ and real constant $c$ we have
+\[\EE[X+Y]=\EE[X]+\EE[Y]
+\qquad\text{and}\qquad
+\EE[c\cdot X]=c\cdot \EE[X].\]
+Moreover, if $X$ and $Y$ are independent, then 
+\[\EE[X\cdot Y]=\EE[X]\cdot\EE[Y].\]
+(We assume that all expected values in the formulas are well defined.)
+\end{thm}
+
+\begin{thm}{Markov's inequality}\index{Markov's inequality}
+Suppose $Y$ is a nonnegative random variable and $c> 0$.
+Denote by $P$ the probability of the event $Y\ge c$.
+Then 
+\[P\cdot c\le \EE[Y].
+\eqlbl{eq:cebyshov}\]
+\end{thm}
+
+\parit{Proof.}
+Consider another random variable $\bar Y$ such that $\bar Y=c$ if $Y\ge c$ and $\bar Y=0$ otherwise.
+
+Note that $\bar Y\z\le Y$ and therefore
+\[\EE[\bar Y]\le \EE[Y].\]
+The random variable $\bar Y$ takes the value $c$ with probability $P$ and $0$ with probability $1-P$.
+By \ref{eq:E(X)}, 
+\[\EE[\bar Y]=P\cdot c;\] whence \ref{eq:cebyshov} follows.
+\qeds
+
+
+\section{Probabilistic method}
+
+The probabilistic method allows us to prove the existence of graphs with certain properties without explicitly constructing them.
+The idea is to show that if one randomly chooses a graph or its coloring from a specified class, then the probability that the result has the needed property is more than zero.
+This implies that a graph with required the property exists.
+
+Despite using probability, the final conclusion is determined for certain, without any possible error.
 
 
 \medskip
@@ -240,30 +290,37 @@ Then $r(n,n)>R$.
 We need to show that the complete graph $K_R$
 admits a coloring of edges in red and blue such that it has no monochromatic subgraph isomorphic to $K_n$.
 
-Let us color the edges randomly ---
-color each edge independently with probability $\tfrac12$ in red and otherwise in blue.
+Let us color the edges randomly;
+that is, color each edge independently in red or blue with equal chances.
 
-Fix a set $S$ of $n$ vertexes. 
-Define the variable $X(S)$ to be $1$ if every edge between the vertexes in $S$ has the same color, and otherwise set $X(S)=0$.
-Note that the number of monochromatic $n$-subgraphs in $K_R$ is the sum of $X(S)$ over all possible $n$-vertex subsets $S$. 
+Fix a set $S$ of $n$ vertices. 
+Define the random variable $X(S)$ to be $1$ if every edge between the vertices in $S$ has the same color; otherwise set $X(S)=0$.
 
-Note that the expected value of $X(S)$ is simply the probability that all of the $\tbinom n 2=\tfrac{n\cdot(n-1)}{2}$
-edges in $S$ are the same color. 
-The probability that all the edges with the ends in $S$ are blue is ${2^{-\binom n 2}}$ and with the same probability all the edges are red.
-Since these two possibilities exclude each other, the expected value of $X(S)$ is 
-${2}\cdot {2^{-\binom n 2}}.$
+The random variable $X(S)$ may take the values $0$ or $1$.
+The expected value of $X(S)$ is the probability that $X(S)=1$;
+that is, all of the $\tbinom n 2=\tfrac{n\cdot(n-1)}{2}$
+edges in $S$ have the same color. 
+The probability that all the edges with the ends in $S$ are blue is ${2^{-\binom n 2}}$, and with the same probability all the edges are red.
+Since these two possibilities exclude each other, 
+\[\EE[X(S)]={2}\cdot {2^{-\binom n 2}}.\]
+This holds for any $n$-vertex subset $S$ of the vertices of $K_R$.
 
-This holds for any $n$-vertex subset $S$ of the vertexes of $K_R$.
+Note that the number $Y$ of monochromatic $n$-subgraphs in $K_R$ is the sum of $X(S)$ over all possible $n$-vertex subsets $S$. 
 The total number of such subsets is $\tbinom R n$.
-Therefore the expected value for the sum of $X(S)$ over all $n$-vertex subsets $S$ is
-\[W=2\cdot \tbinom R n\cdot 2^{-\binom n 2}.\]
+By \ref{clm:E}, 
+\[\EE[Y]=2\cdot \tbinom R n\cdot 2^{-\binom n 2}.\]
 
-In other words, $W$ is the expected number of monochromatic $K_n$'s in a random coloring of $K_R$.
-For any coloring, this number has to be an integer.
-Therefore, if $W<1$, then at least one edge-coloring of $K_R$ has no monochromatic $K_n$. 
+Denote by $P$ the probability that a random coloring of $K_R$ has at least one monochromatic $K_n$'s.
+By Markov's inequality, 
+\[P\le \EE[Y].\]
+
+Since the number of monochromatic $K_n$'s is an integer, it follows that 
+a random coloring of $K_R$ has no monochromatic $K_n$'s with probability at least $1-P$.
+If $\EE[Y]<1$, it implies that this probability is positive;
+in particular, at least one edge-coloring of $K_R$ has no monochromatic $K_n$. 
 That is, if
 $\tbinom R n < 2^{\binom n 2 - 1},$
-then there is a coloring $K_R$ without any monochromatic $n$-subgraphs.
+then there is a coloring $K_R$ with no monochromatic $n$-subgraph.
 \qeds
 
 The following corollary implies that the function $n\mapsto r(n,n)$ grows at least exponentially. 
@@ -281,49 +338,47 @@ Note that
 and
 \[\tbinom R n=\frac{R\cdot(R-1)\cdots (R-n+1)}{n!}<  R^n.\]
 
-Therefore  
+Therefore,  
 \[\tbinom R n<2^{\binom n 2 - 1}.\]
 By Theorem~\ref{thm:ramsey-lower}, we get that $r(n,n)> R$.
 \qeds
 
-\begin{thm}{Exercise}
-By random coloring we understand a coloring of edges of a given graph in red and blue such that each edge is colored independently in red or blue with equal chances. 
-
-Assume the edges of the complete graph $K_{100}$ is colored randomly. 
-Find the expected number of monochromatic Hamiltonian cycles in $K_{100}$.
-(You may use factorials in the answer.)
+\begin{thm}{Exercise}\label{ex:number(ham-cycles)}
+Assume the edges of the complete graph $K_{100}$ are colored randomly,
+so each edge is colored independently in red or blue with equal chances. 
+Show that the expected number of monochromatic Hamiltonian cycles in $K_{100}$ is larger than $10^{125}$.
 \end{thm} 
 
 \parbf{Remark.}
-The answer in the exercise above is a huge number that is bigger than $10^{125}$.
-One might think that this estimate alone is sufficient to conclude that {}\emph{most} of the colorings have a monochromatic Hamiltonian cycles --- let us show that it is not that easy.
-(It is still true that probability of the existence of a monochromatic coloring is close to 1, but the proof requires more work; it does not follow solely from the given estimate.)
+One might think that the exercise alone is sufficient to conclude that \textit{most} of the colorings of $K_{100}$ have a monochromatic Hamiltonian cycle.
+Let us show that it is not that easy.
+(It is still true that the probability of the existence of a monochromatic coloring is close to 1, but the proof requires more work.)
 
 The total number of colorings of $K_{100}$ is $2^{\binom{100}2}>10^{1400}$.
-Therefore in principle, it might happen that $99.99\%$ of the colorings have no monochromatic Hamiltonian cycles and $.01\%$ of the colorings contain all the monochromatic Hamiltonian cycles.
+Therefore, in principle, it might happen that $99.99\%$ of the colorings have no monochromatic Hamiltonian cycles and $0.01\%$ of the colorings contain all the monochromatic Hamiltonian cycles.
 To keep the expected value above $10^{125}$,
-this $.01\%$ of colorings should have less than $10^{130}$ of monochromatic cycles in average;
+this $0.01\%$ of the colorings should have fewer than $10^{130}$ of monochromatic cycles on average;
 the latter does not seem impossible since the total number of Hamiltonian cycles in $K_{100}$ is $99!/2>10^{155}$.
 
-\section*{Counting proof}
+\section{Counting proof}
 
-In this section, we translate the proof of Theorem~\ref{thm:ramsey-lower} into a combinatoric language, without the use of probability.
+In this section, we rewrite the proof of Theorem~\ref{thm:ramsey-lower} without the use of probability.
 We do this to affirm that the probabilistic method provides a real proof, without any possible error.
 
 In principle,  any probabilistic proof admits such a translation,
 but in most cases, the translation is less intuitive. 
 
-\parit{Proof of \ref{thm:ramsey-lower}.}
+\parit{Counting proof of \ref{thm:ramsey-lower}.}
 The graph $K_R$ has $\tbinom{R}{2}$ edges.
 Each edge can be colored in blue or red;
 therefore the total number of different colorings is \[\Omega=2^{\binom{R}{2}}.\]
 
 Fix a subgraph isomorphic to $K_n$ in $K_R$.
 Note that this graph is red in $\Omega/2^{\binom n2}$ different colorings
-and yet in $\Omega/2^{\binom n2}$ different colorings this subgraph is blue.
+and blue in $\Omega/2^{\binom n2}$ colorings.
 
 There are $\tbinom Rn$ different subgraphs isomorphic to $K_n$ in $K_R$.
-Therefore the total number of monochromatic $K_n$'s in all the colorings 
+Therefore, the total number of monochromatic $K_n$'s in all the colorings 
 is 
 \[M=\tbinom Rn\cdot\Omega\cdot  2/2^{\binom n2}.\]
 
@@ -332,10 +387,9 @@ there is a coloring with no monochromatic $K_n$.
 Hence the result.
 \qeds
 
-\section*{Graph of $\bm{n}$-cube}
+\section[\texorpdfstring{Graph of $n$-cube}{Graph of n-cube}]{Graph of $\bm{n}$-cube}
 
-In this section we give another classic application of the probabilistic method.
-It requires a bit more probability theory. 
+In this section, we give another classic application of the probabilistic method.
 
 \begin{wrapfigure}{o}{25mm}
 \vskip-0mm
@@ -344,125 +398,104 @@ It requires a bit more probability theory.
 \vskip-0mm
 \end{wrapfigure}
 
-Let us denote by $Q_n$ the graph of the $n$-dimensional cube;
-$Q_n$ has $2^n$ vertexes, each vertex is labeled by a sequence of length $n$ made up of zeros and ones;
-two vertexes are adjacent if their labels differ only in one digit.
+Let $Q_n$ denote the graph of the $n$-dimensional cube;
+$Q_n$ has $2^n$ vertices, each labeled with a sequence of length $n$ consisting  of zeros and ones.
+Тwo vertices are adjacent if their labels differ in only one digit.
 
-Graph $Q_4$ is shown on the diagram.
+The graph $Q_4$ is shown on the diagram.
 Note that each vertex of $Q_n$ has degree $n$.
 
+Recall that the \index{distance}\emph{distance} between two vertices in a graph $G$ is the length of a shortest path connecting the vertices.
 
-Recall that \index{distance}\emph{distance} between two vertexes in a graph $G$ is the length of a shortest path connecting the vertexes. The maximal distance between vertexes in $G$ is called \index{diameter}\emph{diameter} of $G$.
- 
-\begin{thm}{Exercise}
-Show that the diameter of $Q_n$ is $n$. 
-\end{thm}
+Note that the distance between two vertices in $Q_n$ is the number of different digits in their sequences.
+For example, two sequences $01101$ and $11011$ have different digits at positions $1$, $3$, and $4$,
+and the corresponding vertices at distance $3$ from each other.
 
 
 \begin{thm}{Problem}\label{prob:Qn}
-Suppose $\ell(n)$ denotes the maximal number of vertexes in $Q_n$ on a distance more than $n/3$ from each other.
+Suppose $\ell(n)$ denotes the maximal number of vertices in $Q_n$ at a distance more than $n/3$ from each other.
 Then $\ell(n)$ grows exponentially in $n$;
 moreover, $\ell(n)\ge 1.05^n$. 
 \end{thm}
 
-To solve the problem one has to construct a set with at least $1.05^n$ vertexes in $Q_n$ that lie far from each other.
-However, it is hard to construct such a set explicitly.
-Instead, we will show that if one chooses that many vertexes randomly, then they lie far from each other with a positive probability.
-To choose a random vertex in $Q_n$, one can toss a coin $n$ times, each time writing 1 for a head and 0 for a tail and then take the vertex labeled by the obtained sequence.
+To solve the problem, one has to construct a set with at least $1.05^n$ vertices in $Q_n$ that are far from each other.
+It is challenging to construct such a set explicitly.
+Instead, we will show that 
+if one randomly selects that many vertices, they are far from each other with positive probability.
+To choose a random vertex in $Q_n$, one can toss a coin $n$ times, writing 1 for a head and 0 for a tail, and then select the vertex labeled by the obtained sequence.
 
 The following exercise guides you to a solution of the problem.
-The same argument shows that for any coefficient $k<\tfrac12$, the maximal number of vertexes in $Q_n$ on the distance larger than $k\cdot n$ from each other grows exponentially in $n$.
+The same argument shows that for any coefficient $k<\tfrac12$, the maximal number of vertices in $Q_n$ at a distance larger than $k\cdot n$ from each other grows exponentially in $n$.
 According to Exercise~\ref{ex:lin-Qn}, the case $k= \tfrac12$ is very different.
 
-\begin{thm}{Exercise}
-Let $P_n$ denote the probability that randomly chosen vertexes in $Q_n$ lie with the distance $\le\tfrac n3$ between them.
+\begin{thm}{Exercise}\label{ex:Qn-dist}
+Let $P_n$ denote the probability that two randomly chosen vertices in $Q_n$ at a distance $\le\tfrac n3$ between them.
 \begin{enumerate}[(a)]
 
 \item\label{Pn} Use Claim~\ref{clm:coin} to show that 
 \[P_n<.95^n.\]
 
-\item\label{kPn} Assume $k$ vertexes  $v_1,\dots ,v_k$ in $Q_n$ are fixed and $v$ is a random vertex.
-Show that $k\cdot P_n$ is the average number of vertexes $v_i$ that lies on a distance $\le\tfrac n3$ from $v$.
-Conclude that $v$ lies on a distance larger than $\tfrac n3$ from each of $v_i$ with probability at least $1-k\cdot P_n$.
+\item\label{kPn} Assume $k$ vertices  $v_1,\dots ,v_k$ in $Q_n$ are fixed and $v$ is a random vertex.
+Show that $k\cdot P_n$ is the expected number of vertices $v_i$ that lies at a distance $\le\tfrac n3$ from $v$.
+Use Markov's inequality to show that $v$ lies at a distance larger than $\tfrac n3$ from each of $v_i$ with probability at least $1-k\cdot P_n$.
 
-
-\item Apply \ref{Pn} and \ref{kPn} to show that there are at least $1.05^n$ vertexes in $Q_n$ on a distance larger than $\tfrac n3$ from each other.
+\item\label{ex:Qn-dist:end} Apply \ref{Pn} and \ref{kPn} to show that there are at least $1.05^n$ vertices in $Q_n$ at a distance larger than $\tfrac n3$ from each other.
 \end{enumerate}
 \end{thm}
 
 
 \begin{thm}{Claim}\label{clm:coin}
-The probability $P_n$ to obtain less than one third heads after $n$ fair tosses of a coin decays exponentially in $n$;
+The probability $P_n$ of obtaining fewer than one-third heads after $n$ fair tosses of a coin decays exponentially in $n$;
 in fact $P_n<.95^n$ for any $n$.
 \end{thm}
 
-In the proof, we will use the following observation.
-
-\begin{thm}{Markov's inequality}\index{Markov's inequality}
-Suppose $Y$ is a nonnegative random variable and $c> 0$.
-Denote by $P$ the probability of the event $Y\ge c$ and by $y$ the expected value of $Y$.
-Then 
-\[P\cdot c\le y.
-\eqlbl{eq:cebyshov}\]
-\end{thm}
-
 \parit{Proof.}
-Consider another random variable $\bar Y$ such that $\bar Y=c$ if $Y\ge c$ and $\bar Y=0$ otherwise;
-denote by $\bar y$ its expected value.
-
-Note that $\bar Y\z\le Y$ and therefore
-\[\bar y\le y.\]
-The random variable $\bar Y$ takes the value $c$ with probability $P$ and $0$ with probability $1-P$.
-Therefore $\bar y=P\cdot c$; whence \ref{eq:cebyshov} follows.
-\qeds
-
-
-\parit{Proof of \ref{clm:coin}.}
 Let us introduce independent $n$ random variables $X_1,\z\dots X_n$;
-each $X_i$ returns the number of heads after $i$-th toss of the coin;
-in particular, each $X_i$ takes values $0$ or $1$ with the probability of $\tfrac12$ each.
+each $X_i$ returns the number of heads after the $i$-th toss of the coin;
+in particular, each $X_i$ takes values $0$ or $1$ with the probability $\tfrac12$ each.
 We need to show that the probability $P_n$ of the event $X_1+\dots+X_n\le\tfrac n3$ is less than 
 $.95^n$.
 
 Consider the random variable 
-\[Y=2^{-X_1-\dots-X_n};\]
-denote by $y$ its expected value.
+\[Y=2^{-X_1-\dots-X_n}.\]
 
 Note that $P_n$ is the probability of the event that $Y\ge 2^{-\frac n3}$.
-Further note that $Y>0$ always. 
+Also, $Y>0$. 
 By Markov's inequality, we get that
-\[P_n\cdot 2^{-\frac n3}\le y.\]
+\[P_n\cdot 2^{-\frac n3}\le \EE[Y].\]
 
-The random variable $2^{-X_i}$ takes the two values $1$ and $\tfrac12=2^{-1}$ with the probability of $\tfrac12$ each;
-the expected value of $2^{-X_i}$ has to be $\tfrac12\cdot (1+\tfrac12)=\tfrac 34$.
+The random variable $2^{-X_i}$ takes the two values $1$ and $\tfrac12=2^{-1}$ with the probability of $\tfrac12$ each.
+Therefore, 
+\[\EE[2^{-X_i}]=\tfrac12\cdot 1+\tfrac12\cdot\tfrac12=\tfrac 34.\]
+
 Note that 
 \[Y=2^{-X_1}\cdots 2^{-X_n}.\]
-Since the random variables $X_i$ are independent, we have that
-\[y=\left(\tfrac34\right)^n.\]
+Since the random variables $X_i$ are independent, \ref{clm:E} implies that
+\[\EE[Y]=\left(\tfrac34\right)^n.\]
 
 It follows that 
 \[P_n\le \left(\tfrac34\cdot 2^{\frac13}\right)^n< .95^n.\]
 \qedsf
 
-\pagebreak[1]
 \begin{thm}{Advanced exercise}\label{ex:lin-Qn}
 \begin{enumerate}[(a)]
-\item Show that $Q_n$ contains at most $2\cdot n$ vertexes on a distance at least $\tfrac n2$ from each other.%\footnote{In fact the equality holds if and only if $n$ is a power of 2.}
-\item Show that $Q_n$ contains at most $n+1$ vertexes on a distance larger than $\tfrac n2$ from each other. 
+\item \label{ex:lin-Qn:n+1} Show that $Q_n$ contains at most $n+1$ vertices at a distance larger than $\tfrac n2$ from each other.
+\item \label{ex:lin-Qn:2n} Show that $Q_n$ contains at most $2\cdot n$ vertices at a distance at least $\tfrac n2$ from each other.
 \end{enumerate}
 \end{thm}
  
 
-\section*{Remarks}
+\section{Remarks}
 
-Existence of Ramsey number $r(m,n)$ for any $m$ and $n$, is the first result in the so-called \emph{Ramsey theory}. 
+The existence of Ramsey number $r(m,n)$ for any $m$ and $n$ is the first result in the so-called \textit{Ramsey theory}. 
 A typical theorem in this theory states that any large object of a certain type contains a very ordered piece of a given size.
-We recommend a book of Matthew Katz and Jan Reimann \cite{katz-reimann} on the subject. 
+We recommend the book by Matthew Katz and Jan Reimann \cite{katz-reimann} on the subject. 
 
 Corollaries \ref{cor:4^n} and \ref{cor:2^n/2} imply that 
 \[\tfrac18\cdot 2^{\frac12\cdot n}\le r(n,n)\le \tfrac14\cdot 2^{2\cdot n}.\]
 
-It is unknown if these inequalities can be essentially improved.\footnote{This question might look insignificant from the first sight, but it is considered as one of the major problems in combinatorics \cite{gowers}.}
+It is unknown if these inequalities can be essentially improved.%
+\footnote{This question might look insignificant at first glance, but it is considered one of the major problems in combinatorics \cite{gowers}.}
 More precisely, it is unknown whether there are constants $c>0$ and $\alpha>\tfrac12$ such that the inequality
 \[r(n,n)\ge c\cdot 2^{\alpha\cdot n}\]
 holds for any $n$.
@@ -473,25 +506,27 @@ holds for any $n$.
 The probabilistic method was introduced by Paul Erd\H os.
 It finds applications in many areas of mathematics, not only in graph theory.
 
-Note that the probabilistic method is nonconstructive ---
+Note that the probabilistic method is nonconstructive;
 if it is used to prove the existence of a certain object, then it is still uncontrollably hard to describe a concrete example.
 
-More involved examples of proofs based on the probabilistic method deal with {}\emph{typical properties} of random graphs.
+More involved examples of proofs based on the probabilistic method deal with \textit{typical properties} of random graphs.
 
-To describe the concept, let us consider the following {}\emph{random process} that generates a graph $G_n$ with $n$ vertexes.
+To describe the concept, let us consider the following \textit{random process} that generates a graph $G_n$ with $n$ vertices.
 
 Fix a positive integer $n$. 
-Consider a graph $G_n$ with the vertexes labeled by $1,\dots,n$,
-where existence of edge between every pair of vertexes is decided independently by flipping a coin.
+Consider a graph $G_n$ with the vertices labeled by $1,\dots,n$,
+where the existence of an edge between every pair of vertices is decided independently by flipping a coin.
 
-Note that the described process depends only on $n$, and as a result we can get a graph isomorphic to any given graph with $n$ vertexes.
+Note that the described process depends only on $n$, and as a result, we can get a graph isomorphic to any given graph with $n$ vertices.
 
-\begin{thm}{Exercise}
-Let $H$ be a graph with $n$ vertexes.
+\begin{thm}{Exercise}\label{ex:prob(isom)}
+Let $H$ be a graph with $n$ vertices.
 Denote by $\alpha$ the probability that $G_n$ is isomorphic to $H$.
 Show that 
 \[1/2^{\binom n2}\le \alpha\le n!/2^{\binom n2}.\]
 
+Suppose $n=10$;
+describe graphs $H_1$ and $H_2$ such that these inequalities become equalities.
 \end{thm}
 
 
@@ -499,23 +534,19 @@ Fix a property of a graph (for example, connectedness)
 and denote by $\alpha_n$ the probability that $G_n$ has this property.
 We say that the property is \index{typical property}\emph{typical} if $\alpha_n\to 1$ as $n\to \infty$.
 
-\begin{thm}{Exercise}
+\begin{thm}{Exercise}\label{ex:diam=2}
 Show that random graphs typically have a diameter of 2.
 That is, the probability that $G_n$ has a diameter of 2 converges to~1 as $n\to \infty$.
 \end{thm}
 
-\parit{Hint:} Find the probability that two given vertexes lie on a distance $>2$ from each other in $G_n$; find the average number of such pairs in $G_n$; make a conclusion.
+Note that from the exercise above, it follows that in the described random process, \textit{the random graphs are typically connected}.
 
-\medskip
-
-Note that from the exercise above, it follows that in the described random process, the random graphs are {}\emph{typically connected}.
-
-\begin{thm}{Exercise}
+\begin{thm}{Exercise}\label{ex:typ(K100)}
 Show that random graphs typically have a subgraph isomorphic to $K_{100}$.
 That is, the probability that $G_n$ has a subgraph isomorphic to $K_{100}$ converges to~1 as $n\to \infty$.
 \end{thm}
 
-The following theorem gives a deeper illustration of the probabilistic method with the use of typical properties,
+The following theorem gives a deeper illustration of the probabilistic method with the use of typical properties;
 a proof can be found in \cite[Chapter 44]{aigner-ziegler}.
 
 \begin{thm}{Theorem}

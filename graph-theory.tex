@@ -1,16 +1,25 @@
-%\RequirePackage{snapshot}
 \special{! /setdistillerparams where {pop}{userdict /setdistillerparams {pop} put}ifelse
  <</AutoRotatePages /None>> setdistillerparams} %turning off AutoRotatePages --- needed for arXiv
-
+\RequirePackage{pdf14}% also disables `\pdfobjcompresslevel` --- needed for kdp, comment for arXiv
+ 
 \documentclass[twoside]{book}
 \usepackage{my-book}
 \geometry{top=0.9in, bottom=0.9in,inner=0.9in, outer=0.8in, paperwidth=6in, paperheight=9in}
 \hypersetup{pdftitle={Extra pearls in graph theory}}
 \makeindex
 
-%\input{insbox}
+%\overfullrule=100mm
+
+\newcommand{\arxiv}[2]{#1} %for arXiv
+%\newcommand{\arxiv}[2]{#2} %for kdp
+\arxiv{}{\pdfminorversion=3}
+
+\newcommand{\spell}[2]{#1} %for book
+%\newcommand{\spell}[2]{#2} %for spelling
 
 \begin{document}
+\spell{}{\pagestyle{empty}\renewcommand\includegraphics[2][{}]{}\def\emph{\textit}\renewcommand\footnote[1]{\ (#1)}\renewcommand\z{}\renewcommand\texorpdfstring[2]{}\renewcommand\section[1]{SECTION. {#1} SECTION.}}
+
 \input{title.tex}
 \input{definitions.tex}
 \input{probability.tex}
@@ -22,15 +31,28 @@
 \input{marriage.tex}
 \input{surfaces.tex}
 \input{rado.tex}
+\input{ars.tex}
 \appendix
-\input{appendix.tex}
+
 %\input{extra.tex}
 %+Shannon switching game/Hex game???
 %+De Bruijn--Erdős theorem???
 
+\newgeometry{top=0.9in, bottom=0.9in,inner=0.55in, outer=0.45in}
+%\newgeometry{top=1.025in, bottom=1.025in,inner=0.5in, outer=0.625in, paperwidth=6.125in, paperheight=9.25in}%with bleed
+{\footnotesize
+
+\input{hints.tex}
+
+}
+
+\input{appendix.tex}
+
 \newpage
 \phantomsection
 \sloppy{\scriptsize\input{graph-theory.ind}}
+
+\def\emph{\textit}
 \printbibliography[heading=bibintoc]
 \fussy
 

@@ -2,7 +2,7 @@
 
 Recall that a graph is called \index{planar graph}\emph{planar} if it can be drawn on a plane with no crossings;
 the latter is equivalent to the existence of its drawing on a sphere.
-Here and further, we say \index{drawing}\emph{drawing} for \emph{drawing with no crossings}.  
+Here and further, we say \index{drawing}\emph{drawing} for \textit{drawing with no crossings}.  
 
 \begin{wrapfigure}{o}{40 mm}
 \vskip-2mm
@@ -10,16 +10,16 @@ Here and further, we say \index{drawing}\emph{drawing} for \emph{drawing with no
 \includegraphics{mppics/pic-101}
 \end{wrapfigure}
 
-In this chapter we will discuss drawing of graphs on a torus --- another surface that can be obtained by revolving a circle about an axis (this is the surface of a donut).
+In this chapter, we will discuss drawing of graphs on a torus --- another surface that can be obtained by revolving a circle about an axis (this is the surface of a donut).
 
 A graph is called \index{toroidal graph}\emph{toroidal}, if it can be drawn on a torus with no crossing.
 
 If one cuts a torus along a parallel and a meridian as shown on the diagram,
 then the obtained surface can be developed into a square.%
-\footnote{Formally speaking it means that there is a continuous map $f\:\square\to T$ from a square to torus  such that $f(x)=f(y)$ if and only if $x=y$ or $x$ and $y$ are corresponding points on the opposite sides of the square.}
+\footnote{Formally speaking, this means that there is a continuous map $f\:\square\to T$ from a square to torus  such that $f(x)=f(y)$ if and only if $x=y$ or $x$ and $y$ are corresponding points on the opposite sides of the square.}
 It gives a convenient way to describe drawings of graphs on the torus which will be called \index{square diagram}\emph{square diagram}.
 One only has to remember that the corresponding points on opposite sides of the square are identified in the torus;
-in particular, all four vertexes of the square correspond to one point in the torus.
+in particular, all four vertices of the square correspond to one point in the torus.
 
 {
 
@@ -40,7 +40,7 @@ At these points, the edges cross the parallel and the meridian.
 
 The following square diagrams show that $K_{4,4}$ and $K_7$ are toroidal graphs as well.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 \begin{minipage}{.48\textwidth}
 \centering
 \includegraphics{mppics/pic-104}
@@ -66,13 +66,13 @@ The following square diagrams show that $K_{4,4}$ and $K_7$ are toroidal graphs 
 
 
 
-\begin{thm}{Exercise}
+\begin{thm}{Exercise}\label{ex:crossing1}
 Show that any graph with crossing number 1 is toroidal.
 That is, if a graph admits a drawing on a sphere with one crossing, then it admits a drawing on a torus with no crossings.
 \end{thm}
 
 
-\begin{thm}{Exercise}
+\begin{thm}{Exercise}\label{ex:toroidal-graphs}
 Show that each of the following graphs is toroidal; construct a corresponding square diagram in each case.
 
 (a) \includegraphics{mppics/pic-107}
@@ -81,15 +81,15 @@ Show that each of the following graphs is toroidal; construct a corresponding sq
 \end{thm}
 
 
-\section*{Simple regions}
+\section{Simple regions}
 
 Choose a drawing $G$ of a pseudograph on a torus or sphere;
 it subdivides the surface into regions.
 A region $R$ is called \index{simple region}\emph{simple} if its interior can be parameterized by an open plane disc.%
-\footnote{Formally speaking it means that there is a continuous bijection from the interior of $R$ to an open disc in the plane such that its inverse is also continuous.}
+\footnote{Formally speaking, this means that there is a continuous bijection from the interior of $R$ to an open disc in the plane such that its inverse is also continuous.}
 
 \begin{wrapfigure}{r}{30 mm}
-\vskip-4mm
+\vskip-6mm
 \centering
 \includegraphics{mppics/pic-109}
 \end{wrapfigure}
@@ -101,7 +101,7 @@ This statement should be intuitively obvious, but the proof is not trivial.
 
 Drawings of connected graphs on a torus may have nonsimple regions.
 For example, in the first drawing of $K_4$ below,
-\begin{figure}[h!]
+\begin{figure}[ht!]
 \begin{minipage}{.45\textwidth}
 \centering
 \includegraphics{mppics/pic-110}
@@ -124,11 +124,11 @@ For example, in the first drawing of $K_4$ below,
 \end{minipage}
 \vskip-4mm
 \end{figure} 
-the regions $B$ and $C$ are simple and the region $A$ is not (it contains the meridian of the torus).
+the regions $B$ and $C$ are simple, and $A$ is not (it contains the meridian of the torus).
 The second drawing of $K_4$ has only two regions, $D$ and $E$, and both of them are simple.
 
 
-Further we will use the following claim which should be intuitively obvious.
+Further, we will use the following claim, which should be intuitively obvious.
 We do not present its proof, but it is not hard;
 a reader familiar with topology may consider it as an exercise.
 
@@ -146,32 +146,32 @@ a reader familiar with topology may consider it as an exercise.
 Let $G$ be a drawing of a pseudograph on a torus or sphere and $R$ its simple region.
 Suppose that a drawing $G'$ obtained from $G$ by adding a new edge $e$ in the region $R$.
 \begin{enumerate}[(a)]
-\item If both of vertexes of $e$ are in $G$ (the edge $e$ might be a loop), then $e$ divides $R$ into two simple regions.
-\item If only one of vertexes of $e$ are in $G$, then $e$ does not divide $R$ and the corresponding region of $G'$ is simple.
+\item If both ends of $e$ are in $G$, then $e$ divides $R$ into two simple regions.
+\item If only one the ends of $e$ is in $G$, then $e$ does not divide $R$ and the corresponding region of $G'$ is simple.
 \end{enumerate}
 \end{thm}
 
 }
 
-\begin{thm}{Advanced exercise}
+\begin{thm}{Advanced exercise}\label{ex:nonplanar-toroidal}
 Suppose that  $G$ is a drawing of a connected nonlanar graph on the torus.
 Show that each region of $G$ is simple.
 \end{thm}
 
 
 
-\section*{Euler's formula}
+\section{Euler's formula}
 
 \begin{thm}{Theorem}\label{thm:euler>=}
 For any drawing $G$ of a connected pseudograph on the torus we have
 \[p-q+r\ge 0,\]
-where $p$, $q$, and $r$ denote the number of vertexes, edges and regions in~$G$ respectively.
+where $p$, $q$, and $r$ denote the number of vertices, edges and regions in~$G$, respectively.
 
 Moreover, equality holds if all regions of $G$ are simple.
 \end{thm}
 
 Note that the inequality might be strict.
-For example, for the first drawing of $K_4$ above we have
+For example, for the first drawing of $K_4$, above we have
 \[p-q+r=4-6+3=1>0.\]
 It happens since the region $A$ is not simple.
 For the second drawing of $K_4$ we have the equality
@@ -179,7 +179,7 @@ For the second drawing of $K_4$ we have the equality
 as it is supposed to be by the second part of the theorem.
 
 In the proof we will use the following lemma which is a simple corollary of Claim~\ref{clm:cut}.
-Given a drawing of pseudograph $G$ with $p$ vertexes, $q$ edges and $r$ regions,
+Given a drawing of pseudograph $G$ with $p$ vertices, $q$ edges and $r$ regions,
 set 
 \[\Sigma_G=p-q+r.\]
 
@@ -203,15 +203,15 @@ Denote by $R$ the region of $G$ that contains $e$.
 If the other end of $e$ is not in $G$, then $e$ does not divide its region.
 In this case $G'$ has an extra vertex and an extra edge, and the number of regions did not change; that is,
 $p'=p+1$, $q'=q+1$, and $r'=r$.
-Therefore 
+Therefore, 
 \[\Sigma_{G'}=p'-q'+r'=p-q+r=\Sigma_G.\]
 
-If the other end of $e$ is in $G$, then $e$ may divide $R$ in two regions or may not divide it.
+If the other end of $e$ is in $G$, then $e$ may divide $R$ into two regions or may not divide it.
 According to Claim~\ref{clm:cut}, the latter may happen only if $R$ is not simple.
-Note that after adding $e$, the number of vertexes did not change.
+Note that after adding $e$, the number of vertices did not change.
 That is,
 $p'=p$, $q'=q+1$, $r'\le r+1$ and the equality holds if $R$ is simple.
-Therefore 
+Therefore, 
 \[\Sigma_{G'}=p'-q'+r'\le p-q+r=\Sigma_G\]
 and the equality holds if $R$ is simple.
 
@@ -234,7 +234,7 @@ for any drawing of connected pseudograph $G$ on the torus $T$.
 \end{wrapfigure}
 
 Let $H$ be a drawing of the pseudograph formed by one meridian and one parallel as shown.
-Note that it has 1 vertex, 2 edges and 1 region;
+Note that it has 1 vertex, 2 edges, and 1 region;
 therefore 
 \[\Sigma_H=1-2+1=0.\eqlbl{H=0}\]
 
@@ -242,14 +242,14 @@ Without loss of generality, we may assume that the edges of $G$ and $H$ intersec
 The latter can be achieved by perturbing the drawing of $G$.
 
 Let us subdivide the graphs $G$ and $H$ by adding a new vertex at every crossing point of the graphs.
-The obtained graphs, say $\bar G$ and $\bar H$, are subgraphs of a bigger graph, say $W$, formed by all edges and vertexes of $\bar G$ and $\bar H$.
-Note that adding a vertex on an edge increases the number of vertexes and edges by $1$ and the number of regions stays the same. 
-Since the subdivision is obtained by adding a finite number of extra vertexes, we get that
+The obtained graphs, say $\bar G$ and $\bar H$, are subgraphs of a bigger graph, say $W$, formed by all edges and vertices of $\bar G$ and $\bar H$.
+Note that adding a vertex on an edge increases the number of vertices and edges by $1$ and the number of regions stays the same. 
+Since the subdivision is obtained by adding a finite number of extra vertices, we get that
 \[\Sigma_G=\Sigma_{\bar G}\quad\text{and}\quad\Sigma_H=\Sigma_{\bar H}.
 \eqlbl{G=G,H=H}\]
 
 By construction, $W$ is connected.
-If $W\ne G$, then there is an edge $e$ of $W$ that is not in $G$, but has one of its ends in $G$.
+If $W\ne G$, then there is an edge $e$ of $W$ that is not in $G$ but has one of its ends in $G$.
 By adding $e$ to $G$ and applying the procedure recursively, we will obtain $W$ in a finite number of steps.
 Applying Lemma~\ref{lem:euler} at each step, we get
 \[\Sigma_W\le \Sigma_{\bar G}.
@@ -261,36 +261,36 @@ Therefore, applying Lemma~\ref{lem:euler} at each step, we get
 \[\Sigma_W= \Sigma_{\bar H}.
 \eqlbl{W=G'}\]
 
-Finally \ref{H=0}, \ref{G=G,H=H}, \ref{W<G'}, and \ref{W=G'} imply \ref{G=<0};
+Finally, \ref{H=0}, \ref{G=G,H=H}, \ref{W<G'}, and \ref{W=G'} imply \ref{G=<0};
 indeed
 \[\Sigma_G=\Sigma_{\bar G}\ge \Sigma_W=\Sigma_{\bar H}=\Sigma_H=0.\]
 \qedsf
 
 
-\begin{thm}{Exercise}
-Suppose that $G$ is a toroidal graph with girth at least~$4$.
+\begin{thm}{Exercise}\label{ex:toroidal-girth}
+Suppose that $G$ is a toroidal graph with girth~$\ge4$.
 Show that 
 \[q\le 2\cdot p,\]
-where $p$ and $q$ denote number of vertexes and edges in $G$.
+where $p$ and $q$ denote number of vertices and edges in $G$.
 \end{thm}
 
-\begin{thm}{Exercise}
-Is there a drawing of $K_5$ on torus with only square regions?
+\begin{thm}{Exercise}\label{ex:K5-torus}
+Is there a drawing of $K_5$ on the torus with only square regions?
 If ``yes'', then draw a square diagram; if ``no'', explain why.
 \end{thm}
 
-\section*{The seven color theorem}
+\section{The seven-color theorem}
 
 \begin{thm}{Theorem}\label{thm:7-colors}
-The chromatic number of any toroidal graph can not exceed~$7$.
+The chromatic number of any toroidal graph cannot exceed~$7$.
 \end{thm}
 
-Recall that $K_7$ is toroidal; see the diagram on page \pageref{K5-toroidal}.
-Therefore the theorem gives an optimal bound.
+Recall that $K_7$ is toroidal; see diagram on page \pageref{K5-toroidal}.
+Therefore, the theorem gives an optimal bound.
 In the proof, we will use the following lemma, which is a simple corollary of Euler's formula (\ref{thm:euler>=}).
 
 \begin{thm}{Lemma}\label{cor:q=<3p}
-Let $G$ be a toroidal graph with $p$ vertexes and $q$ edges.
+Let $G$ be a toroidal graph with $p$ vertices and $q$ edges.
 Then 
 \[q\le 3\cdot p.\]
 
@@ -304,7 +304,7 @@ where $r$ denotes the number of regions in the drawing.
 
 Note that each region in the drawing has at least $3$ sides
 and each edge of $G$ appears twice as a side of a region.
-Therefore 
+Therefore, 
 \[3\cdot r\le 2\cdot q.\]
 These two inequalities imply the corollary.
 \qeds
@@ -313,7 +313,7 @@ These two inequalities imply the corollary.
 \parit{Proof of \ref{thm:7-colors}.}
 Suppose that there is a toroidal graph $G$ that requires $8$ colors.
 Choose a critical subgraph $H$ in $G$ with chromatic number 8.
-Denote by $p$ and $q$ the number of vertexes and edges in $H$.
+Denote by $p$ and $q$ the number of vertices and edges in $H$.
 
 By \cite[Theorem 2.1.3]{hartsfield-ringel}, each vertex in $H$ has a degree of at least $7$.
 By the handshake lemma \cite[Theorem 1.1.1]{hartsfield-ringel}, we have 
@@ -324,20 +324,20 @@ On the other hand, by Lemma \ref{cor:q=<3p}, we have
 These two inequalities contradict each other.
  \qeds
 
-\section*{A remark about forbidden minors}
+\section{A remark about forbidden minors}
 
-It is straightforward to see that if $G$ is toroidal, then any graph obtained from $G$ by deletion of a vertex or an edge or by contracting an edge is also toroidal.
+It is straightforward to see that if $G$ is toroidal, then any graph obtained from $G$ by the deletion of a vertex or an edge or by contracting an edge is also toroidal.
 
-A graph that can be obtained from a given graph $G$ by applying a sequence of such operations is called a \index{minior}\emph{minior} of $G$.
+A graph that can be obtained from a given graph $G$ by applying a sequence of such operations is called a \index{minor}\emph{minor} of $G$.
 The pseudograph $G$ is considered to be a minor of itself.
-The other minors require at least one deletion or contraction; they are called \emph{proper minors}.
+The other minors require at least one deletion or contraction; they are called \index{proper minor}\emph{proper minors}.
 
-Note that the statement above implies that any minor of a toroidal graph is toroidal, or in other words, {}\emph{toridality is inherited to minors}.
+Note that the statement above implies that any minor of a toroidal graph is toroidal, or in other words, \textit{toridality is inherited by minors}.
 
 The following deep result was proved by Neil Robertson and Paul Seymour \cite{robertson-seymour}.
 
 \begin{thm}{Theorem}
-Any property of pseudographs that is inherited to minors can be 
+Any property of pseudographs that is inherited by minors can be 
 described by a finite set of \index{forbidden minior}\emph{forbidden minors};
 that is,  a pseudograph meets the property if and only if none of its minors are forbidden.
 \end{thm}
@@ -345,20 +345,21 @@ that is,  a pseudograph meets the property if and only if none of its minors are
 For example, note that deletion and contraction do not create cycles;
 that is, any minor of a forest is a forest.
 Forests can be described by one forbidden minor --- a pseudograph formed by one loop.
-Indeed if a pseudograph has a cycle, then by a sequence of deletions and contractions, one can get a single loop from it.
+Indeed, if a pseudograph has a cycle, then by a sequence of deletions and contractions, one can get a single loop from it.
 
-\begin{thm}{Exercise}
+\begin{thm}{Exercise}\label{ex:forbidden-minors}
 Describe the following classes of graphs by a single forbidden minor.
 \begin{enumerate}[(a)]
- \item Graphs that do not contain trees with 5 end vertexes.
- \item Graphs in which any two cycles have at most one common vertex.
+ \item\label{ex:forbidden-minors:tree5} Graphs that do not contain trees with 5 end vertices.
+ \item\label{ex:forbidden-minors:cycle} Graphs in which any two cycles have at most one common vertex.
 \end{enumerate}
 \end{thm}
 
-A more complicated example if given by the Pontryagin-–Kuratowski theorem which states that \emph{planar graphs are characterized by two forbidden minors: $K_5$ and $K_{3,3}$.}
+A more complicated example is given by the Pontryagin--Kuratowski theorem;
+it states that \textit{planar graphs are characterized by two forbidden minors: $K_5$ and $K_{3,3}$.}
 
-Since toroidality is inherited to its minors, it can be described by a set of forbidden minors.
-The complete list of the forbidden minors for this problem has to be huge and it is not yet known.
+Since toroidality is inherited by its minors, it can be described by a set of forbidden minors.
+The complete list of forbidden minors for this problem has to be huge and is not yet known.
 
 {
 
@@ -369,27 +370,27 @@ The complete list of the forbidden minors for this problem has to be huge and it
 \vskip0mm
 \end{wrapfigure}
 
-\begin{thm}{Advanced exercise}
+\begin{thm}{Advanced exercise}\label{ex:nontoroidal}
 Show that the graph on the diagram is not toroidal,
 but every proper minor of this graph is toroidal.
 \end{thm}
 
 }
 
-\section*{Other surfaces}
+\section{Other surfaces}
 
-One may draw graphs on other surfaces,
-for example, on the so-called \index{surface of genus $g$}\emph{surfaces of genus $g$}.
+One may draw graphs on the so-called the \index{surface of genus $g$}\emph{surfaces of genus $g$}.
 These surfaces can be obtained by attaching $g$ toruses to each other; 
-\begin{figure}[h!]%{r}{30 mm}
+\begin{figure}[ht!]%{r}{30 mm}
 \vskip-0mm
 \centering
 \includegraphics{mppics/pic-122}
 \vskip-0mm
 \end{figure}
 a surface of genus $g=4$ is shown in the picture.
-Namely, to construct a surface $S'$ of genus $g+1$, start with a surface $S$ of genus $g$ and a torus $T$, drill a hole in each and reconnect them to each other as shown.\footnote{The described construction is called \index{connected sum}\emph{connected sum}; so we can say that {}\emph{connected sum of a surface of genus $g$ and a torus is a surface of genus $g+1$}.}
-\begin{figure}[h!]%{r}{30 mm}
+Namely, to construct a surface $S'$ of genus $g+1$, start with a surface $S$ of genus $g$ and a torus $T$, drill a hole in each and reconnect them to each other as shown.%
+\footnote{The described construction is called \index{connected sum}\emph{connected sum}; so we can say that \textit{connected sum of a surface of genus $g$ and a torus is a surface of genus $g+1$}.}
+\begin{figure}[ht!]%{r}{30 mm}
 \vskip-0mm
 \centering
 \includegraphics{mppics/pic-123}
@@ -397,8 +398,8 @@ Namely, to construct a surface $S'$ of genus $g+1$, start with a surface $S$ of 
 \end{figure}
 
 
-It is natural to assume that the sphere has genus $0$ and torus has genus $1$.
-(In general genus tells how many disjoint closed curves one could draw on the surface so that they do not cut the surface into pieces.)
+It is natural to assume that the sphere has genus $0$ and the torus has genus $1$.
+(In general, genus tells how many disjoint closed curves one could draw on the surface so that they do not cut the surface into pieces.)
 
 The simple regions of a drawing on a surface of genus $g$ can be defined the same way as on the torus.
 Euler's formula given in Theorem~\ref{thm:euler>=} admits the following straightforward generalization
@@ -406,12 +407,12 @@ Euler's formula given in Theorem~\ref{thm:euler>=} admits the following straight
 \begin{thm}{Theorem}\label{thm:euler>=genus}
 For any drawing $G$ of a pseudograph on the surface of genus $g$ we have
 \[p-q+r\ge 1-2\cdot g,\]
-where $p$, $q$, and $r$ denote the number of vertexes, edges and regions of~$G$.
+where $p$, $q$, and $r$ denote the number of vertices, edges and regions of~$G$.
 
 Moreover, equality holds if all regions of $G$ are simple.
 \end{thm}
 
-The seven color theorem also admits the following straightforward generalization;
+The seven-color theorem also admits the following straightforward generalization;
 it was proved by Percy John Heawood \cite{heawood}.
 
 \begin{thm}{Theorem}
@@ -421,13 +422,13 @@ then its chromatic number cannot exceed
 \end{thm}
 
 Note that for a sphere (that is, for $g=0$) the formula gives $4$, which is the right bound for the chromatic number for planar graphs. 
-However this is just a coincidence, the proof of Heawood works only for $g\ge 1$.
+However, this is just a coincidence; the proof of Heawood works only for $g\ge 1$.
 
 The estimate in the last theorem is sharp.
 The latter was proved by constructing a drawing on the surface of genus $g$
 of the complete graphs $K_n$ for any $n\le\frac{7+\sqrt{1+48\cdot g}}2$.
 The final step in this construction was made by Gerhhard Ringel and Ted Youngs \cite{ringel-youngs}.
-The solution uses the so-called \index{rotation}\emph{rotations of graphs}; which is a combinatiric way to encode a drawing of a graph on a surface.
+The solution uses the so-called \index{rotation}\emph{rotations of graphs}; which is a combinatoric way to encode a drawing of a graph on a surface.
 This is the subject of \cite[Chapter 10]{hartsfield-ringel}.
 
 \begin{wrapfigure}{r}{40 mm}
@@ -437,12 +438,12 @@ This is the subject of \cite[Chapter 10]{hartsfield-ringel}.
 \vskip-0mm
 \end{wrapfigure}
 
-One may consider nonoriented surfaces; for example, the so-called M\"obius strip shown on the diagram.
+One may consider nonoriented surfaces; for example, the so-called Möbius strip shown on the diagram.
 It turns out that it is possible to generalize Euler's inequality and get an exact upper bound for the chromatic numbers for graphs that can be drawn on such surfaces.
-(The problem is slightly harder for the so-called Klein bottle, but still, its difficulty is not comparable with the four color theorem.)
+(The problem is slightly harder for the so-called Klein bottle, but still, its difficulty is not comparable with the four-color theorem.)
 
-\begin{thm}{Exercise}
-Draw the complete graph $K_6$ on a M\"obius strip (assume it is made from a transparent material).
+\begin{thm}{Exercise}\label{ex:K6moebius}
+Draw the complete graph $K_6$ on a Möbius strip (assume it is made from a transparent material).
 \end{thm}
 
 

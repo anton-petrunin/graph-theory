@@ -1,5 +1,60 @@
 
-\section*{Large girth}
+
+
+
+
+
+
+Let us mention another application of exponential generating functions.
+
+Assume $r_n$ denotes the number of rooted spanning trees in $K_n$.
+(A~tree with one marked vertex is called a \index{rooted tree}\emph{rooted tree} and the marked vertex is called its {}\emph{root}).
+Then it is not hard to see that the exponential generating function of $r_n$ satisfies the following identity
+\[R(x)=x\cdot e^{R(x)}.
+\eqlbl{eq:rooted}\]
+By the Lagrange inversion theorem, formula \ref{eq:rooted} implies that $r_n=n^{n-1}$.
+
+Since in any spanning tree of $K_n$ we have $n$ choices for the root, we have that
+\[r_n=n\cdot s(K_n).\]
+This way we get another proof of the Cayley formula (\ref{thm:cayley}) \[s(K_n)=n^{n-2}.\]
+
+
+
+
+
+
+
+
+
+
+
+\begin{thm}{Exercise}
+Let $A$ be an abstract rewriting system
+with set of objects formed by integers $\ge 2$
+such that $m\to n$ if and only if $m$ is divisible by $n$ and $m>n$.
+In other words, we can exchange any integer for its factor.
+
+\begin{enumerate}[(a)]
+\item Show that $m\sim n$ for any two objects $m$ and $n$ in $A$.
+\item Show that $m$ is irreducible if and only if $m$ is prime.
+\end{enumerate}
+
+\end{thm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Large girth}
 
 Recall that \index{girth}\emph{girth} of a graph is the length of its shortest cycle.
 
@@ -32,22 +87,22 @@ Then
 \[\Sigma_V\le \Sigma_U.\]
 
 If the inequality \ref{W<G} does not hold, then $V\ne W$.
-Therefore there is an edge $e$ that lies in $W$, but not in $V$.
-Since both graphs are connected we may assume that one of the vertexes of $e$ is in $V$.
+Therefore, there is an edge $e$ that lies in $W$, but not in $V$.
+Since both graphs are connected we may assume that one of the vertices of $e$ is in $V$.
 We have three cases:
 \begin{enumerate}[(i)]
 \item The other vertex of $e$ is not in $V$.
 In this case we have to add this vertex as well.
 Note that in this case the added edge does not separate the region containing $e$.
-Therefore 
+Therefore,
 \[\Sigma_{V+e}=\Sigma_{V}.\]
 \item The other vertex $e$ is in $V$ and $e$ cuts its region in two.
-In this case we leave the number of vertexes unchanged and number of edges and regions is increased by 1.
-Therefore 
+In this case we leave the number of vertices unchanged and number of edges and regions is increased by 1.
+Therefore, 
 \[\Sigma_{V+e}=\Sigma_{V}.\] 
 \item\label{p-q+r<p-q+r} The other vertex $e$ is in $V$ and $e$ leaves its region connected.
-In this case we leave the number of vertexes and regions unchanged and number of edges is increased by 1.
-Therefore 
+In this case we leave the number of vertices and regions unchanged and number of edges is increased by 1.
+Therefore, 
 \[\Sigma_{V+e}=\Sigma_{V}-1.\]
 \end{enumerate}
 Note that in each case, the subgraph $V$ is not maximal --- a contradiction.
@@ -69,19 +124,19 @@ The proof of these two lemmas are nearly identical.
 Since all regions of $U$ are simple, Claim~\ref{clm:simple-regions} implies that all regions of $V$ are simple.
 
 If the inequality \ref{W=G} does not hold, then $V\ne W$.
-Therefore there is an edge $e$ that lies in $W$, but not in $V$.
-Since both graphs are connected we may assume that one of the vertexes of $e$ is in $V$.
+Therefore, there is an edge $e$ that lies in $W$, but not in $V$.
+Since both graphs are connected we may assume that one of the vertices of $e$ is in $V$.
 We have three cases:
 \begin{enumerate}[(i)]
 \item The other vertex of $e$ is not in $V$.
 In this case we have to add this vertex as well.
 Note that in this case the added edge does not separate the region containing $e$.
-Therefore 
+Therefore, 
 \[\Sigma_{V+e}=\Sigma_{V}.\]
 \item The other vertex $e$ is in $V$.
 Since all regions of $V$ are simple, $e$ separates its region in two.
-In this case we leave the number of vertexes unchanged and number of edges and regions is increased by 1.
-Therefore 
+In this case we leave the number of vertices unchanged and number of edges and regions is increased by 1.
+Therefore, 
 \[\Sigma_{V+e}=\Sigma_{V}.\] 
 \end{enumerate}
 Note that in each case, the subgraph $V$ is not maximal --- a contradiction.
@@ -149,10 +204,10 @@ Note that $P$ contains an edge $e$ that is not in $S$;
 such that $S'=S-e'+e$ is a spanning tree.
 Indeed, $S-e'$ has two components say $S_1$ and $S_2$;
 moreover the ends on $P$ lie in the different components of $S-e'$.
-Therefore there is an edge $e$ in $P$ that connects $S_0$ to $S_1$;
+Therefore, there is an edge $e$ in $P$ that connects $S_0$ to $S_1$;
 that is, $S-e'+e$ is a connected spanning subgraph of $G$.
 
-Note that $S$ and $S'$ have the same number of edges and vertexes.
+Note that $S$ and $S'$ have the same number of edges and vertices.
 Since $S$ is a tree, so it $S'$.
 
 otherwise $P+e'$ would be a cycle in $S$.
@@ -174,12 +229,12 @@ It follows that
 Further, observe that $S'=S+e-e'$ is a spanning tree.
 
 
-Evidently $T+e'-e$ and $T$ have the same number of edges.
+Evidently, $T+e'-e$ and $T$ have the same number of edges.
 Whence $T+e'-e$ is tree as well as $T$.
 
 By assumption 
 \[\weight(e')\ge \weight(e).\]
-Therefore 
+Therefore, 
 \begin{align*}
 \weight(S')&=\weight(S)+\weight(e)-\weight(e')\le
 \\
@@ -208,7 +263,7 @@ Note that $T+e'$ contains a cycle formed by $P$ and $e'$.
 Removing the edge $e$ from the cycle, leaves the graph connected;
 therefore $T'$ is a connected spanning subgraph of $G$.
 
-Evidently $T'$ and $T$ have the same number of edges; whence $T'$ is tree as well as $T$.
+Evidently, $T'$ and $T$ have the same number of edges; whence $T'$ is tree as well as $T$.
 \qeds
 
 
@@ -235,7 +290,7 @@ Note that $P$ contains an edge $e$ that is not in $T'$;
 otherwise $P+e'$ would be a cycle in $T'$. 
 By assumption 
 \[\weight(e')\ge \weight(e).\]
-Therefore 
+Therefore, 
 \begin{align*}
 \weight(T'')&=\weight(T')+\weight(e)-\weight(e')\le
 \\
@@ -258,7 +313,7 @@ Suppose all weights are different.
 Show that there is a minimum weight spanning tree $T$ in $G$ that contains $e$.
 \item Given a vertex $w$, denote by $e_w$ an edge adjacent to $w$ that has minimal weight.
 Show that there is a minimum weight spanning tree $T$ in $G$ that contains $e_w$.
-\item Given a set of vertexes $W$, denote by $e_W$ an edge that has minimal weight among all the edges connecting a vertex in $W$ to a vertex not in $W$.
+\item Given a set of vertices $W$, denote by $e_W$ an edge that has minimal weight among all the edges connecting a vertex in $W$ to a vertex not in $W$.
 Show that there is a minimum weight spanning tree $T$ in $G$ that contains $e_w$.
 \end{enumerate}
 
@@ -378,11 +433,11 @@ The latter contradicts maximality of $k$.
 \qeds
 
 \parit{Proof of \ref{thm:kruskal}.}
-Let us apply induction on the number of vertexes $p$.
+Let us apply induction on the number of vertices $p$.
 The base $p=1$ is trivial.
 
-Assume the statement holds for any graph with at most $p-1$ vertexes.
-Choose a graph $G$ with $p$ vertexes.
+Assume the statement holds for any graph with at most $p-1$ vertices.
+Choose a graph $G$ with $p$ vertices.
 
 Let $e$ is a an edge in $G$ with minimal weight.
 According to the lemma, we can choose a minimum weight spanning tree $T$ that contains $e$.
@@ -416,17 +471,17 @@ If this edge connects different trees in $F$, then add it to $F$.
 \item Repeat the procedure \ref{Kruskal:main} until $F$ contains $p-1$ edge.
 \end{enumerate}
 
-Let us apply induction on the number of vertexes in the graph, which will be denoted by $p$.
+Let us apply induction on the number of vertices in the graph, which will be denoted by $p$.
 The base case $p=1$ is trivial.
 
-Suppose that the statement holds for all graphs with at most $p-1$ vertexes.
-Fix a connected weighted graph $G$ with $p$ vertexes.
+Suppose that the statement holds for all graphs with at most $p-1$ vertices.
+Fix a connected weighted graph $G$ with $p$ vertices.
 Let $T$ be a spanning tree in $G$ that minimize the total weight.
 
 According to Lemma~\ref{lem:kruskal}, the edge $e$ with minimal weight belongs to $T$. 
 It follows that $T/e$ is a spanning tree in $G/e$.
 
-Note that $G/e$ has $p-1$ vertexes;
+Note that $G/e$ has $p-1$ vertices;
 therefore by the induction hypothesis, the Kruskal's algorithm produces unique minimum weight spanning tree in $G/e$.
 
 Note that 
@@ -440,7 +495,7 @@ Since $e$ is minimal, $\mathrm{weight}(e')>\mathrm{weight}(e)$ and therefore $\m
 But $T$ has a minimal weight --- a contradiction.
 
 Since $T$ contains $e$, we have that $T/e$ is a spanning tree in $G/e$.
-Evidently if $T$ minimize its weight then so does $T/e$.
+Evidently, if $T$ minimize its weight then so does $T/e$.
 The pseudograph $G/e$ has $p-1$ and therefore $T/e$ can be obtained by applying Kruskal’s algorithm to $G/e$.
 \qeds
 \qeds
@@ -459,13 +514,13 @@ graph.
 
 \parit{Proof.}
 Note that $T' + e$ has a cycle $C$ with $e$ in it.
-Since $T$ is a tree, it can not contain $C$.
-Therefore $C$ has an edge that is not in $T$;
+Since $T$ is a tree, it cannot contain $C$.
+Therefore, $C$ has an edge that is not in $T$;
 denote it by $e'$.
 
 The graph $T''=T' + e-e'$ is connected since it is obtained by deleting one edge from a cycle $C$ in a connected graph $T' + e$.
 Clearly, $T''$ has the same number of edges as the tree $T'$.
-Therefore $T''$ is a spanning tree.
+Therefore, $T''$ is a spanning tree.
 \qeds
 
 \parit{Proof of the theorem.}
@@ -546,7 +601,7 @@ Note that for the function $\delta(K)$ the following conditions hold:
 \begin{enumerate}
 \item\label{delata-1} If we permute in $K$ a pair of columns and the pair of rows with the same numbers, then for the obtained matrix $K'$ we have 
 \[\delta(K)=\delta(K').\]
-Indeed, $K'$ describes the same graph $G$ with another enumeration of vertexes.
+Indeed, $K'$ describes the same graph $G$ with another enumeration of vertices.
 
 \item \label{delata-2}
 If the sum of components in the first row in $K$ is positive, then
@@ -573,8 +628,8 @@ that is
 \end{matrix}
 \right)=1.
 \]
-Indeed, in the corresponding graph $G$ all the vertexes labeled by $1,\dots,p-1$ connected to the vertex with label $p$ by unique edge. 
-Therefore the graph $G$ is a tree and hence $t(G)=1$.
+Indeed, in the corresponding graph $G$ all the vertices labeled by $1,\dots,p-1$ connected to the vertex with label $p$ by unique edge. 
+Therefore, the graph $G$ is a tree and hence $t(G)=1$.
 \end{enumerate}
 
 Notice that all these properties are satisfied for the determinant of $K$, which we denote further by $\det K$.

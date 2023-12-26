@@ -1,27 +1,27 @@
 \chapter{Minimum spanning trees}
 
 
-\section*{Optimization problems}
+\section{Optimization problems}
 
-We say that a graph $G$ has \index{weight}\emph{weighted edges} if each edge in $G$ is labeled by a real number, called its \emph{weight}.
-In this case the \emph{weight of a subgraph} $H$ (briefly $\weight(H)$) is defined as the sum of the weights of its edges.
+We say that a graph $G$ has \index{weight}\emph{weighted edges} if each edge in $G$ is labeled by a real number, called its {}\emph{weight}.
+In this case the {}\emph{weight of a subgraph} $H$ (briefly $\weight(H)$) is defined as the sum of the weights of its edges.
 
 An {}\emph{optimization problem} typically asks to minimize the weight of a subgraph of a certain type.
 A classic example is the so-called \index{traveling salesman problem}\emph{traveling salesman problem}.
 It asks to find a Hamiltonian cycle with minimal weight (if it exists in the graph).
 
 No fast algorithm is known to solve this problem and it is expected that no fast algorithm exists.
-We say {}\emph{fast} if the required time depends polynomially on the number of the vertexes in the graph.
-The best known algorithms require exponential time, which is just a bit better than a brute force checking of all possible Hamiltonian cycles.
+We say \textit{fast} if the required time depends polynomially on the number of vertices in the graph.
+The best-known algorithms require exponential time, which is just a bit better than brute force checking of all possible Hamiltonian cycles.
 
-In fact the traveling salesman problem is a classic example of the so-called {}\emph{NP-hard problems}; it means that if you find a fast algorithm to solve it, then you solve the \index{P=NP problem}\emph{P=NP problem} --- the most important question in modern mathematics.
+In fact, the traveling salesman problem is a classic example of the so-called \textit{NP-hard problems}; it means that if you find a fast algorithm to solve it, then you solve the \index{P=NP problem}\emph{P=NP problem} --- the most important question in modern mathematics.
 
-The so-called \index{nearest neighbor algorithm}\emph{nearest neighbor algorithm} gives a heuristic way to find a Hamiltonian cycle with small (but not necessarily smallest) weight.
+The so-called \index{nearest neighbor algorithm}\emph{nearest neighbor algorithm} gives a heuristic way to find a Hamiltonian cycle with small (but not necessarily the smallest) weight.
 In the following description, we assume that the graph is complete.
 \begin{enumerate}[(i)]
 \item Start at an arbitrary vertex.
 \item\label{NNA-main} Find the edge with minimal weight connecting the current vertex $v$ and an unvisited vertex $w$ and move to $w$.
-\item Repeat step \ref{NNA-main} until all vertexes are visited and then return to the original vertex.
+\item Repeat step \ref{NNA-main} until all vertices are visited and then return to the original vertex.
 This way we walked along a Hamiltonian cycle.
 \end{enumerate}
 
@@ -36,12 +36,12 @@ in other words, it chooses the cheapest step at each stage.
 The cheap choices at the beginning might force it to make expansive choices at the end,
 so it may not find an optimal solution. 
 In fact a greedy algorithm might give the worst solution.
-For example, if we start from the vertex $a$ in the shown weighted graph, then nearest neighbor algorithm produce the cycle $abcd$ which is the worse --- this cycle has total weight $11=1+1+5+4$ and the other two  Hamiltonian cycles have weights $9$ and $10$.
+For example, if we start from the vertex $a$ in the shown weighted graph, then the nearest neighbor algorithm produces the cycle $abcd$, which is the worst --- its total weight is $11=1+1+5+4$, and the other two  Hamiltonian cycles have weights $9$ and $10$.
 
 Let us list a few other classic examples of optimization problems.
 Unlike the traveling salesman problem, there are fast algorithms which solve them.
 \begin{itemize}
-\item The \index{shortest path problem}\emph{shortest path problem} asks for a path with minimal weight, connecting two given vertexes.
+\item The \index{shortest path problem}\emph{shortest path problem} asks for a path with minimal weight, connecting two given vertices.
 It can be thaut of as optimal driving directions between two locations.
 \item The \label{assignment problem}\index{assignment problem}\emph{assignment problem} asks for a matching of a given size with minimal weight, in a bipartite graph.
 It can be used to minimize the total cost of work, assuming that available workers charge different prices for each task.
@@ -52,16 +52,16 @@ This problem will be the main subject of the remaining sections of this chapter.
 \end{itemize}
 
 
-\section*{Neighbors of a spanning tree}
+\section{Neighbors of a spanning tree}
 
 Let $G$ be a connected graph.
-Suppose $T$ and $T'$ are spanning trees in $G$.
+Suppose $T$ and $T'$ are spanning trees in~$G$.
 If 
 \[T'=T-e+e'\]
 for some edges $e$ and $e'$,
 then we say that $T'$ is a \index{neighbor}\emph{neighbor} of $T$.
 
-\begin{thm}{Exercise}
+\begin{thm}{Exercise}\label{ex:neighbor-trees}
 Let $G$ be a connected graph that is not a tree.
 Suppose that any two distinct spanning trees in $G$ are neighbors.
 Show that $G$ has exactly one cycle.
@@ -76,7 +76,7 @@ for any neighbor $T'$ of $T$.
 
 \begin{thm}{Exchange lemma}
 Let $S$ and $T$ be spanning trees in a graph $G$.
-Then for any edge $s$ in $S$ that is not in $T$ there is an edge $t$ in $T$, but not in $S$ such that the subgraphs
+Then for any edge $s$ in $S$ that is not in $T$, there is an edge $t$ in $T$, but not in $S$ such that the subgraphs
 \[S'=S-s+t\quad\text{and}\quad T'=T+s-t\]
 are spanning trees in $G$.
 \end{thm}
@@ -84,11 +84,11 @@ are spanning trees in $G$.
 \parit{Proof.}
 Note that $S-s$ has two components, denote them by $S_1$ and $S_2$.
 
-Let $P$ be a path in $T$ that connects the vertexes of $s$.
+Let $P$ be a path in $T$ that connects the vertices of $s$.
 Note that the path $P$ starts in $S_1$ and ends in $S_2$.
-Therefore one of the edges of $P$, say $t$, connects $S_1$ to $S_2$.
+Therefore, one of the edges of $P$, say $t$, connects $S_1$ to $S_2$.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 \vskip-0mm
 \centering
 \includegraphics{mppics/pic-91}
@@ -96,12 +96,12 @@ Therefore one of the edges of $P$, say $t$, connects $S_1$ to $S_2$.
 
 The subgraph $T+s$ has a cycle created by $P$ and~$s$.
 Removing the edge $t$ from this cycle leaves a connected subgraph $T'=T-t+s$.
-Evidently $T'$ and $T$ have the same number of vertexes and edges;
+Evidently, $T'$ and $T$ have the same number of vertices and edges;
 since $T$ is a tree, so is $T'$.
 
 Further $S'=S-s+t=S_1+S_2+t$.
 Since $t$ connects two connected subgraphs $S_1$ and $S_2$, the resulting subgraph $S'$ is connected.
-Again $S'$ and $S$ have the same number of vertexes and edges;
+Again $S'$ and $S$ have the same number of vertices and edges;
 since $S$ is a tree, so is $S'$.
 \qeds
 
@@ -110,7 +110,7 @@ It remains to show the ``if'' part.
 
 Suppose that a spanning tree $T$ has the minimal weight among its neighbors.
 Consider a minimum weight spanning tree $S$ in $G$;
-if there are more than one, then
+if there is more than one, then
 we assume in addition that $S$ shares with $T$ the maximal number of edges. 
 
 Arguing by contradiction, assume $T$ is not a minimum weight spanning tree;
@@ -124,7 +124,7 @@ Since $T'$ is a neighbor of $T$, we have
 \weight(T)&\le \weight(T')=
 \\
 &=\weight(T)+\weight(s)-\weight(t).
-\intertext{Therefore $\weight(s)\ge \weight(t)$ and}
+\intertext{Therefore, $\weight(s)\ge \weight(t)$ and}
 \weight(S')&=\weight(S)-\weight(s)+\weight(t)\le
 \\
 &\le\weight(S).
@@ -135,37 +135,38 @@ By construction, $S'$ has one more common edge with $T$;
 the latter contradicts the choice of $S$.
 \qeds
 
-\begin{thm}{Exercise} Let $G$ be a graph with weighted edges and  $T$ a minimal weight spanning tree in $G$.
+\begin{thm}{Exercise}\label{ex:w>2w}
+Let $G$ be a graph with weighted edges and  $T$ a minimal weight spanning tree in $G$.
 
 Suppose that for each edge $e$, we change its weight from $w$ to $2^w$.
 Show that $T$ remains a minimal weight spanning tree in $G$ with the new weights.
 \end{thm}
 
 
-\section*{Kruskal’s algorithm}
+\section{Kruskal’s algorithm}
 
 Kruskal’s algorithm finds a minimum weight spanning tree in a given connected graph.
 If the graph is not connected, the algorithm finds a spanning tree in each component of the graph.
 Let us describe it informally.
 \begin{enumerate}[(i)]
 \item Suppose $G$ is a graph with weighted edges.
-Start with the spanning forest $F$ in $G$ formed by all vertexes and no edges.
+Start with the spanning forest $F$ in $G$ formed by all vertices and no edges.
 \item\label{Kruskal:main} Remove from $G$ an edge with minimal weight.
 If this edge connects different trees in $F$, then add it to $F$.
 \item Repeat the procedure while $G$ has any remaining edges.
 \end{enumerate}
 
-Note that Kruskal’s algorithm is {}\emph{greedy} --- it chooses the cheapest step at each stage.
+Note that Kruskal’s algorithm is \index{greedy algorithm}\emph{greedy}; it chooses the cheapest step at each stage.
 
 \begin{thm}{Theorem}\label{thm:kruskal}
 Kruskal’s algorithm finds a minimum weight spanning tree in any connected pseudograph with weighted edges.
 \end{thm}
 
 \parit{Proof.}
-Evidently the subgraph $F$ remains to be a forest at all stages.
+Evidently, the subgraph $F$ remains a forest at all stages.
 If at the end, $F$ has more than one component, then the original graph $G$ could not have edges connecting these components;
-otherwise the algorithm would choose it at some stage.
-Therefore the resulting graph is a tree.
+otherwise, the algorithm would choose it at some stage.
+Therefore, the resulting graph is a tree.
 
 Suppose the spanning tree $T$ produced by Kruskal’s algorithm does not have minimal total weight.
 Then $T$ does not satisfy Theorem~\ref{thm:mst-iff};
@@ -175,7 +176,7 @@ that is, there is a neighbor $T'=T+e'-e$ of $T$ such that
 \\
 &=\weight(T)+\weight(e')-\weight(e).
 \end{align*}
-Therefore $\weight(e')<\weight(e)$.
+Therefore, $\weight(e')<\weight(e)$.
 
 Denote by $F$ the forest at the stage right before adding $e$ to it.
 Note that $F$ is a subgraph of $T-e$.
@@ -184,9 +185,9 @@ it connects different trees in $F$.
 But $\weight(e)>\weight(e')$, therefore the algorithm should reject $e$ at this stage --- a contradiction.
 \qeds
 
-\section*{Other algorithms}
+\section{Other algorithms}
 
-Let us describe two more algorithms which find  a minimal weight spanning tree in a given connected graph $G$.
+Let us describe two more algorithms that find  a minimal weight spanning tree in a given connected graph $G$.
 For simplicity, we assume that $G$ has distinct weights.
 
 \parbf{Prim's algorithm.}
@@ -194,24 +195,21 @@ For simplicity, we assume that $G$ has distinct weights.
 \item Start with a tree $T$ formed by a single vertex $v$ in $G$.
 \item\label{main:prim} Choose an edge $e$ with the minimal weight that connects $T$ to a vertex not yet in the tree.
 Add $e$ to $T$.
-\item Repeat step \ref{main:prim} until all vertexes are in the tree $T$.
+\item Repeat step \ref{main:prim} until all vertices are in the tree $T$.
 \end{enumerate}
 
 \parbf{Borůvka's algorithm.}
 \begin{enumerate}[(i)]
-\item Start with the forest $F$ formed by all vertexes of $G$ and no edges.
+\item Start with the forest $F$ formed by all vertices of $G$ and no edges.
 \item\label{main:boruvka} For each component $T$ of $F$, find an edge $e$ with minimal weight that connects $T$ to another component of $F$; add $e$ to $F$.
 \item Repeat step \ref{main:boruvka} until $F$ has one component. 
 \end{enumerate}
 
-
-\begin{thm}{Exercise}
-Show that (a) Prim's algorithm and (b) Borůvka's algorithm produce a minimum weight spanning tree of a given connected graph with all different weights.
+\begin{thm}{Exercise}\label{ex:PB}
+Show that both (a) Prim's algorithm and (b) Borůvka's algorithm produce a minimum weight spanning tree for a given connected graph with all different weights.
 \end{thm}
 
-\parit{Hint:} Mimic the proof for Kruskal’s algorithm.
-
-\begin{thm}{Exercise}
+\begin{thm}{Exercise}\label{ex:KPB}
 Compare Kruskal’s algorithm, Prim's algorithm, and Borůvka's algorithm.
 Which one should work faster?
 When and why?
@@ -225,23 +223,24 @@ Let $T$ be a minimum weight spanning tree in $G$.
 Show that $e$ belongs to $T$.
 \item\label{ex:deleting-algorithm:b} Suppose $C$ is a cycle in $T$ and $f$ is an edge in $C$ with maximal weight.
 Show that $f$ does not belong to $T$.
-\item Find a minimum-spanning-tree algorithm that is based on observations \ref{ex:deleting-algorithm:a} and \ref{ex:deleting-algorithm:b}.
+\item\label{ex:deleting-algorithm:c}
+Come up with a minimum-spanning-tree algorithm based on observations \ref{ex:deleting-algorithm:a} and \ref{ex:deleting-algorithm:b}.
 \end{enumerate}
 \end{thm}
 
-\section*{Remarks}
+\section{Remarks}
 
-The NP-hardness of the traveling salesman problem follows from a result of Richard Karp \cite{karp}.
+The NP-hardness of the traveling salesman problem follows from a result by Richard Karp \cite{karp}.
 The discussed algorithms are named after Joseph Kruskal, Robert Prim and Otakar Borůvka.
-Joseph Kruskal also described the so-called \emph{reverse-delete algorithm} \cite{kruskal} which is closely relevant to a solution of Exercise~\ref{ex:deleting-algorithm}.
+Joseph Kruskal also described the so-called \index{reverse-delete algorithm}\emph{reverse-delete algorithm} \cite{kruskal}, which is closely relevant to Exercise~\ref{ex:deleting-algorithm}.
 Prim's algorithm was first discovered by Vojtěch Jarník,
 rediscovered  independently two times: by Robert Prim and by Edsger Dijkstra.
 
-For more on optimization problems read the book by Dieter Jungnickel~\cite{jungnickel}.
-A reader friendly introduction to P=NP problem is given in the book by 
+For more on optimization problems, read the book by Dieter Jungnickel~\cite{jungnickel}.
+A reader-friendly introduction to the P=NP problem is given in the book by 
 Thomas Cormen,
 Charles Leiserson,
 Ronald Rivest, and
-Slifford Stein \cite[Chapter 34]{cormen-leiserson-rivest-stein}.
+Clifford Stein \cite[Chapter 34]{cormen-leiserson-rivest-stein}.
 
 

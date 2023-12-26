@@ -21,9 +21,9 @@ urlcolor=black%
 %\usepackage[usestackEOL]{stackengine} 
 
 
-\usepackage[russian,german,english]{babel}
 \usepackage[T1,T2A]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage[russian,german,english]{babel}
 \DeclareUnicodeCharacter{2010}{-}% support older LaTeX versions
 
 \usepackage[
@@ -44,16 +44,19 @@ isbn=false]{biblatex}
 \renewcommand*{\bibfont}{\scriptsize}
 \addbibresource{library.bib}
 
-\usepackage{epigraph}
-
 \usepackage{comment}
 
 \usepackage{tikz}
 \usetikzlibrary{arrows}
+\usetikzlibrary{decorations.pathmorphing, decorations.pathreplacing, decorations.shapes} 
 
 \usepackage{epsfig,lpic,wrapfig}
 \usepackage{float}
+
 \usepackage{multicol}
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
 
 \csname @openrightfalse\endcsname
 
@@ -64,6 +67,26 @@ isbn=false]{biblatex}
 \begin{center}\large#1\end{center}
 \vskip0.5em}%
 }
+
+\usepackage{titletoc}% http://ctan.org/pkg/titletoc
+\titlecontents*{section}[.5em]
+  {\small}
+  {\thecontentslabel.~{}}
+  {}
+  { \textbf{\thecontentspage}}
+  [; ][.]
+
+\usepackage{accsupp}
+\usepackage{soulutf8}
+\sodef\an{}{.1em}{.5em plus.1em}{.5em plus.1em minus.1em}
+
+\newcommand\ann[1]{%
+    \BeginAccSupp{method=escape,ActualText={\detokenize{#1}}}%
+      \an{#1}%
+    \EndAccSupp{}%
+}
+
+\def\emph{\ann}
 
 % Fix latex
 \def\smallskip{\vskip\smallskipamount}
@@ -97,6 +120,7 @@ isbn=false]{biblatex}
 \def\epsilon{\varepsilon}
 \def\phi{\varphi}
 \def\theta{\vartheta}
+\def\EE{\mathbb{E}}
 
 \def\ge{\geqslant}
 \def\le{\leqslant}
@@ -114,16 +138,6 @@ isbn=false]{biblatex}
             {\hbox{$\mathsurround=0pt #1$}}{}}
 \let\oldcdot\cdot
 \def\cdot{{\hskip0.5pt\z\oldcdot\hskip0.5pt}}
-
-\hyphenation{% 
-col-lin-e-ar 
-geo-de-sic  
-half-space
-Loba-chev-skian
-Py-thag-o-re-an
-re-pa-ra-met-ri-za-tion
-semi-pe-ri-me-ter}
-
 
 %LIST STILES
 \renewcommand{\@listI}{%
@@ -172,3 +186,20 @@ semi-pe-ri-me-ter}
   {}
   {\usebibmacro{cite:dump}%
    \usebibmacro{postnote}}
+
+\makeatletter\renewcommand{\p@section}{\thechapter}\makeatother
+\renewcommand{\thesection}{\Alph{section}}
+
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+\DeclareFieldFormat{pages}{#1}
+%removes p. in the cites
+   
+\hyphenation{% 
+col-lin-e-ar 
+geo-de-sic  
+half-space
+Loba-chev-skian
+Py-thag-o-re-an
+re-pa-ra-met-ri-za-tion
+semi-pe-ri-me-ter}

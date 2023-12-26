@@ -1,8 +1,11 @@
 \chapter{Generating functions}\label{Generating functions}
- 
-For this chapter, the reader has to be familiar with power series.
 
-\section*{Exponential generating functions}
+In this chapter, we discuss one connection between graph theory and power series;
+we prove the exponential formula (Theorem~\ref{thm:exp-formula})
+and discuss its applications.
+This material is similar to Chapter~\ref{chap:Graph-polynomials}, but more challenging.
+
+\section{Exponential generating functions}
 
 The power series 
 \[A(x)=a_0+a_1\cdot x+\tfrac12\cdot a_2\cdot x^2+\dots+\tfrac1{n!}\cdot a_n\cdot x^n+\dots\]
@@ -11,7 +14,7 @@ is called the \index{exponential generating function}\emph{exponential generatin
 If the series $A(x)$ converges in some neighborhood of zero, then it defines a function which remembers all information of the sequence~$a_n$.
 The latter follows since 
 \[A^{(n)}(0)=a_n;\eqlbl{eq:An=an}\]
-that is, the $n$-th derivative of $A(x)$ at $0$ equals to $a_n$.
+that is, the $n$-th derivative of $A(x)$ at $0$ equals $a_n$.
 
 However, without assuming the convergence, we can treat $A(x)$ as a formal power series.
 We are about to describe how to add, multiply, take the derivative, and do other operations with formal power series.
@@ -56,18 +59,18 @@ p_n&=\sum_{i=0}^n\tbinom ni\cdot a_i\cdot b_{n-i}.
 \eqlbl{eq:multiplication}
 \]
 
-\begin{thm}{Exercise}
-Assume $A(x)$ is the exponential generating function of the sequence $a_0,a_1,\dots$.
+\begin{thm}{Exercise}\label{ex:B=xA}
+Assume $A(x)$ is the exponential generating function of the sequence $a_0,a_1,\dots$
 Show that $B(x)=x\cdot A(x)$ corresponds to the sequence $b_n=n\cdot a_{n-1}$.
 \end{thm}
 
 
 \parbf{Composition.}
-Once we define addition and multiplication of power series we can also plug in one power series in another.
+Once we define addition and multiplication of power series we can also substitute one power series into another.
 For example, if $a_0=0$, then the expression 
-\[E(x)=e^{A(x)}\] is another power series which is obtained by plugging $A(x)$ instead of $x$ in the power series of exponent:
-\[e^x=1+x+\tfrac12\cdot x^2+\tfrac16\cdot x^3+\dots\]
-It is harder to express the sequence $(e_n)$ corresponding to $E(x)$ in terms of $a_n$, but it is easy to find the first few terms.
+\[E(x)=e^{A(x)}\] is another power series obtained by substituting $A(x)$ for $x$ in
+\[e^x=1+x+\tfrac12\cdot x^2+\tfrac16\cdot x^3+\dots\eqlbl{eq:ex}\]
+It is harder to express the sequence $e_n$ corresponding to $E(x)$ in terms of $a_n$, but it is easy to find the first few terms.
 Since we assume $a_0=0$, we have
 \begin{align*}
 e_0&=1,
@@ -88,15 +91,13 @@ is defined as the following formal power series
 \[A'(x)=a_1+a_2\cdot x+\tfrac12\cdot a_3\cdot x^2+\dots+\tfrac1{n!}\cdot a_{n+1}\cdot x^n+\dots\]
 Note that $A'(x)$ coincides with the ordinary derivative of $A(x)$ if the latter converges.
 
-Note that $A'(x)$ is the exponential generating function of the sequence 
-\[a_1,a_2,a_3,\dots\]
-obtained from the original sequence 
-\[a_0,a_1,a_2,\dots\]
+Also, $A'(x)$ is the exponential generating function of the sequence $a_1,a_2,a_3,\dots$
+obtained from the original sequence $a_0,a_1,a_2,\dots$
 by deleting the zero-term and shifting the indexes by 1.
 
 
-\begin{thm}{Exercise}
-Let $A(x)$ be the exponential generating function of the sequence $a_0,a_1,a_2\dots$.
+\begin{thm}{Exercise}\label{ex:B=xA'}
+Let $A(x)$ be the exponential generating function of the sequence $a_0,a_1,a_2\dots$
 Describe the sequence $b_n$ with the exponential generating function
 \[B(x)=x\cdot A'(x).\]
 \end{thm}
@@ -114,33 +115,31 @@ E'(x)
 &= E(x)\cdot A'(x).
 \end{align*}
 
-
 These identities have a perfect meaning in terms of formal power series
-and they still hold without assuming the convergence.
-We will not prove it formally, but this is not hard.
+and they still hold without convergence.
+We will not prove it, but the proof is not difficult.
 
-\section*{Fibonacci numbers}
+\section{Fibonacci numbers}
 
-Recall that Fibonacci numbers $f_n$ are defined using the recursive identity 
+Recall that Fibonacci numbers, denoted as $f_n$, are defined using the recursive identity 
 $f_{n+1}=f_n+f_{n-1}$
-with $f_0=0$, $f_1=1$.
+with initial conditions $f_0=0$ and $f_1=1$.
 
-\begin{thm}{Exercise}
+\begin{thm}{Exercise}\label{ex:exp(Fn)}
 Let $F(x)$ be the exponential generating function of Fibonacci numbers $f_n$.
 \begin{enumerate}[(a)]
-\item Show that it satisfies the following differential equation
+\item\label{ex:exp(Fn):F''} Show that it satisfies the following differential equation
 \[F''(x)=F(x)+F'(x).\]
-\item Conclude that 
+\item\label{ex:exp(Fn):F(x)} Conclude that 
 \[F(x)=\frac{1}{\sqrt5}\cdot\left(e^{\frac{1+\sqrt{5}}{2}\cdot x}- e^{\frac{1-\sqrt{5}}{2}\cdot x}\right).\]
-\item Use the identity \ref{eq:An=an} to derive 
+\item\label{ex:exp(Fn):Binet} Use the identity \ref{eq:An=an} to derive the \index{Binet's formula}\emph{Binet's formula}: 
 \[f_n=\tfrac{1}{\sqrt5}\cdot\left((\tfrac{1+\sqrt{5}}{2})^n-(\tfrac{1+\sqrt{5}}{2})^n\right).\]
-(This is the so-called \index{Binet's formula}\emph{Binet's formula}.) 
 \end{enumerate}
 
 \end{thm}
 
 
-\section*{Exponential formula}
+\section{Exponential formula}
 
 Fix a set of graphs $\mathcal{S}$.
 Denote by $c_n=c_n(\mathcal{S})$ the number of spanning subgraphs of $K_n$ isomorphic to one of the graphs in $\mathcal{S}$. 
@@ -151,20 +150,23 @@ Let \[C(x)=C_{\mathcal{S}}(x)\] be the exponential generating function of the se
 Let $\mathcal{S}$ be a set of connected graphs. 
 
 \begin{enumerate}[(a)]
-\item\label{thm:exp-formula:Wk} Fix a positive integer $k$ and denote by $w_n$ the number of spanning subgraphs of $K_n$ which have exactly $k$ connected components, and each connected component is  isomorphic to one of the graphs in~$\mathcal{S}$.
+\item\label{thm:exp-formula:Wk}
+Fix a positive integer $k$.
+Denote by $w_n$ the number of spanning subgraphs of $K_n$ with exactly $k$ connected components such that each component is  isomorphic to one of the graphs in~$\mathcal{S}$.
 Then
 \[W_k(x)=\tfrac1{k!}\cdot C_{\mathcal{S}}(x)^k,\]
 where $W_k(x)$ is the exponential generating function of the sequence $w_n$.
 
-\item\label{thm:exp-formula:all} Denote by $a_n$ the number of {}\emph{all} spanning subgraphs of $K_n$ such that each connected component of it is from the class $\mathcal{S}$.
-Let $A(x)$ be the exponential generating function of the sequence $(a_n)$.
+\item\label{thm:exp-formula:all}
+Let $a_n$ be the number of \textit{all} spanning subgraphs of $K_n$ such that each connected component is isomorphic to one of the graphs in~$\mathcal{S}$.
+Let $A(x)$ be the exponential generating function of the sequence $a_n$.
 Then
 \[1+A(x)=e^{C_{\mathcal{S}}(x)}.\]
 \end{enumerate}
 
 \end{thm}
 
-Taking the logarithm and derivative of the formula in \ref{thm:exp-formula:all},
+Taking the logarithm and derivative of the formula in \textit{\ref{thm:exp-formula:all}},
 we get the following:
 
 \begin{thm}{Corollary}\label{cor:exp-formula}
@@ -175,13 +177,13 @@ Then
 
 The second formula in this corollary provides a recursive formula for the corresponding sequences which will be important later.
 
-\parit{Proof; \ref{thm:exp-formula:Wk}.}
+\parit{Proof of \ref{thm:exp-formula}; \ref{thm:exp-formula:Wk}.}
 Denote by $v_n$ the number of spanning subgraphs of $K_n$ which have $k$ ordered connected components and each connected component is isomorphic to one of the graphs in $\mathcal{S}$.
 Let $V_k(x)$ be the corresponding generating function.
 
 Note that for each graph described above
 there are $k!$ ways to order its $k$ components.
-Therefore $w_n=\tfrac1{k!}\cdot v_n$ for any $n$ and
+Therefore, $w_n=\tfrac1{k!}\cdot v_n$ for any $n$ and
 \[W_k(x)=\tfrac1{k!}\cdot V_k(x).\]
 Hence it is sufficient to show that 
 \[V_k(x)=C(x)^k.
@@ -195,32 +197,34 @@ we need to show that
 \[V_{k+1}=V_k(x)\cdot C(x).\eqlbl{eq:VkC}\]
 
 Assume that a spanning graph with $k+1$ ordered connected components of $K_n$ is given.
-Denote by $m$ the number of vertexes in the first $k$ components.
-There are $\tbinom nm$ ways to choose these $m$ vertexes among $n$ vertexes of $K_n$. 
+Denote by $m$ the number of vertices in the first $k$ components.
+There are $\tbinom nm$ ways to choose these $m$ vertices among $n$ vertices of $K_n$. 
 For each choice, we have
 $v_m$ ways to choose a spanning subgraph with $k$ components in it.
-The last component has $m-n$ vertexes and we have $c_{n-m}$ ways to choose a subgraph from $\mathcal{S}$.
+The last component has $m-n$ vertices and we have $c_{n-m}$ ways to choose a subgraph from $\mathcal{S}$.
 All together, we get
 \[\tbinom nm\cdot v_m\cdot c_n\]
-spanning graphs with $k+1$ ordered connected components and $m$ vertexes in the first $k$ components.
+spanning graphs with $k+1$ ordered connected components and $m$ vertices in the first $k$ components.
 Summing it up for all $m$, we get the multiplication formula \ref{eq:multiplication} for exponential generating functions; hence \ref{eq:VkC} follows.
 
 \parit{\ref{thm:exp-formula:all}.}
-Note that $a_n$ is the sum of numbers of spanning graphs in $K_n$ with $1, 2,\dots$ components.
+To find $a_n$ we need to add the numbers of spanning graphs with $1, 2,\dots$ components.
 That is,
 \begin{align*}A(x)&=W_1(x)+W_2(x)+\dots=
-\intertext{applying part \ref{thm:exp-formula:Wk}, we can continue}
+\tag{by \ref{thm:exp-formula:Wk}}
+\\
 &=C(x)+\tfrac12\cdot C(x)^2+\tfrac16\cdot C(x)^3+\dots=
-\intertext{since $e^x=1+x+\tfrac12\cdot x^2+\tfrac16\cdot x^3+\dots$, we can rewrite it as}
+\\
 &=e^{C(x)}-1.
 \end{align*}
-\qedsf
+The last equality follows from the Taylor expansion for $e^x$; see \ref{eq:ex}.
+\qeds
 
-\section*{Perfect matchings}
+\section{Perfect matchings}
 
 Recall that a \index{perfect matching}\emph{perfect matching} is a 1-factor of the graph. 
-In other words, it is a set of isolated edges which covers all the vertexes.
-Note that if a graph admits a perfect matching, then the number of its vertexes is even.
+In other words, it is a set of isolated edges that covers all the vertices.
+Note that if a graph admits a perfect matching, then the number of its vertices is even.
 
 The \index{double factorial}\emph{double factorial} is defined as the product of all the integers from $1$ up to some non-negative integer $n$ that have the same parity (odd or even) as $n$;
 the double factorial of $n$ is denoted by $n!!$.
@@ -230,24 +234,20 @@ For example,
 10!!=10\cdot8\cdot6\cdot4\cdot2=3840.
 \]
 
-\begin{thm}{Exercise}\label{ex:matching}
+\begin{thm}{Exercise}\label{ex:perfect-matching}
 Let $a_n$ denote the number of perfect matchings in $K_n$.
 Show that 
 \begin{enumerate}[(a)]
  \item $a_2=1$;
  \item $a_n=0$ for any odd $n$;
- \item\label{ex:matching:recursion} $a_{n+1}=n\cdot a_{n-1}$ for any integer $n\ge 2$.
- \item\label{ex:matching:n!!} 
+ \item\label{ex:perfect-matching:recursion} $a_{n+1}=n\cdot a_{n-1}$ for any integer $n\ge 2$.
+ \item\label{ex:perfect-matching:n!!} 
  Conclude that $a_n=0$ and $a_{n+1}=n!!$ for any odd $n$.
 \end{enumerate}
 
 \end{thm}
 
-Now we give a more complicated proof of Exercise~\ref{ex:matching}\ref{ex:matching:n!!}.
-
-\begin{thm}{Problem}
-Use Theorem~\ref{thm:exp-formula} to show that the number of perfect matching in $K_{2\cdot n}$ is $(2\cdot n-1)!!$.
-\end{thm}
+Let us present a proof of the second part of Exercise~\ref{ex:perfect-matching}\ref{ex:perfect-matching:n!!} based on Theorem~\ref{thm:exp-formula}.
 
 \parit{Solution.} 
 Denote by $a_n$ the number of perfect matchings in $K_{n}$ and let $A(x)$ be the corresponding exponential generating function.
@@ -258,7 +258,7 @@ So we can apply the formula in Theorem~\ref{thm:exp-formula} for the set $\mathc
 Note that if $K_n$ contains a spanning subgraph isomorphic to $K_2$,
 then $n=2$.
 It follows that $c_2(\mathcal{S})=1$ and $c_n(\mathcal{S})=0$ for $n\ne 2$.
-Therefore 
+Therefore, 
 \[C(x)=C_{\mathcal{S}}(x)=\tfrac12\cdot x^2.\]
 
 By Theorem~\ref{thm:exp-formula}\ref{thm:exp-formula:all},
@@ -295,15 +295,15 @@ Note that by Corollary~\ref{cor:exp-formula}, we also have
 \[A'(x)=[1+A(x)]\cdot x,\]
 which is equivalent to the recursive identity
 \[a_{n+1}=n \cdot a_{n-1}\]
-in Exercise~\ref{ex:matching}\ref{ex:matching:recursion}.
+in Exercise~\ref{ex:perfect-matching}\ref{ex:perfect-matching:recursion}.
 
-\section*{All matchings}
+\section{All matchings}
 
 Now let $\mathcal{S}$ be the set of two graphs $K_1$ and $K_2$.
-Evidently $c_1(\mathcal{S})\z=c_2(\mathcal{S})=1$.
+Evidently, $c_1(\mathcal{S})\z=c_2(\mathcal{S})=1$.
 Further, we have that $c_n(\mathcal{S})=0$ for all $n\ge 3$ since $K_n$ contains no spanning subgraphs isomorphic to $K_1$ or $K_2$.
 
-Therefore the exponential generating function of the sequence $c_n(\mathcal{S})$ is a polynomial of degree 2
+Therefore, the exponential generating function of the sequence $c_n(\mathcal{S})$ is a polynomial of degree 2
 \[C(x)=x+\tfrac12\cdot x^2.\]
 
 Note that a matching in a graph $G$ can be identified with a spanning subgraph with all connected components isomorphic to  $K_1$ or $K_2$.
@@ -316,27 +316,28 @@ The latter is equivalent to the following recursive formula for $a_n$:
 Since $a_1=1$ and $a_2=2$, we can easily find first the few terms of this sequence:
 \[1,2,4,10,26,\dots\]
 
-\begin{thm}{Exercise}
+\begin{thm}{Exercise}\label{ex:an+nan-1}
 Prove formula \ref{an+nan-1} directly --- without using generating functions.
 Compare to Exercise~\ref{ex:deletion-deletion-total}\ref{ex:deletion-deletion-K}.
 \end{thm}
 
-\section*{Two-factors}
+\section{Two-factors}
 
 Let $\mathcal{S}$ be the set of all cycles.
 
 Note that a \index{$2$-factor}\emph{$2$-factor} of a graph can be defined as a spanning subgraph with components isomorphic to cycles.
-Denote by $a_n$ and $c_n$ the number of $2$-factors and \emph{spanning cycles}\footnote{Also known as \emph{Hamiltonian cycles}.} in $K_n$ respectively.
+Denote by $a_n$ and $c_n$ the number of $2$-factors and \index{spanning cycle}\emph{spanning cycles}%
+\footnote{Also known as \index{Hamiltonian cycle}\emph{Hamiltonian cycles}.} in $K_n$ respectively.
 Let $A(x)$ and $C(x)$ be the corresponding exponential generating functions.
 
-\begin{thm}{Exercise}
+\begin{thm}{Exercise}\label{ex:ex:2-factor}
 \begin{enumerate}[(a)]
 \item\label{ex:2-factor:cn} Show that $c_1=c_2=0$ and 
 \[c_n=(n-1)!/2\]
 for $n\ge 3$.
 In particular,
 \[c_1=0, c_2=0, c_3=1, c_4=3, c_5=12, c_6=60.\]
-\item\label{ex:2-factor:recursive} Use part \ref{ex:2-factor:cn} and the identity
+\item\label{ex:2-factor:recursive} Use part \ref{ex:2-factor:cn} and the following identity from \ref{cor:exp-formula}
 \[A'(x)=[1+A(x)]\cdot C'(x)\]
 to find $a_1,\dots, a_6$.
 \item Count the number of 2-factors in $K_1,\dots,K_6$ by hand, and compare it to the result in part \ref{ex:2-factor:recursive}.
@@ -351,12 +352,12 @@ to show that
 
 
 
-\section*{Counting spanning forests}
+\section{Counting spanning forests}
 
 
 Recall that a \index{forest}\emph{forest} is a graph without cycles.
 Assume we want to count the number of spanning forests in $K_n$;
-denote by $a_n$ its number and by $c_n$ the number of connected spanning forests. 
+denote its number by $a_n$ and by $c_n$ the number of connected spanning forests. 
 That is, $c_n$ is the number of spanning trees in $K_n$.
 For example, $K_3$ has the following 7 spanning forests; therefore $a_3\z=7$.
 \begin{figure}[H]%{r}{20 mm}
@@ -393,16 +394,16 @@ a_4&=c_4+3\cdot a_1\cdot c_3+3\cdot a_2\cdot c_2+a_3\cdot c_1=
 
 It is instructive to check by hand that there are exactly $38$ spanning forests in $K_4$.
 
-For the general term of $a_n$, no simple formula is known,
-however the recursive formula above provides a sufficiently fast way to calculate its terms.
+For the general term of $a_n$, no simple formula is known;
+however, the recursive formula above provides a sufficiently fast way to calculate its terms.
 
 
-\section*{Counting connected subgraphs}
+\section{Counting connected subgraphs}
 
 Let $a_n$ be the number of all spanning subgraphs of $K_n$ and $c_n$ be the number of connected spanning subgraphs of $K_n$.
 All 4 connected spanning subgraphs of $K_3$ are shown on the diagram; therefore $c_3=4$.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 \vskip-0mm
 \centering
 \includegraphics{mppics/pic-82}
@@ -442,21 +443,8 @@ Note that in the previous section we found $a_n$ from $c_n$, and now we go in th
 No closed formula is known for $c_n$,
 but the recursive formula gives a sufficiently good way to calculate it.
 
-\section*{Remarks}
+\section{Remarks}
 
 The method of generating functions was introduced and widely used by Leonard Euler;
-the term {}\emph{generating function} was coined later by Pierre Laplace.
-For more on the subject, we recommend a classic book of Frank Harary and Edgar Palmer \cite{harary-palmer}.
-
-Let us mention another application of exponential generating functions.
-
-Assume $r_n$ denotes the number of rooted spanning trees in $K_n$.
-(A~tree with one marked vertex is called a \index{rooted tree}\emph{rooted tree} and the marked vertex is called its {}\emph{root}).
-Then it is not hard to see that the exponential generating function of $r_n$ satisfies the following identity
-\[R(x)=x\cdot e^{R(x)}.
-\eqlbl{eq:rooted}\]
-By the Lagrange inversion theorem, formula \ref{eq:rooted} implies that $r_n=n^{n-1}$.
-
-Since in any spanning tree of $K_n$ we have $n$ choices for the root, we have that
-\[r_n=n\cdot s(K_n).\]
-This way we get another proof of the Cayley formula (\ref{thm:cayley}) \[s(K_n)=n^{n-2}.\]
+the term \textit{generating function} was coined later by Pierre Laplace.
+For more on the subject, we recommend the classic book by Frank Harary and Edgar Palmer \cite{harary-palmer}.

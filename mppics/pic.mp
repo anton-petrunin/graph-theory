@@ -5,7 +5,7 @@ input mparrows
 verbatimtex
 %&latex
 \documentclass[oneside]{book}
-\usepackage{../book}
+\usepackage{../my-book}
 \begin{document}
 etex
 
@@ -16,6 +16,7 @@ linecap:=butt;
 %linejoin:=mitered;
 
 %outputformat := "svg";
+
 
 beginfig(21) 
 save u;
@@ -554,6 +555,49 @@ label(btex $Z_5$ etex, .5[z[6+1],z[6+2]]+6*z.shift+(0,-3));
 label(btex $Z_6$ etex, .5[z[7+1],z[7+2]]+7*z.shift+(0,-3));
 
 label.rt(btex {\Large$\dots$} etex, z[4]+7*z.shift+(5,0));
+endfig;
+
+beginfig(371) 
+save u;
+u:=.5cm;
+
+
+z2=(0,1)*u;
+z1=z2 rotated 60;
+
+z.shift=-z2/4+(2.5,0)*u;
+
+for j=3 step 1 until 10:
+z[j]=z[j-2]+z2;
+endfor
+
+for i=2 step 1 until 5:
+draw (z1--z2) shifted (i*z.shift);
+for j=3 step 1 until i:
+draw (z[j-2]--z[j]--z[j-1]) shifted (i*z.shift);
+endfor
+endfor
+
+for i=2 step 2 until 5:
+draw (z[i-1]{(z[i]-z[i-1]) rotated (-(-1)**i*60)}..{-(z[i-1]-z[i]) rotated -60}z[i]) shifted (i*z.shift);
+for j=1 step 1 until i:
+dOt z[j]+i*z.shift;
+endfor
+endfor
+
+for i=3 step 2 until 5:
+draw (z[i-1]{(z[i]-z[i-1]) rotated ((-1)**i*60)}..{-(z[i-1]-z[i]) rotated 60}z[i]) shifted (i*z.shift);
+for j=1 step 1 until i:
+dOt z[j]+i*z.shift;
+endfor
+endfor
+
+label(btex $Z_1'$ etex, .5[z[2+1],z[2+2]]+2*z.shift+(0,-3));
+label(btex $Z_2'$ etex, .5[z[3+1],z[3+2]]+3*z.shift+(0,-3));
+label(btex $Z_3'$ etex, .5[z[4+1],z[4+2]]+4*z.shift+(0,-3));
+label(btex $Z_4'$ etex, .5[z[5+1],z[5+2]]+5*z.shift+(0,-3));
+
+label.rt(btex {\Large$\dots$} etex, z[4]+5*z.shift+(5,0));
 endfig;
 
 
@@ -1652,6 +1696,45 @@ dOt (0,0)*u,(1,0)*u,(2,0)*u,
 (0,2)*u,(1,2)*u,(2,2)*u;
 endfig;
 
+beginfig(118) 
+save u;
+u:=.7cm;
+
+draw (-1,-1)*u--(1,-1)*u pensemibold;
+draw (-1,0)*u--(1,0)*u pensemibold;
+draw (-1,1)*u--(1,1)*u pensemibold;
+draw (-1,-1)*u--(-1,1)*u pensemibold;
+draw (0,-1)*u--(0,1)*u pensemibold;
+draw (1,-1)*u--(1,1)*u pensemibold;
+
+dOt (-1,-1)*u,(0,-1)*u,(1,-1)*u,
+(-1,0)*u,(0,0)*u,(1,0)*u,
+(-1,1)*u,(0,1)*u,(1,1)*u;
+
+draw (-31,-31)--(-31,31)--(31,31)--(31,-31)--cycle;
+endfig;
+
+beginfig(119) 
+save u;
+u:=.8cm;
+
+z0=origin;
+z1=(0,1)*u;
+for i=2 step 1 until 9:
+z[i]=z[i-1] rotated (360/9);
+endfor
+
+draw z1--z2--z3--z4--z5--z6--z7--z8--z9--cycle pensemibold;
+draw z0--z1 pensemibold;
+draw z0--z4 pensemibold;
+draw z0--z7 pensemibold;
+
+dOt z0,z1,z2,z3,z4,z5,z6,z7,z8,z9;
+
+draw (-31,-31)--(-31,31)--(31,31)--(31,-31)--cycle;
+
+endfig;
+
 beginfig(120)
 save u;
 u:=.7cm;
@@ -1886,6 +1969,24 @@ subpath (1,2) of p23 intersectionpoint (p10 shifted (3*z.shift)),
 ;
 endfig;
 
+beginfig(125) 
+save u;
+u:=1cm;
+
+z1=(1,0)*u;
+z2=z1 rotated 60;
+z3=z1 rotated 120;
+z4=z1 rotated 180;
+z5=z1 rotated -120;
+z6=z1 rotated -60;
+
+draw z1--z2--z3--z4--z5--z6--cycle;
+draw z1--z3--z5--cycle;
+
+dOt z1,z2,z3,z4,z5,z6;
+
+endfig;
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1932,28 +2033,42 @@ z.a10,z.a11,z.a12,z.a13,z.a14,z.a15,z.a16,z.a17,z.a18,z.a19,
 z.a20,z.a21,z.a22,z.a23,z.a24,z.a25,z.a26;
 endfig;
 
-beginfig(5) 
+beginfig(5) %Frucht graph
 save u;
-u:=1cm;
+u:=2.4cm;
 
 z.a=(1,0)*u;
 z.b=z.a rotated 120;
 z.c=z.a rotated -120;
 
-draw origin--z.a penbold;
-draw origin--z.b penbold;
-draw origin--z.c penbold;
-draw z.a--z.a-z.b penbold;
-draw z.a--z.a-z.c penbold;
-draw z.b--z.b-z.a penbold;
-draw z.b--z.b-z.c penbold;
-draw z.c--z.c-z.a penbold;
-draw z.c--z.c-z.b penbold;
-draw z.c-z.a--z.c-z.a+z.b penbold;
-draw z.c-z.a--z.c-z.a+z.c penbold;
-draw z.c-z.a+z.c..z.c-z.b..z.a-z.b..z.a-z.c..z.b-z.c..z.b-z.a..z.c-z.a+z.b..cycle penbold;
+draw origin--z.a penbold withcolor 1;
+draw origin--z.b penbold withcolor 1;
+draw origin--z.c penbold withcolor 1;
+draw z.a--z.a-z.b penbold withcolor 1;
+draw z.a--z.a-z.c penbold withcolor 1;
+draw z.b--z.b-z.a penbold withcolor 1;
+draw z.b--z.b-z.c penbold withcolor 1;
+draw z.c--z.c-z.a penbold withcolor 1;
+draw z.c--z.c-z.b penbold withcolor 1;
+draw z.c-z.a--z.c-z.a+z.b penbold withcolor 1;
+draw z.c-z.a--z.c-z.a+z.c penbold withcolor 1;
+draw z.c-z.a+z.c..z.c-z.b..z.a-z.b..z.a-z.c..z.b-z.c..z.b-z.a..z.c-z.a+z.b..cycle penbold withcolor 1;
 
-dOOOt origin,z.a,z.b,z.c,z.a-z.c,z.a-z.b,z.b-z.a,z.b-z.c,z.c-z.a,z.c-z.b,z.c-z.a+z.b,z.c-z.a+z.c;
+
+
+fill circle(origin,5) withcolor 1;
+fill circle(z.a,5) withcolor 1;
+fill circle(z.b,5) withcolor 1;
+fill circle(z.c,5) withcolor 1;
+fill circle(z.a-z.c,5) withcolor 1;
+fill circle(z.a-z.b,5) withcolor 1;
+fill circle(z.b-z.a,5) withcolor 1;
+fill circle(z.b-z.c,5) withcolor 1;
+fill circle(z.c-z.a,5) withcolor 1;
+fill circle(z.c-z.b,5) withcolor 1;
+fill circle(z.c-z.a+z.b,5) withcolor 1;
+fill circle(z.c-z.a+z.c,5) withcolor 1;
+
 
 endfig;
 
@@ -1968,7 +2083,7 @@ for i=1 step 1 until 2*n:
 z[i]=z0 rotated (i*360/n);
 endfor
 
-draw circle(origin,z0) penbold;
+draw circle(origin,z0) penbold withcolor 1;
 
 
 for i=0 step 1 until 4:
@@ -1976,32 +2091,32 @@ for i=0 step 1 until 4:
 
 z.a[i]= z[4*i] zscaled (1,whatever)=z[4*i+7] zscaled (1,whatever);
 z.aa[i]=z[4*i] rotatedabout(z.a[i], 30);
-draw arc(z[4*i], z.aa[i],z[4*i+7]) penbold;
+draw arc(z[4*i], z.aa[i],z[4*i+7]) penbold withcolor 1;
 
 z.b[i]= z[4*i+7] zscaled (1,whatever)=z[4*i+14] zscaled (1,whatever);
 z.bb[i]=z[4*i+7] rotatedabout(z.b[i], -10);
-draw arc(z[4*i+7], z.bb[i],z[4*i+14]) penbold;
+draw arc(z[4*i+7], z.bb[i],z[4*i+14]) penbold withcolor 1;
 
 z.c[i]= z[4*i+14] zscaled (1,whatever)=z[4*i+9] zscaled (1,whatever);
 z.cc[i]=z[4*i+14] rotatedabout(z.c[i], -10);
-draw arc(z[4*i+14], z.cc[i],z[4*i+9]) penbold;
+draw arc(z[4*i+14], z.cc[i],z[4*i+9]) penbold withcolor 1;
 
 z.d[i]= z[4*i+9] zscaled (1,whatever)=z[4*i+4] zscaled (1,whatever);
 z.dd[i]=z[4*i+9] rotatedabout(z.d[i], 10);
-draw arc(z[4*i+9], z.dd[i],z[4*i+4]) penbold;
+draw arc(z[4*i+9], z.dd[i],z[4*i+4]) penbold withcolor 1;
 endfor
 
 
-dOOOt
+
 for i=1 step 1 until n:
-z[i],
-endfor;
+dOOOt z[i];
+endfor 
 
 endfig;
 
 beginfig(7) %Grötzsch graph
 save u, k;
-u:=1cm;
+u:=1.4cm;
 k:=2;
 
 z0=origin;
@@ -2012,25 +2127,28 @@ z[i]=z1 rotated ((i-1)*360/5);
 endfor
 
 for i=1 step 1 until 6:
-draw z0--z[i] penbold;
+draw z0--z[i] penbold withcolor 1;
 endfor
 
 draw
 for i=1 step 1 until 5:
 k*z[i]--
 endfor
-cycle penbold;
+cycle penbold withcolor 1;
 
 draw
 for i=1 step 1 until 5:
 z[2*i]--k*z[2*i+1]--
 endfor
-cycle penbold;
+cycle penbold withcolor 1;
 
-dOOOt z0,
+fill circle(z0,5) withcolor 1;
+
+
 for i=1 step 1 until 5:
-z[i],k*z[i],
-endfor;
+fill circle(z[i],5) withcolor 1;
+fill circle(k*z[i],5) withcolor 1;
+endfor
 
 endfig;
 %фрагментов Татта, Граф Хершеля, Граф Грёча

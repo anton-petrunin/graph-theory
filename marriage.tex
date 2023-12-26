@@ -1,15 +1,15 @@
 \chapter[Marriage theorem and its relatives]{Marriage theorem\\ and its relatives}
 \chaptermark{Marriage theorem}
 
-\section*{Alternating and augmenting paths}
+\section{Alternating and augmenting paths}
 
-Recall that a \index{matching}\emph{matching} in a graph is a set of edges without common vertexes. 
+Recall that a \index{matching}\emph{matching} in a graph is a set of edges without common vertices. 
 
 Let $M$ be a matching in a graph $G$.
-A path $P$ in $G$ is called \index{alternating path}\emph{$M$-alternating} if the edges in $P$ 
-alternate between edges from $M$ and edges not from $M$.
+Suppose a path $P$ in $G$ alternates between edges from $M$ and edges not from $M$,
+then $P$ is called an \index{alternating path}\emph{$M$-alternating path}.
 
-If an alternating path connects two unmatched vertexes of $G$, then it is called \index{augmenting path}\emph{$M$-augmenting}.
+If an alternating path connects two unmatched vertices of $G$, then it is called \index{augmenting path}\emph{$M$-augmenting}.
 An $M$-augmenting path $P$ can be used to improve the matching $M$;
 namely by deleting all the edges of $P$ in $M$
 and adding the remaining edges of $P$, we obtain a new matching $M'$ with more edges.
@@ -29,50 +29,51 @@ Then $G$ has no $M$-augmenting paths.
 
 On the diagrams we denote the edges in $M$ by solid lines and the remaining edges by dashed lines.
 
-\begin{thm}{Exercise}
-Find an  augmenting path for the matching on the diagram
-and use it to construct a larger matching.
+\begin{thm}{Exercise}\label{ex:augmenting-path}
+Connect two unmatched vertices on the diagram by an augmenting path.
+Use it to construct a larger matching.
 \end{thm}
 
-Recall that \index{bigraph}\emph{bigraph} stands for \emph{bipartite graph}.
+Recall that a \index{bigraph}\emph{bigraph} stands for a \index{bipartite graph}\emph{bipartite graph}.
 
-\begin{thm}{Exercise}
-Let  $M$ be a matching in a bigraph $G$.
-Show that any $M$-augmenting path connects vertexes from the opposite parts of $G$.
+\begin{thm}{Exercise}\label{ex:bigraph-matching}
+Let $M$ be a matching in a bigraph $G$.
+Suppose $P$ is an $M$-augmenting path.
+Show that $P$ has its ends in the opposite parts of $G$.
 \end{thm}
 
-The following theorem states that the converse to the observation.
+The following theorem states the converse to the observation.
 
 \begin{thm}{Theorem}
 Assume $M$ is a matching in a graph $G$.
 If $M$ is not maximal, then $G$ contains an $M$-augmenting path.
 \end{thm}
 
-This theorem implies that Hungarian algorithm \cite[Section 7.2]{hartsfield-ringel} produces a maximal matching.
+This theorem implies that the Hungarian algorithm \cite[Section 7.2]{hartsfield-ringel} produces a maximal matching.
 Indeed, the Hungarian algorithm checks all $M$-alternating paths in the graph and it will find an $M$-augmenting path if it exists.
 Once it is found it could be used to improve the matching $M$.
-Therefore, by the theorem, Hungarian algorithm improves any nonmaximal matching;
+Therefore, by the theorem, theHungarian algorithm improves any nonmaximal matching;
 in other words, it can stop only at a maximal matching.
 
 \parit{Proof.}
-Suppose $M$ is nonmaximal matching; that is, there is a matching $M'$ with lager number of edges.
+Suppose $M$ is a nonmaximal matching; that is, there is a matching $M'$ with a larger number of edges.
 Consider the subgraph $H$ of $G$ formed by all edges in $M$ and $M'$.
 
 Note that each component of $H$ is either an $M$-alternating path or a cycle.
 Each cycle in $H$ has the same number of edges from $M$ and $M'$.
-Since $|M'|>|M|$, the one component of $H$ has to be a path that starts and ends by an edge in $M'$.
-Evidently such a path is $M$-augmenting.
+Since $|M'|>|M|$, the one component of $H$ has to be a path that starts and ends with an edge in $M'$. 
+Evidently, such a path is $M$-augmenting.
 \qeds
 
-\section*{Marriage theorem}
+\section{Marriage theorem}
 
 Assume that $G$ is a graph and $S$ is a subset of its vertex set.
 We say that a matching $M$ of $G$ {}\emph{covers} $S$ if any vertex in $S$ is incident to an edge in $M$.
 
-Given a set of vertexes $W$ in a graph $G$, the set $W'$ of all vertexes  adjacent to at least one of vertexes in $W$ will be called the \index{set of neighbors}\emph{set of neighbors} of $W$.
+Given a set of vertices $W$ in a graph $G$, the set $W'$ of all vertices adjacent to at least one of the vertices in $W$ will be called the \index{set of neighbors}\emph{set of neighbors} of $W$.
 Note that if $G$ is a bigraph and $W$ lies in the left part, then $W'$ lies in the right part. 
 
-\begin{thm}{Marriage theorem}
+\begin{thm}{Marriage theorem}\label{thm:marriage}
 Let $L$ and $R$ be the left and right parts of a bigraph $G$.
 There is a matching that covers $L$ if and only if for any $W\subset L$, we have 
 \[|W'|\ge |W|\]
@@ -82,18 +83,18 @@ where $W'\subset R$ is the set of all neighbors of $W$.
 
 \parit{Proof.}
 Assume that a matching $M$ is covering $L$.
-Note that for any set  $W\subset L$, the set $W'$ of its neighbors includes the vertexes matched with~$W$.
+Note that for any set  $W\subset L$, the set $W'$ of its neighbors includes the vertices matched with~$W$.
 In particular,
 \[|W'|\ge |W|;\]
 it proves the ``only if'' part.
 
 Consider a maximal matching $M$ of $G$.
 To prove the ``if'' part, it is sufficient to show that $M$ covers $L$.
-Arguing by contradiction, assume that there is a vertex $w$ in $L$ which is not incident to any edge in $M$.
+Arguing by contradiction, assume that there is a vertex $w$ in $L$ that is not incident to any edge in $M$.
 
-Consider the maximal set $S$ of vertexes in $G$ which are reachable from $w$ by 
+Consider the maximal set $S$ of vertices in $G$ which are reachable from $w$ by 
 $M$-alternating paths.
-Denote by $W$ and $W'$ the set of left and right vertexes in $S$ respectively.
+Denote by $W$ and $W'$ the set of left and right vertices in $S$ respectively.
 
 Since $S$ is maximal, $W'$ is the set of neighbors of $W$. 
 According to Observation \ref{obs:augmenting}, the matching $M$ provides a bijection between $W-w$ and $W'$.
@@ -106,23 +107,11 @@ the latter contradicts the assumption.
 Assume $G$ is an $r$-regular bigraph; $r\ge 1$.
 Show that 
 \begin{enumerate}[(a)]
-\item $G$ admits a 1-factor;
-\item the edge chromatic number of $G$ is $r$; in other words, $G$ can be decomposed into $1$-factors.
+\item\label{ex:1-factor:a} $G$ admits a 1-factor;
+\item\label{ex:1-factor:b} the edge chromatic number of $G$ is $r$; in other words, $G$ can be decomposed into $1$-factors.
 \end{enumerate}
 
 \end{thm}
-
-\parbf{Remark.}
-If $r=2^n$ for an integer $n\ge 1$, then $G$ in the exercise above has an Euler's circuit. 
-Note that the total number of edges in $G$ is even, so we can delete all odd edges from the circuit.
-The obtained graph $G'$ is regular with degree $2^{n-1}$.
-Repeating the described procedure recursively $n$ times, 
-we will end up at a 1-factor of $G$.
-
-There is a tricky way to make this idea work for arbitrary $r$, not necessarily a power of $2$; 
-it was discovered by Noga Alon [see \ncite{alon} and also \ncite{kalai}]. 
-
-\medskip
 
 {
 
@@ -134,34 +123,35 @@ it was discovered by Noga Alon [see \ncite{alon} and also \ncite{kalai}].
 \end{wrapfigure}
 
 In Exercise~\ref{ex:1-factor} one has to assume that $G$ is bipartite.
-Indeed, the following exercise states that the graph on the diagram has no 1-factor,
+Indeed, the following exercise states that the graph shown on the diagram has no 1-factor,
 while it is 3-regular.
 
-\begin{thm}{Exercise}
+\begin{thm}{Exercise}\label{ex:no-1-factor}
 Prove that the graph shown on the diagram has no 1-factor.
 \end{thm}
 
 }
 
-\begin{thm}{Exercise}
+\begin{thm}{Exercise}\label{ex:kids}
 Children from 25 countries, 10 kids from each, decided to stand in a rectangular formation with 25 rows of 10 children in each row.
 Show that you can always choose one child from each row so that all 25 of them will be from different countries.
 \end{thm}
 
-\begin{thm}{Exercise}
+\begin{thm}{Exercise}\label{ex:sons(king)}
 The sons of the king divided the kingdom between each other into 23 parts of equal area --- one for each son.
 Later a new son was born. 
 The king proposed a new subdivision into 24 equal parts and gave one of the parts to the newborn son.
 
-Show that each of 23 older sons can choose a part of land in the new subdivision which overlaps with his old part.
+Show that each of the 23 older sons can choose a part of land in the new subdivision which overlaps with his old part.
 \end{thm}
 
-\begin{thm}{Exercise} A table $n{\times}n$ is filled with nonnegative numbers.
+\begin{thm}{Exercise}\label{ex:nxn-table}
+A table $n{\times}n$ is filled with nonnegative numbers.
 Assume that the sum in each column and each row is 1.
-Show that one can choose $n$ cells with positive numbers which do not share columns and rows. 
+Show that one can choose $n$ cells with positive numbers that do not share columns and rows. 
 \end{thm}
 
-\begin{thm}{Advanced exercise}
+\begin{thm}{Advanced exercise}\label{ex:camel17}
 In a group of people, for some fixed $s$ and any $k$,
 any $k$ girls like at least $k-s$ boys in total.
 Show that then all but $s$ girls may get married to the boys they like.
@@ -169,26 +159,26 @@ Show that then all but $s$ girls may get married to the boys they like.
 
 
 
-\section*{Vertex covers}
+\section{Vertex covers}
 
-A set $S$ of vertexes in a graph is called a \index{vertex cover}\emph{vertex cover} if any edge is incident to at least one of the vertexes in $S$.
+A set $S$ of vertices in a graph is called a \index{vertex cover}\emph{vertex cover} if any edge is incident to at least one of the vertices in $S$.
 
-\begin{thm}{Theorem}
-In any bigraph, the number of edges in a maximal matching equals the number of vertexes in a minimal vertex cover.
+\begin{thm}{Theorem}\label{thm:vertex-cover}
+In any bigraph, the number of edges in a maximal matching equals the number of vertices in a minimal vertex cover.
 \end{thm}
 
 It is instructive to do the following exercise before reading the proof.
 
 \begin{thm}{Exercise}\label{ex:two-paths}
 Let $M$ be a maximal matching in a bigraph $G$.
-Assume two unmatched vertexes $l$ and $r$ lie on the opposite parts of $G$.
+Assume two unmatched vertices $l$ and $r$ lie on the opposite parts of $G$.
 Show that no pair of $M$-alternating paths starting from $l$ and $r$ can have a common vertex.
 \end{thm}
 
 On the following diagram, a maximal matching is marked by solid lines;
 the remaining edges of the graph are marked by dashed lines.
-The vertexes of the cover are marked in black and the remaining vertexes in white;
-the unmatched vertexes are marked by a cross.
+The vertices of the cover are marked in black and the remaining vertices in white;
+the unmatched vertices are marked by a cross.
 
 \begin{wrapfigure}{o}{30 mm}
 \vskip-5mm
@@ -200,27 +190,27 @@ the unmatched vertexes are marked by a cross.
 \parit{Proof.}
 Fix a bigraph $G$;
 denote by $L$ and $R$ its left and right parts.
-Let $M$ be a matching and $S$ be a vertex cover in $G$.
+Let $M$ be a matching, and $S$ be a vertex cover in $G$.
 
 By the definition of vertex cover, any edge $m$ in $M$ is incident to at least one vertex in $S$.
-Therefore 
+Therefore, 
 \[|S|\ge |M|.\] 
-That is, the number of vertexes in any vertex cover $S$ is at least as large as the number of edges in any matching $M$.
+That is, the number of vertices in any vertex cover $S$ is at least as large as the number of edges in any matching $M$.
 
 Now assume that $M$ is a maximal matching.
 Let us construct a vertex cover $S$ such that $|S|\z=|M|$.
 
-Denote by $U_L$ and $U_R$ the set of left and right unmatched vertexes (these are marked by cross on the diagram).
-Denote by $Q_L$ and $Q_R$ the set of vertexes in $G$ which can be reached by $M$-alternating paths starting from $U_L$ and from $U_R$ respectively.
+Denote by $U_L$ and $U_R$ the set of left and right unmatched vertices (these are marked by a cross on the diagram).
+Denote by $Q_L$ and $Q_R$ the set of vertices in $G$ which can be reached by $M$-alternating paths starting from $U_L$ and from $U_R$, respectively.
 
 Note that $Q_L$ and $Q_R$ do not overlap.
-Otherwise there would be an $M$-augmenting path from $U_L$ to $U_R$ (compare to Exercise~\ref{ex:two-paths}).
-Therefore $M$ is not maximal --- a contradiction.
+Otherwise, there would be an $M$-augmenting path from $U_L$ to $U_R$ (compare to Exercise~\ref{ex:two-paths}).
+Therefore, $M$ is not maximal --- a contradiction.
 
-Further note that if $m$ is an edge in $M$, then both of its end vertexes lie either in $Q_L$ or $Q_R$, or neither.
+Further note that if $m$ is an edge in $M$, then both of its end vertices lie either in $Q_L$ or $Q_R$, or neither.
 
 Let us construct the set $S$ by taking one incident vertex (left or right) of each edge $m$ in $M$ by the following rule:
-\emph{if $m$ connects vertexes in $Q_L$, then include its right vertex in $S$;
+\emph{if $m$ connects vertices in $Q_L$, then include its right vertex in $S$;
 otherwise include its left vertex}.
 Since $S$ has exactly one vertex incident to each edge of $M$, we have
 \[|S|=|M|.\]
@@ -229,28 +219,27 @@ It remains to prove that $S$ is a vertex cover;
 that is, at least one vertex of any edge $e$ in $G$ is in $S$.
 
 Note that if the left vertex of $e$ lies in $Q_L$, then $e$ is an edge on an $M$-alternating path starting from $U_L$. 
-Therefore the right vertex of $e$ also lies in $Q_L$.
+Therefore, the right vertex of $e$ also lies in $Q_L$.
 
-Therefore it is sufficient to consider only the following three cases:
+Therefore, it is sufficient to consider only the following three cases:
 \begin{itemize}
 \item The edge $e$ has
 its right vertex in $Q_L$ and its left vertex outside of $Q_L$.
-In this case, both vertexes of $e$ lie in~$S$.
-\item The edge $e$ connects vertexes in $Q_L$.
+In this case, both vertices of $e$ lie in~$S$.
+\item The edge $e$ connects vertices in $Q_L$.
 In this case, the right vertex of $e$ is in $S$.
-\item The edge $e$ connects vertexes outside of $Q_L$. 
+\item The edge $e$ connects vertices outside of $Q_L$. 
 In this case, the left vertex of $e$ is in~$S$.
 \qeds
 \end{itemize}
 
 
-\begin{thm}{Exercise}
-A few squares
- on a chessboard are marked.
+\begin{thm}{Exercise}\label{ex:rooks}
+A few squares on a chessboard are marked.
 Show that the minimal number of rows and columns that cover all marked squares is the same as the maximal number of rooks on the marked squares that do not threaten each other.
 \end{thm}
 
-\section*{Edge cover}
+\section{Edge cover}
 
 A collection of edges $N$ in a graph is called an \index{edge cover}\emph{edge cover} if every vertex is incident with at least one of the edges in $N$.
 
@@ -264,7 +253,7 @@ A collection of edges $N$ in a graph is called an \index{edge cover}\emph{edge c
 On the diagram, two edge covers of the same graph are marked in solid lines.
 
 \begin{thm}{Theorem}
-Let $G$ be a connected graph with $p$ vertexes and $p>1$.
+Let $G$ be a connected graph with $p$ vertices and $p>1$.
 Assume that a minimal edge cover $N$ of $G$ contains $n$ edges, and a maximal matching $M$ of $G$ contains $m$ edges.
 Then
 \[m+n=p.\]
@@ -297,32 +286,34 @@ Conclude that
 \end{thm}
 
 
-\section*{Minimal cut}
+\section{Minimal cut}
 
 Recall that a \index{directed graph}\emph{directed graph} (or briefly a \index{digraph}\emph{digraph})
-is a graph, where the edges have a direction associated with them;
-that is, an edge in a digraph is defined as an {}\emph{ordered} pair of vertexes.
+is a graph where the edges have a direction (also known as orientation) associated with them;
+that is, an edge in a digraph is defined as an \textit{ordered} pair of vertices.
+A choice of directions on every edge of a graph is called its \index{orientation}\emph{orientation}.
 
-\begin{thm}{Min-cut theorem}
+
+\begin{thm}{Min-cut theorem}\label{thm:mincut}
 Let $G$ be a digraph. 
-Fix vertexes $s$ and $t$ in~$G$.
-Then the maximal number of oriented paths from $s$ to $t$ which do not have common edges equals to the minimal number of edges one can remove from $G$ so that there will be no oriented path from $s$ to $t$.
+Fix vertices $s$ and $t$ in~$G$.
+Then the maximal number of directed paths from $s$ to $t$ which do not have common edges equals the minimal number of edges one can remove from $G$ so that there will be no directed path from $s$ to $t$.
 \end{thm}
 
 \parit{Proof.}
-Denote by $m$ the maximal number of oriented paths from $s$ to $t$ which do not have common edges.
-Denote by $n$ the minimal number of edges one can remove from $G$ to disconnect $t$ from $s$; more precisely, after removing $n$ edges from $G$, there will be no oriented path from $s$ to~$t$.
+Denote by $m$ the maximal number of directed paths from $s$ to $t$ which do not have common edges.
+Denote by $n$ the minimal number of edges one can remove from $G$ to disconnect $t$ from $s$; more precisely, after removing $n$ edges from $G$, there will be no directed path from $s$ to~$t$.
 
-Let $P_1, \dots, P_m$ be a maximal collection of oriented paths from $s$ to $t$ which have no common edges.
+Let $P_1, \dots, P_m$ be a maximal collection of directed paths from $s$ to $t$ which have no common edges.
 Note that in order to disconnect $t$ from $s$, we have to cut at least one edge in each path $P_1, \dots, P_m$.
 In particular, $n\ge m$.
 
-Consider the new orientation on $G$ where each path $P_i$ is oriented backwards --- from $t$ to $s$.
+Consider the new orientation on $G$ where each path $P_i$ is oriented backward --- from $t$ to $s$.
 
-Consider the set $S$ of the vertexes which are reachable from $s$ by oriented paths for this new orientation.
+Consider the set $S$ of the vertices which are reachable from $s$ by directed paths for this new orientation.
 
 Assume $S$ contains $t$; that is, there is a path $Q$ from $s$ to $t$, which
-can move along $P_i$ only backwards.
+can move along $P_i$ only backward.
 
 
 (Further, the path $Q$ will be used the same way as the augmenting path in the proof of the marriage theorem.
@@ -343,7 +334,7 @@ Instead of the path $Q$, consider the trail $Q'$ which goes along $P_1$ from $s$
 \includegraphics{mppics/pic-64}
 \vskip0mm
 \end{wrapfigure}
-If the constructed trail $Q'$ is not a path (that is, if $Q'$ visits some vertexes several times), then we can discard some circuits from $Q'$ to obtain a genuine path, 
+If the constructed trail $Q'$ is not a path (that is, if $Q'$ visits some vertices several times), then we can discard some circuits from $Q'$ to obtain a genuine path, 
 which we will still denote by $Q'$.
 
 Note that the obtained collection of paths $Q', P_1',P_2\dots,P_m$ satisfies the same conditions as the original collection.
@@ -362,13 +353,13 @@ Therefore, by repeating the described procedure several times, we get $m+1$ path
 
 It follows that $S\not\ni t$.
 
-Note that all edges which connect $S$ to the remaining vertexes of $G$ are oriented toward to $S$.
+Note that all edges which connect $S$ to the remaining vertices of $G$ are directed toward $S$.
 That is, every such edge which comes out of $S$ in the original orientation belongs to one of the paths $P_1,\dots,P_m$.
 
 Moreover, for each path $P_i$ there is only one such edge.
-In other words, if a path $P_i$ leaves $S$, then it can not come back. 
-Otherwise $S$ could be made larger by moving backwards along $P_i$.
-Therefore cutting one such edge in each path $P_1,\dots,P_m$ makes it impossible to leave $S$.
+In other words, if a path $P_i$ leaves $S$, then it cannot come back. 
+Otherwise, $S$ could be made larger by moving backward along $P_i$.
+Therefore, cutting one such edge in each path $P_1,\dots,P_m$ makes it impossible to leave $S$.
 In particular, we can disconnect $t$ from $s$ by cutting $m$ edges from $G$; that is, $n\le m$.
 \qeds
 
@@ -377,13 +368,13 @@ In particular, we can disconnect $t$ from $s$ by cutting $m$ edges from $G$; tha
 \parbf{Remark.}
 The described process has the following physical interpretation.
 Think of each path $P_1,\dots,P_m$, and $Q$ like water pipelines from $s$ to $t$.
-\begin{figure}[h!]%{r}{30 mm}
+\begin{figure}[ht!]%{r}{30 mm}
 \vskip0mm
 \centering
 \includegraphics{mppics/pic-66}
 \vskip0mm
 \end{figure}
-At each overlap of $Q$ with another path $P_i$, the water in $P_i$ and $Q$ runs the opposite directions.
+At each overlap of $Q$ with another path $P_i$, the water in $P_i$ and $Q$ runs in the opposite directions.
 So we can cut the overlapping edges and reconnect the open ends of the pipes to each other while keeping the water flow from $s$ to $t$ unchanged.
 As a result, we get $m+1$ pipes from $s$ to $t$ with no common edges and possibly some cycles which we can discard.
 An example of this procedure for two paths $P_1$ and $Q$ is shown on the diagram;
@@ -397,9 +388,9 @@ as above, $P_1$ is marked by a solid line and $Q$ is marked by a dashed line.
 \includegraphics{mppics/pic-67}
 \end{wrapfigure}
 
-\begin{thm}{Advanced exercise}
+\begin{thm}{Advanced exercise}\label{ex:min-cut-marriage}
 Assume $G$ is a bigraph.
-Let us add two vertexes, $s$ and $t$, to $G$ so that $s$ is connected to each vertex in the left part of $G$, and $t$ is connected to each vertex in the right part of $G$.
+Let us add two vertices, $s$ and $t$, to $G$ so that $s$ is connected to each vertex in the left part of $G$, and $t$ is connected to each vertex in the right part of $G$.
 Orient the graph from left to right.
 Denote the obtained digraph by~$\hat G$.
 
@@ -409,15 +400,15 @@ Give another proof of the marriage theorem for a bigraph $G$, applying the min-c
 }
 
 
-\section*{Remarks}
+\section{Remarks}
 
 The marriage theorem was proved by Philip Hall in \cite{hall};
 it has many applications in all branches of mathematics.
 The theorem on vertex cover was discovered by D\'enes K\H{o}nig \cite{konig}, and rediscovered by Jen\H{o} Egerv\'ary \cite{egervary}.
-The theorem on min-cut was proved by Peter Elias, Amiel Feinstein, and Claude Shannon \cite{elias-feinstein-shannon}, 
+The theorem on min-cut was proved by Peter Elias, Amiel Feinstein, and Claude Shannon \cite{elias-feinstein-shannon};
 it was rediscovered by Lester Ford and Delbert Fulkerson \cite{ford-fulkerson}.
 
-These theorems form a base for the Hungarian algorithm that solves the \emph{assignment problem}; see page \pageref{assignment problem}.
-This algorithm was found by Harold Kuhn, but (as it was discovered by François Ollivier) essentially the same algorithm was found much earlier by Carl Gustav Jacobi~\cite{ollivier}.
+These theorems form a base for the Hungarian algorithm that solves the \index{assignment problem}\emph{assignment problem}; see page \pageref{assignment problem}.
+This algorithm was found by Harold Kuhn, but, as it was discovered by François Ollivier, essentially the same algorithm was found much earlier by Carl Gustav Jacobi~\cite{ollivier}.
 
 An extensive overview of the marriage theorem and its relatives is given by Alexandr Evnin in \cite{evnin}.
