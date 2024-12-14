@@ -499,34 +499,20 @@ Apply this order assuming that the pair $(m,n)$ describes a box with $m$ white b
 Use the shortlex order.
 
 \parbf{\ref{ex:not-confluent}.}
-Show that the following system is locally confluent, but not confluent.
+Try to construct such system with four objects,
+two irreducible and two reducible.
 
-\centering
-\begin{tikzpicture}[scale=1,
-  thick,main node/.style={circle,draw,font=\sffamily\bfseries,minimum size=3mm}]
+\parbf{\ref{ex:convergent}.}
+\textit{\ref{ex:convergent:a}} It is terminating but not confluent.
 
-  \node (1) at (1,0) {$a$};
-  \node (2) at (2,0){$b$};
-  \node (3) at (3,0){$c$};
-  \node (4) at (4,0) {$d$};
-
-  \path[every node/.style={font=\sffamily\small}]
-  (2) edge [->,out=45,in=135,looseness=1] node[above] {}(3)
-  (3) edge [->,out=-135,in=-45,looseness=1] node[above] {}(2)
-  (2) edge [->] (1)
-  (3) edge [->] (4);
-\end{tikzpicture}
-
-\parbf{\ref{ex:complete}.}
-\textit{\ref{ex:complete:a}} It is terminating but not confluent.
-
-\parit{Remark.} Note that the systems in \ref{em:baaba>a}, \ref{em:baaba>a,baaa>aaba}, and \textit{\ref{ex:complete:a}} have the same equivalence relation $\sim$.
+\parit{Remark.} Note that the systems in \ref{em:baaba>a}, \ref{em:baaba>a,baaa>aaba}, and \textit{\ref{ex:convergent:a}} have the same equivalence relation $\sim$.
 The Knuth--Bendix procedure that led us from \ref{em:baaba>a} to \ref{em:baaba>a,baaa>aaba} lasts indefinitely, but all new relations that arise have the form
 \[bb(ab)^{m}aaa\to a(ba)^m.\]
-All of them, taken at $m=0,1,2,\dots$ together with the relation $aaba\to baaa$, form a complete system.
+All of them, taken at $m=0,1,2,\dots$ together with the relation $aaba\to baaa$, form a convergent system.
 
 \begin{wrapfigure}{r}{20 mm}
 \vskip-2mm
+{
 \centering
 \begin{tikzpicture}[node distance=1.3cm, auto]
 \node (x) {$cba$};
@@ -538,14 +524,15 @@ All of them, taken at $m=0,1,2,\dots$ together with the relation $aaba\to baaa$,
 \draw[->,decorate,decoration=zigzag] (y) to (v);
 \draw[->,decorate,decoration=zigzag] (zz) to (v);
 \end{tikzpicture}
+}
 \end{wrapfigure}
 
-\parit{\ref{ex:complete:b}}
+\parit{\ref{ex:convergent:b}}
 Use lexicographic order to show that the system is terminating.
 For confluence, check the following diagram and show that this is the only thing to check.
 
 
-\parit{\ref{ex:complete:c}}
+\parit{\ref{ex:convergent:c}}
 Note that each rule shortens the word.
 Use it to show that the system is terminating.
 

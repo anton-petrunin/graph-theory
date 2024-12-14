@@ -243,11 +243,16 @@ therefore
 For any two random variables $X$ and $Y$ and real constant $c$ we have
 \[\EE[X+Y]=\EE[X]+\EE[Y]
 \qquad\text{and}\qquad
-\EE[c\cdot X]=c\cdot \EE[X].\]
+\EE[c\cdot X]=c\cdot \EE[X].\eqlbl{eq:lin-E}\]
 Moreover, if $X$ and $Y$ are independent, then 
 \[\EE[X\cdot Y]=\EE[X]\cdot\EE[Y].\]
-(We assume that all expected values in the formulas are well defined.)
+(We assume that all expected values in the formulas are defined.)
 \end{thm}
+
+The property in \ref{eq:lin-E} is called \emph{linearity of expectation}.
+Let us emphasize that it holds \textit{without} assuming that variables are independent!
+This property will be used almost everywhere in this chapter.
+
 
 \begin{thm}{Markov's inequality}\index{Markov's inequality}
 Suppose $Y$ is a nonnegative random variable and $c> 0$.

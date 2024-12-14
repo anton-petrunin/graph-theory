@@ -151,10 +151,10 @@ Since $y\rightsquigarrow v$ and $y\rightsquigarrow w$, we get $v\rightsquigarrow
 Since $v$ and $w$ are irreducible, we get $v=w'=w$.
 \qeds
 
-A terminating confluent system is called \index{complete}\emph{complete}.
+A terminating confluent system is called \index{convergent}\emph{convergent}.
 
 \begin{thm}{Theorem}
-In a complete system, any object has a unique normal form.
+In a convergent system, any object has a unique normal form.
 Moreover, for any two objects $x$ and $y$ in the system we have
 \[x\sim y\qquad\Longleftrightarrow\qquad [x]=[y].\]
 
@@ -181,7 +181,7 @@ By \ref{lem:x->y},
 Hence the only-if part follows.
 \qeds
 
-\section{Proving the terminating property}
+\section{Proving termination}
 
 So, how do we prove that a system is terminating?
 Typically, we construct a relation ``$\succ$'' on the set of vertices such that 
@@ -262,13 +262,12 @@ A terminating rewriting system is confluent if and only if it is locally conflue
 \end{thm}
  
 
-Let us describe an induction-type argument that will be used in the proof;
-this is the so-called \index{Noetherian induction}\emph{Noetherian induction}.
+Let us describe an induction-type argument that will be used in the proof.
 
 Suppose we want to prove a statement $P(x)$ for every object $x$ of the terminating system.
 Then it is sufficient to prove the induction step:
 \textit{$P(x)$ holds under the assumption that $P(y)$ holds for all downstream objects $y$}.
-In other words, we need to show that if $P(y)$ holds for any object $y\ne x$ such that $x\rightsquigarrow y$, then $P(x)$ holds as well.
+In other words, we need to show that \textit{if $P(y)$ holds for any object $y\ne x$ such that $x\rightsquigarrow y$, then $P(x)$ holds as well}.
 
 Let us explain why it works.
 Suppose we proved the induction step for some statement $P$ in a terminating system, but $P(x_0)$ does not hold for an object $x_0$.
@@ -278,7 +277,7 @@ The latter contradicts that our system is terminating.
 
 Note that applying the step of induction to the empty set of objects,
 we get that $P(x)$ holds for any irreducible object, and we can continue further.
-It explains why the Noetherian induction requires no base.
+It explains why this version of induction requires no base.
 
 \parit{Proof.}
 The only-if part is trivial;
@@ -370,7 +369,7 @@ There is only one word here, but it overlaps with itself in $ba$.
 By gluing together two such words that overlap in $ba$, we come to checking the word $baabaaba$.
 Applying the transformation at the left and right ends, we get two irreducible words
 $aaba$ and $baaa$.
-It follows that the system is not confluent and, therefore, not complete.
+It follows that the system is not confluent and, therefore, not convergent.
 
 \medskip
 
@@ -395,15 +394,15 @@ Gluing the overlapping words together leads to $baabaaa$
 and we can get $(baaba)aa\to aaa$
 and $baa(baaa)\to baaaaba$.
 Since $(baaa)aba \z\to  aa(baaba) \to aaa$, we get that the system is confluent,
-and therefore complete.
+and therefore convergent.
 
-\begin{thm}{Exercise}\label{ex:complete}
+\begin{thm}{Exercise}\label{ex:convergent}
 Check if the following systems are terminating and conluent.
 
 \begin{enumerate}[(a)]
- \item\label{ex:complete:a} \[\langle a, b \mid baaba\to a, aaba \to  baaa\rangle;\]
- \item\label{ex:complete:b} \[\langle a,b,c \mid ba\to ab, ca\to ac, cb\to bc \rangle;\]
- \item\label{ex:complete:c} \[\left\langle
+ \item\label{ex:convergent:a} \[\langle a, b \mid baaba\to a, aaba \to  baaa\rangle;\]
+ \item\label{ex:convergent:b} \[\langle a,b,c \mid ba\to ab, ca\to ac, cb\to bc \rangle;\]
+ \item\label{ex:convergent:c} \[\left\langle
 \begin{matrix}
 x,&y,&z,
 \\
@@ -433,7 +432,8 @@ The diamond lemma (\ref{lem:diamond}) is also known as \index{Newman's lemma}\em
 it was proved by Max Newman \cite[Theorem 3]{newman}.
 
 The replenishment of the system in \ref{em:baaba>a} to the system in \ref{em:baaba>a,baaa>aaba} is called  the \index{Knuth--Bendix procedure}\emph{Knuth--Bendix procedure}.
-In our case, just one step was needed, but in general, this process may run forever.
+In our example, we get a convergent system in one step.
+In general, to obtain a convergent system, one may need to apply the procedure several times, but this process may also run forever.
 
 
 
